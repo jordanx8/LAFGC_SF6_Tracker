@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Street Fighter MR Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #222;
+            color: #eee;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #searchBox {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            display: block;
+            margin: 0 auto 20px auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #333;
+            font-size: 15px;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #555;
+            text-align: left;
+        }
+        th {
+            background: #444;
+            cursor: pointer;
+            user-select: none;
+        }
+        tr:hover {
+            background: #444;
+        }
+        img.char-img {
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+            margin-right: 10px;
+            border-radius: 4px;
+            background: #111;
+            object-fit: contain;
+        }
+        img.rank-icon {
+            width: 72px;
+            height: 72px;
+            padding: 2px;
+            object-fit: contain; /* prevents skewing */
+            image-rendering: auto;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<h1>Street Fighter MR Viewer</h1>
+<input type="text" id="searchBox" placeholder="Search by username..." />
+<table id="mrTable">
+    <thead>
+        <tr>
+            <th data-sort="username">Username</th>
+            <th data-sort="character">Character</th>
+            <th data-sort="mr">MR</th>
+            <th data-sort="rank">Rank</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+<script>
+// Character image mappings (fixes Akuma/Gouki + DLC)
+const characterMap = {
+    "AKUMA": "gouki",
+    "GOUKI": "gouki",
+    "DEE JAY": "deejay",
+    "E. HONDA": "ehonda",
+    "A.K.I.": "aki",
+    "M. BISON": "vega",
+    "C. VIPER": "cviper",
+};
+function toImageName(charName) {
+    const cleaned = charName.toUpperCase().trim();
+    if (characterMap[cleaned]) return characterMap[cleaned];
+    return cleaned.toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+function characterImageURL(name) {
+    const img = toImageName(name);
+    return `https://www.streetfighter.com/6/buckler/assets/images/material/character/character_${img}_l.png`;
+}
+// Determine rank icon based on MR rules
+function getRankIcon(mr) {
+    if (mr >= 1800)
+        return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank42_s.png";
+    if (mr >= 1700)
+        return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank41_s.png";
+    if (mr >= 1600)
+        return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank40_s.png";
+    return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank36_s.png";
+}
+async function loadData() {
+    try {
+        const response = await fetch("master_rates.json");
+        const data = await response.json();
+        const rows = [];
+        // Flatten JSON → one row per MR item
+        for (const playerId in data) {
+            const entry = data[playerId];
+            const username = entry.username || "Unknown";
+            for (const mrObj of entry.mr) {
+                rows.push({
+                    username,
+                    character: mrObj.name,
+                    mr: mrObj.mr,
+                    rank: getRankIcon(mrObj.mr)
+                });
+            }
+        }
+        // Sort by MR descending initially
+        rows.sort((a, b) => b.mr - a.mr);
+        window.allRows = rows;
+        populateTable(rows);
+        enableSearch();
+    } catch (e) {
+        alert("Could not load master_rates.json\nRun: python -m http.server 8000");
+        console.error(e);
+    }
+}
+function populateTable(rows) {
+    const tbody = document.querySelector("#mrTable tbody");
+    tbody.innerHTML = "";
+    rows.forEach(r => {
+        const tr = document.createElement("tr");
+        const charImg = characterImageURL(r.character);
+        tr.innerHTML = `
+            <td>${r.username}</td>
+            <td>
+                <img class="char-img" src="${charImg}" onerror="this.style.display='none'">
+                ${r.character}
+            </td>
+            <td>${r.mr}</td>
+            <td>
+                <img class="rank-icon" src="${r.rank}">
+            </td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+function enableSearch() {
+    const searchBox = document.getElementById("searchBox");
+    searchBox.addEventListener("input", function () {
+        const filter = this.value.toLowerCase();
+        const filtered = allRows.filter(r =>
+            r.username.toLowerCase().includes(filter)
+        );
+        populateTable(filtered);
+    });
+}
+// Sorting logic
+let sortDirection = 1;
+document.querySelectorAll("#mrTable th").forEach(th => {
+    th.addEventListener("click", () => {
+        const key = th.getAttribute("data-sort");
+        sortDirection *= -1;
+        allRows.sort((a, b) => {
+            if (key === "mr") return (a.mr - b.mr) * sortDirection;
+            if (key === "rank") return 0; // Rank column sorting not numeric
+            return a[key].localeCompare(b[key]) * sortDirection;
+        });
+        populateTable(allRows);
+    });
+});
+loadData();
+</script>
+</body>
+</html>
