@@ -1,112 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Street Fighter MR Viewer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #222;
-            color: #eee;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        #searchBox {
-            width: 300px;
-            padding: 10px;
-            font-size: 16px;
-            display: block;
-            margin: 0 auto 20px auto;
-            border-radius: 6px;
-            border: none;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: #333;
-            font-size: 15px;
-        }
-        th, td {
-            padding: 10px;
-            border-bottom: 1px solid #555;
-            text-align: left;
-        }
-        th {
-            background: #444;
-            cursor: pointer;
-            user-select: none;
-        }
-        tr:hover {
-            background: #444;
-        }
-        img.char-img {
-            width: 60px;
-            height: 60px;
-            vertical-align: middle;
-            margin-right: 10px;
-            background: #111;
-            border-radius: 6px;
-            object-fit: contain;
-        }
-        img.rank-icon {
-            width: 120px;
-            height: 120px;
-            padding: 2px;
-            object-fit: contain;
-            display: inline-block;
-            vertical-align: middle;
-        }
-        img.platform-icon {
-            width: 32px;
-            height: 32px;
-            object-fit: contain;
-            display: inline-block;
-            vertical-align: middle;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Street Fighter 6 MR Viewer</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<h1>Louisiana SF6 MR Tracker</h1>
-<div id="lastUpdated" style="text-align: center; margin-bottom: 10px; font-size: 14px; color: #aaa;"></div>
-<div style="text-align: center; margin-bottom: 20px;">
-    <label for="mrModeSelect" style="margin-right: 10px; font-size: 16px;">MR Mode:</label>
-    <select id="mrModeSelect" style="padding: 8px 12px; font-size: 16px; border-radius: 6px; border: none; margin-right: 20px;">
-        <option value="current">Current MR</option>
-        <option value="highest">Highest MR</option>
-    </select>
+    <h1>Louisiana SF6 MR Tracker</h1>
+    <div id="lastUpdated"></div>
     
-    <label for="characterFilter" style="margin-right: 10px; font-size: 16px;">Character:</label>
-    <select id="characterFilter" style="padding: 8px 12px; font-size: 16px; border-radius: 6px; border: none; margin-right: 20px;">
-        <option value="">All Characters</option>
-    </select>
+    <div class="controls-container">
+        <div class="control-group">
+            <label for="mrModeSelect">MR Mode:</label>
+            <select id="mrModeSelect">
+                <option value="current">Current MR</option>
+                <option value="highest">Highest MR</option>
+            </select>
+        </div>
+        
+        <div class="control-group">
+            <label for="characterFilter">Character:</label>
+            <select id="characterFilter">
+                <option value="">All Characters</option>
+            </select>
+        </div>
+        
+        <div class="control-group">
+            <label>
+                <input type="checkbox" id="mainsFilter">
+                Mains Only
+            </label>
+        </div>
+        
+        <div class="control-group">
+            <label>
+                <input type="checkbox" id="mastersFilter">
+                Masters Only
+            </label>
+        </div>
+    </div>
     
-    <label style="margin-right: 15px; font-size: 16px;">
-        <input type="checkbox" id="mainsFilter" style="margin-right: 5px; cursor: pointer;">
-        Mains Only
-    </label>
+    <input type="text" id="searchBox" placeholder="Search by username..." />
     
-    <label style="font-size: 16px;">
-        <input type="checkbox" id="mastersFilter" style="margin-right: 5px; cursor: pointer;">
-        Masters Only
-    </label>
-</div>
-<input type="text" id="searchBox" placeholder="Search by username..." />
-<table id="mrTable">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th data-sort="username">Username</th>
-            <th data-sort="platform">Platform</th>
-            <th data-sort="character">Character</th>
-            <th data-sort="mr">MR</th>
-            <th data-sort="rank">Rank</th>
-        </tr>
-    </thead>
-    <tbody></tbody>
-</table>
+    <div class="table-container">
+        <table id="mrTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th data-sort="username">Username</th>
+                    <th data-sort="platform">Platform</th>
+                    <th data-sort="character">Character</th>
+                    <th data-sort="mr">MR</th>
+                    <th data-sort="rank">Rank</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
 <script>
 // Character name → image filename mapping
 const characterMap = {
