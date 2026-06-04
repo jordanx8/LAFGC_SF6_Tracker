@@ -43,8 +43,8 @@
             background: #444;
         }
         img.char-img {
-            width: 42px;
-            height: 42px;
+            width: 60px;
+            height: 60px;
             vertical-align: middle;
             margin-right: 10px;
             background: #111;
@@ -52,8 +52,8 @@
             object-fit: contain;
         }
         img.rank-icon {
-            width: 72px;
-            height: 72px;
+            width: 120px;
+            height: 120px;
             padding: 2px;
             object-fit: contain;
             display: inline-block;
@@ -78,14 +78,25 @@
     </select>
     
     <label for="characterFilter" style="margin-right: 10px; font-size: 16px;">Character:</label>
-    <select id="characterFilter" style="padding: 8px 12px; font-size: 16px; border-radius: 6px; border: none;">
+    <select id="characterFilter" style="padding: 8px 12px; font-size: 16px; border-radius: 6px; border: none; margin-right: 20px;">
         <option value="">All Characters</option>
     </select>
+    
+    <label style="margin-right: 15px; font-size: 16px;">
+        <input type="checkbox" id="mainsFilter" style="margin-right: 5px; cursor: pointer;">
+        Mains Only
+    </label>
+    
+    <label style="font-size: 16px;">
+        <input type="checkbox" id="mastersFilter" style="margin-right: 5px; cursor: pointer;">
+        Masters Only
+    </label>
 </div>
 <input type="text" id="searchBox" placeholder="Search by username..." />
 <table id="mrTable">
     <thead>
         <tr>
+            <th>#</th>
             <th data-sort="username">Username</th>
             <th data-sort="platform">Platform</th>
             <th data-sort="character">Character</th>
@@ -115,7 +126,7 @@ function characterImageURL(name) {
     const img = toImageName(name);
     return `https://www.streetfighter.com/6/buckler/assets/images/material/character/character_${img}_l.png`;
 }
-// MR → Rank Icon
+// MR → Rank Icon (for Master rank players)
 function getRankIcon(mr) {
     if (mr >= 1800)
         return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank42_s.png";
@@ -125,6 +136,44 @@ function getRankIcon(mr) {
         return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank40_s.png";
     return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank36_s.png";
 }
+
+// LP → Rank Icon (for non-Master rank players)
+function getLPRankIcon(lp) {
+    if (lp >= 23800) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank35_s.png";
+    if (lp >= 22600) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank34_s.png";
+    if (lp >= 21400) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank33_s.png";
+    if (lp >= 20200) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank32_s.png";
+    if (lp >= 19000) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank31_s.png";
+    if (lp >= 17800) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank30_s.png";
+    if (lp >= 16600) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank29_s.png";
+    if (lp >= 15400) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank28_s.png";
+    if (lp >= 14200) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank27_s.png";
+    if (lp >= 13000) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank26_s.png";
+    if (lp >= 12200) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank25_s.png";
+    if (lp >= 11400) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank24_s.png";
+    if (lp >= 10600) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank23_s.png";
+    if (lp >= 9800) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank22_s.png";
+    if (lp >= 9000) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank21_s.png";
+    if (lp >= 8200) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank20_s.png";
+    if (lp >= 7400) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank19_s.png";
+    if (lp >= 6600) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank18_s.png";
+    if (lp >= 5800) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank17_s.png";
+    if (lp >= 5000) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank16_s.png";
+    if (lp >= 4600) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank15_s.png";
+    if (lp >= 4200) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank14_s.png";
+    if (lp >= 3800) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank13_s.png";
+    if (lp >= 3400) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank12_s.png";
+    if (lp >= 3000) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank11_s.png";
+    if (lp >= 2600) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank10_s.png";
+    if (lp >= 2200) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank9_s.png";
+    if (lp >= 1800) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank8_s.png";
+    if (lp >= 1400) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank7_s.png";
+    if (lp >= 1000) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank6_s.png";
+    if (lp >= 800) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank5_s.png";
+    if (lp >= 600) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank4_s.png";
+    if (lp >= 400) return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank3_s.png";
+    return "https://www.streetfighter.com/6/buckler/assets/images/material/rank/rank3_s.png"; // Default to lowest rank
+}
 async function loadData() {
     try {
         const response = await fetch("master_rates.json");
@@ -132,12 +181,15 @@ async function loadData() {
         window.rawData = data;
         window.currentMode = "current";
         window.currentCharacterFilter = "";
+        window.mainsOnly = false;
+        window.mastersOnly = false;
         buildRowsFromMode("current");
         populateCharacterDropdown();
         enableSearch();
         enableSorting();
         enableModeSwitch();
         enableCharacterFilter();
+        enableCheckboxFilters();
     } catch (e) {
         alert("Could not load master_rates.json.\nRun: python -m http.server 8000");
         console.error(e);
@@ -154,20 +206,79 @@ function buildRowsFromMode(mode) {
         const username = entry.username || "Unknown";
         const platform = entry.platform || null;
         const mrList = entry[mrKey] || [];
+        const lpList = entry.lp || [];
         
+        // Create a map of characters with MR
+        const mrMap = new Map();
         for (const mrObj of mrList) {
-            rows.push({
-                username,
-                character: mrObj.name,
-                mr: mrObj.mr,
-                rank: getRankIcon(mrObj.mr),
-                platform: platform
-            });
+            mrMap.set(mrObj.name, mrObj.mr);
+        }
+        
+        // If in highest mode, also create a fallback map from current_mr
+        const fallbackMrMap = new Map();
+        if (mode === "highest") {
+            const currentMrList = entry.current_mr || [];
+            for (const mrObj of currentMrList) {
+                fallbackMrMap.set(mrObj.name, mrObj.mr);
+            }
+        }
+        
+        // Create a map of characters with LP
+        const lpMap = new Map();
+        for (const lpObj of lpList) {
+            lpMap.set(lpObj.name, lpObj.lp);
+        }
+        
+        // Add all characters from LP list
+        for (const lpObj of lpList) {
+            const charName = lpObj.name;
+            let mr = mrMap.get(charName);
+            const lp = lpObj.lp;
+            
+            // If highest MR doesn't exist but current MR does, use current MR
+            if (mr === undefined && mode === "highest") {
+                mr = fallbackMrMap.get(charName);
+            }
+            
+            if (mr !== undefined) {
+                // Character has MR
+                rows.push({
+                    username,
+                    character: charName,
+                    mr: mr,
+                    lp: lp,
+                    rank: getRankIcon(mr),
+                    platform: platform,
+                    hasMR: true
+                });
+            } else {
+                // Character has no MR, use LP
+                rows.push({
+                    username,
+                    character: charName,
+                    mr: "N/A",
+                    lp: lp,
+                    rank: getLPRankIcon(lp),
+                    platform: platform,
+                    hasMR: false
+                });
+            }
         }
     }
     
-    // Default: sort by MR descending
-    rows.sort((a, b) => b.mr - a.mr);
+    // Sort: MR characters first (by MR desc), then non-MR characters (by LP desc)
+    rows.sort((a, b) => {
+        if (a.hasMR && b.hasMR) {
+            return b.mr - a.mr; // Both have MR, sort by MR descending
+        } else if (a.hasMR && !b.hasMR) {
+            return -1; // MR characters come first
+        } else if (!a.hasMR && b.hasMR) {
+            return 1; // MR characters come first
+        } else {
+            return b.lp - a.lp; // Both have no MR, sort by LP descending
+        }
+    });
+    
     window.allRows = rows;
     applyFilters();
 }
@@ -210,6 +321,41 @@ function enableCharacterFilter() {
 function applyFilters() {
     let filtered = window.allRows;
     
+    // Apply Mains Only filter - show only highest MR/LP per player (their main character)
+    if (window.mainsOnly) {
+        const playerMainMap = new Map();
+        
+        // For each player, find their character with the highest MR/LP
+        filtered.forEach(row => {
+            const existing = playerMainMap.get(row.username);
+            
+            if (!existing) {
+                playerMainMap.set(row.username, row);
+            } else {
+                // Compare: prioritize MR over LP
+                const existingValue = existing.hasMR ? existing.mr : existing.lp;
+                const currentValue = row.hasMR ? row.mr : row.lp;
+                
+                // If both have MR or both don't, compare values
+                if (existing.hasMR === row.hasMR) {
+                    if (currentValue > existingValue) {
+                        playerMainMap.set(row.username, row);
+                    }
+                } else if (row.hasMR) {
+                    // Current row has MR, existing doesn't - prefer MR
+                    playerMainMap.set(row.username, row);
+                }
+            }
+        });
+        
+        filtered = Array.from(playerMainMap.values());
+    }
+    
+    // Apply Masters Only filter - show only rows with MR != 'N/A'
+    if (window.mastersOnly) {
+        filtered = filtered.filter(r => r.hasMR);
+    }
+    
     // Apply character filter
     if (window.currentCharacterFilter) {
         filtered = filtered.filter(r => r.character === window.currentCharacterFilter);
@@ -227,10 +373,11 @@ function applyFilters() {
 function populateTable(rows) {
     const tbody = document.querySelector("#mrTable tbody");
     tbody.innerHTML = "";
-    rows.forEach(r => {
+    rows.forEach((r, index) => {
         const tr = document.createElement("tr");
         const charImg = characterImageURL(r.character);
         tr.innerHTML = `
+            <td>${index + 1}</td>
             <td>${r.username}</td>
             <td>
                 <img class="platform-icon" src="${r.platform}" onerror="this.style.display='none'">
@@ -262,7 +409,22 @@ function enableSorting() {
             const key = th.getAttribute("data-sort");
             sortDirection *= -1;
             allRows.sort((a, b) => {
-                if (key === "mr") return (a.mr - b.mr) * sortDirection;
+                if (key === "mr") {
+                    // Handle MR sorting: MR values first, then LP values
+                    const aVal = a.hasMR ? a.mr : (a.lp || 0);
+                    const bVal = b.hasMR ? b.mr : (b.lp || 0);
+                    
+                    // If both have MR or both don't have MR, sort normally
+                    if (a.hasMR === b.hasMR) {
+                        return (aVal - bVal) * sortDirection;
+                    }
+                    // Otherwise, MR characters come first when sorting descending
+                    if (sortDirection > 0) {
+                        return a.hasMR ? 1 : -1;
+                    } else {
+                        return a.hasMR ? -1 : 1;
+                    }
+                }
                 if (key === "rank") return 0;
                 if (key === "platform") return (a.platform || "").localeCompare(b.platform || "") * sortDirection;
                 return a[key].localeCompare(b[key]) * sortDirection;
@@ -271,6 +433,22 @@ function enableSorting() {
         });
     });
 }
+
+function enableCheckboxFilters() {
+    const mainsCheckbox = document.getElementById("mainsFilter");
+    const mastersCheckbox = document.getElementById("mastersFilter");
+    
+    mainsCheckbox.addEventListener("change", function() {
+        window.mainsOnly = this.checked;
+        applyFilters();
+    });
+    
+    mastersCheckbox.addEventListener("change", function() {
+        window.mastersOnly = this.checked;
+        applyFilters();
+    });
+}
+
 loadData();
 </script>
 </body>

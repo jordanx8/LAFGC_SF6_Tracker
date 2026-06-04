@@ -6,6 +6,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException, NoSuchElementException
 LOGIN_URL = "https://cid.capcom.com/ja/login/?guidedBy=web"
 BUCKLER_LOGIN_URL = "https://www.streetfighter.com/6/buckler/auth/loginep?redirect_url=/"
 SELECT_PLATFORM_URL_PART = "/auth/select-platform"
@@ -28,7 +29,7 @@ def close_cookie_popup(driver):
     try:
         btn = driver.find_element(By.ID, "CybotCookiebotDialogBodyButtonAccept")
         driver.execute_script("arguments[0].click();", btn)
-    except:
+    except (NoSuchElementException, Exception):
         pass
 # -------------------------------------------------------
 # PLATFORM SELECTION
@@ -70,7 +71,7 @@ def scrape_username(driver, wait):
             EC.presence_of_element_located((By.CSS_SELECTOR, "span.status_name__gXNo9"))
         )
         return el.text.strip()
-    except:
+    except (TimeoutException, Exception):
         return None
 # -------------------------------------------------------
 # SCRAPE PLATFORM ICON
@@ -83,29 +84,30 @@ def scrape_platform(driver, wait):
             )
         )
         src = img.get_attribute("src")
-        if src.startswith("/"):
+        if src and src.startswith("/"):
             src = "https://www.streetfighter.com" + src
         return src
-    except:
+    except (TimeoutException, Exception):
         return None
 # -------------------------------------------------------
-# OPEN MASTER RATE TAB
+# OPEN PLAY TAB
 # -------------------------------------------------------
-def open_master_rate_tab(driver, wait):
+def open_play_tab(driver, wait, tab_text):
     tabs = wait.until(
         EC.presence_of_all_elements_located((By.CSS_SELECTOR, "ul li"))
     )
-    mr_tab = None
+    target_tab = None
+    target_text = tab_text.lower()
     for tab in tabs:
-        if "master rate" in tab.text.lower():
-            mr_tab = tab
+        if target_text in tab.text.lower():
+            target_tab = tab
             break
-    if not mr_tab:
-        raise RuntimeError("Master Rate tab not found")
-    driver.execute_script("arguments[0].scrollIntoView(true);", mr_tab)
-    time.sleep(0.3)
-    driver.execute_script("arguments[0].click();", mr_tab)
-    wait.until(lambda d: "active" in mr_tab.get_attribute("class"))
+    if not target_tab:
+        raise RuntimeError(f"{tab_text} tab not found")
+    driver.execute_script("arguments[0].scrollIntoView(true);", target_tab)
+    time.sleep(0.2)
+    driver.execute_script("arguments[0].click();", target_tab)
+    wait.until(lambda d: "active" in target_tab.get_attribute("class"))
 # -------------------------------------------------------
 # SELECT "HIGHEST" MODE  (Correct dropdown!)
 # -------------------------------------------------------
@@ -119,9 +121,9 @@ def select_highest_mode(driver, wait):
             ))
         )
         driver.execute_script("arguments[0].scrollIntoView(true);", dropdown)
-        time.sleep(0.3)
+        time.sleep(0.2)
         dropdown.click()
-        time.sleep(0.3)
+        time.sleep(0.2)
         highest_option = dropdown.find_element(By.CSS_SELECTOR, "option[value='2']")
         highest_option.click()
         # Trigger React refresh
@@ -130,9 +132,37 @@ def select_highest_mode(driver, wait):
             dropdown
         )
         print("MR dropdown set to Highest")
-        time.sleep(1)
+        time.sleep(0.5)
     except Exception as e:
         print("Failed to switch MR dropdown:", e)
+# -------------------------------------------------------
+# SCRAPE LP LIST
+# -------------------------------------------------------
+def scrape_league_points(driver, wait):
+    container = wait.until(
+        EC.presence_of_element_located(
+            (By.CSS_SELECTOR, "div.league_point_inner__iCMYc ul")
+        )
+    )
+    items = container.find_elements(By.TAG_NAME, "li")
+    results = []
+    for item in items:
+        try:
+            name = item.find_element(
+                By.CSS_SELECTOR, "p.league_point_name__ZjWgb"
+            ).text.strip()
+            lp_text = item.find_element(
+                By.CSS_SELECTOR, "p.league_point_lp__viByb"
+            ).text.strip()
+            if lp_text.startswith("---"):
+                continue
+            lp_value = int(
+                lp_text.replace("LP", "").replace(",", "").strip()
+            )
+            results.append({"name": name, "lp": lp_value})
+        except (ValueError, NoSuchElementException, Exception):
+            continue
+    return results
 # -------------------------------------------------------
 # SCRAPE MR LIST
 # -------------------------------------------------------
@@ -158,7 +188,7 @@ def scrape_master_rate(driver, wait):
                 mr_text.replace("MR", "").replace(",", "").strip()
             )
             results.append({"name": name, "mr": mr_value})
-        except:
+        except (ValueError, NoSuchElementException, Exception):
             continue
     return results
 # -------------------------------------------------------
@@ -167,7 +197,7 @@ def scrape_master_rate(driver, wait):
 def save_cookies(cookies, filepath=COOKIES_FILE):
     """Save cookies to a JSON file"""
     with open(filepath, "w", encoding="utf-8") as f:
-        json.dump(cookies, f, indent=4)
+        json.dump(cookies, f, indent=2)
     print(f"Saved {len(cookies)} cookies to {filepath}")
 
 def load_cookies(filepath=COOKIES_FILE):
@@ -200,7 +230,7 @@ def test_cookies(driver, wait, cookies, platform_variable):
         # Try to access buckler
         driver.get(BUCKLER_LOGIN_URL)
         wait.until(lambda d: d.execute_script("return document.readyState") == "complete")
-        time.sleep(2)
+        time.sleep(1)
         
         # Check if we need to select platform or if we're already logged in
         if SELECT_PLATFORM_URL_PART in driver.current_url:
@@ -208,7 +238,7 @@ def test_cookies(driver, wait, cookies, platform_variable):
         
         # Verify we're logged in by checking if we can access a profile page
         driver.get("https://www.streetfighter.com/6/buckler")
-        time.sleep(2)
+        time.sleep(1)
         
         # If we're on login page, cookies are invalid
         if "login" in driver.current_url.lower():
@@ -306,7 +336,7 @@ def main():
         # Navigate to the site and restore cookies
         print("Loading base site to set cookies...")
         driver.get("https://www.streetfighter.com")
-        time.sleep(1)
+        time.sleep(0.5)
         
         # Add cookies (they should exist at this point)
         if cookies:
@@ -329,7 +359,7 @@ def main():
         
         # Refresh to apply cookies
         driver.refresh()
-        time.sleep(2)
+        time.sleep(1)
         print("Session restored, starting scraping...")
         for pid in ids:
             print(f"\n--- Processing {pid} ---")
@@ -339,15 +369,24 @@ def main():
             driver.get(profile_url)
             try:
                 wait.until(lambda d: pid in d.current_url)
-            except:
+            except TimeoutException:
                 print("Profile load failed")
                 continue
             close_cookie_popup(driver)
             username = scrape_username(driver, wait)
             platform_icon = scrape_platform(driver, wait)
             try:
-                open_master_rate_tab(driver, wait)
-            except:
+                open_play_tab(driver, wait, "league points")
+            except Exception:
+                print("Cannot open LP tab")
+                continue
+
+            print("Scraping LP per character...")
+            lp_list = scrape_league_points(driver, wait)
+
+            try:
+                open_play_tab(driver, wait, "master rate")
+            except Exception:
                 print("Cannot open MR tab")
                 continue
             
@@ -365,13 +404,14 @@ def main():
             all_results[pid] = {
                 "username": username,
                 "platform": platform_icon,
+                "lp": lp_list,
                 "current_mr": current_mr_list,
                 "highest_mr": highest_mr_list
             }
     finally:
         driver.quit()
     with open("master_rates.json", "w", encoding="utf-8") as f:
-        json.dump(all_results, f, indent=4)
+        json.dump(all_results, f, indent=2)
     print("Saved master_rates.json")
 if __name__ == "__main__":
     main()
