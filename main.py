@@ -1,5 +1,6 @@
 import time
 import json
+import os
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -9,6 +10,7 @@ LOGIN_URL = "https://cid.capcom.com/ja/login/?guidedBy=web"
 BUCKLER_LOGIN_URL = "https://www.streetfighter.com/6/buckler/auth/loginep?redirect_url=/"
 SELECT_PLATFORM_URL_PART = "/auth/select-platform"
 CHROMEDRIVER_PATH = r"C:\WebDriver\chromedriver.exe"
+COOKIES_FILE = "session_cookies.json"
 def normalize_text(value: str) -> str:
     return " ".join(value.strip().lower().split())
 # -------------------------------------------------------
@@ -160,6 +162,67 @@ def scrape_master_rate(driver, wait):
             continue
     return results
 # -------------------------------------------------------
+# COOKIE MANAGEMENT
+# -------------------------------------------------------
+def save_cookies(cookies, filepath=COOKIES_FILE):
+    """Save cookies to a JSON file"""
+    with open(filepath, "w", encoding="utf-8") as f:
+        json.dump(cookies, f, indent=4)
+    print(f"Saved {len(cookies)} cookies to {filepath}")
+
+def load_cookies(filepath=COOKIES_FILE):
+    """Load cookies from a JSON file if it exists"""
+    if os.path.exists(filepath):
+        with open(filepath, "r", encoding="utf-8") as f:
+            cookies = json.load(f)
+        print(f"Loaded {len(cookies)} cookies from {filepath}")
+        return cookies
+    return None
+
+def test_cookies(driver, wait, cookies, platform_variable):
+    """Test if saved cookies are still valid"""
+    try:
+        print("Testing saved cookies...")
+        driver.get("https://www.streetfighter.com")
+        time.sleep(1)
+        
+        # Add cookies
+        for cookie in cookies:
+            try:
+                if 'expiry' in cookie:
+                    cookie['expiry'] = int(cookie['expiry'])
+                if 'sameSite' in cookie and cookie['sameSite'] not in ['Strict', 'Lax', 'None']:
+                    cookie['sameSite'] = 'Lax'
+                driver.add_cookie(cookie)
+            except Exception as e:
+                print(f"Warning: Could not add cookie {cookie.get('name', 'unknown')}: {e}")
+        
+        # Try to access buckler
+        driver.get(BUCKLER_LOGIN_URL)
+        wait.until(lambda d: d.execute_script("return document.readyState") == "complete")
+        time.sleep(2)
+        
+        # Check if we need to select platform or if we're already logged in
+        if SELECT_PLATFORM_URL_PART in driver.current_url:
+            select_platform_and_submit(driver, wait, platform_variable)
+        
+        # Verify we're logged in by checking if we can access a profile page
+        driver.get("https://www.streetfighter.com/6/buckler")
+        time.sleep(2)
+        
+        # If we're on login page, cookies are invalid
+        if "login" in driver.current_url.lower():
+            print("Cookies are invalid or expired")
+            return False
+        
+        print("Cookies are valid!")
+        return True
+        
+    except Exception as e:
+        print(f"Cookie test failed: {e}")
+        return False
+
+# -------------------------------------------------------
 # LOAD PLAYER IDs
 # -------------------------------------------------------
 def load_player_ids(path="player_ids.txt"):
@@ -173,29 +236,56 @@ def main():
     ids = load_player_ids()
     print(f"Loaded {len(ids)} IDs")
     
-    # Step 1: Manual login with visible browser
-    print("\n=== STEP 1: Manual Login (Visible Browser) ===")
-    options = webdriver.ChromeOptions()
-    options.add_argument("--window-size=1440,1200")
-    driver = webdriver.Chrome(service=Service(CHROMEDRIVER_PATH), options=options)
-    wait = WebDriverWait(driver, 40)
+    # Try to load saved cookies first
+    cookies = load_cookies()
+    cookies_valid = False
     
-    try:
-        login_manually(driver, wait)
-        go_to_buckler_and_handle_platform(driver, wait, platform_variable)
+    if cookies:
+        print("\n=== Testing Saved Cookies (Headless) ===")
+        test_options = webdriver.ChromeOptions()
+        test_options.add_argument("--headless=new")
+        test_options.add_argument("--window-size=1440,1200")
+        test_options.add_argument("--disable-gpu")
+        test_options.add_argument("--no-sandbox")
+        test_options.add_argument("--disable-dev-shm-usage")
+        test_options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+        driver = webdriver.Chrome(service=Service(CHROMEDRIVER_PATH), options=test_options)
+        wait = WebDriverWait(driver, 40)
         
-        # Save cookies after successful login
-        cookies = driver.get_cookies()
-        print(f"Saved {len(cookies)} cookies from login session")
+        try:
+            cookies_valid = test_cookies(driver, wait, cookies, platform_variable)
+            driver.quit()
+        except Exception as e:
+            print(f"Cookie test error: {e}")
+            driver.quit()
+            cookies_valid = False
+    
+    # If cookies are invalid or don't exist, do manual login
+    if not cookies_valid:
+        print("\n=== STEP 1: Manual Login Required (Visible Browser) ===")
+        options = webdriver.ChromeOptions()
+        options.add_argument("--window-size=1440,1200")
+        driver = webdriver.Chrome(service=Service(CHROMEDRIVER_PATH), options=options)
+        wait = WebDriverWait(driver, 40)
         
-        # Close the visible browser
-        driver.quit()
-        print("Closed visible browser\n")
-        
-    except Exception as e:
-        print(f"Login failed: {e}")
-        driver.quit()
-        return
+        try:
+            login_manually(driver, wait)
+            go_to_buckler_and_handle_platform(driver, wait, platform_variable)
+            
+            # Save cookies after successful login
+            cookies = driver.get_cookies()
+            save_cookies(cookies)
+            
+            # Close the visible browser
+            driver.quit()
+            print("Closed visible browser\n")
+            
+        except Exception as e:
+            print(f"Login failed: {e}")
+            driver.quit()
+            return
+    else:
+        print("Using saved cookies, skipping manual login\n")
     
     # Step 2: Continue with headless browser
     print("=== STEP 2: Scraping (Headless Browser) ===")
@@ -218,19 +308,24 @@ def main():
         driver.get("https://www.streetfighter.com")
         time.sleep(1)
         
-        # Add cookies
-        for cookie in cookies:
-            try:
-                # Remove domain-specific fields that might cause issues
-                if 'expiry' in cookie:
-                    cookie['expiry'] = int(cookie['expiry'])
-                if 'sameSite' in cookie and cookie['sameSite'] not in ['Strict', 'Lax', 'None']:
-                    cookie['sameSite'] = 'Lax'
-                driver.add_cookie(cookie)
-            except Exception as e:
-                print(f"Warning: Could not add cookie {cookie.get('name', 'unknown')}: {e}")
-        
-        print(f"Restored {len(cookies)} cookies in headless browser")
+        # Add cookies (they should exist at this point)
+        if cookies:
+            for cookie in cookies:
+                try:
+                    # Remove domain-specific fields that might cause issues
+                    if 'expiry' in cookie:
+                        cookie['expiry'] = int(cookie['expiry'])
+                    if 'sameSite' in cookie and cookie['sameSite'] not in ['Strict', 'Lax', 'None']:
+                        cookie['sameSite'] = 'Lax'
+                    driver.add_cookie(cookie)
+                except Exception as e:
+                    print(f"Warning: Could not add cookie {cookie.get('name', 'unknown')}: {e}")
+            
+            print(f"Restored {len(cookies)} cookies in headless browser")
+        else:
+            print("ERROR: No cookies available for scraping!")
+            driver.quit()
+            return
         
         # Refresh to apply cookies
         driver.refresh()
@@ -255,12 +350,23 @@ def main():
             except:
                 print("Cannot open MR tab")
                 continue
+            
+            # Scrape CURRENT MR first (before changing dropdown)
+            print("Scraping current MR...")
+            current_mr_list = scrape_master_rate(driver, wait)
+            
+            # Now switch to HIGHEST mode
             select_highest_mode(driver, wait)
-            mr_list = scrape_master_rate(driver, wait)
+            
+            # Scrape HIGHEST MR
+            print("Scraping highest MR...")
+            highest_mr_list = scrape_master_rate(driver, wait)
+            
             all_results[pid] = {
                 "username": username,
                 "platform": platform_icon,
-                "mr": mr_list
+                "current_mr": current_mr_list,
+                "highest_mr": highest_mr_list
             }
     finally:
         driver.quit()

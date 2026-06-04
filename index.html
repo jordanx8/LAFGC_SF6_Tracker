@@ -70,6 +70,18 @@
 </head>
 <body>
 <h1>Louisiana SF6 MR Viewer</h1>
+<div style="text-align: center; margin-bottom: 20px;">
+    <label for="mrModeSelect" style="margin-right: 10px; font-size: 16px;">MR Mode:</label>
+    <select id="mrModeSelect" style="padding: 8px 12px; font-size: 16px; border-radius: 6px; border: none; margin-right: 20px;">
+        <option value="current">Current MR</option>
+        <option value="highest">Highest MR</option>
+    </select>
+    
+    <label for="characterFilter" style="margin-right: 10px; font-size: 16px;">Character:</label>
+    <select id="characterFilter" style="padding: 8px 12px; font-size: 16px; border-radius: 6px; border: none;">
+        <option value="">All Characters</option>
+    </select>
+</div>
 <input type="text" id="searchBox" placeholder="Search by username..." />
 <table id="mrTable">
     <thead>
@@ -89,7 +101,7 @@ const characterMap = {
     "AKUMA": "gouki",
     "GOUKI": "gouki",
     "DEE JAY": "deejay",
-    "E. HONDA": "ehonda",
+    "E. HONDA": "honda",
     "A.K.I.": "aki",
     "M. BISON": "vega",
     "C. VIPER": "cviper",
@@ -117,32 +129,100 @@ async function loadData() {
     try {
         const response = await fetch("master_rates.json");
         const data = await response.json();
-        const rows = [];
-        // Flatten JSON → each row = one character
-        for (const playerId in data) {
-            const entry = data[playerId];
-            const username = entry.username || "Unknown";
-            const platform = entry.platform || null;
-            for (const mrObj of entry.mr) {
-                rows.push({
-                    username,
-                    character: mrObj.name,
-                    mr: mrObj.mr,
-                    rank: getRankIcon(mrObj.mr),
-                    platform: platform
-                });
-            }
-        }
-        // Default: sort by MR descending
-        rows.sort((a, b) => b.mr - a.mr);
-        window.allRows = rows;
-        populateTable(rows);
+        window.rawData = data;
+        window.currentMode = "current";
+        window.currentCharacterFilter = "";
+        buildRowsFromMode("current");
+        populateCharacterDropdown();
         enableSearch();
         enableSorting();
+        enableModeSwitch();
+        enableCharacterFilter();
     } catch (e) {
         alert("Could not load master_rates.json.\nRun: python -m http.server 8000");
         console.error(e);
     }
+}
+
+function buildRowsFromMode(mode) {
+    const rows = [];
+    const mrKey = mode === "current" ? "current_mr" : "highest_mr";
+    
+    // Flatten JSON → each row = one character
+    for (const playerId in window.rawData) {
+        const entry = window.rawData[playerId];
+        const username = entry.username || "Unknown";
+        const platform = entry.platform || null;
+        const mrList = entry[mrKey] || [];
+        
+        for (const mrObj of mrList) {
+            rows.push({
+                username,
+                character: mrObj.name,
+                mr: mrObj.mr,
+                rank: getRankIcon(mrObj.mr),
+                platform: platform
+            });
+        }
+    }
+    
+    // Default: sort by MR descending
+    rows.sort((a, b) => b.mr - a.mr);
+    window.allRows = rows;
+    applyFilters();
+}
+
+function populateCharacterDropdown() {
+    const characterSet = new Set();
+    window.allRows.forEach(row => characterSet.add(row.character));
+    
+    const sortedCharacters = Array.from(characterSet).sort();
+    const dropdown = document.getElementById("characterFilter");
+    
+    // Clear existing options except "All Characters"
+    dropdown.innerHTML = '<option value="">All Characters</option>';
+    
+    sortedCharacters.forEach(char => {
+        const option = document.createElement("option");
+        option.value = char;
+        option.textContent = char;
+        dropdown.appendChild(option);
+    });
+}
+
+function enableModeSwitch() {
+    const modeSelect = document.getElementById("mrModeSelect");
+    modeSelect.addEventListener("change", function() {
+        window.currentMode = this.value;
+        buildRowsFromMode(this.value);
+        populateCharacterDropdown();
+    });
+}
+
+function enableCharacterFilter() {
+    const characterFilter = document.getElementById("characterFilter");
+    characterFilter.addEventListener("change", function() {
+        window.currentCharacterFilter = this.value;
+        applyFilters();
+    });
+}
+
+function applyFilters() {
+    let filtered = window.allRows;
+    
+    // Apply character filter
+    if (window.currentCharacterFilter) {
+        filtered = filtered.filter(r => r.character === window.currentCharacterFilter);
+    }
+    
+    // Apply username search
+    const searchBox = document.getElementById("searchBox");
+    if (searchBox.value) {
+        const searchTerm = searchBox.value.toLowerCase();
+        filtered = filtered.filter(r => r.username.toLowerCase().includes(searchTerm));
+    }
+    
+    populateTable(filtered);
 }
 function populateTable(rows) {
     const tbody = document.querySelector("#mrTable tbody");
@@ -171,11 +251,7 @@ function populateTable(rows) {
 function enableSearch() {
     const searchBox = document.getElementById("searchBox");
     searchBox.addEventListener("input", function () {
-        const filter = this.value.toLowerCase();
-        const filtered = allRows.filter(r =>
-            r.username.toLowerCase().includes(filter)
-        );
-        populateTable(filtered);
+        applyFilters();
     });
 }
 // Click sorting
