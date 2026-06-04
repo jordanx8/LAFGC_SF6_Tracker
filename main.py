@@ -1,6 +1,7 @@
 import time
 import json
 import os
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -410,8 +411,15 @@ def main():
             }
     finally:
         driver.quit()
+    
+    # Add timestamp to the results
+    output_data = {
+        "last_updated": datetime.now().isoformat(),
+        "players": all_results
+    }
+    
     with open("master_rates.json", "w", encoding="utf-8") as f:
-        json.dump(all_results, f, indent=2)
-    print("Saved master_rates.json")
+        json.dump(output_data, f, indent=2)
+    print("Saved master_rates.json with timestamp")
 if __name__ == "__main__":
     main()
