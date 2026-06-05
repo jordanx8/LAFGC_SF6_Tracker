@@ -4,12 +4,14 @@ import os
 import base64
 import requests
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
+
 LOGIN_URL = "https://cid.capcom.com/ja/login/?guidedBy=web"
 BUCKLER_LOGIN_URL = "https://www.streetfighter.com/6/buckler/auth/loginep?redirect_url=/"
 SELECT_PLATFORM_URL_PART = "/auth/select-platform"
@@ -523,7 +525,7 @@ def main():
     
     # Add timestamp to the results
     output_data = {
-        "last_updated": datetime.now().isoformat(),
+        "last_updated": datetime.now(ZoneInfo("America/Chicago")).isoformat(),
         "players": all_results
     }
     
