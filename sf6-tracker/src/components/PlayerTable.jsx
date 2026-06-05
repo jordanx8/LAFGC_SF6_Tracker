@@ -142,7 +142,7 @@ function PlayerTable({ filteredRows, handleCharacterImageClick, handleSort, setS
             </div>
             
             <div className="col-md-4 text-center mb-3 mb-md-0">
-              <span className="text-muted">
+              <span style={{color: "white"}}>
                 Showing {startIndex + 1}-{Math.min(endIndex, filteredRows.length)} of {filteredRows.length}
               </span>
             </div>

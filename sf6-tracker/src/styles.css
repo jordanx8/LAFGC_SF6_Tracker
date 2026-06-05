@@ -696,18 +696,47 @@ img.platform-icon:hover {
 
     .table thead th,
     .table tbody td {
-        padding: 0.5rem 0.4rem !important;
+        padding: 0.5rem 0.3rem !important;
         font-size: 0.8rem;
     }
 
     .table thead th {
         font-size: 0.7rem;
+        text-align: center !important;
     }
 
-    /* Hide # column on mobile */
-    .table thead th:first-child,
-    .table tbody td:first-child {
+    /* Hide platform column on mobile */
+    .table thead th:nth-child(3),
+    .table tbody td:nth-child(3) {
         display: none;
+    }
+
+    /* Adjust column widths for mobile with # column visible, no platform */
+    .table thead th:nth-child(1),
+    .table tbody td:nth-child(1) {
+        width: 10%;
+        padding-left: 0.2rem !important;
+        padding-right: 0.2rem !important;
+    }
+
+    .table thead th:nth-child(2),
+    .table tbody td:nth-child(2) {
+        width: 25%;
+    }
+
+    .table thead th:nth-child(4),
+    .table tbody td:nth-child(4) {
+        width: 30%;
+    }
+
+    .table thead th:nth-child(5),
+    .table tbody td:nth-child(5) {
+        width: 15%;
+    }
+
+    .table thead th:nth-child(6),
+    .table tbody td:nth-child(6) {
+        width: 20%;
     }
 
     img.char-img {
@@ -734,6 +763,45 @@ img.platform-icon:hover {
     .player-id {
         font-size: 0.65rem;
         max-width: 100%;
+    }
+    
+    /* Reduce pagination card thickness on mobile */
+    .card.mt-3 .card-body {
+        padding: 0.5rem 0.75rem !important;
+    }
+    
+    .card.mt-3 .row {
+        margin-bottom: 0 !important;
+    }
+    
+    /* Keep first two columns on same line, full width for pagination */
+    .card.mt-3 .col-md-4:nth-child(1),
+    .card.mt-3 .col-md-4:nth-child(2) {
+        flex: 0 0 auto;
+        width: auto;
+        margin-bottom: 0.5rem;
+    }
+    
+    .card.mt-3 .col-md-4:nth-child(2) {
+        text-align: left !important;
+        margin-left: auto;
+        font-size: 0.75rem;
+    }
+    
+    .card.mt-3 .col-md-4:last-child {
+        flex: 0 0 100%;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    
+    .card.mt-3 .form-label {
+        font-size: 0.75rem;
+        margin-bottom: 0;
+    }
+    
+    .card.mt-3 .form-select {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem !important;
     }
 }
 
@@ -771,6 +839,24 @@ img.platform-icon:hover {
     /* Very small screen Player ID */
     .player-id {
         font-size: 0.6rem;
+    }
+    
+    /* Extra compact pagination for very small screens */
+    .card.mt-3 .card-body {
+        padding: 0.4rem 0.5rem !important;
+    }
+    
+    .card.mt-3 .col-md-4 {
+        margin-bottom: 0.4rem;
+    }
+    
+    .card.mt-3 .form-label {
+        font-size: 0.7rem;
+    }
+    
+    .card.mt-3 .form-select {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.4rem !important;
     }
 }
 
@@ -865,6 +951,19 @@ img.rank-icon:hover {
 
 .pagination .page-item.disabled .page-link {
     color: var(--text-muted);
+}
+
+/* Mobile pagination styles */
+@media (max-width: 768px) {
+    .pagination .page-link {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+    
+    .pagination-sm .page-link {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.8rem;
+    }
 }
 
 /* Made with Bob - Midnight Edition + Bootstrap */
