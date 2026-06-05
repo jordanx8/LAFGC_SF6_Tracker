@@ -37,9 +37,14 @@
                         <label for="characterFilter" class="form-label mb-0">Character:</label>
                     </div>
                     <div class="col-auto">
-                        <select id="characterFilter" class="form-select form-select-sm">
-                            <option value="">All Characters</option>
-                        </select>
+                        <div class="input-group input-group-sm">
+                            <select id="characterFilter" class="form-select form-select-sm">
+                                <option value="">All Characters</option>
+                            </select>
+                            <button id="resetCharacterFilter" class="input-group-text reset-button" title="Reset to All Characters">
+                                <i class="bi bi-arrow-counterclockwise"></i>
+                            </button>
+                        </div>
                     </div>
                     
                     <div class="col-auto">
@@ -328,6 +333,14 @@ function enableCharacterFilter() {
     const characterFilter = document.getElementById("characterFilter");
     characterFilter.addEventListener("change", function() {
         window.currentCharacterFilter = this.value;
+        applyFilters();
+    });
+    
+    // Reset button functionality
+    const resetButton = document.getElementById("resetCharacterFilter");
+    resetButton.addEventListener("click", function() {
+        characterFilter.value = "";
+        window.currentCharacterFilter = "";
         applyFilters();
     });
 }

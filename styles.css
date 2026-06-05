@@ -248,6 +248,33 @@ h1 i {
     border-color: var(--border-color) !important;
 }
 
+/* Reset Button in Input Group */
+.reset-button {
+    cursor: pointer;
+    padding-left: 0.75rem;
+    padding-right: 1rem;
+    transition: all 0.3s ease;
+    border: none !important;
+    background: transparent !important;
+}
+
+.reset-button:hover {
+    color: var(--accent-primary) !important;
+}
+
+.reset-button:active {
+    color: var(--accent-secondary) !important;
+    transform: scale(0.95);
+}
+
+.input-group:has(.reset-button):hover .reset-button {
+    color: var(--text-secondary) !important;
+}
+
+.input-group:has(.reset-button):focus-within .reset-button {
+    color: var(--accent-primary) !important;
+}
+
 /* Table Card */
 .table-card {
     overflow: hidden;
@@ -432,8 +459,9 @@ img.platform-icon:hover {
     .controls-card .row {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 0.25rem !important;
+        gap: 0.4rem !important;
         align-items: stretch;
+        width: 100%;
     }
 
     .controls-card .col-auto {
@@ -441,6 +469,8 @@ img.platform-icon:hover {
         align-items: stretch;
         gap: 0.25rem;
         min-height: 28px;
+        min-width: 0;
+        width: 100%;
     }
 
     /* All items in 2-column grid */
@@ -448,13 +478,12 @@ img.platform-icon:hover {
     .controls-card .col-auto:nth-child(2),
     .controls-card .col-auto:nth-child(3),
     .controls-card .col-auto:nth-child(4) {
-        width: auto;
+        grid-column: span 1;
     }
     
     /* Checkboxes span full width in their grid cells */
     .controls-card .col-auto:nth-child(5),
     .controls-card .col-auto:nth-child(6) {
-        width: auto;
         grid-column: span 1;
     }
 
@@ -466,6 +495,7 @@ img.platform-icon:hover {
         min-width: auto;
         display: flex;
         align-items: center;
+        flex-shrink: 0;
     }
 
     .controls-card .form-select {
@@ -477,6 +507,31 @@ img.platform-icon:hover {
         border-width: 1px !important;
         height: 28px;
         line-height: 1;
+    }
+
+    /* Input group styling for mobile */
+    .controls-card .input-group {
+        flex: 1;
+        min-width: 0;
+        border-radius: 4px !important;
+        border-width: 1px !important;
+        height: 28px;
+    }
+
+    .controls-card .input-group .form-select {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.35rem !important;
+        height: 28px;
+        border-radius: 4px 0 0 4px !important;
+    }
+
+    .controls-card .input-group .reset-button {
+        padding: 0 0.4rem !important;
+        font-size: 0.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
     }
 
     .controls-card .form-check {
@@ -491,6 +546,7 @@ img.platform-icon:hover {
         height: 28px;
         box-sizing: border-box;
         margin: 0;
+        min-width: 0;
     }
 
     .controls-card .form-check:hover {
@@ -515,6 +571,9 @@ img.platform-icon:hover {
         font-weight: 500;
         display: flex;
         align-items: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .row.g-3 {
