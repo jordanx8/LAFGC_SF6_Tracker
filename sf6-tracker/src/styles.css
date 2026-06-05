@@ -550,6 +550,40 @@ img.platform-icon:hover {
     .controls-card .col-auto:nth-child(5) {
         grid-column: span 2;
         justify-content: center;
+        padding: 0 1rem;
+    }
+
+    /* Make Mains Only look like a toggle button on mobile */
+    .controls-card .col-auto:nth-child(5) .form-check {
+        justify-content: center;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .controls-card .col-auto:nth-child(5) .form-check-input {
+        display: none;
+    }
+
+    .controls-card .col-auto:nth-child(5) .form-check-label {
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .controls-card .col-auto:nth-child(5) .form-check:has(input:checked) {
+        background: var(--accent-primary);
+        border-color: var(--accent-primary);
+        color: white;
+    }
+
+    .controls-card .col-auto:nth-child(5) .form-check:has(input:checked) .form-check-label {
+        color: white;
+    }
+
+    .controls-card .col-auto:nth-child(5) .form-check:has(input:checked):hover {
+        background: var(--accent-secondary);
+        border-color: var(--accent-secondary);
     }
     
     /* Masters Only checkbox stays in single column */
