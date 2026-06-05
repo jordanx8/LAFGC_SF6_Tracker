@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-05T08:15:24.537082",
+  "last_updated": "2026-06-05T14:55:59.739102",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -635,11 +635,11 @@
       "highest_mr": [
         {
           "name": "MARISA",
-          "mr": 1501
+          "mr": 1529
         },
         {
           "name": "ZANGIEF",
-          "mr": 1454
+          "mr": 1504
         }
       ]
     },
@@ -683,16 +683,7 @@
           "mr": 1596
         }
       ],
-      "highest_mr": [
-        {
-          "name": "M. BISON",
-          "mr": 1816
-        },
-        {
-          "name": "LUKE",
-          "mr": 1643
-        }
-      ]
+      "highest_mr": []
     },
     "2758058725": {
       "username": "glumbomaxxing",
