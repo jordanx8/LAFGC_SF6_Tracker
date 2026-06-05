@@ -26,6 +26,7 @@ jobs:
           python-version: '3.11'
 
       - name: Setup Chrome and ChromeDriver
+        id: setup-chrome
         uses: browser-actions/setup-chrome@v1
         with:
           chrome-version: stable
@@ -41,9 +42,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_ACTIONS: true
+          CHROMEDRIVER_PATH: ${{ steps.setup-chrome.outputs.chromedriver-path }}
         run: |
-          # Update the chromedriver path in the script for Linux
-          sed -i 's|C:\\WebDriver\\chromedriver.exe|/usr/local/bin/chromedriver|g' scrape_cfn.py
+          echo "Using ChromeDriver at: $CHROMEDRIVER_PATH"
           python scrape_cfn.py
 
       - name: Configure Git

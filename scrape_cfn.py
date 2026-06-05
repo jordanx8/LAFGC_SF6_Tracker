@@ -13,7 +13,8 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 LOGIN_URL = "https://cid.capcom.com/ja/login/?guidedBy=web"
 BUCKLER_LOGIN_URL = "https://www.streetfighter.com/6/buckler/auth/loginep?redirect_url=/"
 SELECT_PLATFORM_URL_PART = "/auth/select-platform"
-CHROMEDRIVER_PATH = r"C:\WebDriver\chromedriver.exe"
+# Use environment variable if available, otherwise use default Windows path
+CHROMEDRIVER_PATH = os.getenv('CHROMEDRIVER_PATH', r"C:\WebDriver\chromedriver.exe")
 COOKIES_FILE = "session_cookies.json"
 def normalize_text(value: str) -> str:
     return " ".join(value.strip().lower().split())
