@@ -61,6 +61,7 @@ export function usePlayerData(masterRatesData) {
 
         if (mr !== undefined) {
           rows.push({
+            playerId,
             username,
             character: charName,
             mr: mr,
@@ -71,6 +72,7 @@ export function usePlayerData(masterRatesData) {
           });
         } else {
           rows.push({
+            playerId,
             username,
             character: charName,
             mr: "N/A",

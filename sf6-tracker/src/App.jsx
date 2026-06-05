@@ -76,6 +76,7 @@ function App() {
         filteredRows={filteredRows}
         handleCharacterImageClick={handleCharacterImageClick}
         handleSort={handleSort}
+        setSearchTerm={setSearchTerm}
       />
     </div>
   );
