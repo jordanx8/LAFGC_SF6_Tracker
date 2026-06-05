@@ -1,6 +1,8 @@
 import time
 import json
 import os
+import base64
+import requests
 from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -231,14 +233,84 @@ def scrape_master_rate(driver, wait):
 # -------------------------------------------------------
 # COOKIE MANAGEMENT
 # -------------------------------------------------------
+def update_github_secret(secret_name, secret_value):
+    """Update a GitHub repository secret using GitHub API"""
+    try:
+        github_token = os.getenv('GH_TOKEN')
+        github_repo = os.getenv('GITHUB_REPOSITORY')
+        
+        if not github_token or not github_repo:
+            print("GitHub token or repository not available, skipping secret update")
+            return False
+        
+        # Get the repository public key
+        headers = {
+            'Authorization': f'token {github_token}',
+            'Accept': 'application/vnd.github.v3+json'
+        }
+        
+        key_url = f'https://api.github.com/repos/{github_repo}/actions/secrets/public-key'
+        key_response = requests.get(key_url, headers=headers)
+        key_response.raise_for_status()
+        key_data = key_response.json()
+        
+        public_key = key_data['key']
+        key_id = key_data['key_id']
+        
+        # Encrypt the secret value
+        from nacl import encoding, public as nacl_public
+        public_key_obj = nacl_public.PublicKey(public_key.encode(), encoding.Base64Encoder())
+        sealed_box = nacl_public.SealedBox(public_key_obj)
+        encrypted = sealed_box.encrypt(secret_value.encode())
+        encrypted_value = base64.b64encode(encrypted).decode()
+        
+        # Update the secret
+        secret_url = f'https://api.github.com/repos/{github_repo}/actions/secrets/{secret_name}'
+        secret_data = {
+            'encrypted_value': encrypted_value,
+            'key_id': key_id
+        }
+        
+        secret_response = requests.put(secret_url, headers=headers, json=secret_data)
+        secret_response.raise_for_status()
+        
+        print(f"Successfully updated GitHub secret: {secret_name}")
+        return True
+        
+    except Exception as e:
+        print(f"Failed to update GitHub secret: {e}")
+        return False
+
 def save_cookies(cookies, filepath=COOKIES_FILE):
-    """Save cookies to a JSON file"""
-    with open(filepath, "w", encoding="utf-8") as f:
-        json.dump(cookies, f, indent=2)
-    print(f"Saved {len(cookies)} cookies to {filepath}")
+    """Save cookies to GitHub secret or JSON file"""
+    cookies_json = json.dumps(cookies)
+    
+    # If running in GitHub Actions, update the secret
+    if os.getenv('GITHUB_ACTIONS'):
+        # Encode cookies as base64 for storage
+        cookies_b64 = base64.b64encode(cookies_json.encode()).decode()
+        update_github_secret('SESSION_COOKIES', cookies_b64)
+    else:
+        # Save to file for local use
+        with open(filepath, "w", encoding="utf-8") as f:
+            json.dump(cookies, f, indent=2)
+        print(f"Saved {len(cookies)} cookies to {filepath}")
 
 def load_cookies(filepath=COOKIES_FILE):
-    """Load cookies from a JSON file if it exists"""
+    """Load cookies from GitHub secret or JSON file"""
+    # First, try to load from GitHub secret
+    cookies_secret = os.getenv('SESSION_COOKIES')
+    if cookies_secret:
+        try:
+            # Decode base64 encoded cookies
+            cookies_json = base64.b64decode(cookies_secret).decode()
+            cookies = json.loads(cookies_json)
+            print(f"Loaded {len(cookies)} cookies from GitHub secret")
+            return cookies
+        except Exception as e:
+            print(f"Failed to load cookies from secret: {e}")
+    
+    # Fall back to file if secret not available
     if os.path.exists(filepath):
         with open(filepath, "r", encoding="utf-8") as f:
             cookies = json.load(f)
