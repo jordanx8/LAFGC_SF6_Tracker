@@ -133,18 +133,42 @@ def select_highest_mode(driver, wait):
             dropdown
         )
         print("MR dropdown set to Highest")
-        time.sleep(0.5)
+        
+        # Wait for the page to reload with new data
+        # Wait for stale element to ensure DOM has updated
+        time.sleep(1.5)
+        
+        # Wait for the list to be re-rendered with new values
+        wait.until(
+            EC.presence_of_all_elements_located(
+                (By.CSS_SELECTOR, "div.league_point_inner__iCMYc ul li")
+            )
+        )
+        print("Page reloaded with highest MR data")
+        
     except Exception as e:
         print("Failed to switch MR dropdown:", e)
 # -------------------------------------------------------
 # SCRAPE LP LIST
 # -------------------------------------------------------
 def scrape_league_points(driver, wait):
+    # Wait for container to be present
     container = wait.until(
         EC.presence_of_element_located(
             (By.CSS_SELECTOR, "div.league_point_inner__iCMYc ul")
         )
     )
+    
+    # Wait for the list items to be present and visible
+    wait.until(
+        EC.presence_of_all_elements_located(
+            (By.CSS_SELECTOR, "div.league_point_inner__iCMYc ul li")
+        )
+    )
+    
+    # Additional wait to ensure content has fully loaded
+    time.sleep(1)
+    
     items = container.find_elements(By.TAG_NAME, "li")
     results = []
     for item in items:
@@ -168,11 +192,23 @@ def scrape_league_points(driver, wait):
 # SCRAPE MR LIST
 # -------------------------------------------------------
 def scrape_master_rate(driver, wait):
+    # Wait for container to be present
     container = wait.until(
         EC.presence_of_element_located(
             (By.CSS_SELECTOR, "div.league_point_inner__iCMYc ul")
         )
     )
+    
+    # Wait for the list items to be present and visible
+    wait.until(
+        EC.presence_of_all_elements_located(
+            (By.CSS_SELECTOR, "div.league_point_inner__iCMYc ul li")
+        )
+    )
+    
+    # Additional wait to ensure content has fully loaded
+    time.sleep(1)
+    
     items = container.find_elements(By.TAG_NAME, "li")
     results = []
     for item in items:
