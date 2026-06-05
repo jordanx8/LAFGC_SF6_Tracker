@@ -397,7 +397,7 @@ function populateTable(rows) {
                 <img class="platform-icon" src="${r.platform}" onerror="this.style.display='none'">
             </td>
             <td>
-                <img class="char-img" src="${charImg}" onerror="this.style.display='none'">
+                <img class="char-img clickable-char-img" src="${charImg}" data-character="${r.character}" onerror="this.style.display='none'">
                 ${r.character}
             </td>
             <td>${r.mr}</td>
@@ -406,6 +406,16 @@ function populateTable(rows) {
             </td>
         `;
         tbody.appendChild(tr);
+        
+        // Add click event to character image only
+        const charImage = tr.querySelector('.clickable-char-img');
+        charImage.addEventListener('click', function() {
+            const character = this.getAttribute('data-character');
+            const characterFilter = document.getElementById('characterFilter');
+            characterFilter.value = character;
+            window.currentCharacterFilter = character;
+            applyFilters();
+        });
     });
 }
 // Search by username
