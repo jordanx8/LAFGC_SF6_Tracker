@@ -454,7 +454,7 @@ def main():
         "players": all_results
     }
     
-    with open("master_rates.json", "w", encoding="utf-8") as f:
+    with open("sf6-tracker/src/master_rates.json", "w", encoding="utf-8") as f:
         json.dump(output_data, f, indent=2)
     print("Saved master_rates.json with timestamp")
 if __name__ == "__main__":

@@ -481,8 +481,13 @@ img.platform-icon:hover {
         grid-column: span 1;
     }
     
-    /* Checkboxes span full width in their grid cells */
-    .controls-card .col-auto:nth-child(5),
+    /* Mains Only checkbox spans full width and centers */
+    .controls-card .col-auto:nth-child(5) {
+        grid-column: span 2;
+        justify-content: center;
+    }
+    
+    /* Masters Only checkbox stays in single column */
     .controls-card .col-auto:nth-child(6) {
         grid-column: span 1;
     }
