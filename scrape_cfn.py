@@ -170,7 +170,7 @@ def scrape_league_points(driver, wait):
     )
     
     # Additional wait to ensure content has fully loaded
-    time.sleep(1)
+    time.sleep(2)
     
     items = container.find_elements(By.TAG_NAME, "li")
     results = []
@@ -210,7 +210,7 @@ def scrape_master_rate(driver, wait):
     )
     
     # Additional wait to ensure content has fully loaded
-    time.sleep(1)
+    time.sleep(2)
     
     items = container.find_elements(By.TAG_NAME, "li")
     results = []
