@@ -78,6 +78,42 @@ function App() {
         handleSort={handleSort}
         setSearchTerm={setSearchTerm}
       />
+
+      <footer className="footer mt-5">
+        <div className="footer-content">
+          <p className="footer-text footer-community">
+            <span className="footer-community-name">Louisiana FGC Community</span>
+          </p>
+          <div className="footer-links">
+            <a href="https://discord.gg/MeXsRzt5R" target="_blank" rel="noopener noreferrer" className="footer-link" aria-label="LAFGC Discord">
+              <i className="bi bi-discord"></i>
+            </a>
+            <a href="https://x.com/LAFGCTV" target="_blank" rel="noopener noreferrer" className="footer-link" aria-label="LAFGC X (Twitter)">
+              <i className="bi bi-twitter-x"></i>
+            </a>
+            <a href="https://youtube.com/@lafgctv2096" target="_blank" rel="noopener noreferrer" className="footer-link" aria-label="LAFGC YouTube">
+              <i className="bi bi-youtube"></i>
+            </a>
+          </div>
+          
+          <div className="footer-divider"></div>
+          
+          <p className="footer-text">
+            Issues? Contact <span className="footer-handle">@FroggyAirplane</span>
+          </p>
+          <div className="footer-links">
+            <a href="https://discord.com/users/FroggyAirplane" target="_blank" rel="noopener noreferrer" className="footer-link" aria-label="Discord">
+              <i className="bi bi-discord"></i>
+            </a>
+            <a href="https://x.com/FroggyAirplane" target="_blank" rel="noopener noreferrer" className="footer-link" aria-label="X (Twitter)">
+              <i className="bi bi-twitter-x"></i>
+            </a>
+            <a href="https://youtube.com/@froggyairplane" target="_blank" rel="noopener noreferrer" className="footer-link" aria-label="LAFGC YouTube">
+              <i className="bi bi-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
