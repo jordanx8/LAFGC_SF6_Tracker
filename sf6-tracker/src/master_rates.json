@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-05T10:55:54.814844-05:00",
+  "last_updated": "2026-06-05T13:42:56.844913-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -1289,6 +1289,10 @@
         {
           "name": "INGRID",
           "lp": 21360
+        },
+        {
+          "name": "BLANKA",
+          "lp": 16781
         }
       ],
       "current_mr": [],
