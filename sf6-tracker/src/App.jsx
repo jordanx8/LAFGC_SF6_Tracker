@@ -5,6 +5,7 @@ import Header from './components/Header';
 import FilterControls from './components/FilterControls';
 import SearchBox from './components/SearchBox';
 import PlayerTable from './components/PlayerTable';
+import ScrollToTop from './components/ScrollToTop';
 import { usePlayerData } from './hooks/usePlayerData';
 import { useFilters } from './hooks/useFilters';
 
@@ -114,6 +115,8 @@ function App() {
           </div>
         </div>
       </footer>
+
+      <ScrollToTop />
     </div>
   );
 }
