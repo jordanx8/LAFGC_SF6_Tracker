@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   scrape:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     
     steps:
       - name: Checkout repository
@@ -25,7 +25,7 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
+      - name: Install Python dependencies
         run: |
           pip install -r requirements.txt
 
@@ -35,7 +35,7 @@ jobs:
         
       - name: Display Chrome and ChromeDriver versions
         run: |
-          (Get-Item "C:\Program Files\Google\Chrome\Application\chrome.exe").VersionInfo.FileVersion
+          google-chrome --version
           chromedriver --version
 
       - name: Run scraper
@@ -44,10 +44,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_ACTIONS: true
+          CHROMEDRIVER_PATH: /usr/local/bin/chromedriver
         run: |
-          $chromedriverPath = (Get-Command chromedriver).Source
-          Write-Host "Using ChromeDriver at: $chromedriverPath"
-          $env:CHROMEDRIVER_PATH = $chromedriverPath
+          echo "Using ChromeDriver at: $CHROMEDRIVER_PATH"
           python scrape_cfn.py
 
       - name: Configure Git
@@ -58,14 +57,12 @@ jobs:
       - name: Commit and push changes
         run: |
           git add sf6-tracker/src/master_rates.json
-          $hasChanges = git diff --staged --quiet
-          if ($LASTEXITCODE -ne 0) {
-            $timestamp = (Get-Date).ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss UTC")
-            git commit -m "Update master_rates.json - $timestamp"
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update master_rates.json - $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
             git pull --rebase origin main
             git push
-          } else {
-            Write-Host "No changes to commit"
-          }
+          fi
 
 # Made with Bob
