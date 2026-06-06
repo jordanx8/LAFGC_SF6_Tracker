@@ -5,6 +5,7 @@ export function usePlayerData(masterRatesData) {
   const [rawData, setRawData] = useState(null);
   const [allRows, setAllRows] = useState([]);
   const [lastUpdated, setLastUpdated] = useState('');
+  const [totalPlayers, setTotalPlayers] = useState(0);
   const [currentMode, setCurrentMode] = useState('highest');
 
   // Load data on mount
@@ -13,8 +14,10 @@ export function usePlayerData(masterRatesData) {
     if (data.last_updated && data.players) {
       setRawData(data.players);
       setLastUpdated(formatLastUpdated(data.last_updated));
+      setTotalPlayers(Object.keys(data.players).length);
     } else {
       setRawData(data);
+      setTotalPlayers(Object.keys(data).length);
     }
   }, [masterRatesData]);
 
@@ -103,6 +106,7 @@ export function usePlayerData(masterRatesData) {
   return {
     allRows,
     lastUpdated,
+    totalPlayers,
     currentMode,
     setCurrentMode
   };

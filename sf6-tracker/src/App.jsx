@@ -13,7 +13,7 @@ function App() {
   const [sortDirection, setSortDirection] = useState(1);
 
   // Custom hooks for data and filtering
-  const { allRows, lastUpdated, currentMode, setCurrentMode } = usePlayerData(masterRatesData);
+  const { allRows, lastUpdated, totalPlayers, currentMode, setCurrentMode } = usePlayerData(masterRatesData);
   const {
     filteredRows,
     setFilteredRows,
@@ -59,7 +59,7 @@ function App() {
 
   return (
     <div className="container-fluid py-4">
-      <Header lastUpdated={lastUpdated} />
+      <Header lastUpdated={lastUpdated} totalPlayers={totalPlayers} />
 
       <FilterControls
         currentMode={currentMode}
