@@ -487,9 +487,20 @@ def main():
             platform_icon = scrape_platform(driver, wait)
             try:
                 open_play_tab(driver, wait, "league points")
-            except Exception:
-                print("Cannot open LP tab")
-                continue
+            except Exception as e:
+                print(f"Cannot open LP tab - cookies likely invalid: {e}")
+                print("\n!!! AUTHENTICATION FAILED !!!")
+                print("Your session cookies are no longer valid.")
+                print("The script will now close and you need to re-run it to login again.")
+                driver.quit()
+                
+                # Delete the invalid cookies
+                if os.path.exists(COOKIES_FILE):
+                    os.remove(COOKIES_FILE)
+                    print(f"Deleted invalid cookies file: {COOKIES_FILE}")
+                
+                # Exit with error to signal failure
+                raise RuntimeError("Session expired - please re-run the script to login again")
 
             print("Scraping LP per character...")
             lp_list = scrape_league_points(driver, wait)
