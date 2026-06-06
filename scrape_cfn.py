@@ -290,9 +290,8 @@ def save_cookies(cookies, filepath=COOKIES_FILE):
     
     # If running in GitHub Actions, update the secret
     if os.getenv('GITHUB_ACTIONS'):
-        # Encode cookies as base64 for storage
-        cookies_b64 = base64.b64encode(cookies_json.encode()).decode()
-        update_github_secret('SESSION_COOKIES', cookies_b64)
+        # Store cookies as plain JSON (no base64 encoding)
+        update_github_secret('SESSION_COOKIES', cookies_json)
     else:
         # Save to file for local use
         with open(filepath, "w", encoding="utf-8") as f:
@@ -305,9 +304,8 @@ def load_cookies(filepath=COOKIES_FILE):
     cookies_secret = os.getenv('SESSION_COOKIES')
     if cookies_secret:
         try:
-            # Decode base64 encoded cookies
-            cookies_json = base64.b64decode(cookies_secret).decode()
-            cookies = json.loads(cookies_json)
+            # Parse JSON directly (no base64 decoding needed)
+            cookies = json.loads(cookies_secret)
             print(f"Loaded {len(cookies)} cookies from GitHub secret")
             return cookies
         except Exception as e:
