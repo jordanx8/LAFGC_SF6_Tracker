@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   scrape:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     
     steps:
       - name: Checkout repository
@@ -28,9 +28,6 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          # Install xvfb package via apt
-          sudo apt-get update
-          sudo apt-get install -y xvfb
 
       - name: Setup Chrome and ChromeDriver
         id: setup-chrome
