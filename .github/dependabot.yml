@@ -8,10 +8,8 @@ multi-ecosystem-groups:
 updates:
   - package-ecosystem: "pip"
     directory: "/"
-    patterns: ["nginx", "redis", "postgres"]
     multi-ecosystem-group: "infrastructure"
 
   - package-ecosystem: "npm"
     directory: "/sf6-tracker"
-    patterns: ["aws", "terraform-*"]
     multi-ecosystem-group: "infrastructure"
