@@ -299,8 +299,8 @@ def login(username, password, platform="playstation"):
 
 if __name__ == "__main__":
     # Use environment variables for credentials
-    username = "your_email@example.com"
-    password = "your_password"
+    username = os.getenv('CAPCOM_USERNAME')
+    password = os.getenv('CAPCOM_PASSWORD')
     platform = os.getenv('PLATFORM', 'playstation')
     
     if not username or not password:
