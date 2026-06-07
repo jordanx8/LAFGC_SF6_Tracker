@@ -2,8 +2,8 @@ name: Scrape CFN Data
 
 on:
   schedule:
-    # Run 15min before every 2nd hour
-    - cron: '45 */2 * * *'
+    # Run every 12 hours (at midnight and noon UTC)
+    - cron: '0 0,12 * * *'
   workflow_dispatch: # Allow manual trigger
 
 permissions:
