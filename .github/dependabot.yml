@@ -1,15 +1,12 @@
 version: 2
 
-multi-ecosystem-groups:
-  infrastructure:
-    schedule:
-      interval: "weekly"
-
 updates:
   - package-ecosystem: "pip"
     directory: "/"
-    multi-ecosystem-group: "infrastructure"
+    schedule:
+      interval: "weekly"
 
   - package-ecosystem: "npm"
     directory: "/sf6-tracker"
-    multi-ecosystem-group: "infrastructure"
+    schedule:
+      interval: "weekly"
