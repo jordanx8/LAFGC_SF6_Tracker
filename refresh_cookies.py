@@ -126,12 +126,12 @@ def login(username, password, platform="playstation"):
     options = webdriver.ChromeOptions()
     options.add_argument("--window-size=1440,1200")
     
-    # Add headless mode for GitHub Actions
-    if os.getenv('GITHUB_ACTIONS'):
-        options.add_argument("--headless=new")
-        options.add_argument("--disable-gpu")
-        options.add_argument("--no-sandbox")
-        options.add_argument("--disable-dev-shm-usage")
+    # Always run in headless mode
+    options.add_argument("--headless=new")
+    options.add_argument("--disable-gpu")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
 
     driver = webdriver.Chrome(
         service=Service(CHROMEDRIVER_PATH),
