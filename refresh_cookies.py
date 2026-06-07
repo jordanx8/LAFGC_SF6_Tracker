@@ -124,13 +124,8 @@ def save_cookies(cookies, filepath=COOKIES_FILE):
 def login(username, password, platform="playstation"):
     """Login to Capcom ID, navigate to Buckler, select platform, and save cookies"""
     options = webdriver.ChromeOptions()
+    options.add_argument("--headless")
     options.add_argument("--window-size=1440,1200")
-    
-    # Always run in headless mode
-    options.add_argument("--headless=new")
-    options.add_argument("--disable-gpu")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
     
@@ -168,48 +163,90 @@ def login(username, password, platform="playstation"):
         # Additional wait for Auth0 widget to initialize
         time.sleep(5)
         
-        print("Looking for email field...")
+        print("Looking for Auth0 iframe...")
         print(f"Current URL: {driver.current_url}")
         
-        # Try to find the email field with multiple attempts
+        # Auth0 login is typically in an iframe, try to switch to it
         email_box = None
+        iframe_found = False
+        
         for attempt in range(10):
             try:
-                email_box = driver.find_element(By.ID, "1-email")
-                if email_box and email_box.is_displayed():
-                    print(f"Email field found on attempt {attempt + 1}")
+                # Look for Auth0 iframe
+                iframes = driver.find_elements(By.TAG_NAME, "iframe")
+                print(f"Found {len(iframes)} iframes on page")
+                
+                for idx, iframe in enumerate(iframes):
+                    try:
+                        driver.switch_to.frame(iframe)
+                        # Try to find the email field in this iframe
+                        email_box = driver.find_element(By.ID, "1-email")
+                        if email_box.is_displayed():
+                            print(f"Email field found in iframe {idx} on attempt {attempt + 1}")
+                            iframe_found = True
+                            break
+                    except:
+                        driver.switch_to.default_content()
+                        continue
+                
+                if iframe_found:
                     break
+                    
+                # If not in iframe, try in main content
+                driver.switch_to.default_content()
+                email_box = driver.find_element(By.ID, "1-email")
+                if email_box.is_displayed():
+                    print(f"Email field found in main content on attempt {attempt + 1}")
+                    iframe_found = True
+                    break
+                    
             except:
+                driver.switch_to.default_content()
                 pass
+            
             time.sleep(2)
             print(f"Email field not found yet, attempt {attempt + 1}/10")
         
-        if not email_box:
+        if not iframe_found or email_box is None:
             # Save screenshot for debugging
-            driver.save_screenshot("/tmp/login_page.png")
-            print("Saved screenshot to /tmp/login_page.png")
+            driver.save_screenshot("login_page_error.png")
+            print("Saved screenshot to login_page_error.png")
             print(f"Page source length: {len(driver.page_source)}")
             raise RuntimeError("Could not find email field after 10 attempts")
         
         print("Email field found, entering username...")
-        driver.execute_script(
-            "arguments[0].scrollIntoView({block:'center'});",
-            email_box
-        )
-        time.sleep(1)
-
-        # Use JavaScript to set value as backup
-        driver.execute_script(f"arguments[0].value = '{username}';", email_box)
+        
+        # Clear any existing value first
+        email_box.clear()
+        time.sleep(0.5)
+        
+        # Enter email using send_keys (more reliable than JavaScript)
         email_box.click()
         time.sleep(0.5)
+        email_box.send_keys(username)
+        time.sleep(0.5)
+        
+        # Verify the value was entered
+        entered_value = email_box.get_attribute('value')
+        print(f"Email entered: {entered_value}")
+        
+        if entered_value != username:
+            print("Email not entered correctly, trying JavaScript method...")
+            driver.execute_script(f"arguments[0].value = '{username}';", email_box)
+            # Trigger input event to ensure Auth0 recognizes the change
+            driver.execute_script("arguments[0].dispatchEvent(new Event('input', { bubbles: true }));", email_box)
+            driver.execute_script("arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", email_box)
+            time.sleep(0.5)
 
         # Password field
-        password_box = driver.find_element(
-            By.CSS_SELECTOR,
-            "input[type='password']"
+        print("Looking for password field...")
+        password_box = wait.until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "input[type='password']"))
         )
         password_box.click()
+        time.sleep(0.5)
         password_box.send_keys(password)
+        time.sleep(0.5)
 
         # Submit button
         submit_button = driver.find_element(
@@ -262,8 +299,8 @@ def login(username, password, platform="playstation"):
 
 if __name__ == "__main__":
     # Use environment variables for credentials
-    username = os.getenv('CAPCOM_USERNAME')
-    password = os.getenv('CAPCOM_PASSWORD')
+    username = "your_email@example.com"
+    password = "your_password"
     platform = os.getenv('PLATFORM', 'playstation')
     
     if not username or not password:
