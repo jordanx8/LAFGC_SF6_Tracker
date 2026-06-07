@@ -98,7 +98,7 @@ def update_github_secret(secret_name, secret_value):
         secret_response = requests.put(secret_url, headers=headers, json=secret_data)
         secret_response.raise_for_status()
         
-        print(f"Successfully updated GitHub secret: {secret_name}")
+        print(f"Successfully updated GitHub secret.")
         return True
         
     except Exception as e:

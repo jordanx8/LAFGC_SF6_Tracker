@@ -277,7 +277,7 @@ def update_github_secret(secret_name, secret_value):
         secret_response = requests.put(secret_url, headers=headers, json=secret_data)
         secret_response.raise_for_status()
         
-        print(f"Successfully updated GitHub secret: {secret_name}")
+        print(f"Successfully updated GitHub secret.")
         return True
         
     except Exception as e:
@@ -538,7 +538,7 @@ def main():
         "players": all_results
     }
     
-    with open("sf6-tracker/src/master_rates.json", "w", encoding="utf-8") as f:
+    with open("sf6-tracker/src/data/phase_12.json", "w", encoding="utf-8") as f:
         json.dump(output_data, f, indent=2)
     print("Saved master_rates.json with timestamp")
 if __name__ == "__main__":
