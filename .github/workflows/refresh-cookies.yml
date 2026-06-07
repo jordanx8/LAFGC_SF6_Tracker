@@ -1,0 +1,51 @@
+name: Refresh Session Cookies
+
+on:
+  schedule:
+    # Run once a week on Sunday at 2 AM UTC
+    - cron: '0 2 * * 0'
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  refresh-cookies:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Setup Chrome and ChromeDriver
+        uses: nanasess/setup-chromedriver@v2
+        
+      - name: Display Chrome and ChromeDriver versions
+        run: |
+          google-chrome --version
+          chromedriver --version
+
+      - name: Run login script
+        env:
+          CAPCOM_USERNAME: ${{ secrets.CAPCOM_USERNAME }}
+          CAPCOM_PASSWORD: ${{ secrets.CAPCOM_PASSWORD }}
+          PLATFORM: playstation
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_ACTIONS: true
+          CHROMEDRIVER_PATH: /usr/local/bin/chromedriver
+        run: |
+          echo "Logging in and refreshing session cookies..."
+          python refresh_cookies.py
+
+# Made with Bob
