@@ -131,33 +131,77 @@ def login(username, password, platform="playstation"):
     options.add_argument("--disable-gpu")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+    
+    # Additional options for stability
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option('useAutomationExtension', False)
 
     driver = webdriver.Chrome(
         service=Service(CHROMEDRIVER_PATH),
         options=options
     )
 
-    wait = WebDriverWait(driver, 30)
+    wait = WebDriverWait(driver, 60)  # Increased timeout to 60 seconds
 
     try:
         # Step 1: Login to Capcom ID
         print("Step 1: Logging in to Capcom ID...")
         driver.get(LOGIN_URL)
-
-        # Email / Username field
-        email_box = wait.until(
-            EC.element_to_be_clickable(
-                (By.ID, "1-email")
-            )
-        )
+        
+        # Wait for page to fully load
+        print("Waiting for page to load...")
+        time.sleep(5)  # Give page time to start loading
+        
+        # Wait for document ready
+        for i in range(30):  # Try for up to 30 seconds
+            try:
+                if driver.execute_script("return document.readyState") == "complete":
+                    print("Page loaded successfully")
+                    break
+            except:
+                pass
+            time.sleep(1)
+            print(f"Still waiting... ({i+1}s)")
+        
+        # Additional wait for Auth0 widget to initialize
+        time.sleep(5)
+        
+        print("Looking for email field...")
+        print(f"Current URL: {driver.current_url}")
+        
+        # Try to find the email field with multiple attempts
+        email_box = None
+        for attempt in range(10):
+            try:
+                email_box = driver.find_element(By.ID, "1-email")
+                if email_box and email_box.is_displayed():
+                    print(f"Email field found on attempt {attempt + 1}")
+                    break
+            except:
+                pass
+            time.sleep(2)
+            print(f"Email field not found yet, attempt {attempt + 1}/10")
+        
+        if not email_box:
+            # Save screenshot for debugging
+            driver.save_screenshot("/tmp/login_page.png")
+            print("Saved screenshot to /tmp/login_page.png")
+            print(f"Page source length: {len(driver.page_source)}")
+            raise RuntimeError("Could not find email field after 10 attempts")
+        
+        print("Email field found, entering username...")
         driver.execute_script(
             "arguments[0].scrollIntoView({block:'center'});",
             email_box
         )
+        time.sleep(1)
 
+        # Use JavaScript to set value as backup
+        driver.execute_script(f"arguments[0].value = '{username}';", email_box)
         email_box.click()
-        email_box.send_keys(username)
+        time.sleep(0.5)
 
         # Password field
         password_box = driver.find_element(
