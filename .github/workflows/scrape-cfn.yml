@@ -56,11 +56,11 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git add sf6-tracker/src/master_rates.json
+          git add sf6-tracker/src/phase_12.json
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Update master_rates.json - $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+            git commit -m "Update phase_12.json - $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
             git pull --rebase origin main
             git push
           fi

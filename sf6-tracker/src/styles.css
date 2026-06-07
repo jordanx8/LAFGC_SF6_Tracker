@@ -118,9 +118,9 @@ h1 i {
     pointer-events: none;
 }
 
+/* 1. Apply shared text, borders, and animations here */
 .form-select,
 .form-control {
-    background: var(--bg-secondary) !important;
     border: 2px solid var(--border-color) !important;
     color: var(--text-primary) !important;
     border-radius: 10px !important;
@@ -129,9 +129,21 @@ h1 i {
     pointer-events: auto;
 }
 
+/* 2. Apply separate background color for the text input */
+.form-control {
+    background: var(--bg-secondary) !important;
+}
+
+/* 3. Keep Bootstrap's arrow asset while changing the color underneath */
+.form-select {
+    background-color: var(--bg-secondary) !important; 
+    /* This overrides only the background color, keeping the arrow image safe! */
+}
+
+/* 4. Fix hover states safely */
 .form-select:hover:not(:focus) {
     border-color: var(--border-accent) !important;
-    background: var(--bg-tertiary) !important;
+    background-color: var(--bg-tertiary) !important; /* Changed from background to background-color */
     box-shadow: var(--shadow-md);
 }
 
@@ -140,8 +152,9 @@ h1 i {
     background: var(--bg-tertiary) !important;
 }
 
+/* 5. Fix focus states safely */
 .form-select:focus {
-    background: var(--bg-tertiary) !important;
+    background-color: var(--bg-tertiary) !important; /* Changed from background to background-color */
     border-color: var(--accent-primary) !important;
     box-shadow: 0 0 0 4px rgba(94, 114, 228, 0.2), var(--shadow-md) !important;
     color: var(--text-primary) !important;
@@ -153,6 +166,7 @@ h1 i {
     box-shadow: 0 0 0 4px rgba(94, 114, 228, 0.2), var(--shadow-md) !important;
     color: var(--text-primary) !important;
 }
+
 
 .form-select option {
     background: var(--bg-secondary);
@@ -529,6 +543,10 @@ img.platform-icon:hover {
         width: 100%;
     }
 
+    .controls-card .col-auto.label {         
+        display: none;     
+    }
+
     .controls-card .col-auto {
         display: flex;
         align-items: stretch;
@@ -542,64 +560,47 @@ img.platform-icon:hover {
     .controls-card .col-auto:nth-child(1),
     .controls-card .col-auto:nth-child(2),
     .controls-card .col-auto:nth-child(3),
-    .controls-card .col-auto:nth-child(4) {
+    .controls-card .col-auto:nth-child(4),
+    .controls-card .col-auto:nth-child(5),
+    .controls-card .col-auto:nth-child(6) {
         grid-column: span 1;
-    }
-    
-    /* Mains Only checkbox spans full width and centers */
-    .controls-card .col-auto:nth-child(5) {
-        grid-column: span 2;
-        justify-content: center;
-        padding: 0 1rem;
     }
 
     /* Make Mains Only look like a toggle button on mobile */
-    .controls-card .col-auto:nth-child(5) .form-check {
+    .controls-card .col-auto:nth-child(6) .form-check {
         justify-content: center;
         width: 100%;
         cursor: pointer;
     }
 
-    .controls-card .col-auto:nth-child(5) .form-check-input {
+    .controls-card .col-auto:nth-child(6) .form-check-input {
         display: none;
     }
 
-    .controls-card .col-auto:nth-child(5) .form-check-label {
-        justify-content: center;
+    .controls-card .col-auto:nth-child(6) .form-check-label {
+        justify-content: left;
         text-align: center;
         width: 100%;
         cursor: pointer;
     }
 
-    .controls-card .col-auto:nth-child(5) .form-check:has(input:checked) {
+    .controls-card .col-auto:nth-child(6) .form-check:has(input:checked) {
         background: var(--accent-primary);
         border-color: var(--accent-primary);
         color: white;
     }
 
-    .controls-card .col-auto:nth-child(5) .form-check:has(input:checked) .form-check-label {
+    .controls-card .col-auto:nth-child(6) .form-check:has(input:checked) .form-check-label {
         color: white;
     }
 
-    .controls-card .col-auto:nth-child(5) .form-check:has(input:checked):hover {
+    .controls-card .col-auto:nth-child(6) .form-check:has(input:checked):hover {
         background: var(--accent-secondary);
         border-color: var(--accent-secondary);
     }
-    
-    /* Masters Only checkbox stays in single column */
-    .controls-card .col-auto:nth-child(6) {
-        grid-column: span 1;
-    }
 
     .controls-card .form-label {
-        margin-bottom: 0 !important;
-        white-space: nowrap;
-        font-size: 0.65rem;
-        font-weight: 600;
-        min-width: auto;
-        display: flex;
-        align-items: center;
-        flex-shrink: 0;
+        display: none;
     }
 
     .controls-card .form-select {

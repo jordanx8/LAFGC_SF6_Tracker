@@ -1,3 +1,5 @@
+import PhaseFilter from "./PhaseFilter";
+
 function FilterControls({
   currentMode,
   setCurrentMode,
@@ -6,13 +8,24 @@ function FilterControls({
   characters,
   mainsOnly,
   setMainsOnly,
+  phaseList,
+  currentPhase,
+  setCurrentPhase
 }) {
   return (
     <div className="card controls-card mb-4">
       <div className="card-body">
-        <div className="row g-3 align-items-center justify-content-center">
-          <div className="col-auto">
-            <label htmlFor="mrModeSelect" className="form-label mb-0">MR Mode:</label>
+        <div className="row align-items-center justify-content-center">
+          <div className="col-auto label">
+            <label htmlFor="phaseModeSelect" className="form-label mb-0">Phase:</label>
+          </div>
+          <PhaseFilter
+            currentPhase={currentPhase}
+            setCurrentPhase={setCurrentPhase}
+            phaseList={phaseList}
+          />
+          <div className="col-auto label">
+            <label htmlFor="mrModeSelect" className="form-label mb-0">Mode:</label>
           </div>
           <div className="col-auto">
             <select 
@@ -20,14 +33,11 @@ function FilterControls({
               className="form-select form-select-sm"
               value={currentMode}
               onChange={(e) => setCurrentMode(e.target.value)}
+              data-bs-theme="dark"
             >
-              <option value="current">Current MR</option>
               <option value="highest">Highest MR</option>
+              <option value="current">Current MR</option>
             </select>
-          </div>
-
-          <div className="col-auto">
-            <label htmlFor="characterFilter" className="form-label mb-0">Character:</label>
           </div>
           <div className="col-auto">
             <div className="input-group input-group-sm">
