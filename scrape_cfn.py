@@ -219,6 +219,7 @@ def get_player_ids_to_scrape():
 def main():
     """Main scraping function - loads cookies and scrapes player data"""
     ids = get_player_ids_to_scrape()
+    is_partial_scrape = len(sys.argv) > 1  # True if specific IDs were provided
     print(f"Scraping {len(ids)} player ID(s)")
     
     # Load cookies (required for scraping)
@@ -229,6 +230,19 @@ def main():
         return
     
     print(f"Loaded {len(cookies)} cookies from storage")
+    
+    # Load existing data if doing a partial scrape
+    existing_data = {}
+    output_file = "sf6-tracker/src/data/phase_12.json"
+    if is_partial_scrape and os.path.exists(output_file):
+        try:
+            with open(output_file, "r", encoding="utf-8") as f:
+                file_data = json.load(f)
+                existing_data = file_data.get("players", {})
+            print(f"Loaded existing data for {len(existing_data)} players")
+        except Exception as e:
+            print(f"Warning: Could not load existing data: {e}")
+            print("Will create new file instead")
     
     # Setup headless browser for scraping
     print("\n=== Starting Scraping (Headless Browser) ===")
@@ -323,15 +337,27 @@ def main():
     finally:
         driver.quit()
     
+    # Merge results with existing data if doing partial scrape
+    if is_partial_scrape and existing_data:
+        print(f"\nMerging {len(all_results)} scraped player(s) with existing data...")
+        existing_data.update(all_results)
+        final_results = existing_data
+    else:
+        final_results = all_results
+    
     # Add timestamp to the results
     output_data = {
         "last_updated": datetime.now(ZoneInfo("America/Chicago")).isoformat(),
-        "players": all_results
+        "players": final_results
     }
     
-    with open("sf6-tracker/src/data/phase_12.json", "w", encoding="utf-8") as f:
+    with open(output_file, "w", encoding="utf-8") as f:
         json.dump(output_data, f, indent=2)
-    print("\n✓ Scraping complete! Data saved to phase_12.json")
+    
+    if is_partial_scrape:
+        print(f"\n✓ Scraping complete! Updated {len(all_results)} player(s) in phase_12.json")
+    else:
+        print(f"\n✓ Scraping complete! Data saved to phase_12.json ({len(final_results)} players)")
 
 if __name__ == "__main__":
     main()
