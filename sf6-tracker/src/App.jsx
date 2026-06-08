@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './styles.css';
-import masterRatesData from './master_rates.json';
 import Header from './components/Header';
 import FilterControls from './components/FilterControls';
 import SearchBox from './components/SearchBox';
@@ -13,7 +12,7 @@ function App() {
   const [sortDirection, setSortDirection] = useState(1);
 
   // Custom hooks for data and filtering
-  const { allRows, lastUpdated, totalPlayers, currentMode, setCurrentMode } = usePlayerData(masterRatesData);
+  const { allRows, lastUpdated, totalPlayers, currentMode, setCurrentMode, phaseList, currentPhase, setCurrentPhase } = usePlayerData();
   const {
     filteredRows,
     setFilteredRows,
@@ -69,6 +68,9 @@ function App() {
         characters={characters}
         mainsOnly={mainsOnly}
         setMainsOnly={setMainsOnly}
+        phaseList={phaseList}
+        setCurrentPhase={setCurrentPhase}
+        currentPhase={currentPhase}
       />
 
       <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} />

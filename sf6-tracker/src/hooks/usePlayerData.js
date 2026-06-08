@@ -1,25 +1,92 @@
 import { useState, useEffect } from 'react';
 import { getRankIcon, getLPRankIcon, formatLastUpdated } from '../utils/rankUtils';
 
-export function usePlayerData(masterRatesData) {
+async function getPhases() {
+    try {
+      const files = import.meta.glob('/src/data/phase_*.json');
+
+      return Object.keys(files)
+        .map(file => {
+          const match = file.match(/phase_(\d+)\.json$/);
+          return {
+            num: Number(match[1]),
+            name: `Phase ${match[1]}`
+          };
+        })
+        .sort((a, b) => b.num - a.num)
+        .map(x => x.name);
+
+    } catch (err) {
+        console.error('Error reading directory:', err);
+        return [];
+    }
+}
+
+export function usePlayerData() {
   const [rawData, setRawData] = useState(null);
   const [allRows, setAllRows] = useState([]);
   const [lastUpdated, setLastUpdated] = useState('');
   const [totalPlayers, setTotalPlayers] = useState(0);
   const [currentMode, setCurrentMode] = useState('highest');
+  const [currentPhase, setCurrentPhase] = useState('');
+  const [phaseList, setPhaseList] = useState([]);
 
   // Load data on mount
+  // Load available phases once
   useEffect(() => {
-    const data = masterRatesData;
-    if (data.last_updated && data.players) {
+    async function loadPhases() {
+      const phases = await getPhases();
+
+      setPhaseList(phases);
+
+      if (phases.length > 0) {
+        setCurrentPhase(phases[0]);
+      }
+    }
+
+    loadPhases();
+  }, []);
+
+  // Load data whenever currentPhase changes
+  useEffect(() => {
+    async function loadData() {
+      if (!currentPhase) return;
+
+      if(parseInt(currentPhase.replace("Phase ", ""), 10) < 11){
+        setCurrentMode("current")
+      }
+
+      const files = import.meta.glob('/src/data/phase_*.json');
+
+      const phaseFile =
+        `/src/data/${currentPhase.toLowerCase().replace(/\s+/g, "_")}.json`;
+
+      console.log("Loading:", phaseFile);
+      console.log(Object.keys(files));
+
+      const importer = files[phaseFile];
+
+      if (!importer) {
+        console.error(`Could not find ${phaseFile}`);
+        return;
+      }
+
+      const module = await importer();
+      const data = module.default;
+
       setRawData(data.players);
       setLastUpdated(formatLastUpdated(data.last_updated));
-      setTotalPlayers(Object.keys(data.players).length);
-    } else {
-      setRawData(data);
-      setTotalPlayers(Object.keys(data).length);
+      setTotalPlayers(
+        new Set(
+          Object.values(data.players)
+            .filter(player => player.lp && player.lp.length > 0)
+            .map(player => player.username)
+        ).size
+      );
     }
-  }, [masterRatesData]);
+
+    loadData();
+  }, [currentPhase]);
 
   // Build rows from mode
   useEffect(() => {
@@ -101,14 +168,17 @@ export function usePlayerData(masterRatesData) {
     });
 
     setAllRows(rows);
-  }, [rawData, currentMode]);
+  }, [rawData, currentMode, currentPhase]);
 
   return {
     allRows,
     lastUpdated,
     totalPlayers,
     currentMode,
-    setCurrentMode
+    setCurrentMode,
+    phaseList,
+    currentPhase,
+    setCurrentPhase
   };
 }
 

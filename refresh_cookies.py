@@ -98,7 +98,7 @@ def update_github_secret(secret_name, secret_value):
         secret_response = requests.put(secret_url, headers=headers, json=secret_data)
         secret_response.raise_for_status()
         
-        print(f"Successfully updated GitHub secret: {secret_name}")
+        print(f"Successfully updated GitHub secret.")
         return True
         
     except Exception as e:
@@ -299,8 +299,8 @@ def login(username, password, platform="playstation"):
 
 if __name__ == "__main__":
     # Use environment variables for credentials
-    username = "your_email@example.com"
-    password = "your_password"
+    username = os.getenv('CAPCOM_USERNAME')
+    password = os.getenv('CAPCOM_PASSWORD')
     platform = os.getenv('PLATFORM', 'playstation')
     
     if not username or not password:
