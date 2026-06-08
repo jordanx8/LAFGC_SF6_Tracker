@@ -11,6 +11,11 @@ on:
         required: false
         type: string
         default: ''
+      phase:
+        description: 'Phase to scrape (1-12, "all", or leave empty for latest phase only)'
+        required: false
+        type: string
+        default: ''
 
 permissions:
   contents: write
@@ -53,13 +58,29 @@ jobs:
           CHROMEDRIVER_PATH: /usr/local/bin/chromedriver
         run: |
           echo "Using ChromeDriver at: $CHROMEDRIVER_PATH"
+          
+          # Build command with optional parameters
+          CMD="python scrape_cfn.py"
+          
+          # Add player IDs if provided
           if [ -n "${{ github.event.inputs.player_ids }}" ]; then
             echo "Scraping specific player IDs: ${{ github.event.inputs.player_ids }}"
-            python scrape_cfn.py "${{ github.event.inputs.player_ids }}"
+            CMD="$CMD ${{ github.event.inputs.player_ids }}"
           else
             echo "Scraping all player IDs from player_ids.txt"
-            python scrape_cfn.py
           fi
+          
+          # Add phase parameter if provided
+          if [ -n "${{ github.event.inputs.phase }}" ]; then
+            echo "Scraping phase: ${{ github.event.inputs.phase }}"
+            CMD="$CMD --phase ${{ github.event.inputs.phase }}"
+          else
+            echo "Scraping latest phase only (default)"
+          fi
+          
+          # Execute the command
+          echo "Running: $CMD"
+          $CMD
 
       - name: Configure Git
         run: |
@@ -68,11 +89,11 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git add sf6-tracker/src/data/phase_12.json
+          git add sf6-tracker/src/data/phase_*.json
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Update phase_12.json - $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+            git commit -m "Update CFN data - $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
             git pull --rebase origin main
             git push
           fi

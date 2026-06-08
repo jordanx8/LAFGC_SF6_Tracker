@@ -62,6 +62,44 @@ def open_play_tab(driver, wait, tab_text):
     time.sleep(0.2)
     driver.execute_script("arguments[0].click();", target_tab)
     wait.until(lambda d: "active" in target_tab.get_attribute("class"))
+def select_phase(driver, wait, phase_number):
+    """Select a specific phase from the Phase dropdown"""
+    try:
+        # Phase dropdown = first <dd> inside filter_nav_filter_nav__*
+        dropdown = wait.until(
+            EC.element_to_be_clickable((
+                By.CSS_SELECTOR,
+                "aside.filter_nav_filter_nav__6P1ya dd:nth-of-type(1) select"
+            ))
+        )
+        driver.execute_script("arguments[0].scrollIntoView(true);", dropdown)
+        time.sleep(0.2)
+        dropdown.click()
+        time.sleep(0.2)
+        phase_option = dropdown.find_element(By.CSS_SELECTOR, f"option[value='{phase_number}']")
+        phase_option.click()
+        # Trigger React refresh
+        driver.execute_script(
+            "arguments[0].dispatchEvent(new Event('change', { bubbles: true }));",
+            dropdown
+        )
+        print(f"Phase dropdown set to Phase {phase_number}")
+        
+        # Wait for the page to reload with new data
+        time.sleep(1.5)
+        
+        # Wait for the list to be re-rendered with new values
+        wait.until(
+            EC.presence_of_all_elements_located(
+                (By.CSS_SELECTOR, "div.league_point_inner__iCMYc ul li")
+            )
+        )
+        print(f"Page reloaded with Phase {phase_number} data")
+        
+    except Exception as e:
+        print(f"Failed to switch to Phase {phase_number}:", e)
+        raise
+
 def select_highest_mode(driver, wait):
     """Select 'Highest' mode from the MR dropdown"""
     try:
@@ -195,32 +233,189 @@ def load_player_ids(path="player_ids.txt"):
     with open(path, "r", encoding="utf-8") as f:
         return [line.strip() for line in f if line.strip()]
 
-def get_player_ids_to_scrape():
+def parse_arguments():
     """
-    Get player IDs to scrape from command-line args or file.
-    If command-line argument is provided, use those IDs (comma-separated).
-    Otherwise, load all IDs from player_ids.txt file.
+    Parse command-line arguments for player IDs and phases.
+    
+    Usage:
+        python scrape_cfn.py [player_ids] [--phase PHASE]
+        
+    Args:
+        player_ids: Comma-separated player IDs (optional, defaults to all from file)
+        --phase: Phase number (1-12) or 'all' (optional, defaults to latest phase only)
     
     Returns:
-        list: Player IDs to scrape
+        tuple: (player_ids_list, phases_list)
     """
-    # Check command-line arguments
-    if len(sys.argv) > 1:
-        player_ids_arg = sys.argv[1]
-        ids = [pid.strip() for pid in player_ids_arg.split(',') if pid.strip()]
-        print(f"Using {len(ids)} player ID(s) from command-line argument: {', '.join(ids)}")
-        return ids
+    player_ids = None
+    phases = [12]  # Default to latest phase only
     
-    # Default: load all from file
-    ids = load_player_ids()
-    print(f"Using all {len(ids)} player IDs from player_ids.txt")
-    return ids
+    args = sys.argv[1:]
+    i = 0
+    while i < len(args):
+        if args[i] == '--phase':
+            if i + 1 < len(args):
+                phase_arg = args[i + 1]
+                if phase_arg.lower() == 'all':
+                    phases = list(range(1, 13))  # All phases 1-12
+                else:
+                    try:
+                        phase_num = int(phase_arg)
+                        if 1 <= phase_num <= 12:
+                            phases = [phase_num]
+                        else:
+                            print(f"Warning: Phase {phase_num} out of range (1-12), using default")
+                    except ValueError:
+                        print(f"Warning: Invalid phase '{phase_arg}', using default")
+                i += 2
+            else:
+                print("Warning: --phase requires a value")
+                i += 1
+        else:
+            # Assume it's player IDs
+            if player_ids is None:
+                player_ids = args[i]
+            i += 1
+    
+    # Get player IDs
+    if player_ids:
+        ids = [pid.strip() for pid in player_ids.split(',') if pid.strip()]
+        print(f"Using {len(ids)} player ID(s) from command-line: {', '.join(ids)}")
+    else:
+        ids = load_player_ids()
+        print(f"Using all {len(ids)} player IDs from player_ids.txt")
+    
+    print(f"Scraping phase(s): {', '.join(map(str, phases))}")
+    
+    return ids, phases
+
+def scrape_phase(driver, wait, ids, phase_number, is_partial_scrape):
+    """
+    Scrape data for a specific phase.
+    
+    Args:
+        driver: Selenium WebDriver instance
+        wait: WebDriverWait instance
+        ids: List of player IDs to scrape
+        phase_number: Phase number to scrape
+        is_partial_scrape: Whether this is a partial scrape (specific player IDs)
+    
+    Returns:
+        dict: Scraped player data
+    """
+    output_file = f"sf6-tracker/src/data/phase_{phase_number}.json"
+    
+    # Load existing data if doing a partial scrape
+    existing_data = {}
+    if is_partial_scrape and os.path.exists(output_file):
+        try:
+            with open(output_file, "r", encoding="utf-8") as f:
+                file_data = json.load(f)
+                existing_data = file_data.get("players", {})
+            print(f"Loaded existing data for {len(existing_data)} players from phase_{phase_number}.json")
+        except Exception as e:
+            print(f"Warning: Could not load existing data: {e}")
+            print("Will create new file instead")
+    
+    all_results = {}
+    
+    for pid in ids:
+        print(f"\n--- Processing {pid} (Phase {phase_number}) ---")
+        profile_url = (
+            f"https://www.streetfighter.com/6/buckler/profile/{pid}/play"
+        )
+        driver.get(profile_url)
+        try:
+            wait.until(lambda d: pid in d.current_url)
+        except TimeoutException:
+            print("Profile load failed")
+            continue
+        close_cookie_popup(driver)
+        username = scrape_username(driver, wait)
+        platform_icon = scrape_platform(driver, wait)
+        
+        try:
+            open_play_tab(driver, wait, "league points")
+        except Exception as e:
+            print(f"Cannot open LP tab - cookies likely invalid: {e}")
+            print("\n!!! AUTHENTICATION FAILED !!!")
+            print("Your session cookies are no longer valid.")
+            print("Please run refresh_cookies.py to obtain new cookies.")
+            raise RuntimeError("Session expired - please refresh cookies")
+        
+        # Select the phase if not the default (12)
+        if phase_number != 12:
+            try:
+                select_phase(driver, wait, phase_number)
+            except Exception as e:
+                print(f"Failed to select phase {phase_number}: {e}")
+                continue
+
+        print("Scraping LP per character...")
+        lp_list = scrape_league_points(driver, wait)
+
+        try:
+            open_play_tab(driver, wait, "master rate")
+        except Exception:
+            print("Cannot open MR tab")
+            continue
+        
+        # Select the phase again for MR tab if not default
+        if phase_number != 12:
+            try:
+                select_phase(driver, wait, phase_number)
+            except Exception as e:
+                print(f"Failed to select phase {phase_number} on MR tab: {e}")
+                continue
+        
+        # Scrape CURRENT MR first (before changing dropdown)
+        print("Scraping current MR...")
+        current_mr_list = scrape_master_rate(driver, wait)
+        
+        # Now switch to HIGHEST mode
+        select_highest_mode(driver, wait)
+        
+        # Scrape HIGHEST MR
+        print("Scraping highest MR...")
+        highest_mr_list = scrape_master_rate(driver, wait)
+        
+        all_results[pid] = {
+            "username": username,
+            "platform": platform_icon,
+            "lp": lp_list,
+            "current_mr": current_mr_list,
+            "highest_mr": highest_mr_list
+        }
+    
+    # Merge results with existing data if doing partial scrape
+    if is_partial_scrape and existing_data:
+        print(f"\nMerging {len(all_results)} scraped player(s) with existing data...")
+        existing_data.update(all_results)
+        final_results = existing_data
+    else:
+        final_results = all_results
+    
+    # Add timestamp to the results
+    output_data = {
+        "last_updated": datetime.now(ZoneInfo("America/Chicago")).isoformat(),
+        "players": final_results
+    }
+    
+    with open(output_file, "w", encoding="utf-8") as f:
+        json.dump(output_data, f, indent=2)
+    
+    if is_partial_scrape:
+        print(f"\n✓ Phase {phase_number} complete! Updated {len(all_results)} player(s) in phase_{phase_number}.json")
+    else:
+        print(f"\n✓ Phase {phase_number} complete! Data saved to phase_{phase_number}.json ({len(final_results)} players)")
+    
+    return final_results
 
 def main():
     """Main scraping function - loads cookies and scrapes player data"""
-    ids = get_player_ids_to_scrape()
-    is_partial_scrape = len(sys.argv) > 1  # True if specific IDs were provided
-    print(f"Scraping {len(ids)} player ID(s)")
+    ids, phases = parse_arguments()
+    is_partial_scrape = '--phase' not in ' '.join(sys.argv) and len(sys.argv) > 1  # True if specific IDs were provided without phase
+    print(f"Scraping {len(ids)} player ID(s) across {len(phases)} phase(s)")
     
     # Load cookies (required for scraping)
     cookies = load_cookies()
@@ -230,19 +425,6 @@ def main():
         return
     
     print(f"Loaded {len(cookies)} cookies from storage")
-    
-    # Load existing data if doing a partial scrape
-    existing_data = {}
-    output_file = "sf6-tracker/src/data/phase_12.json"
-    if is_partial_scrape and os.path.exists(output_file):
-        try:
-            with open(output_file, "r", encoding="utf-8") as f:
-                file_data = json.load(f)
-                existing_data = file_data.get("players", {})
-            print(f"Loaded existing data for {len(existing_data)} players")
-        except Exception as e:
-            print(f"Warning: Could not load existing data: {e}")
-            print("Will create new file instead")
     
     # Setup headless browser for scraping
     print("\n=== Starting Scraping (Headless Browser) ===")
@@ -257,7 +439,6 @@ def main():
     
     driver = webdriver.Chrome(service=Service(CHROMEDRIVER_PATH), options=headless_options)
     wait = WebDriverWait(driver, 40)
-    all_results = {}
     
     try:
         # Navigate to the site and restore cookies
@@ -283,81 +464,20 @@ def main():
         time.sleep(1)
         print("Session restored, starting scraping...\n")
         
-        for pid in ids:
-            print(f"\n--- Processing {pid} ---")
-            profile_url = (
-                f"https://www.streetfighter.com/6/buckler/profile/{pid}/play"
-            )
-            driver.get(profile_url)
-            try:
-                wait.until(lambda d: pid in d.current_url)
-            except TimeoutException:
-                print("Profile load failed")
-                continue
-            close_cookie_popup(driver)
-            username = scrape_username(driver, wait)
-            platform_icon = scrape_platform(driver, wait)
-            try:
-                open_play_tab(driver, wait, "league points")
-            except Exception as e:
-                print(f"Cannot open LP tab - cookies likely invalid: {e}")
-                print("\n!!! AUTHENTICATION FAILED !!!")
-                print("Your session cookies are no longer valid.")
-                print("Please run refresh_cookies.py to obtain new cookies.")
-                driver.quit()
-                raise RuntimeError("Session expired - please refresh cookies")
-
-            print("Scraping LP per character...")
-            lp_list = scrape_league_points(driver, wait)
-
-            try:
-                open_play_tab(driver, wait, "master rate")
-            except Exception:
-                print("Cannot open MR tab")
-                continue
-            
-            # Scrape CURRENT MR first (before changing dropdown)
-            print("Scraping current MR...")
-            current_mr_list = scrape_master_rate(driver, wait)
-            
-            # Now switch to HIGHEST mode
-            select_highest_mode(driver, wait)
-            
-            # Scrape HIGHEST MR
-            print("Scraping highest MR...")
-            highest_mr_list = scrape_master_rate(driver, wait)
-            
-            all_results[pid] = {
-                "username": username,
-                "platform": platform_icon,
-                "lp": lp_list,
-                "current_mr": current_mr_list,
-                "highest_mr": highest_mr_list
-            }
+        # Scrape each phase
+        for phase in phases:
+            print(f"\n{'='*60}")
+            print(f"SCRAPING PHASE {phase}")
+            print(f"{'='*60}")
+            scrape_phase(driver, wait, ids, phase, is_partial_scrape)
+        
+        print(f"\n{'='*60}")
+        print(f"✓ ALL SCRAPING COMPLETE!")
+        print(f"Scraped {len(ids)} player(s) across {len(phases)} phase(s)")
+        print(f"{'='*60}")
+        
     finally:
         driver.quit()
-    
-    # Merge results with existing data if doing partial scrape
-    if is_partial_scrape and existing_data:
-        print(f"\nMerging {len(all_results)} scraped player(s) with existing data...")
-        existing_data.update(all_results)
-        final_results = existing_data
-    else:
-        final_results = all_results
-    
-    # Add timestamp to the results
-    output_data = {
-        "last_updated": datetime.now(ZoneInfo("America/Chicago")).isoformat(),
-        "players": final_results
-    }
-    
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(output_data, f, indent=2)
-    
-    if is_partial_scrape:
-        print(f"\n✓ Scraping complete! Updated {len(all_results)} player(s) in phase_12.json")
-    else:
-        print(f"\n✓ Scraping complete! Data saved to phase_12.json ({len(final_results)} players)")
 
 if __name__ == "__main__":
     main()
