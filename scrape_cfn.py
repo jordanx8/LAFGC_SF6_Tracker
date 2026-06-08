@@ -1,6 +1,7 @@
 import time
 import json
 import os
+import sys
 from datetime import datetime
 from zoneinfo import ZoneInfo
 from selenium import webdriver
@@ -193,10 +194,32 @@ def load_player_ids(path="player_ids.txt"):
     """Load player IDs from a text file"""
     with open(path, "r", encoding="utf-8") as f:
         return [line.strip() for line in f if line.strip()]
+
+def get_player_ids_to_scrape():
+    """
+    Get player IDs to scrape from command-line args or file.
+    If command-line argument is provided, use those IDs (comma-separated).
+    Otherwise, load all IDs from player_ids.txt file.
+    
+    Returns:
+        list: Player IDs to scrape
+    """
+    # Check command-line arguments
+    if len(sys.argv) > 1:
+        player_ids_arg = sys.argv[1]
+        ids = [pid.strip() for pid in player_ids_arg.split(',') if pid.strip()]
+        print(f"Using {len(ids)} player ID(s) from command-line argument: {', '.join(ids)}")
+        return ids
+    
+    # Default: load all from file
+    ids = load_player_ids()
+    print(f"Using all {len(ids)} player IDs from player_ids.txt")
+    return ids
+
 def main():
     """Main scraping function - loads cookies and scrapes player data"""
-    ids = load_player_ids()
-    print(f"Loaded {len(ids)} player IDs")
+    ids = get_player_ids_to_scrape()
+    print(f"Scraping {len(ids)} player ID(s)")
     
     # Load cookies (required for scraping)
     cookies = load_cookies()

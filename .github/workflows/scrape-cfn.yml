@@ -5,6 +5,12 @@ on:
     # Run every 12 hours (at midnight and noon UTC)
     - cron: '0 0,12 * * *'
   workflow_dispatch: # Allow manual trigger
+    inputs:
+      player_ids:
+        description: 'Player IDs to scrape (comma-separated, leave empty for all)'
+        required: false
+        type: string
+        default: ''
 
 permissions:
   contents: write
@@ -47,7 +53,13 @@ jobs:
           CHROMEDRIVER_PATH: /usr/local/bin/chromedriver
         run: |
           echo "Using ChromeDriver at: $CHROMEDRIVER_PATH"
-          python scrape_cfn.py
+          if [ -n "${{ github.event.inputs.player_ids }}" ]; then
+            echo "Scraping specific player IDs: ${{ github.event.inputs.player_ids }}"
+            python scrape_cfn.py "${{ github.event.inputs.player_ids }}"
+          else
+            echo "Scraping all player IDs from player_ids.txt"
+            python scrape_cfn.py
+          fi
 
       - name: Configure Git
         run: |
