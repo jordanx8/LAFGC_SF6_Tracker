@@ -236,8 +236,8 @@ def main():
                 if 'sameSite' in cookie and cookie['sameSite'] not in ['Strict', 'Lax', 'None']:
                     cookie['sameSite'] = 'Lax'
                 driver.add_cookie(cookie)
-            except Exception as e:
-                print(f"Warning: Could not add cookie {cookie.get('name', 'unknown')}: {e}")
+            except Exception:
+                print("Warning: Could not add one cookie entry; skipping.")
         
         print(f"Restored {len(cookies)} cookies")
         
