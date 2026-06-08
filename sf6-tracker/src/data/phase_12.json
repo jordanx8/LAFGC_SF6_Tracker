@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-08T00:06:23.558628-05:00",
+  "last_updated": "2026-06-08T11:26:11.090755-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -7,7 +7,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 346961
+          "lp": 347551
         },
         {
           "name": "ED",
@@ -21,7 +21,7 @@
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1624
+          "mr": 1645
         },
         {
           "name": "INGRID",
@@ -49,7 +49,7 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 325578
+          "lp": 325789
         },
         {
           "name": "A.K.I.",
@@ -57,7 +57,7 @@
         },
         {
           "name": "SAGAT",
-          "lp": 37547
+          "lp": 38137
         },
         {
           "name": "ALEX",
@@ -70,16 +70,20 @@
         {
           "name": "RYU",
           "lp": 27439
+        },
+        {
+          "name": "INGRID",
+          "lp": 19000
         }
       ],
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1718
+          "mr": 1733
         },
         {
           "name": "SAGAT",
-          "mr": 1570
+          "mr": 1568
         },
         {
           "name": "ALEX",
@@ -598,7 +602,16 @@
           "mr": 1514
         }
       ],
-      "highest_mr": []
+      "highest_mr": [
+        {
+          "name": "CAMMY",
+          "mr": 1708
+        },
+        {
+          "name": "E. HONDA",
+          "mr": 1514
+        }
+      ]
     },
     "1724885103": {
       "username": "CHNK | Nate",
@@ -849,7 +862,7 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 295049
+          "lp": 295839
         },
         {
           "name": "MANON",
@@ -883,7 +896,7 @@
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1662
+          "mr": 1710
         },
         {
           "name": "MAI",
