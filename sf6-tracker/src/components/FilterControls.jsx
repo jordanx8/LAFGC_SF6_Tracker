@@ -35,7 +35,7 @@ function FilterControls({
               onChange={(e) => setCurrentMode(e.target.value)}
               data-bs-theme="dark"
             >
-              <option value="highest">Highest MR</option>
+              <option value="highest" disabled={parseInt(currentPhase.replace("Phase ", ""), 10) < 11}>Highest MR</option>
               <option value="current">Current MR</option>
             </select>
           </div>
