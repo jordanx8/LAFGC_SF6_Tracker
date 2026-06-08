@@ -245,7 +245,7 @@ def parse_arguments():
         --phase: Phase number (1-12) or 'all' (optional, defaults to latest phase only)
     
     Returns:
-        tuple: (player_ids_list, phases_list)
+        tuple: (player_ids_list, phases_list, is_partial_scrape)
     """
     player_ids = None
     phases = [12]  # Default to latest phase only
@@ -280,14 +280,16 @@ def parse_arguments():
     # Get player IDs
     if player_ids:
         ids = [pid.strip() for pid in player_ids.split(',') if pid.strip()]
+        is_partial_scrape = True
         print(f"Using {len(ids)} player ID(s) from command-line: {', '.join(ids)}")
     else:
         ids = load_player_ids()
+        is_partial_scrape = False
         print(f"Using all {len(ids)} player IDs from player_ids.txt")
     
     print(f"Scraping phase(s): {', '.join(map(str, phases))}")
     
-    return ids, phases
+    return ids, phases, is_partial_scrape
 
 def scrape_phase(driver, wait, ids, phase_number, is_partial_scrape):
     """
@@ -413,8 +415,7 @@ def scrape_phase(driver, wait, ids, phase_number, is_partial_scrape):
 
 def main():
     """Main scraping function - loads cookies and scrapes player data"""
-    ids, phases = parse_arguments()
-    is_partial_scrape = '--phase' not in ' '.join(sys.argv) and len(sys.argv) > 1  # True if specific IDs were provided without phase
+    ids, phases, is_partial_scrape = parse_arguments()
     print(f"Scraping {len(ids)} player ID(s) across {len(phases)} phase(s)")
     
     # Load cookies (required for scraping)
