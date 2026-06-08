@@ -52,10 +52,6 @@ export function usePlayerData() {
     async function loadData() {
       if (!currentPhase) return;
 
-      if(parseInt(currentPhase.replace("Phase ", ""), 10) < 11){
-        setCurrentMode("current")
-      }
-
       const files = import.meta.glob('/src/data/phase_*.json');
 
       const phaseFile =
