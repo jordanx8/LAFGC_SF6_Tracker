@@ -1,0 +1,54 @@
+{
+  "last_updated": "2026-06-07T20:17:08.324833-05:00",
+  "players": {
+    "4000629934": {
+      "username": "FroggyAirplane",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
+      "lp": [
+        {
+          "name": "AKUMA",
+          "lp": 109782
+        },
+        {
+          "name": "LUKE",
+          "lp": 25043
+        },
+        {
+          "name": "JP",
+          "lp": 25039
+        },
+        {
+          "name": "M. BISON",
+          "lp": 25015
+        },
+        {
+          "name": "TERRY",
+          "lp": 25013
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "AKUMA",
+          "mr": 1536
+        },
+        {
+          "name": "LUKE",
+          "mr": 1500
+        },
+        {
+          "name": "JP",
+          "mr": 1500
+        },
+        {
+          "name": "M. BISON",
+          "mr": 1500
+        },
+        {
+          "name": "TERRY",
+          "mr": 1500
+        }
+      ],
+      "highest_mr": []
+    }
+  }
+}

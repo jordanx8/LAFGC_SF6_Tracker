@@ -1,0 +1,30 @@
+{
+  "last_updated": "2026-06-07T20:16:50.476080-05:00",
+  "players": {
+    "4000629934": {
+      "username": "FroggyAirplane",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
+      "lp": [
+        {
+          "name": "AKUMA",
+          "lp": 73342
+        },
+        {
+          "name": "TERRY",
+          "lp": 22786
+        },
+        {
+          "name": "LUKE",
+          "lp": 16820
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "AKUMA",
+          "mr": 1380
+        }
+      ],
+      "highest_mr": []
+    }
+  }
+}
