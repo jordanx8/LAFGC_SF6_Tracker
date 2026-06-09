@@ -2,6 +2,8 @@
 
 A web application that tracks Street Fighter 6 player statistics from the Capcom Fighters Network (CFN) for Louisiana's playerbase. Automatically scrapes and displays League Points (LP) and Master Rate (MR) data across all competitive phases.
 
+See it live here: https://jordanx8.github.io/LAFGC_SF6_Tracker/
+
 ## Features
 
 - Track LP and MR for all characters across multiple players
