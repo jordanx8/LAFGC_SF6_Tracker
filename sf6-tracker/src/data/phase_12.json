@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-09T08:53:58.484410-05:00",
+  "last_updated": "2026-06-09T10:06:56.371124-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -35,15 +35,11 @@
       "highest_mr": [
         {
           "name": "AKUMA",
-          "mr": 1652
-        },
-        {
-          "name": "INGRID",
-          "mr": 1500
+          "mr": 1702
         },
         {
           "name": "ED",
-          "mr": 1441
+          "mr": 1480
         }
       ]
     },
