@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-07T22:50:26.732802-05:00",
+  "last_updated": "2026-06-09T08:42:22.042388-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -1099,6 +1099,13 @@
           "lp": 16491
         }
       ],
+      "current_mr": [],
+      "highest_mr": []
+    },
+    "3895945280": {
+      "username": "FroggyAirplane3",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "lp": [],
       "current_mr": [],
       "highest_mr": []
     }
