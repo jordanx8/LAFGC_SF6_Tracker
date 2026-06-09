@@ -75,6 +75,9 @@ git push origin add-player-yourname
 **Option B: Open an Issue**
 - Create a GitHub issue with your Player ID and display name
 - A maintainer will add you
+- 
+**Option C: Just Contact Me**
+- Send me a message (@FroggyAirplane) and I'll add you.
 
 ## Manual Scraping
 
