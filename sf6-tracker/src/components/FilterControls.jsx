@@ -66,7 +66,7 @@ function FilterControls({
                 }}
                 classNamePrefix="rs"
                 className="react-select-bootstrap"
-                placeholder="All characters"
+                placeholder={currentCharacterFilter == '' ? "All Characters" : currentCharacterFilter}
                 isClearable
                 isSearchable
               />
