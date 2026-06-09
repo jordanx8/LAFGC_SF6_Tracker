@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - sf6-tracker/src/data/players.json
+  workflow_dispatch:
 permissions:
   contents: write
   actions: write
@@ -70,7 +71,7 @@ jobs:
         run: |
           IDS="${{ steps.missing_ids.outputs.missing_ids }}"
           echo "Scraping only missing IDs: $IDS"
-          CMD="python scrape_cfn.py $IDS --phase 'all'"
+          CMD="python scrape_cfn.py $IDS --phase all"
           echo "Running: $CMD"
           $CMD
       - name: Configure Git
