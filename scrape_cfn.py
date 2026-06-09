@@ -398,10 +398,41 @@ def scrape_phase(driver, wait, ids, phase_number):
             "highest_mr": highest_mr_list
         }
     
-    # Merge results with existing data if doing partial scrape
+    # Smart merge: only update fields that have data, preserve existing data otherwise
     if existing_data:
         print(f"\nMerging {len(all_results)} scraped player(s) with existing data...")
-        existing_data.update(all_results)
+        for pid, new_data in all_results.items():
+            if pid in existing_data:
+                # Player exists - merge intelligently
+                existing_player = existing_data[pid]
+                merged_player = {}
+                
+                # Update username and platform if present
+                merged_player["username"] = new_data.get("username") or existing_player.get("username")
+                merged_player["platform"] = new_data.get("platform") or existing_player.get("platform")
+                
+                # For data arrays, only update if new data is not empty
+                # Otherwise keep existing data to prevent data loss
+                merged_player["lp"] = new_data.get("lp") if new_data.get("lp") else existing_player.get("lp", [])
+                merged_player["current_mr"] = new_data.get("current_mr") if new_data.get("current_mr") else existing_player.get("current_mr", [])
+                merged_player["highest_mr"] = new_data.get("highest_mr") if new_data.get("highest_mr") else existing_player.get("highest_mr", [])
+                
+                existing_data[pid] = merged_player
+                
+                # Log if we preserved any data
+                preserved = []
+                if not new_data.get("lp") and existing_player.get("lp"):
+                    preserved.append("lp")
+                if not new_data.get("current_mr") and existing_player.get("current_mr"):
+                    preserved.append("current_mr")
+                if not new_data.get("highest_mr") and existing_player.get("highest_mr"):
+                    preserved.append("highest_mr")
+                if preserved:
+                    print(f"  ⚠️  {pid}: Preserved existing data for {', '.join(preserved)} (new scrape was empty)")
+            else:
+                # New player - add directly
+                existing_data[pid] = new_data
+        
         final_results = existing_data
     else:
         final_results = all_results
