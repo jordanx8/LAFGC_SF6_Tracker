@@ -72,6 +72,7 @@ function App() {
         setCurrentPhase={setCurrentPhase}
         currentPhase={currentPhase}
       />
+      {parseInt(currentPhase.replace("Phase ", ""), 10) >= 11 ? <></> : <div className='player-id unavailable'>*Highest MR data unavailable pre-Phase 11</div>}
 
       <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 

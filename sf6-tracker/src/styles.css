@@ -494,6 +494,11 @@ img.platform-icon:hover {
     color: var(--accent-tertiary) !important;
 }
 
+.unavailable{
+    margin-top: 0 !important;
+    margin: 0;
+}
+
 /* Player ID Styles */
 .player-id {
     font-size: 0.75rem;
