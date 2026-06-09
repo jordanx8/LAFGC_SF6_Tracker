@@ -416,7 +416,48 @@ h1 i {
     border-left: 3px solid transparent;
 }
 
-.table tbody tr:hover {
+/* Medal Podium Styling for Top 3 Places */
+.table tbody tr.gold-place {
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.05) 100%) !important;
+    border-left: 4px solid #FFD700 !important;
+    --bs-table-hover-bg: transparent !important;
+}
+
+.table-hover .table tbody tr.gold-place:hover,
+.table tbody tr.gold-place:hover {
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.3) 0%, rgba(255, 215, 0, 0.15) 100%) !important;
+    box-shadow: inset 4px 0 0 #FFD700, var(--shadow-md), 0 0 25px rgba(255, 215, 0, 0.5) !important;
+    transform: translateX(4px);
+}
+
+.table tbody tr.silver-place {
+    background: linear-gradient(90deg, rgba(192, 192, 192, 0.15) 0%, rgba(192, 192, 192, 0.05) 100%) !important;
+    border-left: 4px solid #C0C0C0 !important;
+    --bs-table-hover-bg: transparent !important;
+}
+
+.table-hover .table tbody tr.silver-place:hover,
+.table tbody tr.silver-place:hover {
+    background: linear-gradient(90deg, rgba(192, 192, 192, 0.3) 0%, rgba(192, 192, 192, 0.15) 100%) !important;
+    box-shadow: inset 4px 0 0 #C0C0C0, var(--shadow-md), 0 0 25px rgba(192, 192, 192, 0.5) !important;
+    transform: translateX(4px);
+}
+
+.table tbody tr.bronze-place {
+    background: linear-gradient(90deg, rgba(205, 127, 50, 0.15) 0%, rgba(205, 127, 50, 0.05) 100%) !important;
+    border-left: 4px solid #CD7F32 !important;
+    --bs-table-hover-bg: transparent !important;
+}
+
+.table-hover .table tbody tr.bronze-place:hover,
+.table tbody tr.bronze-place:hover {
+    background: linear-gradient(90deg, rgba(205, 127, 50, 0.3) 0%, rgba(205, 127, 50, 0.15) 100%) !important;
+    box-shadow: inset 4px 0 0 #CD7F32, var(--shadow-md), 0 0 25px rgba(205, 127, 50, 0.5) !important;
+    transform: translateX(4px);
+}
+
+/* General table row hover - applies to non-medal rows */
+.table tbody tr:not(.gold-place):not(.silver-place):not(.bronze-place):hover {
     background: linear-gradient(90deg, var(--bg-hover) 0%, var(--bg-tertiary) 100%) !important;
     transform: translateX(4px);
     box-shadow: inset 3px 0 0 var(--accent-primary), var(--shadow-md);

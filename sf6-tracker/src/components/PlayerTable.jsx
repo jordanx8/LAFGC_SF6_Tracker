@@ -74,8 +74,15 @@ function PlayerTable({ filteredRows, handleCharacterImageClick, handleSort, setS
                 </tr>
               </thead>
               <tbody>
-                {currentRows.map((row, index) => (
-                  <tr key={`${row.cfnUsername}-${row.character}-${index}`}>
+                {currentRows.map((row, index) => {
+                  const globalIndex = startIndex + index + 1;
+                  let medalClass = '';
+                  if (globalIndex === 1) medalClass = 'gold-place';
+                  else if (globalIndex === 2) medalClass = 'silver-place';
+                  else if (globalIndex === 3) medalClass = 'bronze-place';
+                  
+                  return (
+                  <tr key={`${row.cfnUsername}-${row.character}-${index}`} className={medalClass}>
                     <td>{startIndex + index + 1}</td>
                     <td>
                       <div>
@@ -130,7 +137,8 @@ function PlayerTable({ filteredRows, handleCharacterImageClick, handleSort, setS
                       <img className="rank-icon" src={row.rank} alt="Rank" />
                     </td>
                   </tr>
-                ))}
+                  );
+                })}
               </tbody>
             </table>
           </div>
