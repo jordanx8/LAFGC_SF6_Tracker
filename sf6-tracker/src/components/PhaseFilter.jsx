@@ -1,22 +1,28 @@
+import React from 'react';
+import Select from 'react-select';
+
 function PhaseFilter({
     currentPhase,
     setCurrentPhase,
     phaseList,
   }) {
+    const phaseOptions = phaseList.map(phase => ({
+      value: phase,
+      label: phase
+    }));
+
+    const selectedOption = phaseOptions.find(option => option.value === currentPhase);
+
     return (
         <div className="col-auto">
-        <select 
-          id="phaseModeSelect" 
-          className="form-select form-select-sm"
-          value={currentPhase}
-          onChange={(e) => setCurrentPhase(e.target.value)}
-        >
-            {phaseList.map((phase) => (
-            <option key={phase} value={phase}>
-                {phase}
-            </option>
-            ))}
-        </select>
+        <Select
+          options={phaseOptions}
+          value={selectedOption}
+          onChange={(selected) => setCurrentPhase(selected.value)}
+          classNamePrefix="rs"
+          className="react-select-bootstrap"
+          isSearchable={false}
+        />
       </div>
     );
 }
