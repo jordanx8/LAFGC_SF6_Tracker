@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-07T22:09:45.625874-05:00",
+  "last_updated": "2026-06-09T08:44:44.326495-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -1725,6 +1725,13 @@
     },
     "2725791400": {
       "username": "Bezy Boi",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "lp": [],
+      "current_mr": [],
+      "highest_mr": []
+    },
+    "3895945280": {
+      "username": "FroggyAirplane3",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [],
       "current_mr": [],
