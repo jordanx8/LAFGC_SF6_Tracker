@@ -1,9 +1,10 @@
 name: Import New Players
 on:
   push:
+    branches:
+      - main
     paths:
       - sf6-tracker/src/data/players.json
-  workflow_dispatch:
 permissions:
   contents: write
   actions: write
