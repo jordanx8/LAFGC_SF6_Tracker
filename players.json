@@ -1,258 +1,67 @@
 [
     {
-      "name": "FroggyAirplane",
-      "id": "4000629934"
-    },
-    {
-      "name": "ReTr0",
-      "id": "4092075827"
-    },
-    {
-      "name": "Jshyne",
-      "id": "2676582290"
-    },
-    {
-      "name": "Kingofkod",
-      "id": "1675132174"
-    },
-    {
-      "name": "Lavango",
-      "id": "1248703763"
-    },
-    {
-      "name": "Mook",
-      "id": "3065733973"
-    },
-    {
-      "name": "BasicJay",
-      "id": "2395653529"
-    },
-    {
-      "name": "darkking1525",
-      "id": "1012857293"
-    },
-    {
-      "name": "Brother_Joshua",
-      "id": "2229690710"
-    },
-    {
-      "name": "Toi",
-      "id": ["2988887061", "1047166480"]
-    },
-    {
-      "name": "jojoqv",
-      "id": "2033365007"
-    },
-    {
-      "name": "Fahfos",
-      "id": "3712192677"
-    },
-    {
-      "name": "Tru.",
-      "id": "1080080227"
-    },
-    {
-      "name": "Mechaniczx",
-      "id": "3786196280"
-    },
-    {
-      "name": "UltraGiga Mason",
-      "id": "2519113852"
-    },
-    {
-      "name": "Nick",
-      "id": "1908970362"
-    },
-    {
-      "name": "Lright",
-      "id": "3627616704"
-    },
-    {
-      "name": "Co-op",
-      "id": ["1307973614", "1677027110"]
-    },
-    {
-      "name": "CHNK | Nate",
-      "id": "1724885103"
-    },
-    {
-      "name": "glumbomaxxing",
-      "id": "2758058725"
-    },
-    {
-      "name": "Tahini Sauce",
-      "id": "1537530134"
-    },
-    {
-      "name": "GOL_Zaith/TTV",
-      "id": "3787645791"
-    },
-    {
-      "name": "NovaSpec",
-      "id": "3266417337"
-    },
-    {
-      "name": "Jaga",
-      "id": "3439255755"
-    },
-    {
-      "name": "Drunk Monkey",
-      "id": "3392874508"
-    },
-    {
-      "name": "KingOfGames",
-      "id": "1720709587"
-    },
-    {
-      "name": "_XP_",
-      "id": "2467743369"
-    },
-    {
-      "name": "KiritoPerouse",
-      "id": "1712303549"
-    },
-    {
-      "name": "EnvyYungin",
-      "id": "2173875262"
-    },
-    {
-      "name": "VancyPantz",
-      "id": "2037352743"
-    },
-    {
-      "name": "GuyInGreen",
-      "id": "2548016858"
-    },
-    {
-      "name": "KenCritical",
-      "id": "2553623110"
-    },
-    {
-      "name": "AverageCho",
-      "id": "3149130612"
-    },
-    {
-      "name": "PoyoPower",
-      "id": "4001485179"
-    },
-    {
-      "name": "RaeveinFG",
-      "id": "1767029401"
-    },
-    {
-      "name": "Todaro",
-      "id": "3641908445"
-    },
-    {
-      "name": "Gnull",
-      "id": "1073135287"
-    },
-    {
-      "name": "BlackEndGalaxy",
-      "id": "3959791121"
-    },
-    {
-      "name": "Nibareaux",
-      "id": "1936427424"
-    },
-    {
-      "name": "Kneato",
-      "id": "3114910537"
-    },
-    {
-      "name": "E Bunny",
-      "id": "2238937371"
-    },
-    {
-      "name": "LiquidSwords",
-      "id": "1456645616"
-    },
-    {
-      "name": "GOL poboyslim",
-      "id": "2171500907"
-    },
-    {
-      "name": "thanhjir0",
-      "id": "3687657145"
-    },
-    {
-      "name": "RONDARIUS",
-      "id": "2323750013"
-    },
-    {
-      "name": "Ms. Curlz",
-      "id": "1476407231"
-    },
-    {
-      "name": "Smoking_Hot_BBQ",
-      "id": "2171084179"
-    },
-    {
-      "name": "TY992",
-      "id": "4094876516"
-    },
-    {
-      "name": "BlazerFury",
-      "id": "3410040044"
-    },
-    {
-      "name": "SamStrafe",
-      "id": "4137492229"
-    },
-    {
-      "name": "LxRuthLesSxL",
-      "id": "3314423216"
-    },
-    {
-      "name": "KingDawkness",
-      "id": "1151264136"
-    },
-    {
-      "name": "LilUziBert",
-      "id": "3882363065"
-    },
-    {
-      "name": "yungflipflop",
-      "id": "2105179667"
-    },
-    {
-      "name": "NicoFasho",
-      "id": "4107685834"
-    },
-    {
-      "name": "RxG YoungCam",
-      "id": "1179583394"
-    },
-    {
-      "name": "Crimson Brave",
-      "id": "1111640830"
-    },
-    {
-      "name": "SpaceCatXL",
-      "id": "2733679088"
-    },
-    {
-      "name": "cweam",
-      "id": "3255053117"
-    },
-    {
-      "name": "Noremak: Bound",
-      "id": "2949851312"
-    },
-    {
-      "name": "Orion318",
-      "id": "3233643751"
-    },
-    {
-      "name": "NoizyChild",
-      "id":[ "2989535302", "2904944987"]
-    },
-    {
-      "name": "JoeyQu35t",
-      "id": "1706932787"
-    },
-    {
-      "name": "Bezy Boi",
-      "id": "2725791400"
-    }
-  ]
+    {"name": "FroggyAirplane", "id": "4000629934"},
+    {"name": "ReTr0", "id": "4092075827"},
+    {"name": "Jshyne", "id": "2676582290"},
+    {"name": "Kingofkod", "id": "1675132174"},
+    {"name": "Lavango", "id": "1248703763"},
+    {"name": "Mook", "id": "3065733973"},
+    {"name": "BasicJay", "id": "2395653529"},
+    {"name": "darkking1525", "id": "1012857293"},
+    {"name": "Brother_Joshua", "id": "2229690710"},
+    {"name": "Toi", "id": ["2988887061", "1047166480"]},
+    {"name": "jojoqv", "id": "2033365007"},
+    {"name": "Fahfos", "id": "3712192677"},
+    {"name": "Tru.", "id": "1080080227"},
+    {"name": "Mechaniczx", "id": "3786196280"},
+    {"name": "UltraGiga Mason", "id": "2519113852"},
+    {"name": "Nick", "id": "1908970362"},
+    {"name": "Lright", "id": "3627616704"},
+    {"name": "Co-op", "id": ["1307973614", "1677027110"]},
+    {"name": "CHNK | Nate", "id": "1724885103"},
+    {"name": "glumbomaxxing", "id": "2758058725"},
+    {"name": "Tahini Sauce", "id": "1537530134"},
+    {"name": "GOL_Zaith/TTV", "id": "3787645791"},
+    {"name": "NovaSpec", "id": "3266417337"},
+    {"name": "Jaga", "id": "3439255755"},
+    {"name": "Drunk Monkey", "id": "3392874508"},
+    {"name": "KingOfGames", "id": "1720709587"},
+    {"name": "_XP_", "id": "2467743369"},
+    {"name": "KiritoPerouse", "id": "1712303549"},
+    {"name": "EnvyYungin", "id": "2173875262"},
+    {"name": "VancyPantz", "id": "2037352743"},
+    {"name": "GuyInGreen", "id": "2548016858"},
+    {"name": "KenCritical", "id": "2553623110"},
+    {"name": "AverageCho", "id": "3149130612"},
+    {"name": "PoyoPower", "id": "4001485179"},
+    {"name": "RaeveinFG", "id": "1767029401"},
+    {"name": "Todaro", "id": "3641908445"},
+    {"name": "Gnull", "id": "1073135287"},
+    {"name": "BlackEndGalaxy", "id": "3959791121"},
+    {"name": "Nibareaux", "id": "1936427424"},
+    {"name": "Kneato", "id": "3114910537"},
+    {"name": "E Bunny", "id": "2238937371"},
+    {"name": "LiquidSwords", "id": "1456645616"},
+    {"name": "GOL poboyslim", "id": "2171500907"},
+    {"name": "thanhjir0", "id": "3687657145"},
+    {"name": "RONDARIUS", "id": "2323750013"},
+    {"name": "Ms. Curlz", "id": "1476407231"},
+    {"name": "Smoking_Hot_BBQ", "id": "2171084179"},
+    {"name": "TY992", "id": "4094876516"},
+    {"name": "BlazerFury", "id": "3410040044"},
+    {"name": "SamStrafe", "id": "4137492229"},
+    {"name": "LxRuthLesSxL", "id": "3314423216"},
+    {"name": "KingDawkness", "id": "1151264136"},
+    {"name": "LilUziBert", "id": "3882363065"},
+    {"name": "yungflipflop", "id": "2105179667"},
+    {"name": "NicoFasho", "id": "4107685834"},
+    {"name": "RxG YoungCam", "id": "1179583394"},
+    {"name": "Crimson Brave", "id": "1111640830"},
+    {"name": "SpaceCatXL", "id": "2733679088"},
+    {"name": "cweam", "id": "3255053117"},
+    {"name": "Noremak: Bound", "id": "2949851312"},
+    {"name": "Orion318", "id": "3233643751"},
+    {"name": "NoizyChild", "id": ["2989535302", "2904944987"]},
+    {"name": "JoeyQu35t", "id": "1706932787"},
+    {"name": "Bezy Boi", "id": "2725791400"}
+]
