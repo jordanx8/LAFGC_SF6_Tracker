@@ -415,7 +415,53 @@ def scrape_phase(driver, wait, ids, phase_number):
                 # Otherwise keep existing data to prevent data loss
                 merged_player["lp"] = new_data.get("lp") if new_data.get("lp") else existing_player.get("lp", [])
                 merged_player["current_mr"] = new_data.get("current_mr") if new_data.get("current_mr") else existing_player.get("current_mr", [])
-                merged_player["highest_mr"] = new_data.get("highest_mr") if new_data.get("highest_mr") else existing_player.get("highest_mr", [])
+                
+                # Special handling for highest_mr: ensure values never decrease
+                new_highest = new_data.get("highest_mr", [])
+                existing_highest = existing_player.get("highest_mr", [])
+                
+                if new_highest and existing_highest:
+                    # Both exist - merge by taking maximum MR for each character
+                    merged_highest = {}
+                    
+                    # Add all existing highest MR values
+                    for char_data in existing_highest:
+                        char_name = char_data.get("name")
+                        if char_name:
+                            merged_highest[char_name] = char_data.get("mr", 0)
+                    
+                    # Update with new values only if they're higher
+                    updated_chars = []
+                    for char_data in new_highest:
+                        char_name = char_data.get("name")
+                        new_mr = char_data.get("mr", 0)
+                        if char_name:
+                            existing_mr = merged_highest.get(char_name, 0)
+                            if new_mr > existing_mr:
+                                merged_highest[char_name] = new_mr
+                                updated_chars.append(f"{char_name}({existing_mr}→{new_mr})")
+                            elif new_mr < existing_mr:
+                                # Keep existing higher value
+                                pass
+                            else:
+                                # Same value, update anyway to ensure it's in the list
+                                merged_highest[char_name] = new_mr
+                    
+                    # Convert back to list format
+                    merged_player["highest_mr"] = [
+                        {"name": name, "mr": mr}
+                        for name, mr in merged_highest.items()
+                    ]
+                    
+                    if updated_chars:
+                        print(f"  📈 {pid}: Updated highest_mr for {', '.join(updated_chars)}")
+                    
+                elif new_highest:
+                    # Only new data exists
+                    merged_player["highest_mr"] = new_highest
+                else:
+                    # Only existing data exists or both empty
+                    merged_player["highest_mr"] = existing_highest
                 
                 existing_data[pid] = merged_player
                 
@@ -425,7 +471,7 @@ def scrape_phase(driver, wait, ids, phase_number):
                     preserved.append("lp")
                 if not new_data.get("current_mr") and existing_player.get("current_mr"):
                     preserved.append("current_mr")
-                if not new_data.get("highest_mr") and existing_player.get("highest_mr"):
+                if not new_highest and existing_highest:
                     preserved.append("highest_mr")
                 if preserved:
                     print(f"  ⚠️  {pid}: Preserved existing data for {', '.join(preserved)} (new scrape was empty)")
