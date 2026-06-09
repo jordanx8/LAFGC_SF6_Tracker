@@ -1,0 +1,91 @@
+name: Import New Players
+on:
+  push:
+    paths:
+      - sf6-tracker/src/data/players.json
+permissions:
+  contents: write
+  actions: write
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+      - name: Check for missing player IDs
+        id: missing_ids
+        run: |
+          echo "Checking players.json for IDs not in phase_12.json"
+          PLAYERS_FILE="sf6-tracker/src/data/players.json"
+          PHASE_FILE="sf6-tracker/src/data/phase_12.json"
+          PLAYER_IDS=$(jq -r '
+            map(
+              if (.id | type == "array") then .id[] else .id end
+            ) | .[]' "$PLAYERS_FILE")
+          PHASE_IDS=$(jq -r '.players | keys[]' "$PHASE_FILE")
+          echo "$PHASE_IDS" > phase_ids.txt
+          MISSING=""
+          for ID in $PLAYER_IDS; do
+            if ! grep -q "^$ID$" phase_ids.txt; then
+              echo "Missing ID: $ID"
+              MISSING="$MISSING $ID"
+            fi
+          done
+          MISSING=$(echo $MISSING | xargs)
+          echo "Missing IDs: '$MISSING'"
+          echo "missing_ids=$MISSING" >> $GITHUB_OUTPUT
+      - name: No missing IDs → stop workflow
+        if: steps.missing_ids.outputs.missing_ids == ''
+        run: |
+          echo "No missing player IDs — stopping workflow early."
+          exit 0
+      - name: Set up Python
+        if: steps.missing_ids.outputs.missing_ids != ''
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Python dependencies
+        if: steps.missing_ids.outputs.missing_ids != ''
+        run: |
+          pip install -r requirements.txt
+      - name: Setup Chrome and ChromeDriver
+        if: steps.missing_ids.outputs.missing_ids != ''
+        id: setup-chrome
+        uses: nanasess/setup-chromedriver@v2
+      - name: Display Chrome and ChromeDriver versions
+        if: steps.missing_ids.outputs.missing_ids != ''
+        run: |
+          google-chrome --version
+          chromedriver --version
+      - name: Run scraper for missing IDs
+        if: steps.missing_ids.outputs.missing_ids != ''
+        env:
+          SESSION_COOKIES: ${{ secrets.SESSION_COOKIES }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_ACTIONS: true
+          CHROMEDRIVER_PATH: /usr/local/bin/chromedriver
+        run: |
+          IDS="${{ steps.missing_ids.outputs.missing_ids }}"
+          echo "Scraping only missing IDs: $IDS"
+          CMD="python scrape_cfn.py $IDS --phase 'all'"
+          echo "Running: $CMD"
+          $CMD
+      - name: Configure Git
+        if: steps.missing_ids.outputs.missing_ids != ''
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Commit and push changes
+        if: steps.missing_ids.outputs.missing_ids != ''
+        run: |
+          git add sf6-tracker/src/data/phase_*.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update CFN data - $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+            git pull --rebase origin main
+            git push
+          fi

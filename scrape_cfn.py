@@ -257,7 +257,7 @@ def parse_arguments():
         --phase: Phase number (1-12) or 'all' (optional, defaults to latest phase only)
     
     Returns:
-        tuple: (player_ids_list, phases_list, is_partial_scrape)
+        tuple: (player_ids_list, phases_list)
     """
     player_ids = None
     phases = [12]  # Default to latest phase only
@@ -292,18 +292,16 @@ def parse_arguments():
     # Get player IDs
     if player_ids:
         ids = [pid.strip() for pid in player_ids.split(',') if pid.strip()]
-        is_partial_scrape = True
         print(f"Using {len(ids)} player ID(s) from command-line: {', '.join(ids)}")
     else:
         ids = load_player_ids()
-        is_partial_scrape = False
         print(f"Using all {len(ids)} player IDs from player_ids.txt")
     
     print(f"Scraping phase(s): {', '.join(map(str, phases))}")
     
-    return ids, phases, is_partial_scrape
+    return ids, phases
 
-def scrape_phase(driver, wait, ids, phase_number, is_partial_scrape):
+def scrape_phase(driver, wait, ids, phase_number):
     """
     Scrape data for a specific phase.
     
@@ -312,7 +310,6 @@ def scrape_phase(driver, wait, ids, phase_number, is_partial_scrape):
         wait: WebDriverWait instance
         ids: List of player IDs to scrape
         phase_number: Phase number to scrape
-        is_partial_scrape: Whether this is a partial scrape (specific player IDs)
     
     Returns:
         dict: Scraped player data
@@ -321,7 +318,7 @@ def scrape_phase(driver, wait, ids, phase_number, is_partial_scrape):
     
     # Load existing data if doing a partial scrape
     existing_data = {}
-    if is_partial_scrape and os.path.exists(output_file):
+    if os.path.exists(output_file):
         try:
             with open(output_file, "r", encoding="utf-8") as f:
                 file_data = json.load(f)
@@ -402,7 +399,7 @@ def scrape_phase(driver, wait, ids, phase_number, is_partial_scrape):
         }
     
     # Merge results with existing data if doing partial scrape
-    if is_partial_scrape and existing_data:
+    if existing_data:
         print(f"\nMerging {len(all_results)} scraped player(s) with existing data...")
         existing_data.update(all_results)
         final_results = existing_data
@@ -418,16 +415,13 @@ def scrape_phase(driver, wait, ids, phase_number, is_partial_scrape):
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(output_data, f, indent=2)
     
-    if is_partial_scrape:
-        print(f"\n✓ Phase {phase_number} complete! Updated {len(all_results)} player(s) in phase_{phase_number}.json")
-    else:
-        print(f"\n✓ Phase {phase_number} complete! Data saved to phase_{phase_number}.json ({len(final_results)} players)")
+    print(f"\n✓ Phase {phase_number} complete! Updated {len(all_results)} player(s) in phase_{phase_number}.json")
     
     return final_results
 
 def main():
     """Main scraping function - loads cookies and scrapes player data"""
-    ids, phases, is_partial_scrape = parse_arguments()
+    ids, phases = parse_arguments()
     print(f"Scraping {len(ids)} player ID(s) across {len(phases)} phase(s)")
     
     # Load cookies (required for scraping)
@@ -482,7 +476,7 @@ def main():
             print(f"\n{'='*60}")
             print(f"SCRAPING PHASE {phase}")
             print(f"{'='*60}")
-            scrape_phase(driver, wait, ids, phase, is_partial_scrape)
+            scrape_phase(driver, wait, ids, phase)
         
         print(f"\n{'='*60}")
         print(f"✓ ALL SCRAPING COMPLETE!")
