@@ -14,6 +14,10 @@ function PlayerTable({ filteredRows, handleCharacterImageClick, handleSort, setS
   // Reset to page 1 when filters change
   useEffect(() => {
     setCurrentPage(1);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }, [filteredRows.length]);
 
   const handlePageChange = (page) => {
