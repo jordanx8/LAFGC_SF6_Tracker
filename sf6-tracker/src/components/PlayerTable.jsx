@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { characterImageURL } from '../utils/rankUtils';
 
 function PlayerTable({ filteredRows, handleCharacterImageClick, handleSort, setSearchTerm }) {
@@ -12,7 +12,7 @@ function PlayerTable({ filteredRows, handleCharacterImageClick, handleSort, setS
   const currentRows = filteredRows.slice(startIndex, endIndex);
 
   // Reset to page 1 when filters change
-  useState(() => {
+  useEffect(() => {
     setCurrentPage(1);
   }, [filteredRows.length]);
 
@@ -214,6 +214,3 @@ function PlayerTable({ filteredRows, handleCharacterImageClick, handleSort, setS
 }
 
 export default PlayerTable;
-
-// Made with Bob
-
