@@ -50,6 +50,12 @@ function App() {
       }
       if (key === "rank") return 0;
       if (key === "platform") return ((a.platform || "").localeCompare(b.platform || "")) * newDirection;
+      if (key === "customName") {
+        // Sort by custom name if available, otherwise by CFN username
+        const aName = a.customName || a.cfnUsername;
+        const bName = b.customName || b.cfnUsername;
+        return aName.localeCompare(bName) * newDirection;
+      }
       return a[key].localeCompare(b[key]) * newDirection;
     });
     

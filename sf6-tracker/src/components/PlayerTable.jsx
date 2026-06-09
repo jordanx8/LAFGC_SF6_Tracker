@@ -66,7 +66,7 @@ function PlayerTable({ filteredRows, handleCharacterImageClick, handleSort, setS
               <thead className="table-header">
                 <tr>
                   <th scope="col" className="text-center">#</th>
-                  <th scope="col" onClick={() => handleSort('username')} style={{cursor: 'pointer'}}>Username</th>
+                  <th scope="col" onClick={() => handleSort('customName')} style={{cursor: 'pointer'}}>Username</th>
                   <th scope="col" onClick={() => handleSort('platform')} className="text-center" style={{cursor: 'pointer'}}>Platform</th>
                   <th scope="col" onClick={() => handleSort('character')} style={{cursor: 'pointer'}}>Character</th>
                   <th scope="col" onClick={() => handleSort('mr')} className="text-center" style={{cursor: 'pointer'}}>MR</th>
@@ -75,17 +75,34 @@ function PlayerTable({ filteredRows, handleCharacterImageClick, handleSort, setS
               </thead>
               <tbody>
                 {currentRows.map((row, index) => (
-                  <tr key={`${row.username}-${row.character}-${index}`}>
+                  <tr key={`${row.cfnUsername}-${row.character}-${index}`}>
                     <td>{startIndex + index + 1}</td>
                     <td>
                       <div>
-                        <span
-                          className="clickable-username"
-                          onClick={() => setSearchTerm(row.username)}
-                        >
-                          {row.username}
-                        </span>
-                        <div className="player-id">ID: {row.playerId}</div>
+                        {row.customName ? (
+                          <>
+                            <span
+                              className="clickable-username"
+                              onClick={() => setSearchTerm(row.customName)}
+                            >
+                              {row.customName}
+                            </span>
+                            <div className="player-id">
+                              CFN: {row.cfnUsername}
+                            </div>
+                            <div className="player-id">{row.playerId}</div>
+                          </>
+                        ) : (
+                          <>
+                            <span
+                              className="clickable-username"
+                              onClick={() => setSearchTerm(row.cfnUsername)}
+                            >
+                              {row.cfnUsername}
+                            </span>
+                            <div className="player-id">ID: {row.playerId}</div>
+                          </>
+                        )}
                       </div>
                     </td>
                   <td>
@@ -199,3 +216,4 @@ function PlayerTable({ filteredRows, handleCharacterImageClick, handleSort, setS
 export default PlayerTable;
 
 // Made with Bob
+

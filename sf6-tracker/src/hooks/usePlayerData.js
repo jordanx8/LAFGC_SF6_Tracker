@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getRankIcon, getLPRankIcon, formatLastUpdated } from '../utils/rankUtils';
+import playersData from '../data/players.json';
 
 async function getPhases() {
     try {
@@ -20,6 +21,27 @@ async function getPhases() {
         console.error('Error reading directory:', err);
         return [];
     }
+}
+
+// Create a mapping of player IDs to custom names
+function createPlayerNameMap() {
+  const nameMap = new Map();
+  
+  for (const player of playersData) {
+    const customName = player.name;
+    const playerId = player.id;
+    
+    // Handle both single ID and array of IDs
+    if (Array.isArray(playerId)) {
+      for (const pid of playerId) {
+        nameMap.set(pid, customName);
+      }
+    } else {
+      nameMap.set(playerId, customName);
+    }
+  }
+  
+  return nameMap;
 }
 
 export function usePlayerData() {
@@ -90,10 +112,12 @@ export function usePlayerData() {
 
     const rows = [];
     const mrKey = currentMode === "current" ? "current_mr" : "highest_mr";
+    const playerNameMap = createPlayerNameMap();
 
     for (const playerId in rawData) {
       const entry = rawData[playerId];
-      const username = entry.username || "Unknown";
+      const cfnUsername = entry.username || "Unknown";
+      const customName = playerNameMap.get(playerId) || null;
       const platform = entry.platform || null;
       const mrList = entry[mrKey] || [];
       const lpList = entry.lp || [];
@@ -128,7 +152,8 @@ export function usePlayerData() {
         if (mr !== undefined) {
           rows.push({
             playerId,
-            username,
+            cfnUsername,
+            customName,
             character: charName,
             mr: mr,
             lp: lp,
@@ -139,7 +164,8 @@ export function usePlayerData() {
         } else {
           rows.push({
             playerId,
-            username,
+            cfnUsername,
+            customName,
             character: charName,
             mr: "N/A",
             lp: lp,

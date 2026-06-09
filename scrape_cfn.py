@@ -228,10 +228,22 @@ def load_cookies():
         print(f"Failed to load cookies from secret: {e}")
         return None
 
-def load_player_ids(path="player_ids.txt"):
-    """Load player IDs from a text file"""
+def load_player_ids(path="sf6-tracker/src/data/players.json"):
+    """Load player IDs from players.json file"""
     with open(path, "r", encoding="utf-8") as f:
-        return [line.strip() for line in f if line.strip()]
+        players = json.load(f)
+    
+    player_ids = []
+    for player in players:
+        player_id = player["id"]
+        
+        # Handle both single ID and array of IDs
+        if isinstance(player_id, list):
+            player_ids.extend(player_id)
+        else:
+            player_ids.append(player_id)
+    
+    return player_ids
 
 def parse_arguments():
     """

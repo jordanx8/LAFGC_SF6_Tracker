@@ -13,18 +13,20 @@ export function useFilters(allRows) {
     if (mainsOnly) {
       const playerMainMap = new Map();
       filtered.forEach(row => {
-        const existing = playerMainMap.get(row.username);
+        // Use custom name if available, otherwise CFN username
+        const playerKey = row.customName || row.cfnUsername;
+        const existing = playerMainMap.get(playerKey);
         if (!existing) {
-          playerMainMap.set(row.username, row);
+          playerMainMap.set(playerKey, row);
         } else {
           const existingValue = existing.hasMR ? existing.mr : existing.lp;
           const currentValue = row.hasMR ? row.mr : row.lp;
           if (existing.hasMR === row.hasMR) {
             if (currentValue > existingValue) {
-              playerMainMap.set(row.username, row);
+              playerMainMap.set(playerKey, row);
             }
           } else if (row.hasMR) {
-            playerMainMap.set(row.username, row);
+            playerMainMap.set(playerKey, row);
           }
         }
       });
@@ -37,7 +39,13 @@ export function useFilters(allRows) {
 
     if (searchTerm) {
       const search = searchTerm.toLowerCase();
-      filtered = filtered.filter(r => r.username.toLowerCase().includes(search));
+      filtered = filtered.filter(r => {
+        // Search in custom name, CFN username, and player ID
+        const customNameMatch = r.customName && r.customName.toLowerCase().includes(search);
+        const cfnUsernameMatch = r.cfnUsername.toLowerCase().includes(search);
+        const playerIdMatch = r.playerId.includes(search);
+        return customNameMatch || cfnUsernameMatch || playerIdMatch;
+      });
     }
 
     setFilteredRows(filtered);
