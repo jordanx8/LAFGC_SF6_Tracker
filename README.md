@@ -61,13 +61,6 @@ Open `sf6-tracker/src/data/players.json` and add your entry:
     {"name": "YourName", "id": "1234567890"}
 ]
 ```
-
-⚠️ **Important:**
-- Add a comma after the previous entry
-- No comma after the last entry
-- Use double quotes, not single quotes
-- Validate JSON at [JSONLint](https://jsonlint.com/)
-
 ### Step 3: Submit Changes
 
 **Option A: Pull Request**
