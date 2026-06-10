@@ -17,6 +17,10 @@ function FilterControls({
 }) {
   const char_options = characters.map(char => ({value: char, label: char}));
   
+  const selectedCharacter = currentCharacterFilter
+    ? { value: currentCharacterFilter, label: currentCharacterFilter }
+    : null;
+
   const modeOptions = [
     {
       value: 'highest',
@@ -61,12 +65,13 @@ function FilterControls({
               <label className="form-label mb-0 text-nowrap">Character:</label>
               <Select
                 options={char_options}
+                value={selectedCharacter}
                 onChange={(selected) => {
                   setCurrentCharacterFilter(selected ? selected.value : null);
                 }}
                 classNamePrefix="rs"
                 className="react-select-bootstrap"
-                placeholder={currentCharacterFilter == '' ? "All Characters" : currentCharacterFilter}
+                placeholder="All Characters"
                 isClearable
                 isSearchable
               />
