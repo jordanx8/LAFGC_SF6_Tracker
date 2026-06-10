@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 export function useFilters(allRows) {
   const [filteredRows, setFilteredRows] = useState([]);
-  const [currentCharacterFilter, setCurrentCharacterFilter] = useState('');
+  const [currentCharacterFilter, setCurrentCharacterFilter] = useState(null);
   const [mainsOnly, setMainsOnly] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
