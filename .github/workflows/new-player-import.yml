@@ -71,9 +71,15 @@ jobs:
           CHROMEDRIVER_PATH: /usr/local/bin/chromedriver
         run: |
           IDS="${{ steps.missing_ids.outputs.missing_ids }}"
-          echo "Scraping only missing IDs: $IDS"
-          CMD="python scrape_cfn.py $IDS --phase all"
+
+          # Convert space-separated IDs to comma-separated IDs
+          IDS_CSV=$(echo "$IDS" | tr ' ' ',')
+
+          echo "Scraping only missing IDs: $IDS_CSV"
+
+          CMD="python scrape_cfn.py $IDS_CSV --phase all"
           echo "Running: $CMD"
+
           $CMD
       - name: Configure Git
         if: steps.missing_ids.outputs.missing_ids != ''
