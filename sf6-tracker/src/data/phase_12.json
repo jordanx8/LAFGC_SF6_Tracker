@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-09T20:24:59.931529-05:00",
+  "last_updated": "2026-06-09T22:47:57.673194-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -7,7 +7,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 347931
+          "lp": 349123
         },
         {
           "name": "ED",
@@ -21,7 +21,7 @@
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1652
+          "mr": 1656
         },
         {
           "name": "INGRID",
@@ -49,7 +49,7 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 325789
+          "lp": 326539
         },
         {
           "name": "A.K.I.",
@@ -57,11 +57,11 @@
         },
         {
           "name": "SAGAT",
-          "lp": 38137
+          "lp": 38037
         },
         {
           "name": "ALEX",
-          "lp": 35314
+          "lp": 35234
         },
         {
           "name": "AKUMA",
@@ -72,26 +72,34 @@
           "lp": 27439
         },
         {
+          "name": "TERRY",
+          "lp": 26300
+        },
+        {
           "name": "INGRID",
-          "lp": 19000
+          "lp": 19301
         }
       ],
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1733
+          "mr": 1756
         },
         {
           "name": "SAGAT",
-          "mr": 1568
+          "mr": 1544
         },
         {
-          "name": "ALEX",
-          "mr": 1509
+          "name": "TERRY",
+          "mr": 1503
         },
         {
           "name": "RYU",
           "mr": 1500
+        },
+        {
+          "name": "ALEX",
+          "mr": 1495
         },
         {
           "name": "A.K.I.",
@@ -126,6 +134,10 @@
         {
           "name": "A.K.I.",
           "mr": 1483
+        },
+        {
+          "name": "TERRY",
+          "mr": 1505
         }
       ]
     },
@@ -165,19 +177,19 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 367102
+          "lp": 368062
         }
       ],
       "current_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1628
+          "mr": 1675
         }
       ],
       "highest_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1636
+          "mr": 1690
         }
       ]
     },
@@ -195,7 +207,7 @@
         },
         {
           "name": "LUKE",
-          "lp": 21739
+          "lp": 21639
         },
         {
           "name": "RYU",
@@ -286,6 +298,10 @@
           "lp": 126667
         },
         {
+          "name": "JAMIE",
+          "lp": 76705
+        },
+        {
           "name": "CAMMY",
           "lp": 34798
         },
@@ -304,6 +320,10 @@
           "mr": 1512
         },
         {
+          "name": "JAMIE",
+          "mr": 1505
+        },
+        {
           "name": "MAI",
           "mr": 1473
         }
@@ -320,6 +340,10 @@
         {
           "name": "MAI",
           "mr": 1501
+        },
+        {
+          "name": "JAMIE",
+          "mr": 1513
         }
       ]
     },
@@ -1049,13 +1073,13 @@
       "lp": [
         {
           "name": "RASHID",
-          "lp": 46564
+          "lp": 47812
         }
       ],
       "current_mr": [
         {
           "name": "RASHID",
-          "mr": 1419
+          "mr": 1448
         }
       ],
       "highest_mr": [
@@ -1093,13 +1117,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 271173
+          "lp": 270983
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1557
+          "mr": 1514
         }
       ],
       "highest_mr": [
@@ -1404,7 +1428,7 @@
       "lp": [
         {
           "name": "INGRID",
-          "lp": 23858
+          "lp": 24078
         },
         {
           "name": "RYU",
@@ -1687,8 +1711,18 @@
     "2904944987": {
       "username": "Big Shot",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
-      "lp": [],
-      "current_mr": [],
+      "lp": [
+        {
+          "name": "TERRY",
+          "lp": 27574
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "TERRY",
+          "mr": 1502
+        }
+      ],
       "highest_mr": []
     },
     "1706932787": {
