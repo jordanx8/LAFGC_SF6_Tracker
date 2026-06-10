@@ -1,5 +1,6 @@
 name: Import New Players
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
