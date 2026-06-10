@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-09T08:52:24.898355-05:00",
+  "last_updated": "2026-06-09T20:16:22.194949-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -1464,6 +1464,146 @@
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [],
       "current_mr": [],
+      "highest_mr": []
+    },
+    "2039379246": {
+      "username": "Mitsu_Vagrant",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "lp": [
+        {
+          "name": "AKUMA",
+          "lp": 17580
+        },
+        {
+          "name": "MAI",
+          "lp": 15280
+        }
+      ],
+      "current_mr": [],
+      "highest_mr": []
+    },
+    "3542885898": {
+      "username": "Yorha A2",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "lp": [
+        {
+          "name": "ZANGIEF",
+          "lp": 10798
+        }
+      ],
+      "current_mr": [],
+      "highest_mr": []
+    },
+    "2022951228": {
+      "username": "ColdRamune",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "lp": [
+        {
+          "name": "CHUN-LI",
+          "lp": 104861
+        },
+        {
+          "name": "MAI",
+          "lp": 43889
+        },
+        {
+          "name": "AKUMA",
+          "lp": 40279
+        },
+        {
+          "name": "CAMMY",
+          "lp": 25850
+        },
+        {
+          "name": "RYU",
+          "lp": 25335
+        },
+        {
+          "name": "KEN",
+          "lp": 20337
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "CHUN-LI",
+          "mr": 1614
+        },
+        {
+          "name": "MAI",
+          "mr": 1547
+        },
+        {
+          "name": "RYU",
+          "mr": 1500
+        },
+        {
+          "name": "CAMMY",
+          "mr": 1450
+        },
+        {
+          "name": "AKUMA",
+          "mr": 1200
+        }
+      ],
+      "highest_mr": []
+    },
+    "1678381045": {
+      "username": "iQu3so",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "lp": [
+        {
+          "name": "CAMMY",
+          "lp": 115339
+        },
+        {
+          "name": "MARISA",
+          "lp": 21400
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "CAMMY",
+          "mr": 1483
+        }
+      ],
+      "highest_mr": []
+    },
+    "3653716202": {
+      "username": "ChaseTheBag.EX",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "lp": [
+        {
+          "name": "MARISA",
+          "lp": 123870
+        },
+        {
+          "name": "RYU",
+          "lp": 23099
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "MARISA",
+          "mr": 1614
+        }
+      ],
+      "highest_mr": []
+    },
+    "1602845233": {
+      "username": "Mr Shoto",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
+      "lp": [
+        {
+          "name": "KEN",
+          "lp": 45393
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "KEN",
+          "mr": 1339
+        }
+      ],
       "highest_mr": []
     }
   }

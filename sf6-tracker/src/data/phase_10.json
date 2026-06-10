@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-09T08:53:25.255385-05:00",
+  "last_updated": "2026-06-09T20:21:46.040094-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -1454,6 +1454,117 @@
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [],
       "current_mr": [],
+      "highest_mr": []
+    },
+    "2039379246": {
+      "username": "Mitsu_Vagrant",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "lp": [
+        {
+          "name": "AKUMA",
+          "lp": 18405
+        }
+      ],
+      "current_mr": [],
+      "highest_mr": []
+    },
+    "3542885898": {
+      "username": "Yorha A2",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "lp": [],
+      "current_mr": [],
+      "highest_mr": []
+    },
+    "2022951228": {
+      "username": "ColdRamune",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "lp": [
+        {
+          "name": "CHUN-LI",
+          "lp": 111069
+        },
+        {
+          "name": "AKUMA",
+          "lp": 76333
+        },
+        {
+          "name": "C. VIPER",
+          "lp": 36011
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "CHUN-LI",
+          "mr": 1498
+        },
+        {
+          "name": "C. VIPER",
+          "mr": 1458
+        },
+        {
+          "name": "AKUMA",
+          "mr": 1451
+        }
+      ],
+      "highest_mr": []
+    },
+    "1678381045": {
+      "username": "iQu3so",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "lp": [
+        {
+          "name": "CAMMY",
+          "lp": 130169
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "CAMMY",
+          "mr": 1410
+        }
+      ],
+      "highest_mr": []
+    },
+    "3653716202": {
+      "username": "ChaseTheBag.EX",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "lp": [
+        {
+          "name": "MARISA",
+          "lp": 169842
+        },
+        {
+          "name": "RYU",
+          "lp": 26961
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "MARISA",
+          "mr": 1707
+        },
+        {
+          "name": "RYU",
+          "mr": 1416
+        }
+      ],
+      "highest_mr": []
+    },
+    "1602845233": {
+      "username": "Mr Shoto",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
+      "lp": [
+        {
+          "name": "KEN",
+          "lp": 79340
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "KEN",
+          "mr": 1475
+        }
+      ],
       "highest_mr": []
     }
   }
