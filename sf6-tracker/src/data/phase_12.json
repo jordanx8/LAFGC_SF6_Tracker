@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-09T23:42:26.959765-05:00",
+  "last_updated": "2026-06-10T11:16:00.452167-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -1428,11 +1428,15 @@
       "lp": [
         {
           "name": "INGRID",
-          "lp": 24531
+          "lp": 25229
         },
         {
           "name": "RYU",
           "lp": 21125
+        },
+        {
+          "name": "TERRY",
+          "lp": 20473
         },
         {
           "name": "ALEX",
@@ -1443,7 +1447,12 @@
           "lp": 19655
         }
       ],
-      "current_mr": [],
+      "current_mr": [
+        {
+          "name": "INGRID",
+          "mr": 1500
+        }
+      ],
       "highest_mr": []
     },
     "2171500907": {
@@ -1452,13 +1461,13 @@
       "lp": [
         {
           "name": "DEE JAY",
-          "lp": 301829
+          "lp": 301909
         }
       ],
       "current_mr": [
         {
           "name": "DEE JAY",
-          "mr": 1669
+          "mr": 1637
         }
       ],
       "highest_mr": [
