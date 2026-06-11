@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { characterImageURL } from '../utils/rankUtils';
 
-function PlayerTable({ filteredRows, handleCharacterImageClick, handleSort, setSearchTerm }) {
+function PlayerTable({ filteredRows, handleCharacterImageClick, handleSort, setSearchTerm, isPeakPhaseView = false }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(25);
 
@@ -10,6 +10,7 @@ function PlayerTable({ filteredRows, handleCharacterImageClick, handleSort, setS
   const startIndex = (currentPage - 1) * rowsPerPage;
   const endIndex = startIndex + rowsPerPage;
   const currentRows = filteredRows.slice(startIndex, endIndex);
+  const showPeakPhaseColumn = isPeakPhaseView;
 
   // Reset to page 1 when filters change
   useEffect(() => {
@@ -75,6 +76,16 @@ function PlayerTable({ filteredRows, handleCharacterImageClick, handleSort, setS
                   <th scope="col" onClick={() => handleSort('character')} style={{cursor: 'pointer'}}>Character</th>
                   <th scope="col" onClick={() => handleSort('mr')} className="text-center" style={{cursor: 'pointer'}}>MR</th>
                   <th scope="col" onClick={() => handleSort('rank')} className="text-center" style={{cursor: 'pointer'}}>Rank</th>
+                  {showPeakPhaseColumn && (
+                    <th
+                      scope="col"
+                      onClick={() => handleSort('sourcePhase')}
+                      className="text-center"
+                      style={{ cursor: 'pointer' }}
+                    >
+                      PEAK
+                    </th>
+                  )}
                 </tr>
               </thead>
               <tbody>
@@ -138,8 +149,11 @@ function PlayerTable({ filteredRows, handleCharacterImageClick, handleSort, setS
                     </td>
                     <td>{row.mr}</td>
                     <td>
-                      <img className="rank-icon" src={row.rank} alt="Rank" />
+                      <img className="rank-icon" src={row.rank} alt="Rank" onError={(e) => e.target.style.display = 'none'} />
                     </td>
+                    {showPeakPhaseColumn && (
+                      <td>{row.sourcePhase || '-'}</td>
+                    )}
                   </tr>
                   );
                 })}

@@ -654,15 +654,22 @@ h1 i {
 
 .table thead th:nth-child(6),
 .table tbody td:nth-child(6) {
-    width: 30%;
+    width: 14%;
+}
+
+.table thead th:nth-child(7),
+.table tbody td:nth-child(7) {
+    width: 16%;
 }
 
 .table tbody td:first-child,
 .table tbody td:nth-child(3),
 .table tbody td:nth-child(5),
-.table tbody td:nth-child(6) {
+.table tbody td:nth-child(6),
+.table tbody td:nth-child(7) {
     text-align: center;
 }
+
 
 .table tbody tr {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
