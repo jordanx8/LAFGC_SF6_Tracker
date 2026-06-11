@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react';
 import { getRankIcon, getLPRankIcon, formatLastUpdated } from '../utils/rankUtils';
 import playersData from '../data/players.json';
 
+const PEAK_PHASE_OPTION = 'Peak MR (All Phases)';
+
 async function getPhases() {
     try {
       const files = import.meta.glob('/src/data/phase_*.json');
 
-      return Object.keys(files)
+      const phases = Object.keys(files)
         .map(file => {
           const match = file.match(/phase_(\d+)\.json$/);
           return {
@@ -16,6 +18,8 @@ async function getPhases() {
         })
         .sort((a, b) => b.num - a.num)
         .map(x => x.name);
+
+      return [PEAK_PHASE_OPTION, ...phases];
 
     } catch (err) {
         console.error('Error reading directory:', err);
@@ -52,6 +56,7 @@ export function usePlayerData() {
   const [currentMode, setCurrentMode] = useState('highest');
   const [currentPhase, setCurrentPhase] = useState('');
   const [phaseList, setPhaseList] = useState([]);
+  const [isPeakPhaseView, setIsPeakPhaseView] = useState(false);
 
   // Load data on mount
   // Load available phases once
@@ -76,11 +81,131 @@ export function usePlayerData() {
 
       const files = import.meta.glob('/src/data/phase_*.json');
 
+      if (currentPhase === PEAK_PHASE_OPTION) {
+        const loadedPhases = await Promise.all(
+          Object.entries(files).map(async ([filePath, importer]) => {
+            const module = await importer();
+            const data = module.default;
+            const match = filePath.match(/phase_(\d+)\.json$/);
+
+            return {
+              phaseNum: Number(match[1]),
+              phaseName: `Phase ${match[1]}`,
+              data
+            };
+          })
+        );
+
+        loadedPhases.sort((a, b) => b.phaseNum - a.phaseNum);
+
+        const aggregatedPlayers = {};
+        const playerNameMap = createPlayerNameMap();
+
+        loadedPhases.forEach(({ phaseName, data }) => {
+          Object.entries(data.players).forEach(([playerId, entry]) => {
+            const aggregateKey = playerNameMap.get(playerId) || playerId;
+
+            if (!aggregatedPlayers[aggregateKey]) {
+              aggregatedPlayers[aggregateKey] = {
+                playerId,
+                username: playerNameMap.get(playerId) || entry.username,
+                platform: entry.platform,
+                highest_mr: [],
+                current_mr: [],
+                lp: [],
+                peak_phase_by_character: {},
+                peak_lp_by_character: {}
+              };
+            }
+
+            const aggregatedEntry = aggregatedPlayers[aggregateKey];
+
+            if (!aggregatedEntry.username) {
+              aggregatedEntry.username = playerNameMap.get(playerId) || entry.username;
+            }
+
+            if (!aggregatedEntry.platform && entry.platform) {
+              aggregatedEntry.platform = entry.platform;
+            }
+
+            (entry.lp || []).forEach(lpObj => {
+              const existingLp = aggregatedEntry.peak_lp_by_character[lpObj.name];
+              const existingMr = aggregatedEntry.peak_phase_by_character[lpObj.name];
+
+              if (existingMr) {
+                return;
+              }
+
+              if (!existingLp || lpObj.lp > existingLp.lp) {
+                aggregatedEntry.peak_lp_by_character[lpObj.name] = {
+                  lp: lpObj.lp,
+                  phase: phaseName,
+                  playerId,
+                  username: entry.username
+                };
+              }
+            });
+
+            (entry.highest_mr || []).forEach(mrObj => {
+              const existing = aggregatedEntry.peak_phase_by_character[mrObj.name];
+              if (!existing || mrObj.mr > existing.mr) {
+                aggregatedEntry.peak_phase_by_character[mrObj.name] = {
+                  mr: mrObj.mr,
+                  phase: phaseName,
+                  playerId,
+                  username: entry.username
+                };
+              }
+            });
+
+            (entry.current_mr || []).forEach(mrObj => {
+              const existing = aggregatedEntry.peak_phase_by_character[mrObj.name];
+              if (!existing || mrObj.mr > existing.mr) {
+                aggregatedEntry.peak_phase_by_character[mrObj.name] = {
+                  mr: mrObj.mr,
+                  phase: phaseName,
+                  playerId,
+                  username: entry.username
+                };
+              }
+            });
+          });
+        });
+
+        Object.values(aggregatedPlayers).forEach(entry => {
+          entry.highest_mr = Object.entries(entry.peak_phase_by_character).map(([name, value]) => ({
+            name,
+            mr: value.mr,
+            phase: value.phase,
+            playerId: value.playerId,
+            username: value.username
+          }));
+          entry.current_mr = [...entry.highest_mr];
+          entry.lp = Object.entries(entry.peak_lp_by_character)
+            .filter(([name]) => !entry.peak_phase_by_character[name])
+            .map(([name, value]) => ({
+              name,
+              lp: value.lp,
+              phase: value.phase,
+              playerId: value.playerId,
+              username: value.username
+            }));
+        });
+
+        setRawData(aggregatedPlayers);
+        setIsPeakPhaseView(true);
+        setLastUpdated(formatLastUpdated(loadedPhases[0]?.data?.last_updated || ''));
+        console.log(Object.entries(aggregatedPlayers))
+        setTotalPlayers(
+          new Set(
+            Object.entries(aggregatedPlayers)
+          ).size
+        );
+        return;
+      }
+
       const phaseFile =
         `/src/data/${currentPhase.toLowerCase().replace(/\s+/g, "_")}.json`;
-
-      console.log("Loading:", phaseFile);
-      console.log(Object.keys(files));
 
       const importer = files[phaseFile];
 
@@ -93,6 +218,7 @@ export function usePlayerData() {
       const data = module.default;
 
       setRawData(data.players);
+      setIsPeakPhaseView(false);
       setLastUpdated(formatLastUpdated(data.last_updated));
       setTotalPlayers(
         new Set(
@@ -116,62 +242,112 @@ export function usePlayerData() {
 
     for (const playerId in rawData) {
       const entry = rawData[playerId];
-      const cfnUsername = entry.username || "Unknown";
-      const customName = playerNameMap.get(playerId) || null;
+      const defaultCfnUsername = entry.username || "Unknown";
+      const customName = isPeakPhaseView ? (entry.username || null) : (playerNameMap.get(playerId) || null);
       const platform = entry.platform || null;
       const mrList = entry[mrKey] || [];
       const lpList = entry.lp || [];
 
       const mrMap = new Map();
+      const mrPhaseMap = new Map();
+      const mrUsernameMap = new Map();
+      const mrPlayerIdMap = new Map();
       for (const mrObj of mrList) {
         mrMap.set(mrObj.name, mrObj.mr);
+        if (mrObj.phase) {
+          mrPhaseMap.set(mrObj.name, mrObj.phase);
+        }
+        if (mrObj.username) {
+          mrUsernameMap.set(mrObj.name, mrObj.username);
+        }
+        if (mrObj.playerId) {
+          mrPlayerIdMap.set(mrObj.name, mrObj.playerId);
+        }
       }
 
       const fallbackMrMap = new Map();
+      const fallbackMrPhaseMap = new Map();
+      const fallbackMrUsernameMap = new Map();
+      const fallbackMrPlayerIdMap = new Map();
       if (currentMode === "highest") {
         const currentMrList = entry.current_mr || [];
         for (const mrObj of currentMrList) {
           fallbackMrMap.set(mrObj.name, mrObj.mr);
+          if (mrObj.phase) {
+            fallbackMrPhaseMap.set(mrObj.name, mrObj.phase);
+          }
+          if (mrObj.username) {
+            fallbackMrUsernameMap.set(mrObj.name, mrObj.username);
+          }
+          if (mrObj.playerId) {
+            fallbackMrPlayerIdMap.set(mrObj.name, mrObj.playerId);
+          }
         }
       }
 
       const lpMap = new Map();
+      const lpPhaseMap = new Map();
+      const lpUsernameMap = new Map();
+      const lpPlayerIdMap = new Map();
       for (const lpObj of lpList) {
         lpMap.set(lpObj.name, lpObj.lp);
+        if (lpObj.phase) {
+          lpPhaseMap.set(lpObj.name, lpObj.phase);
+        }
+        if (lpObj.username) {
+          lpUsernameMap.set(lpObj.name, lpObj.username);
+        }
+        if (lpObj.playerId) {
+          lpPlayerIdMap.set(lpObj.name, lpObj.playerId);
+        }
       }
 
-      for (const lpObj of lpList) {
-        const charName = lpObj.name;
+      const characterNames = new Set([
+        ...lpList.map(lpObj => lpObj.name),
+        ...mrList.map(mrObj => mrObj.name),
+        ...(currentMode === "highest" ? (entry.current_mr || []).map(mrObj => mrObj.name) : [])
+      ]);
+
+      for (const charName of characterNames) {
         let mr = mrMap.get(charName);
-        const lp = lpObj.lp;
+        const lp = lpMap.get(charName);
+
+        let sourcePhase = mrPhaseMap.get(charName) || lpPhaseMap.get(charName) || null;
+        let sourceCfnUsername = mrUsernameMap.get(charName) || lpUsernameMap.get(charName) || defaultCfnUsername;
+        let sourcePlayerId = mrPlayerIdMap.get(charName) || lpPlayerIdMap.get(charName) || playerId;
 
         if (mr === undefined && currentMode === "highest") {
           mr = fallbackMrMap.get(charName);
+          sourcePhase = fallbackMrPhaseMap.get(charName) || lpPhaseMap.get(charName) || null;
+          sourceCfnUsername = fallbackMrUsernameMap.get(charName) || lpUsernameMap.get(charName) || defaultCfnUsername;
+          sourcePlayerId = fallbackMrPlayerIdMap.get(charName) || lpPlayerIdMap.get(charName) || playerId;
         }
 
         if (mr !== undefined) {
           rows.push({
-            playerId,
-            cfnUsername,
+            playerId: sourcePlayerId,
+            cfnUsername: sourceCfnUsername,
             customName,
             character: charName,
             mr: mr,
             lp: lp,
             rank: getRankIcon(mr),
             platform: platform,
-            hasMR: true
+            hasMR: true,
+            sourcePhase: sourcePhase
           });
-        } else {
+        } else if (lp !== undefined) {
           rows.push({
-            playerId,
-            cfnUsername,
+            playerId: sourcePlayerId,
+            cfnUsername: sourceCfnUsername,
             customName,
             character: charName,
             mr: "N/A",
             lp: lp,
             rank: getLPRankIcon(lp),
             platform: platform,
-            hasMR: false
+            hasMR: false,
+            sourcePhase: sourcePhase
           });
         }
       }
@@ -200,7 +376,8 @@ export function usePlayerData() {
     setCurrentMode,
     phaseList,
     currentPhase,
-    setCurrentPhase
+    setCurrentPhase,
+    isPeakPhaseView
   };
 }
 

@@ -14,7 +14,7 @@ function App() {
   const [activeTab, setActiveTab] = useState('table');
 
   // Custom hooks for data and filtering
-  const { allRows, lastUpdated, totalPlayers, currentMode, setCurrentMode, phaseList, currentPhase, setCurrentPhase } = usePlayerData();
+  const { allRows, lastUpdated, totalPlayers, currentMode, setCurrentMode, phaseList, currentPhase, setCurrentPhase, isPeakPhaseView } = usePlayerData();
   const {
     filteredRows,
     setFilteredRows,
@@ -58,6 +58,9 @@ function App() {
         const bName = b.customName || b.cfnUsername;
         return aName.localeCompare(bName) * newDirection;
       }
+      if (key === "sourcePhase") {
+        return (a.sourcePhase || "").localeCompare(b.sourcePhase || "", undefined, { numeric: true }) * newDirection;
+      }
       return a[key].localeCompare(b[key]) * newDirection;
     });
     
@@ -80,7 +83,7 @@ function App() {
         setCurrentPhase={setCurrentPhase}
         currentPhase={currentPhase}
       />
-      {parseInt(currentPhase.replace("Phase ", ""), 10) >= 11 ? <></> : <div className='player-id unavailable'>*Highest MR data unavailable pre-Phase 11</div>}
+      {!isPeakPhaseView && parseInt(currentPhase.replace("Phase ", ""), 10) < 11 ? <div className='player-id unavailable'>*Highest MR data unavailable pre-Phase 11</div> : <></>}
 
       <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
@@ -113,6 +116,7 @@ function App() {
           handleCharacterImageClick={handleCharacterImageClick}
           handleSort={handleSort}
           setSearchTerm={setSearchTerm}
+          isPeakPhaseView={isPeakPhaseView}
         />
       ) : (
         <StatsTab filteredRows={filteredRows} />
