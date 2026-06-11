@@ -4,12 +4,14 @@ import Header from './components/Header';
 import FilterControls from './components/FilterControls';
 import SearchBox from './components/SearchBox';
 import PlayerTable from './components/PlayerTable';
+import StatsTab from './components/StatsTab';
 import ScrollToTop from './components/ScrollToTop';
 import { usePlayerData } from './hooks/usePlayerData';
 import { useFilters } from './hooks/useFilters';
 
 function App() {
   const [sortDirection, setSortDirection] = useState(1);
+  const [activeTab, setActiveTab] = useState('table');
 
   // Custom hooks for data and filtering
   const { allRows, lastUpdated, totalPlayers, currentMode, setCurrentMode, phaseList, currentPhase, setCurrentPhase } = usePlayerData();
@@ -82,12 +84,39 @@ function App() {
 
       <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-      <PlayerTable
-        filteredRows={filteredRows}
-        handleCharacterImageClick={handleCharacterImageClick}
-        handleSort={handleSort}
-        setSearchTerm={setSearchTerm}
-      />
+      {/* Tab Navigation */}
+      <div className="tab-navigation">
+        <button
+          className={`tab-button ${activeTab === 'table' ? 'active' : ''}`}
+          onClick={() => {
+            setActiveTab('table');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+        >
+          <i className="bi bi-table"></i> Player Table
+        </button>
+        <button
+          className={`tab-button ${activeTab === 'stats' ? 'active' : ''}`}
+          onClick={() => {
+            setActiveTab('stats');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+        >
+          <i className="bi bi-bar-chart-fill"></i> Statistics
+        </button>
+      </div>
+
+      {/* Conditional Rendering Based on Active Tab */}
+      {activeTab === 'table' ? (
+        <PlayerTable
+          filteredRows={filteredRows}
+          handleCharacterImageClick={handleCharacterImageClick}
+          handleSort={handleSort}
+          setSearchTerm={setSearchTerm}
+        />
+      ) : (
+        <StatsTab filteredRows={filteredRows} />
+      )}
 
       <footer className="footer mt-5">
         <div className="footer-content">

@@ -1454,3 +1454,113 @@ img.rank-icon:hover {
     font-size: 1.1rem;
   }
 }
+/* Tab Navigation Styles */
+.tab-navigation {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0;
+}
+
+.tab-button {
+  background: transparent;
+  border: none;
+  color: #555;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  opacity: 0.7;
+}
+
+.tab-button:hover {
+  color: #777;
+  opacity: 0.85;
+}
+
+.tab-button.active {
+  color: #999;
+  border-bottom-color: #444;
+  opacity: 1;
+}
+
+.tab-button i {
+  font-size: 0.95rem;
+}
+
+/* Stats Tab Styles */
+.stats-container {
+  margin-top: 1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1200px) {
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.stats-card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.stats-card .card-body {
+  padding: 1.5rem;
+}
+
+.stats-title {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.stats-subtitle {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Custom Tooltip for Charts */
+.custom-tooltip {
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 0.75rem;
+  color: #fff;
+}
+
+.custom-tooltip .label {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Responsive adjustments for stats */
+@media (max-width: 768px) {
+  .stats-card .card-body {
+    padding: 1rem;
+  }
+  
+  .stats-title {
+    font-size: 1.2rem;
+  }
+  
+  .tab-button {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+}
