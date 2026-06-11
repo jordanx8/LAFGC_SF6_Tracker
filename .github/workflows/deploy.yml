@@ -53,4 +53,4 @@ jobs:
           path: './sf6-tracker/dist'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@latest
+        uses: actions/deploy-pages@v4
