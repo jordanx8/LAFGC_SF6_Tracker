@@ -151,9 +151,14 @@ function PlayerTable({ filteredRows, handleCharacterImageClick, handleSort, setS
                     <td>
                       <img className="rank-icon" src={row.rank} alt="Rank" onError={(e) => e.target.style.display = 'none'} />
                     </td>
-                    {showPeakPhaseColumn && (
-                      <td>{row.sourcePhase || '-'}</td>
-                    )}
+                  {showPeakPhaseColumn && (
+                    <td 
+                      className="text-center" 
+                      style={{ wordBreak: 'break-word' }}
+                    >
+                      {row.sourcePhase ?? '-'}
+                    </td>
+                  )}
                   </tr>
                   );
                 })}
