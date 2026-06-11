@@ -21,10 +21,10 @@ const getRankName = (rankUrl) => {
   // Diamond: rank24-35
   if (rankNum >= 31 && rankNum <= 35) return 'Diamond';
   // Master: rank36-39
-  if (rankNum == 36) return 'Master';
-  if (rankNum == 40) return 'High Master';
-  if (rankNum == 41) return 'Grand Master';
-  if (rankNum == 42) return 'Ultimate Master';
+  if (rankNum === 36) return 'Master';
+  if (rankNum === 40) return 'High Master';
+  if (rankNum === 41) return 'Grand Master';
+  if (rankNum === 42) return 'Ultimate Master';
   
   return 'Unknown';
 };
@@ -237,5 +237,3 @@ function StatsTab({ filteredRows }) {
 }
 
 export default StatsTab;
-
-// Made with Bob

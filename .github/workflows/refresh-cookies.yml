@@ -53,5 +53,3 @@ jobs:
         run: |
           echo "Logging in and refreshing session cookies..."
           python refresh_cookies.py
-
-# Made with Bob

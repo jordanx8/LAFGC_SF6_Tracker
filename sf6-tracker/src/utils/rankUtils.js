@@ -81,5 +81,3 @@ export const formatLastUpdated = (isoTimestamp) => {
   };
   return `Last updated: ${date.toLocaleString('en-US', options)}`;
 };
-
-// Made with Bob

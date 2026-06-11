@@ -44,5 +44,3 @@ function ScrollToTop() {
 }
 
 export default ScrollToTop;
-
-// Made with Bob

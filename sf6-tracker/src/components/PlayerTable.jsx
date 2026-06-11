@@ -152,9 +152,14 @@ function PlayerTable({ filteredRows, handleCharacterImageClick, handleSort, setS
                       <img className="rank-icon" src={row.rank} alt="Rank" onError={(e) => e.target.style.display = 'none'} />
                     </td>
                   {showPeakPhaseColumn && (
-                    <td 
-                      className="text-center" 
-                      style={{ wordBreak: 'break-word' }}
+                    <td
+                      className="text-center"
+                      style={{
+                        wordBreak: 'break-word',
+                        whiteSpace: 'normal',
+                        overflow: 'visible',
+                        textOverflow: 'clip'
+                      }}
                     >
                       {row.sourcePhase ?? '-'}
                     </td>

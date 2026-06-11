@@ -12,5 +12,3 @@ function Header({ lastUpdated, totalPlayers }) {
 }
 
 export default Header;
-
-// Made with Bob

@@ -62,5 +62,3 @@ export function useFilters(allRows) {
     setSearchTerm
   };
 }
-
-// Made with Bob

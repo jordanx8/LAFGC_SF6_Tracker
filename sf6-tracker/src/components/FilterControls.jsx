@@ -1,7 +1,5 @@
 import PhaseFilter from "./PhaseFilter";
-import React from 'react';
 import Select from 'react-select';
-
 
 function FilterControls({
   currentMode,
@@ -110,5 +108,3 @@ function FilterControls({
 }
 
 export default FilterControls;
-
-// Made with Bob

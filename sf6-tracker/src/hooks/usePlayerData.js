@@ -195,7 +195,6 @@ export function usePlayerData() {
         setRawData(aggregatedPlayers);
         setIsPeakPhaseView(true);
         setLastUpdated(formatLastUpdated(loadedPhases[0]?.data?.last_updated || ''));
-        console.log(Object.entries(aggregatedPlayers))
         setTotalPlayers(
           new Set(
             Object.entries(aggregatedPlayers)
@@ -380,5 +379,3 @@ export function usePlayerData() {
     isPeakPhaseView
   };
 }
-
-// Made with Bob

@@ -29,5 +29,3 @@ function SearchBox({ searchTerm, setSearchTerm }) {
 }
 
 export default SearchBox;
-
-// Made with Bob
