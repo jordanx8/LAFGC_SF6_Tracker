@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-12T00:07:54.805420-05:00",
+  "last_updated": "2026-06-12T10:51:19.481664-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -670,7 +670,7 @@
       "lp": [
         {
           "name": "CAMMY",
-          "lp": 195582
+          "lp": 196092
         },
         {
           "name": "E. HONDA",
@@ -680,7 +680,7 @@
       "current_mr": [
         {
           "name": "CAMMY",
-          "mr": 1708
+          "mr": 1723
         },
         {
           "name": "E. HONDA",
@@ -690,7 +690,7 @@
       "highest_mr": [
         {
           "name": "CAMMY",
-          "mr": 1708
+          "mr": 1723
         },
         {
           "name": "E. HONDA",
@@ -1858,13 +1858,13 @@
       "lp": [
         {
           "name": "CAMMY",
-          "lp": 132039
+          "lp": 132093
         }
       ],
       "current_mr": [
         {
           "name": "CAMMY",
-          "mr": 1445
+          "mr": 1444
         }
       ],
       "highest_mr": [
