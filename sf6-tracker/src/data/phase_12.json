@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-11T14:30:10.460383-05:00",
+  "last_updated": "2026-06-12T00:07:54.805420-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -81,7 +81,7 @@
         },
         {
           "name": "INGRID",
-          "lp": 20310
+          "lp": 20270
         }
       ],
       "current_mr": [
@@ -181,19 +181,19 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 368092
+          "lp": 369042
         }
       ],
       "current_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1641
+          "mr": 1703
         }
       ],
       "highest_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1690
+          "mr": 1703
         }
       ]
     },
@@ -211,7 +211,7 @@
         },
         {
           "name": "LUKE",
-          "lp": 21639
+          "lp": 21813
         },
         {
           "name": "RYU",
@@ -236,6 +236,10 @@
         {
           "name": "AKUMA",
           "lp": 14153
+        },
+        {
+          "name": "DEE JAY",
+          "lp": 13344
         }
       ],
       "current_mr": [
@@ -357,13 +361,13 @@
       "lp": [
         {
           "name": "JURI",
-          "lp": 84812
+          "lp": 84632
         }
       ],
       "current_mr": [
         {
           "name": "JURI",
-          "mr": 1339
+          "mr": 1292
         }
       ],
       "highest_mr": [
@@ -909,7 +913,7 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 298159
+          "lp": 298879
         },
         {
           "name": "MANON",
@@ -943,7 +947,7 @@
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1709
+          "mr": 1730
         },
         {
           "name": "MAI",
@@ -1148,13 +1152,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 270983
+          "lp": 272333
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1514
+          "mr": 1551
         }
       ],
       "highest_mr": [
@@ -1492,7 +1496,7 @@
       "lp": [
         {
           "name": "DEE JAY",
-          "lp": 303269
+          "lp": 303629
         }
       ],
       "current_mr": [
@@ -1504,7 +1508,7 @@
       "highest_mr": [
         {
           "name": "DEE JAY",
-          "mr": 1703
+          "mr": 1717
         }
       ]
     },
@@ -1854,13 +1858,13 @@
       "lp": [
         {
           "name": "CAMMY",
-          "lp": 130583
+          "lp": 132039
         }
       ],
       "current_mr": [
         {
           "name": "CAMMY",
-          "mr": 1325
+          "mr": 1445
         }
       ],
       "highest_mr": [
@@ -1910,13 +1914,13 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 81685
+          "lp": 81655
         }
       ],
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1402
+          "mr": 1394
         }
       ],
       "highest_mr": [
