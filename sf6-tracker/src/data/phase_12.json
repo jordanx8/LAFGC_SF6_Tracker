@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-15T12:43:19.086577-05:00",
+  "last_updated": "2026-06-16T12:30:09.296126-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -7,7 +7,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 349473
+          "lp": 349533
         },
         {
           "name": "ED",
@@ -21,7 +21,7 @@
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1664
+          "mr": 1670
         },
         {
           "name": "INGRID",
@@ -53,7 +53,7 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 328429
+          "lp": 329209
         },
         {
           "name": "A.K.I.",
@@ -81,13 +81,13 @@
         },
         {
           "name": "INGRID",
-          "lp": 20521
+          "lp": 20912
         }
       ],
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1660
+          "mr": 1700
         },
         {
           "name": "SAGAT",
@@ -207,7 +207,7 @@
         },
         {
           "name": "CHUN-LI",
-          "lp": 23159
+          "lp": 23231
         },
         {
           "name": "LUKE",
@@ -458,7 +458,7 @@
       "lp": [
         {
           "name": "LUKE",
-          "lp": 570255
+          "lp": 571275
         },
         {
           "name": "INGRID",
@@ -468,7 +468,7 @@
       "current_mr": [
         {
           "name": "LUKE",
-          "mr": 1955
+          "mr": 1972
         },
         {
           "name": "INGRID",
@@ -478,7 +478,7 @@
       "highest_mr": [
         {
           "name": "LUKE",
-          "mr": 1957
+          "mr": 1972
         },
         {
           "name": "INGRID",
@@ -492,19 +492,19 @@
       "lp": [
         {
           "name": "M. BISON",
-          "lp": 51283
+          "lp": 53133
         }
       ],
       "current_mr": [
         {
           "name": "M. BISON",
-          "mr": 1546
+          "mr": 1603
         }
       ],
       "highest_mr": [
         {
           "name": "M. BISON",
-          "mr": 1546
+          "mr": 1603
         }
       ]
     },
@@ -1002,7 +1002,7 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 184698
+          "lp": 184618
         },
         {
           "name": "MANON",
@@ -1020,7 +1020,7 @@
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1633
+          "mr": 1618
         },
         {
           "name": "CAMMY",
@@ -1247,12 +1247,12 @@
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
-          "name": "TERRY",
-          "lp": 53542
+          "name": "INGRID",
+          "lp": 54505
         },
         {
-          "name": "INGRID",
-          "lp": 53295
+          "name": "TERRY",
+          "lp": 53542
         },
         {
           "name": "A.K.I.",
@@ -1286,7 +1286,7 @@
       "current_mr": [
         {
           "name": "INGRID",
-          "mr": 1527
+          "mr": 1531
         },
         {
           "name": "MAI",
@@ -1792,7 +1792,7 @@
       "lp": [
         {
           "name": "DEE JAY",
-          "lp": 16241
+          "lp": 16238
         },
         {
           "name": "M. BISON",
