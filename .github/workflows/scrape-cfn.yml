@@ -49,7 +49,7 @@ jobs:
         uses: nick-invision/retry@v4
         with:
           max_attempts: 3
-          timeout_seconds: 600
+          timeout_seconds: 1800
           command: |
             CMD="python scrape_cfn.py"
             if [ -n "${{ github.event.inputs.player_ids }}" ]; then
@@ -142,7 +142,7 @@ jobs:
         uses: nick-invision/retry@v4
         with:
           max_attempts: 5
-          timeout_seconds: 600
+          timeout_seconds: 1800
           command: |
             CMD="python scrape_cfn.py"
             CMD="python scrape_cfn.py"
