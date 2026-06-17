@@ -1,4 +1,4 @@
-name: Scrape CFN Data (Unified)
+name: Scrape CFN Data
 on:
   schedule:
     - cron: '0 0,12 * * *'
