@@ -17,6 +17,9 @@ on:
 permissions:
   contents: write
   actions: write
+env:
+  CHROMEDRIVER_PATH: /usr/local/bin/chromedriver
+  GOOGLE_CHROME_PATH: /usr/bin/google-chrome
 jobs:
   scrape:
     runs-on: ubuntu-latest
@@ -35,8 +38,13 @@ jobs:
         uses: nanasess/setup-chromedriver@v2
       - name: Display Chrome and ChromeDriver versions
         run: |
+          echo "Chrome:"
           google-chrome --version
+          echo "ChromeDriver:"
           chromedriver --version
+          echo "Paths:"
+          which google-chrome
+          which chromedriver
       - name: Run scraper with retry (3 attempts)
         uses: nick-invision/retry@v4
         with:
@@ -54,6 +62,8 @@ jobs:
             $CMD
         env:
           SESSION_COOKIES: ${{ secrets.SESSION_COOKIES }}
+          CHROMEDRIVER_PATH: ${{ env.CHROMEDRIVER_PATH }}
+          GOOGLE_CHROME_PATH: ${{ env.GOOGLE_CHROME_PATH }}
       - name: Configure Git
         if: success()
         run: |
@@ -63,7 +73,9 @@ jobs:
         if: success()
         run: |
           git add sf6-tracker/src/data/phase_*.json
-          if ! git diff --staged --quiet; then
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
             git commit -m "Update CFN data"
             git pull --rebase origin main
             git push
@@ -71,8 +83,7 @@ jobs:
   refresh_cookies:
     needs: scrape
     runs-on: ubuntu-latest
-    # ALWAYS run if scrape fails
-    if: failure()
+    if: failure()   # Always run if scrape failed
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -86,10 +97,9 @@ jobs:
         uses: nanasess/setup-chromedriver@v2
       - name: Display Chrome and ChromeDriver versions
         run: |
+          echo "Chrome:"
           google-chrome --version
-          chromedriver --version
-      - name: Refresh cookies with retry (5 attempts, 30m delay)
-        uses: nick-invision/retry@v4 google-chrome --version
+          echo "ChromeDriver:"
           chromedriver --version
       - name: Refresh cookies with retry (5 attempts, 30m delay)
         uses: nick-invision/retry@v4
@@ -103,11 +113,12 @@ jobs:
           CAPCOM_PASSWORD: ${{ secrets.CAPCOM_PASSWORD }}
           PLATFORM: playstation
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          CHROMEDRIVER_PATH: ${{ env.CHROMEDRIVER_PATH }}
+          GOOGLE_CHROME_PATH: ${{ env.GOOGLE_CHROME_PATH }}
   scrape_after_refresh:
     needs: refresh_cookies
     runs-on: ubuntu-latest
-    # retry scrape only if refresh succeeded
-    if: success()
+    if: success()   # Only retry scrape if refresh succeeded
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -123,7 +134,9 @@ jobs:
         uses: nanasess/setup-chromedriver@v2
       - name: Display Chrome and ChromeDriver versions
         run: |
+          echo "Chrome:"
           google-chrome --version
+          echo "ChromeDriver:"
           chromedriver --version
       - name: Run scraper after refresh (5 attempts)
         uses: nick-invision/retry@v4
@@ -131,6 +144,7 @@ jobs:
           max_attempts: 5
           timeout_seconds: 600
           command: |
+            CMD="python scrape_cfn.py"
             CMD="python scrape_cfn.py"
             if [ -n "${{ github.event.inputs.player_ids }}" ]; then
               CMD="$CMD ${{ github.event.inputs.player_ids }}"
@@ -142,6 +156,8 @@ jobs:
             $CMD
         env:
           SESSION_COOKIES: ${{ secrets.SESSION_COOKIES }}
+          CHROMEDRIVER_PATH: ${{ env.CHROMEDRIVER_PATH }}
+          GOOGLE_CHROME_PATH: ${{ env.GOOGLE_CHROME_PATH }}
       - name: Configure Git
         run: |
           git config --global user.name "github-actions[bot]"
@@ -149,7 +165,9 @@ jobs:
       - name: Commit and push changes
         run: |
           git add sf6-tracker/src/data/phase_*.json
-          if ! git diff --staged --quiet; then
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
             git commit -m "Update CFN data (after refresh)"
             git pull --rebase origin main
             git push
