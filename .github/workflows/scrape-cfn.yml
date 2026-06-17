@@ -1,10 +1,8 @@
 name: Scrape CFN Data
-
 on:
   schedule:
-    # Run every 12 hours (at midnight and noon UTC)
     - cron: '0 0,12 * * *'
-  workflow_dispatch: # Allow manual trigger
+  workflow_dispatch:
     inputs:
       player_ids:
         description: 'Player IDs to scrape (comma-separated, leave empty for all)'
@@ -16,84 +14,69 @@ on:
         required: false
         type: string
         default: ''
-
+      retry_after_refresh:
+        description: 'Internal flag to prevent infinite loop'
+        required: false
+        type: boolean
+        default: false
 permissions:
   contents: write
   actions: write
-
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    
     steps:
+      # (your setup steps remain unchanged)
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GH_TOKEN }}
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
-      - name: Install Python dependencies
-        run: |
-          pip install -r requirements.txt
-
-      - name: Setup Chrome and ChromeDriver
-        id: setup-chrome
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Setup Chrome
         uses: nanasess/setup-chromedriver@v2
-        
-      - name: Display Chrome and ChromeDriver versions
+      - name: Chrome version
         run: |
           google-chrome --version
           chromedriver --version
-
-      - name: Run scraper
+      - name: Run scraper with retry
+        uses: nick-invision/retry@v4
+        with:
+          max_attempts: 3
+          timeout_seconds: 600
+          command: |
+            CMD="python scrape_cfn.py"
+            if [ -n "${{ github.event.inputs.player_ids }}" ]; then
+              CMD="$CMD ${{ github.event.inputs.player_ids }}"
+            fi
+            if [ -n "${{ github.event.inputs.phase }}" ]; then
+              CMD="$CMD --phase ${{ github.event.inputs.phase }}"
+            fi
+            $CMD
         env:
           SESSION_COOKIES: ${{ secrets.SESSION_COOKIES }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_ACTIONS: true
-          CHROMEDRIVER_PATH: /usr/local/bin/chromedriver
-        run: |
-          echo "Using ChromeDriver at: $CHROMEDRIVER_PATH"
-          
-          # Build command with optional parameters
-          CMD="python scrape_cfn.py"
-          
-          # Add player IDs if provided
-          if [ -n "${{ github.event.inputs.player_ids }}" ]; then
-            echo "Scraping specific player IDs: ${{ github.event.inputs.player_ids }}"
-            CMD="$CMD ${{ github.event.inputs.player_ids }}"
-          else
-            echo "Scraping all player IDs from player_ids.txt"
-          fi
-          
-          # Add phase parameter if provided
-          if [ -n "${{ github.event.inputs.phase }}" ]; then
-            echo "Scraping phase: ${{ github.event.inputs.phase }}"
-            CMD="$CMD --phase ${{ github.event.inputs.phase }}"
-          else
-            echo "Scraping latest phase only (default)"
-          fi
-          
-          # Execute the command
-          echo "Running: $CMD"
-          $CMD
-
       - name: Configure Git
+        if: success()
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Commit and push changes
+      - name: Commit & push
+        if: success()
         run: |
           git add sf6-tracker/src/data/phase_*.json
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "Update CFN data - $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          if ! git diff --staged --quiet; then
+            git commit -m "Update CFN data"
             git pull --rebase origin main
             git push
           fi
+  trigger-refresh:
+    needs: scrape
+    if: |
+      failure() &&
+      github.event_name != 'workflow_dispatch' &&
+      github.event.inputs.retry_after_refresh != true
+    uses: ./.github/workflows/refresh-cookies.yml

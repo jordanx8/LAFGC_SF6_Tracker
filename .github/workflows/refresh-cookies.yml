@@ -1,47 +1,35 @@
 name: Refresh Session Cookies
-
 on:
-  schedule:
-    # Run once a week on Sunday at 2 AM UTC
-    - cron: '0 2 * * 0'
-  workflow_dispatch: # Allow manual trigger
-  workflow_run:
-    workflows: ["Scrape CFN Data"]
-    types:
-      - completed
-
+  workflow_call:   # Only triggered by scrape-cfn.yml
+  workflow_dispatch:  # Manually run by a human
 permissions:
   contents: write
   actions: write
-
 jobs:
   refresh-cookies:
     runs-on: ubuntu-latest
-    # Only run if the scrape workflow failed
-    if: ${{ github.event.workflow_run.conclusion == 'failure' || github.event_name != 'workflow_run' }}
-    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
       - name: Install Python dependencies
-        run: |
-          pip install -r requirements.txt
-
+        run: pip install -r requirements.txt
       - name: Setup Chrome and ChromeDriver
         uses: nanasess/setup-chromedriver@v2
-        
       - name: Display Chrome and ChromeDriver versions
         run: |
           google-chrome --version
           chromedriver --version
-
-      - name: Run login script
+      - name: Refresh session cookies (retry 5 times, 30m delay)
+        uses: nick-invision/retry@v4
+        with:
+          max_attempts: 5
+          delay_seconds: 1800
+          timeout_seconds: 600
+          command: python refresh_cookies.py
         env:
           CAPCOM_USERNAME: ${{ secrets.CAPCOM_USERNAME }}
           CAPCOM_PASSWORD: ${{ secrets.CAPCOM_PASSWORD }}
@@ -50,6 +38,9 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_ACTIONS: true
           CHROMEDRIVER_PATH: /usr/local/bin/chromedriver
-        run: |
-          echo "Logging in and refreshing session cookies..."
-          python refresh_cookies.py
+  retrigger-scrape:
+    needs: refresh-cookies
+    if: success()  # Only retry scrape if refresh succeeded
+    uses: ./.github/workflows/scrape-cfn.yml
+    with:
+      retry_after_refresh: true
