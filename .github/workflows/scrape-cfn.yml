@@ -1,4 +1,4 @@
-name: Scrape CFN Data
+name: Scrape CFN Data (Unified)
 on:
   schedule:
     - cron: '0 0,12 * * *'
@@ -18,34 +18,41 @@ permissions:
   contents: write
   actions: write
 env:
-  CHROMEDRIVER_PATH: /usr/local/bin/chromedriver
+  CHROMEDRIVER_PATH: /usr/bin/chromedriver
   GOOGLE_CHROME_PATH: /usr/bin/google-chrome
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    outputs:
+      scrape_status: ${{ steps.run_scraper.outcome }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GH_TOKEN }}
+          
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
+          
       - name: Install Python dependencies
         run: pip install -r requirements.txt
+        
       - name: Setup Chrome and ChromeDriver
-        uses: nanasess/setup-chromedriver@v2
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
       - name: Display Chrome and ChromeDriver versions
         run: |
-          echo "Chrome:"
           google-chrome --version
-          echo "ChromeDriver:"
           chromedriver --version
-          echo "Paths:"
           which google-chrome
           which chromedriver
       - name: Run scraper with retry (3 attempts)
+        id: run_scraper
+        continue-on-error: true
         uses: nick-invision/retry@v4
         with:
           max_attempts: 3
@@ -64,48 +71,65 @@ jobs:
           SESSION_COOKIES: ${{ secrets.SESSION_COOKIES }}
           CHROMEDRIVER_PATH: ${{ env.CHROMEDRIVER_PATH }}
           GOOGLE_CHROME_PATH: ${{ env.GOOGLE_CHROME_PATH }}
+          
       - name: Configure Git
-        if: success()
+        if: steps.run_scraper.outcome == 'success'
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
       - name: Commit and push changes
-        if: success()
+        if: steps.run_scraper.outcome == 'success'
         run: |
           git add sf6-tracker/src/data/phase_*.json
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Update CFN data"
-            git pull --rebase origin main
+            git commit -m "Update CFN data [skip ci]"
+            git pull --rebase origin main || {
+              echo "Rebase failed, trying merge strategy"
+              git pull --no-rebase origin main
+            }
             git push
           fi
   refresh_cookies:
     needs: scrape
     runs-on: ubuntu-latest
-    if: failure()   # Always run if scrape failed
+    if: needs.scrape.outputs.scrape_status == 'failure'
+    outputs:
+      refresh_status: ${{ steps.refresh.outcome }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
+          
       - name: Install Python dependencies
         run: pip install -r requirements.txt
+        
       - name: Setup Chrome and ChromeDriver
-        uses: nanasess/setup-chromedriver@v2
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+          
       - name: Display Chrome and ChromeDriver versions
         run: |
-          echo "Chrome:"
           google-chrome --version
-          echo "ChromeDriver:"
           chromedriver --version
+          
       - name: Refresh cookies with retry (5 attempts, 30m delay)
+        id: refresh
+        continue-on-error: true
         uses: nick-invision/retry@v4
         with:
           max_attempts: 5
-          delay_seconds: 1800
+          retry_wait_seconds: 1800
           timeout_seconds: 600
           command: python refresh_cookies.py
         env:
@@ -113,38 +137,49 @@ jobs:
           CAPCOM_PASSWORD: ${{ secrets.CAPCOM_PASSWORD }}
           PLATFORM: playstation
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_ACTIONS: true
           CHROMEDRIVER_PATH: ${{ env.CHROMEDRIVER_PATH }}
           GOOGLE_CHROME_PATH: ${{ env.GOOGLE_CHROME_PATH }}
   scrape_after_refresh:
     needs: refresh_cookies
     runs-on: ubuntu-latest
-    if: success()   # Only retry scrape if refresh succeeded
+    if: needs.refresh_cookies.outputs.refresh_status == 'success'
+    outputs:
+      retry_status: ${{ steps.retry_scraper.outcome }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GH_TOKEN }}
+          
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
+          
       - name: Install Python dependencies
         run: pip install -r requirements.txt
+        
       - name: Setup Chrome and ChromeDriver
-        uses: nanasess/setup-chromedriver@v2
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+          
       - name: Display Chrome and ChromeDriver versions
         run: |
-          echo "Chrome:"
           google-chrome --version
-          echo "ChromeDriver:"
           chromedriver --version
+          
       - name: Run scraper after refresh (5 attempts)
+        id: retry_scraper
+        continue-on-error: true
         uses: nick-invision/retry@v4
         with:
           max_attempts: 5
           timeout_seconds: 1800
           command: |
-            CMD="python scrape_cfn.py"
             CMD="python scrape_cfn.py"
             if [ -n "${{ github.event.inputs.player_ids }}" ]; then
               CMD="$CMD ${{ github.event.inputs.player_ids }}"
@@ -158,17 +193,127 @@ jobs:
           SESSION_COOKIES: ${{ secrets.SESSION_COOKIES }}
           CHROMEDRIVER_PATH: ${{ env.CHROMEDRIVER_PATH }}
           GOOGLE_CHROME_PATH: ${{ env.GOOGLE_CHROME_PATH }}
+          
       - name: Configure Git
+        if: steps.retry_scraper.outcome == 'success'
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
       - name: Commit and push changes
+        if: steps.retry_scraper.outcome == 'success'
         run: |
           git add sf6-tracker/src/data/phase_*.json
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Update CFN data (after refresh)"
-            git pull --rebase origin main
+            git commit -m "Update CFN data (after refresh) [skip ci]"
+            git pull --rebase origin main || {
+              echo "Rebase failed, trying merge strategy"
+              git pull --no-rebase origin main
+            }
             git push
           fi
+  final_status:
+    needs: [scrape, refresh_cookies, scrape_after_refresh]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          token: ${{ secrets.GH_TOKEN }}
+          
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Collect workflow results
+        id: collect
+        run: |
+          SCRAPE="${{ needs.scrape.result }}"
+          REFRESH="${{ needs.refresh_cookies.result }}"
+          RETRY="${{ needs.scrape_after_refresh.result }}"
+          
+          echo "scrape=$SCRAPE" >> $GITHUB_OUTPUT
+          echo "refresh=$REFRESH" >> $GITHUB_OUTPUT
+          echo "retry=$RETRY" >> $GITHUB_OUTPUT
+          
+          echo "SCRAPE=$SCRAPE" >> $GITHUB_ENV
+          echo "REFRESH=$REFRESH" >> $GITHUB_ENV
+          echo "RETRY=$RETRY" >> $GITHUB_ENV
+          
+      - name: Generate summary JSON
+        run: |
+          cat > summary.json << EOF
+          {
+            "scrape": "${SCRAPE}",
+            "refresh": "${REFRESH}",
+            "retry": "${RETRY}",
+            "timestamp": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          }
+          EOF
+          
+      - name: Parse JSON changes
+        run: |
+          python parse_json_changes.py > json_changes_summary.txt || echo "No changes or error parsing changes." > json_changes_summary.txt
+          
+      - name: Add summary to GitHub UI
+        run: |
+          echo "## 📊 Workflow Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```json' >> $GITHUB_STEP_SUMMARY
+          cat summary.json >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## 📝 Data Changes" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          cat json_changes_summary.txt >> $GITHUB_STEP_SUMMARY
+          
+      - name: Upload summary artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: workflow-summary-${{ github.run_id }}
+          retention-days: 30
+          path: |
+            summary.json
+            json_changes_summary.txt
+          
+      - name: Final workflow status decision
+        run: |
+          echo "=== Workflow Results ==="
+          echo "Initial Scrape: ${SCRAPE}"
+          echo "Cookie Refresh: ${REFRESH}"
+          echo "Retry Scrape: ${RETRY}"
+          echo ""
+          
+          if [ "${SCRAPE}" = "success" ]; then
+            echo "✅ Initial scrape succeeded."
+            exit 0
+          fi
+          
+          if [ "${REFRESH}" = "success" ] && [ "${RETRY}" = "success" ]; then
+            echo "✅ Recovery process succeeded (refresh + retry)."
+            exit 0
+          fi
+          
+          if [ "${SCRAPE}" = "failure" ] && [ "${REFRESH}" = "skipped" ]; then
+            echo "❌ Initial scrape failed and no recovery attempted."
+            exit 1
+          fi
+          
+          if [ "${REFRESH}" = "failure" ]; then
+            echo "❌ Cookie refresh failed."
+            exit 1
+          fi
+          
+          if [ "${RETRY}" = "failure" ]; then
+            echo "❌ Retry scrape after refresh failed."
+            exit 1
+          fi
+          
+          echo "⚠️  Unexpected workflow state."
+          exit 1
