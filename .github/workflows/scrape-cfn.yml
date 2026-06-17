@@ -1,25 +1,19 @@
-name: Scrape CFN Data
+name: Scrape CFN Data (Unified)
 on:
   schedule:
     - cron: '0 0,12 * * *'
   workflow_dispatch:
     inputs:
       player_ids:
-        description: 'Player IDs to scrape (comma-separated, leave empty for all)'
+        description: 'Player IDs to scrape'
         required: false
         type: string
         default: ''
       phase:
-        description: 'Phase to scrape (1-12, "all", or leave empty for latest phase only)'
+        description: 'Phase to scrape'
         required: false
         type: string
         default: ''
-      retry_after_refresh:
-        description: 'Internal flag to prevent infinite loop'
-        required: false
-        type: boolean
-        default: false
-  workflow_call:
 permissions:
   contents: write
   actions: write
@@ -27,7 +21,6 @@ jobs:
   scrape:
     runs-on: ubuntu-latest
     steps:
-      # (your setup steps remain unchanged)
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
@@ -36,15 +29,15 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install dependencies
+      - name: Install Python dependencies
         run: pip install -r requirements.txt
-      - name: Setup Chrome
+      - name: Setup Chrome and ChromeDriver
         uses: nanasess/setup-chromedriver@v2
-      - name: Chrome version
+      - name: Display Chrome and ChromeDriver versions
         run: |
           google-chrome --version
           chromedriver --version
-      - name: Run scraper with retry
+      - name: Run scraper with retry (3 attempts)
         uses: nick-invision/retry@v4
         with:
           max_attempts: 3
@@ -57,6 +50,7 @@ jobs:
             if [ -n "${{ github.event.inputs.phase }}" ]; then
               CMD="$CMD --phase ${{ github.event.inputs.phase }}"
             fi
+            echo "Running: $CMD"
             $CMD
         env:
           SESSION_COOKIES: ${{ secrets.SESSION_COOKIES }}
@@ -65,7 +59,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-      - name: Commit & push
+      - name: Commit and push changes
         if: success()
         run: |
           git add sf6-tracker/src/data/phase_*.json
@@ -74,10 +68,89 @@ jobs:
             git pull --rebase origin main
             git push
           fi
-  trigger-refresh:
+  refresh_cookies:
     needs: scrape
-    if: |
-      failure() &&
-      github.event_name != 'workflow_dispatch' &&
-      github.event.inputs.retry_after_refresh != true
-    uses: ./.github/workflows/refresh-cookies.yml
+    runs-on: ubuntu-latest
+    # ALWAYS run if scrape fails
+    if: failure()
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+      - name: Setup Chrome and ChromeDriver
+        uses: nanasess/setup-chromedriver@v2
+      - name: Display Chrome and ChromeDriver versions
+        run: |
+          google-chrome --version
+          chromedriver --version
+      - name: Refresh cookies with retry (5 attempts, 30m delay)
+        uses: nick-invision/retry@v4 google-chrome --version
+          chromedriver --version
+      - name: Refresh cookies with retry (5 attempts, 30m delay)
+        uses: nick-invision/retry@v4
+        with:
+          max_attempts: 5
+          delay_seconds: 1800
+          timeout_seconds: 600
+          command: python refresh_cookies.py
+        env:
+          CAPCOM_USERNAME: ${{ secrets.CAPCOM_USERNAME }}
+          CAPCOM_PASSWORD: ${{ secrets.CAPCOM_PASSWORD }}
+          PLATFORM: playstation
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  scrape_after_refresh:
+    needs: refresh_cookies
+    runs-on: ubuntu-latest
+    # retry scrape only if refresh succeeded
+    if: success()
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+      - name: Setup Chrome and ChromeDriver
+        uses: nanasess/setup-chromedriver@v2
+      - name: Display Chrome and ChromeDriver versions
+        run: |
+          google-chrome --version
+          chromedriver --version
+      - name: Run scraper after refresh (5 attempts)
+        uses: nick-invision/retry@v4
+        with:
+          max_attempts: 5
+          timeout_seconds: 600
+          command: |
+            CMD="python scrape_cfn.py"
+            if [ -n "${{ github.event.inputs.player_ids }}" ]; then
+              CMD="$CMD ${{ github.event.inputs.player_ids }}"
+            fi
+            if [ -n "${{ github.event.inputs.phase }}" ]; then
+              CMD="$CMD --phase ${{ github.event.inputs.phase }}"
+            fi
+            echo "Running after refresh: $CMD"
+            $CMD
+        env:
+          SESSION_COOKIES: ${{ secrets.SESSION_COOKIES }}
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Commit and push changes
+        run: |
+          git add sf6-tracker/src/data/phase_*.json
+          if ! git diff --staged --quiet; then
+            git commit -m "Update CFN data (after refresh)"
+            git pull --rebase origin main
+            git push
+          fi
