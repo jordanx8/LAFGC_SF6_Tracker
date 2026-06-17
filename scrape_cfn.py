@@ -504,9 +504,7 @@ def main():
     # Load cookies (required for scraping)
     cookies = load_cookies()
     if not cookies:
-        print("ERROR: No cookies found!")
-        print("Please run refresh_cookies.py first to obtain session cookies.")
-        return
+        raise RuntimeError("No cookies found.")
     
     print(f"Loaded {len(cookies)} cookies from storage")
     
