@@ -121,7 +121,7 @@ def build_single_embed(changes_by_phase):
         current_sorted = sorted(current, key=lambda c: c["new_mr"], reverse=True)
         peak_sorted    = sorted(peak,    key=lambda c: c["new_mr"], reverse=True)
         if current_sorted:
-            lines.append(f"**📈 Current MR Changes — Phase {phase} (sorted by new MR)**")
+            lines.append(f"**📈 Current MR Changes — Phase {phase}**")
             for c in current_sorted:
                 sign = "+" if c["change"] > 0 else ""
                 emoji = "🔺" if c["change"] > 0 else "🔻"
@@ -132,7 +132,7 @@ def build_single_embed(changes_by_phase):
                 )
             lines.append("")
         if peak_sorted:
-            lines.append(f"**🏆 Peak MR Changes — Phase {phase} (sorted by new MR)**")
+            lines.append(f"**🏆 Peak MR Changes — Phase {phase}**")
             for c in peak_sorted:
                 sign = "+" if c["change"] > 0 else ""
                 emoji = "🔺" if c["change"] > 0 else "🔻"
