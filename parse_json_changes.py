@@ -112,23 +112,6 @@ def parse_phase_files():
                             'change': mr_value - prev_value
                         })
                 
-                # Check for LP changes
-                current_lp = {char['name']: char['lp'] for char in player_data.get('lp', [])}
-                prev_lp = {char['name']: char['lp'] for char in prev_player.get('lp', [])}
-                
-                for char_name, lp_value in current_lp.items():
-                    prev_value = prev_lp.get(char_name, 0)
-                    if lp_value != prev_value and abs(lp_value - prev_value) > 100:  # Only show significant LP changes
-                        changes.append({
-                            'phase': phase_num,
-                            'type': 'lp_change',
-                            'player': username,
-                            'player_id': player_id,
-                            'character': char_name,
-                            'old_lp': prev_value,
-                            'new_lp': lp_value,
-                            'change': lp_value - prev_value
-                        })
         
         except Exception as e:
             print(f"Error processing {phase_file}: {e}", file=sys.stderr)
@@ -142,6 +125,7 @@ def format_changes(changes):
         return "No changes detected."
     
     output = []
+    output.append("# 📊 SF6 Tracker Changes Summary\n")
     
     # Group by phase
     phases = {}
@@ -153,55 +137,75 @@ def format_changes(changes):
     
     for phase in sorted(phases.keys(), key=lambda x: int(x)):
         phase_changes = phases[phase]
-        output.append(f"\n## Phase {phase}")
+        output.append(f"## 🎮 Phase {phase}\n")
         
         # Group by type
         new_files = [c for c in phase_changes if c['type'] == 'new_file']
         new_players = [c for c in phase_changes if c['type'] == 'new_player']
-        mr_changes = [c for c in phase_changes if c['type'] in ['current_mr_change', 'highest_mr_change']]
-        lp_changes = [c for c in phase_changes if c['type'] == 'lp_change']
+        current_mr_changes = [c for c in phase_changes if c['type'] == 'current_mr_change']
+        highest_mr_changes = [c for c in phase_changes if c['type'] == 'highest_mr_change']
         
         if new_files:
-            output.append(f"  📄 New phase file created with {new_files[0]['player_count']} players")
+            output.append(f"### 📄 New Phase File")
+            output.append(f"- Created with **{new_files[0]['player_count']} players**\n")
         
         if new_players:
-            output.append(f"  👤 New players added: {len(new_players)}")
+            output.append(f"### 👤 New Players ({len(new_players)})")
             for change in new_players[:5]:  # Show first 5
-                output.append(f"     - {change['player']}")
+                output.append(f"- {change['player']}")
             if len(new_players) > 5:
-                output.append(f"     ... and {len(new_players) - 5} more")
+                output.append(f"- *...and {len(new_players) - 5} more*")
+            output.append("")
         
-        if mr_changes:
-            output.append(f"  📈 MR Changes: {len(mr_changes)}")
+        # Current MR Changes
+        if current_mr_changes:
+            output.append(f"### 📈 Current MR Changes ({len(current_mr_changes)})")
             
             # Group by player
             by_player = {}
-            for change in mr_changes:
+            for change in current_mr_changes:
                 player = change['player']
                 if player not in by_player:
                     by_player[player] = []
                 by_player[player].append(change)
             
             for player, player_changes in sorted(by_player.items()):
-                output.append(f"     {player}:")
+                output.append(f"\n**{player}**")
                 for change in player_changes:
-                    mr_type = "Current" if change['type'] == 'current_mr_change' else "Highest"
                     sign = "+" if change['change'] > 0 else ""
+                    emoji = "🔺" if change['change'] > 0 else "🔻"
                     output.append(
-                        f"       • {change['character']} ({mr_type}): "
-                        f"{change['old_mr']:,} → {change['new_mr']:,} ({sign}{change['change']:,})"
+                        f"- {emoji} **{change['character']}**: "
+                        f"{change['old_mr']:,} → {change['new_mr']:,} "
+                        f"({sign}{change['change']:,})"
                     )
+            output.append("")
         
-        if lp_changes:
-            output.append(f"  🎮 Significant LP Changes: {len(lp_changes)}")
-            for change in lp_changes[:10]:  # Show first 10
-                sign = "+" if change['change'] > 0 else ""
-                output.append(
-                    f"     {change['player']} - {change['character']}: "
-                    f"{change['old_lp']:,} → {change['new_lp']:,} ({sign}{change['change']:,})"
-                )
-            if len(lp_changes) > 10:
-                output.append(f"     ... and {len(lp_changes) - 10} more")
+        # Highest MR Changes
+        if highest_mr_changes:
+            output.append(f"### 🏆 Peak MR Changes ({len(highest_mr_changes)})")
+            
+            # Group by player
+            by_player = {}
+            for change in highest_mr_changes:
+                player = change['player']
+                if player not in by_player:
+                    by_player[player] = []
+                by_player[player].append(change)
+            
+            for player, player_changes in sorted(by_player.items()):
+                output.append(f"\n**{player}**")
+                for change in player_changes:
+                    sign = "+" if change['change'] > 0 else ""
+                    emoji = "🔺" if change['change'] > 0 else "🔻"
+                    output.append(
+                        f"- {emoji} **{change['character']}**: "
+                        f"{change['old_mr']:,} → {change['new_mr']:,} "
+                        f"({sign}{change['change']:,})"
+                    )
+            output.append("")
+        
+        output.append("---\n")
     
     return "\n".join(output)
 
