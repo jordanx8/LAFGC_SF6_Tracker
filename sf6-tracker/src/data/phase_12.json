@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-17T21:06:26.477440-05:00",
+  "last_updated": "2026-06-18T00:06:02.138944-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -1261,7 +1261,7 @@
       "lp": [
         {
           "name": "INGRID",
-          "lp": 58370
+          "lp": 58730
         },
         {
           "name": "TERRY",
@@ -1299,7 +1299,7 @@
       "current_mr": [
         {
           "name": "INGRID",
-          "mr": 1556
+          "mr": 1532
         },
         {
           "name": "MAI",
@@ -1430,7 +1430,7 @@
       "lp": [
         {
           "name": "CHUN-LI",
-          "lp": 230560
+          "lp": 230660
         },
         {
           "name": "AKUMA",
@@ -1448,7 +1448,7 @@
       "current_mr": [
         {
           "name": "CHUN-LI",
-          "mr": 1564
+          "mr": 1572
         },
         {
           "name": "INGRID",
@@ -1721,7 +1721,7 @@
     },
     "2949851312": {
       "username": "Noremak: Bound",
-      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
       "lp": [
         {
           "name": "JURI",
@@ -1918,7 +1918,7 @@
         },
         {
           "name": "RYU",
-          "lp": 32579
+          "lp": 34733
         }
       ],
       "current_mr": [
@@ -1928,7 +1928,7 @@
         },
         {
           "name": "RYU",
-          "mr": 1356
+          "mr": 1359
         }
       ],
       "highest_mr": [
