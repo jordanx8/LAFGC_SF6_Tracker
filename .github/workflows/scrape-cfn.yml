@@ -210,87 +210,87 @@ jobs:
           name: commit-flag
           path: committed_changes
           if-no-files-found: ignore
-final_status:
-  needs: [scrape, refresh_cookies, scrape_after_refresh]
-  runs-on: ubuntu-latest
-  if: always()
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 2
-        token: ${{ secrets.GH_TOKEN }}
-    - name: Download commit flag
-      uses: actions/download-artifact@v4
-      with:
-        name: commit-flag
-        path: .
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
-    # ---------------------------------------------------------
-    #   ONLY RUN THE PARSER IF CHANGES WERE COMMITTED
-    # ---------------------------------------------------------
-    - name: Parse JSON changes
-      if: hashFiles('committed_changes') != ''
-      run: |
-        echo "Committed changes found — running parser."
-        python parse_json_changes.py > json_changes_summary.txt
-    # If no changes, create an empty summary file anyway
-    - name: No changes fallback file
-      if: hashFiles('committed_changes') == ''
-      run: |
-        echo "No committed changes — skipping parser."
-        echo "No data changes detected." > json_changes_summary.txt
-    # ---------------------------------------------------------
-    #   Add summary to GitHub Action Summary tab
-    # ---------------------------------------------------------
-    - name: Add summary to GitHub UI
-      run: |
-        echo "## 📝 Data Changes" >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY
-        cat json_changes_summary.txt >> $GITHUB_STEP_SUMMARY
-    # ---------------------------------------------------------
-    # Upload artifacts (summary + parse output)
-    # ---------------------------------------------------------
-    - name: Upload summary artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: workflow-summary-${{ github.run_id }}
-        retention-days: 30
-        path: |
-          summary.json
-          json_changes_summary.txt
-    # ---------------------------------------------------------
-    # Final status logic (unchanged)
-    # ---------------------------------------------------------
-    - name: Final workflow status decision
-      run: |
-        echo "=== Workflow Results ==="
-        echo "Initial Scrape: ${{ needs.scrape.result }}"
-        echo "Cookie Refresh: ${{ needs.refresh_cookies.result }}"
-        echo "Retry Scrape: ${{ needs.scrape_after_refresh.result }}"
-        echo ""
-        if [ "${{ needs.scrape.result }}" = "success" ]; then
-          echo "✅ Initial scrape succeeded."
-          exit 0
-        fi
-        if [ "${{ needs.refresh_cookies.result }}" = "success" ] && [ "${{ needs.scrape_after_refresh.result }}" = "success" ]; then
-          echo "✅ Recovery process succeeded (refresh + retry)."
-          exit 0
-        fi
-        if [ "${{ needs.scrape.result }}" = "failure" ] && [ "${{ needs.refresh_cookies.result }}" = "skipped" ]; then
-          echo "❌ Initial scrape failed and no recovery attempted."
+  final_status:
+    needs: [scrape, refresh_cookies, scrape_after_refresh]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          token: ${{ secrets.GH_TOKEN }}
+      - name: Download commit flag
+        uses: actions/download-artifact@v4
+        with:
+          name: commit-flag
+          path: .
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      # ---------------------------------------------------------
+      #   ONLY RUN THE PARSER IF CHANGES WERE COMMITTED
+      # ---------------------------------------------------------
+      - name: Parse JSON changes
+        if: hashFiles('committed_changes') != ''
+        run: |
+          echo "Committed changes found — running parser."
+          python parse_json_changes.py > json_changes_summary.txt
+      # If no changes, create an empty summary file anyway
+      - name: No changes fallback file
+        if: hashFiles('committed_changes') == ''
+        run: |
+          echo "No committed changes — skipping parser."
+          echo "No data changes detected." > json_changes_summary.txt
+      # ---------------------------------------------------------
+      #   Add summary to GitHub Action Summary tab
+      # ---------------------------------------------------------
+      - name: Add summary to GitHub UI
+        run: |
+          echo "## 📝 Data Changes" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          cat json_changes_summary.txt >> $GITHUB_STEP_SUMMARY
+      # ---------------------------------------------------------
+      # Upload artifacts (summary + parse output)
+      # ---------------------------------------------------------
+      - name: Upload summary artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: workflow-summary-${{ github.run_id }}
+          retention-days: 30
+          path: |
+            summary.json
+            json_changes_summary.txt
+      # ---------------------------------------------------------
+      # Final status logic (unchanged)
+      # ---------------------------------------------------------
+      - name: Final workflow status decision
+        run: |
+          echo "=== Workflow Results ==="
+          echo "Initial Scrape: ${{ needs.scrape.result }}"
+          echo "Cookie Refresh: ${{ needs.refresh_cookies.result }}"
+          echo "Retry Scrape: ${{ needs.scrape_after_refresh.result }}"
+          echo ""
+          if [ "${{ needs.scrape.result }}" = "success" ]; then
+            echo "✅ Initial scrape succeeded."
+            exit 0
+          fi
+          if [ "${{ needs.refresh_cookies.result }}" = "success" ] && [ "${{ needs.scrape_after_refresh.result }}" = "success" ]; then
+            echo "✅ Recovery process succeeded (refresh + retry)."
+            exit 0
+          fi
+          if [ "${{ needs.scrape.result }}" = "failure" ] && [ "${{ needs.refresh_cookies.result }}" = "skipped" ]; then
+            echo "❌ Initial scrape failed and no recovery attempted."
+            exit 1
+          fi
+          if [ "${{ needs.refresh_cookies.result }}" = "failure" ]; then
+            echo "❌ Cookie refresh failed."
+            exit 1
+          fi
+          if [ "${{ needs.scrape_after_refresh.result }}" = "failure" ]; then
+            echo "❌ Retry scrape after refresh failed."
+            exit 1
+          fi
+          echo "⚠️ Unexpected workflow state."
           exit 1
-        fi
-        if [ "${{ needs.refresh_cookies.result }}" = "failure" ]; then
-          echo "❌ Cookie refresh failed."
-          exit 1
-        fi
-        if [ "${{ needs.scrape_after_refresh.result }}" = "failure" ]; then
-          echo "❌ Retry scrape after refresh failed."
-          exit 1
-        fi
-        echo "⚠️ Unexpected workflow state."
-        exit 1
