@@ -17,8 +17,10 @@ def parse_phase_files():
             with open(phase_file, 'r', encoding='utf-8') as f:
                 current_data = json.load(f)
             # Get previous version from last commit
+            # Convert Path to string with forward slashes for git
+            git_path = str(phase_file).replace('\\', '/')
             result = subprocess.run(
-                ['git', 'show', f'HEAD~1:{phase_file}'],
+                ['git', 'show', f'HEAD~1:{git_path}'],
                 capture_output=True,
                 text=True,
                 check=False
@@ -33,6 +35,10 @@ def parse_phase_files():
                 })
                 continue
             previous_data = json.loads(result.stdout)
+            
+            # Skip if files are identical
+            if current_data == previous_data:
+                continue
             current_players = current_data.get('players', {})
             previous_players = previous_data.get('players', {})
             for player_id, player_data in current_players.items():
