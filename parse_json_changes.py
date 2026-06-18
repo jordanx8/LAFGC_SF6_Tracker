@@ -164,6 +164,14 @@ def send_single_embed(webhook_url, embed):
 # ------------------------------
 def main():
     print("Analyzing JSON changes...\n")
+    
+    # Ensure we have the latest commits
+    try:
+        subprocess.run(['git', 'fetch', 'origin'], check=False, capture_output=True)
+        print("Fetched latest changes from origin", file=sys.stderr)
+    except Exception as e:
+        print(f"Warning: Could not fetch from origin: {e}", file=sys.stderr)
+    
     changes = parse_phase_files()
     summary, phases_grouped = format_changes(changes)
     print(summary)
