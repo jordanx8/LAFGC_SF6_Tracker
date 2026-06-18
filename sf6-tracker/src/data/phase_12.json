@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-18T00:06:02.138944-05:00",
+  "last_updated": "2026-06-18T11:05:07.232230-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -61,7 +61,7 @@
         },
         {
           "name": "SAGAT",
-          "lp": 38837
+          "lp": 38757
         },
         {
           "name": "ALEX",
@@ -77,7 +77,7 @@
         },
         {
           "name": "TERRY",
-          "lp": 26270
+          "lp": 26440
         },
         {
           "name": "INGRID",
@@ -91,19 +91,19 @@
         },
         {
           "name": "SAGAT",
-          "mr": 1545
+          "mr": 1533
         },
         {
           "name": "RYU",
           "mr": 1500
         },
         {
-          "name": "TERRY",
-          "mr": 1497
-        },
-        {
           "name": "ALEX",
           "mr": 1495
+        },
+        {
+          "name": "TERRY",
+          "mr": 1488
         },
         {
           "name": "A.K.I.",
@@ -314,6 +314,14 @@
           "lp": 34798
         },
         {
+          "name": "ELENA",
+          "lp": 31042
+        },
+        {
+          "name": "KEN",
+          "lp": 27896
+        },
+        {
           "name": "MAI",
           "lp": 26827
         }
@@ -328,8 +336,16 @@
           "mr": 1512
         },
         {
+          "name": "ELENA",
+          "mr": 1506
+        },
+        {
           "name": "JAMIE",
           "mr": 1505
+        },
+        {
+          "name": "KEN",
+          "mr": 1493
         },
         {
           "name": "MAI",
@@ -352,6 +368,14 @@
         {
           "name": "JAMIE",
           "mr": 1513
+        },
+        {
+          "name": "ELENA",
+          "mr": 1506
+        },
+        {
+          "name": "KEN",
+          "mr": 1493
         }
       ]
     },
@@ -1273,7 +1297,7 @@
         },
         {
           "name": "DEE JAY",
-          "lp": 50858
+          "lp": 51358
         },
         {
           "name": "C. VIPER",
@@ -1311,7 +1335,7 @@
         },
         {
           "name": "DEE JAY",
-          "mr": 1430
+          "mr": 1436
         },
         {
           "name": "SAGAT",
@@ -1526,13 +1550,13 @@
       "lp": [
         {
           "name": "DEE JAY",
-          "lp": 305849
+          "lp": 305829
         }
       ],
       "current_mr": [
         {
           "name": "DEE JAY",
-          "mr": 1685
+          "mr": 1669
         }
       ],
       "highest_mr": [
