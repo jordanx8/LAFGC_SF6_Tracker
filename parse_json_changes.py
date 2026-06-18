@@ -50,8 +50,6 @@ def parse_phase_files():
                 current_mr = {c['name']: c['mr'] for c in player_data.get('current_mr', [])}
                 prev_mr = {c['name']: c['mr'] for c in prev_player.get('current_mr', [])}
                 for char_name, new_mr in current_mr.items():
-                    old_mr = prev_mr = {c['name']: c['mr'] for c in prev_player.get('current_mr', [])}
-                for char_name, new_mr in current_mr.items():
                     old_mr = prev_mr.get(char_name, 0)
                     if new_mr != old_mr:
                         changes.append({
