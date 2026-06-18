@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-18T13:15:59.306030-05:00",
+  "last_updated": "2026-06-18T14:35:11.815407-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -704,7 +704,7 @@
       "current_mr": [
         {
           "name": "CAMMY",
-          "mr": 8
+          "mr": 1740
         },
         {
           "name": "E. HONDA",
@@ -1550,13 +1550,13 @@
       "lp": [
         {
           "name": "DEE JAY",
-          "lp": 306269
+          "lp": 306199
         }
       ],
       "current_mr": [
         {
           "name": "DEE JAY",
-          "mr": 1672
+          "mr": 1653
         }
       ],
       "highest_mr": [
