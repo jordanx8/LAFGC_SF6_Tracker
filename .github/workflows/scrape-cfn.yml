@@ -81,7 +81,7 @@ jobs:
             echo "No changes to commit"
           else
             echo "Changes detected; committing."
-            git commit -m "Update CFN data [skip ci]"
+            git commit -m "Update CFN data"
             git pull --rebase origin main || git pull --no-rebase origin main
             git push
             touch committed_changes
@@ -198,7 +198,7 @@ jobs:
             echo "No changes to commit"
           else
             echo "Changes detected; committing."
-            git commit -m "Update CFN data (after refresh) [skip ci]"
+            git commit -m "Update CFN data"
             git pull --rebase origin main || git pull --no-rebase origin main
             git push
             touch committed_changes
