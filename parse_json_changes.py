@@ -180,7 +180,7 @@ def main():
         f.write(summary)
     # Discord webhook
     webhook = os.getenv("DISCORD_WEBHOOK_URL")
-    if webhook:
+    if webhook and changes:
         print("\nSending update to Discord...")
         embed = build_single_embed(phases_grouped)
         send_single_embed(webhook, embed)
