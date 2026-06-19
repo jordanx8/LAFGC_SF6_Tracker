@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-18T19:04:31.508244-05:00",
+  "last_updated": "2026-06-18T23:51:39.680738-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -452,13 +452,13 @@
         },
         {
           "name": "M. BISON",
-          "lp": 127217
+          "lp": 127137
         }
       ],
       "current_mr": [
         {
           "name": "M. BISON",
-          "mr": 1806
+          "mr": 1796
         },
         {
           "name": "LUKE",
@@ -950,7 +950,7 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 300149
+          "lp": 300319
         },
         {
           "name": "MANON",
@@ -988,7 +988,7 @@
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1641
+          "mr": 1637
         },
         {
           "name": "MAI",
@@ -1285,7 +1285,7 @@
       "lp": [
         {
           "name": "INGRID",
-          "lp": 59820
+          "lp": 64036
         },
         {
           "name": "TERRY",
@@ -1323,7 +1323,7 @@
       "current_mr": [
         {
           "name": "INGRID",
-          "mr": 1536
+          "mr": 1562
         },
         {
           "name": "MAI",
@@ -1357,7 +1357,7 @@
       "highest_mr": [
         {
           "name": "INGRID",
-          "mr": 1584
+          "mr": 1587
         },
         {
           "name": "DEE JAY",
@@ -1938,27 +1938,27 @@
       "lp": [
         {
           "name": "MARISA",
-          "lp": 200245
+          "lp": 201005
         },
         {
           "name": "RYU",
-          "lp": 34733
+          "lp": 36069
         }
       ],
       "current_mr": [
         {
           "name": "MARISA",
-          "mr": 1700
+          "mr": 1645
         },
         {
           "name": "RYU",
-          "mr": 1359
+          "mr": 1299
         }
       ],
       "highest_mr": [
         {
           "name": "MARISA",
-          "mr": 1700
+          "mr": 1708
         },
         {
           "name": "RYU",
