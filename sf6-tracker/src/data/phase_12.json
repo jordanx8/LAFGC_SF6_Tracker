@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-19T10:39:35.011140-05:00",
+  "last_updated": "2026-06-19T23:09:58.706418-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -11,7 +11,7 @@
         },
         {
           "name": "ED",
-          "lp": 42243
+          "lp": 42313
         },
         {
           "name": "INGRID",
@@ -29,7 +29,7 @@
         },
         {
           "name": "ED",
-          "mr": 1441
+          "mr": 1409
         }
       ],
       "highest_mr": [
@@ -207,11 +207,11 @@
         },
         {
           "name": "CHUN-LI",
-          "lp": 23231
+          "lp": 23341
         },
         {
           "name": "LUKE",
-          "lp": 21733
+          "lp": 21749
         },
         {
           "name": "RYU",
@@ -224,6 +224,10 @@
         {
           "name": "TERRY",
           "lp": 19575
+        },
+        {
+          "name": "C. VIPER",
+          "lp": 19277
         },
         {
           "name": "ELENA",
@@ -574,16 +578,16 @@
       "highest_mr": []
     },
     "2519113852": {
-      "username": "UltraGiga Mason",
+      "username": "UltraGigaGleebo",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 279698
+          "lp": 279818
         },
         {
           "name": "LUKE",
-          "lp": 244518
+          "lp": 244588
         },
         {
           "name": "RYU",
@@ -595,7 +599,11 @@
         },
         {
           "name": "MAI",
-          "lp": 49778
+          "lp": 49748
+        },
+        {
+          "name": "GUILE",
+          "lp": 27235
         },
         {
           "name": "ED",
@@ -612,24 +620,28 @@
           "mr": 1521
         },
         {
-          "name": "RYU",
-          "mr": 1456
+          "name": "GUILE",
+          "mr": 1484
         },
         {
-          "name": "MAI",
-          "mr": 1448
+          "name": "RYU",
+          "mr": 1456
         },
         {
           "name": "ED",
           "mr": 1445
         },
         {
-          "name": "CAMMY",
-          "mr": 1422
+          "name": "MAI",
+          "mr": 1442
         },
         {
           "name": "AKUMA",
-          "mr": 1408
+          "mr": 1424
+        },
+        {
+          "name": "CAMMY",
+          "mr": 1422
         }
       ],
       "highest_mr": [
@@ -656,6 +668,10 @@
         {
           "name": "ED",
           "mr": 1452
+        },
+        {
+          "name": "GUILE",
+          "mr": 1492
         }
       ]
     },
@@ -733,6 +749,10 @@
         {
           "name": "INGRID",
           "lp": 25754
+        },
+        {
+          "name": "C. VIPER",
+          "lp": 21783
         }
       ],
       "current_mr": [
@@ -950,7 +970,7 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 300319
+          "lp": 300599
         },
         {
           "name": "MANON",
@@ -966,7 +986,7 @@
         },
         {
           "name": "ZANGIEF",
-          "lp": 26284
+          "lp": 26124
         },
         {
           "name": "INGRID",
@@ -988,7 +1008,7 @@
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1637
+          "mr": 1647
         },
         {
           "name": "MAI",
@@ -1004,7 +1024,7 @@
         },
         {
           "name": "ZANGIEF",
-          "mr": 1389
+          "mr": 1359
         }
       ],
       "highest_mr": [
@@ -1285,7 +1305,7 @@
       "lp": [
         {
           "name": "INGRID",
-          "lp": 64036
+          "lp": 65686
         },
         {
           "name": "TERRY",
@@ -1323,7 +1343,7 @@
       "current_mr": [
         {
           "name": "INGRID",
-          "mr": 1562
+          "mr": 1577
         },
         {
           "name": "MAI",
@@ -1357,7 +1377,7 @@
       "highest_mr": [
         {
           "name": "INGRID",
-          "mr": 1587
+          "mr": 1589
         },
         {
           "name": "DEE JAY",
@@ -1829,7 +1849,7 @@
       "lp": [
         {
           "name": "DEE JAY",
-          "lp": 16238
+          "lp": 16298
         },
         {
           "name": "M. BISON",
