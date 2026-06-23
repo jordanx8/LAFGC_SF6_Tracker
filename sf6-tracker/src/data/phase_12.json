@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-22T12:16:54.243156-05:00",
+  "last_updated": "2026-06-22T22:54:50.962385-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -11,7 +11,7 @@
         },
         {
           "name": "ED",
-          "lp": 48702
+          "lp": 50276
         },
         {
           "name": "INGRID",
@@ -24,12 +24,12 @@
           "mr": 1677
         },
         {
-          "name": "ED",
-          "mr": 1511
-        },
-        {
           "name": "INGRID",
           "mr": 1500
+        },
+        {
+          "name": "ED",
+          "mr": 1480
         }
       ],
       "highest_mr": [
@@ -219,7 +219,7 @@
         },
         {
           "name": "LUKE",
-          "lp": 21749
+          "lp": 21755
         },
         {
           "name": "RYU",
@@ -315,7 +315,7 @@
       "lp": [
         {
           "name": "TERRY",
-          "lp": 126667
+          "lp": 128087
         },
         {
           "name": "JAMIE",
@@ -327,7 +327,7 @@
         },
         {
           "name": "ELENA",
-          "lp": 31042
+          "lp": 31172
         },
         {
           "name": "KEN",
@@ -341,7 +341,7 @@
       "current_mr": [
         {
           "name": "TERRY",
-          "mr": 1602
+          "mr": 1631
         },
         {
           "name": "KEN",
@@ -357,7 +357,7 @@
         },
         {
           "name": "ELENA",
-          "mr": 1506
+          "mr": 1492
         },
         {
           "name": "MAI",
@@ -367,7 +367,7 @@
       "highest_mr": [
         {
           "name": "TERRY",
-          "mr": 1622
+          "mr": 1631
         },
         {
           "name": "CAMMY",
@@ -383,7 +383,7 @@
         },
         {
           "name": "ELENA",
-          "mr": 1506
+          "mr": 1513
         },
         {
           "name": "KEN",
@@ -982,7 +982,7 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 301419
+          "lp": 302579
         },
         {
           "name": "MANON",
@@ -1020,7 +1020,7 @@
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1613
+          "mr": 1649
         },
         {
           "name": "MAI",
@@ -1129,7 +1129,7 @@
       "lp": [
         {
           "name": "MARISA",
-          "lp": 215241
+          "lp": 215471
         },
         {
           "name": "ALEX",
@@ -1139,7 +1139,7 @@
       "current_mr": [
         {
           "name": "MARISA",
-          "mr": 1594
+          "mr": 1592
         }
       ],
       "highest_mr": [
@@ -1317,7 +1317,7 @@
       "lp": [
         {
           "name": "INGRID",
-          "lp": 69508
+          "lp": 69768
         },
         {
           "name": "TERRY",
@@ -1355,7 +1355,7 @@
       "current_mr": [
         {
           "name": "INGRID",
-          "mr": 1625
+          "mr": 1594
         },
         {
           "name": "MAI",
