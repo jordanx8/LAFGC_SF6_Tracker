@@ -78,7 +78,7 @@ jobs:
 
           echo "Scraping only missing IDs: $IDS_CSV"
 
-          CMD="python scrape_cfn.py $IDS_CSV --phase all"
+          CMD="python scripts/scrape_cfn.py $IDS_CSV --phase all"
           echo "Running: $CMD"
 
           $CMD

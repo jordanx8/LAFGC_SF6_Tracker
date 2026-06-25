@@ -45,4 +45,4 @@ jobs:
           CHROMEDRIVER_PATH: /usr/local/bin/chromedriver
         run: |
           echo "Logging in and refreshing session cookies..."
-          python refresh_cookies.py
+          python scripts/refresh_cookies.py

@@ -54,7 +54,7 @@ jobs:
           max_attempts: 3
           timeout_seconds: 1800
           command: |
-            CMD="python scrape_cfn.py"
+            CMD="python scripts/scrape_cfn.py"
             if [ -n "${{ github.event.inputs.player_ids }}" ]; then
               CMD="$CMD ${{ github.event.inputs.player_ids }}"
             fi
@@ -127,7 +127,7 @@ jobs:
           max_attempts: 5
           retry_wait_seconds: 1800
           timeout_seconds: 600
-          command: python refresh_cookies.py
+          command: python scripts/refresh_cookies.py
         env:
           CAPCOM_USERNAME: ${{ secrets.CAPCOM_USERNAME }}
           CAPCOM_PASSWORD: ${{ secrets.CAPCOM_PASSWORD }}
@@ -171,7 +171,7 @@ jobs:
           max_attempts: 5
           timeout_seconds: 1800
           command: |
-            CMD="python scrape_cfn.py"
+            CMD="python scripts/scrape_cfn.py"
             if [ -n "${{ github.event.inputs.player_ids }}" ]; then
               CMD="$CMD ${{ github.event.inputs.player_ids }}"
             fi
@@ -245,7 +245,7 @@ jobs:
         if: hashFiles('committed_changes') != ''
         run: |
           echo "Committed changes found — running parser."
-          python parse_json_changes.py > json_changes_summary.txt
+          python scripts/parse_json_changes.py > json_changes_summary.txt
       # If no changes, create an empty summary file anyway
       - name: No changes fallback file
         if: hashFiles('committed_changes') == ''

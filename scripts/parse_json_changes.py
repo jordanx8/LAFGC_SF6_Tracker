@@ -111,6 +111,46 @@ def format_changes(changes):
 # ------------------------------
 # DISCORD EMBED BUILDER
 # ------------------------------
+def _overall_peak_changes(changes_by_phase):
+    """Return per-player overall peak MR changes across all phases.
+
+    For each player, find their best (highest new_mr) peak-MR entry across
+    every phase in this update and compare it to their best old_mr across
+    those same phases.  Only emit a row when the new overall peak is higher
+    than the old overall peak.
+    """
+    # Collect all highest_mr_change entries across phases
+    all_peak = [
+        c
+        for phase_changes in changes_by_phase.values()
+        for c in phase_changes
+        if c["type"] == "highest_mr_change"
+    ]
+    if not all_peak:
+        return []
+
+    # Group by player_id
+    by_player = {}
+    for c in all_peak:
+        by_player.setdefault(c["player_id"], []).append(c)
+
+    results = []
+    for entries in by_player.values():
+        best_new = max(entries, key=lambda c: c["new_mr"])
+        best_old_mr = max(c["old_mr"] for c in entries)
+        overall_change = best_new["new_mr"] - best_old_mr
+        if overall_change > 0:
+            results.append({
+                "player":    best_new["player"],
+                "character": best_new["character"],
+                "old_mr":    best_old_mr,
+                "new_mr":    best_new["new_mr"],
+                "change":    overall_change,
+            })
+
+    return sorted(results, key=lambda r: r["new_mr"], reverse=True)
+
+
 def build_single_embed(changes_by_phase):
     """One embed, ordered by NEW MR."""
     lines = []
@@ -142,6 +182,19 @@ def build_single_embed(changes_by_phase):
                     f"({sign}{c['change']:,}) {emoji}"
                 )
             lines.append("")
+
+    # Overall peak MR section
+    overall_peaks = _overall_peak_changes(changes_by_phase)
+    if overall_peaks:
+        lines.append("**🌟 Overall Peak MR (All Phases)**")
+        for r in overall_peaks:
+            lines.append(
+                f"• **{r['player']} ({r['character']})**: "
+                f"{r['old_mr']:,} → {r['new_mr']:,} "
+                f"(+{r['change']:,}) 🔺"
+            )
+        lines.append("")
+
     description_text = "\n".join(lines)[:4000]
     return {
         "title": "📊 SF6 Tracker Update",
