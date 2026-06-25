@@ -87,22 +87,22 @@ git push origin add-player-yourname
 ```bash
 export CAPCOM_USERNAME="your_email@example.com"
 export CAPCOM_PASSWORD="your_password"
-python refresh_cookies.py
+python scripts/refresh_cookies.py
 ```
 
 ### Scraping Commands
 ```bash
 # Scrape all players (latest phase)
-python scrape_cfn.py
+python scripts/scrape_cfn.py
 
 # Scrape specific players
-python scrape_cfn.py 1234567890,0987654321
+python scripts/scrape_cfn.py 1234567890,0987654321
 
 # Scrape specific phase
-python scrape_cfn.py --phase 11
+python scripts/scrape_cfn.py --phase 11
 
 # Scrape all phases
-python scrape_cfn.py --phase all
+python scripts/scrape_cfn.py --phase all
 ```
 
 ## GitHub Actions Setup
@@ -124,13 +124,16 @@ Add these secrets to your repository (Settings → Secrets):
 
 ```
 CFN_Scraper/
+├── scripts/                  # Python scripts
+│   ├── scrape_cfn.py         # Main scraper
+│   ├── refresh_cookies.py    # Auth helper
+│   └── parse_json_changes.py # Discord change notifications
 ├── sf6-tracker/              # React frontend
 │   └── src/data/
 │       ├── players.json      # Player IDs (edit this!)
 │       └── phase_*.json      # Scraped data
-├── scrape_cfn.py            # Main scraper
-├── refresh_cookies.py       # Auth helper
-└── .github/workflows/       # Automation
+├── requirements.txt
+└── .github/workflows/        # Automation
 ```
 
 ## Contact
