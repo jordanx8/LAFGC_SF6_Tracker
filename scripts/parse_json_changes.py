@@ -99,27 +99,76 @@ def format_changes(changes):
     for c in changes:
         phases.setdefault(c['phase'], []).append(c)
     for phase in sorted(phases.keys(), key=lambda x: int(x)):
-        output.append(f"Phase {phase} Changes:")
-        for c in phases[phase]:
-            if "mr_change" in c["type"]:
+        current = [c for c in phases[phase] if c["type"] == "current_mr_change"]
+        peak    = [c for c in phases[phase] if c["type"] == "highest_mr_change"]
+        current_sorted = sorted(current, key=lambda c: c["new_mr"], reverse=True)
+        peak_sorted    = sorted(peak,    key=lambda c: c["new_mr"], reverse=True)
+        if current_sorted:
+            output.append(f"📈 Current MR Changes — Phase {phase}")
+            for c in current_sorted:
+                arrow = "▲" if c["change"] > 0 else "▼"
                 output.append(
-                    f"- {c['player']} ({c['character']}): "
-                    f"{c['old_mr']} → {c['new_mr']} ({c['change']:+})"
+                    f"  {arrow} {c['player']} ({c['character']}): "
+                    f"{c['old_mr']:,} → {c['new_mr']:,} ({c['change']:+,})"
                 )
+            output.append("")
+        if peak_sorted:
+            output.append(f"🏆 Peak MR Changes — Phase {phase}")
+            for c in peak_sorted:
+                arrow = "▲" if c["change"] > 0 else "▼"
+                output.append(
+                    f"  {arrow} {c['player']} ({c['character']}): "
+                    f"{c['old_mr']:,} → {c['new_mr']:,} ({c['change']:+,})"
+                )
+            output.append("")
+    overall_peaks = _overall_peak_changes(phases)
+    if overall_peaks:
+        output.append("🌟 Overall Peak MR (All Phases)")
+        for r in overall_peaks:
+            output.append(
+                f"  ▲ {r['player']} ({r['character']}): "
+                f"{r['old_mr']:,} → {r['new_mr']:,} (+{r['change']:,})"
+            )
         output.append("")
     return "\n".join(output), phases
 # ------------------------------
 # DISCORD EMBED BUILDER
 # ------------------------------
+def _load_all_time_peaks():
+    """Read every phase file on disk and return each player's true all-time
+    peak MR (highest_mr across all phases and all characters).
+
+    Returns: dict of player_id -> (character_name, mr_value)
+    """
+    peaks = {}  # player_id -> {"character": ..., "mr": ..., "player": ...}
+    for phase_file in sorted(Path('sf6-tracker/src/data').glob('phase_*.json')):
+        try:
+            with open(phase_file, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+        except Exception:
+            continue
+        for player_id, player_data in data.get('players', {}).items():
+            username = player_data.get('username', player_id)
+            for entry in player_data.get('highest_mr', []):
+                mr = entry.get('mr', 0)
+                current_best = peaks.get(player_id, {}).get('mr', 0)
+                if mr > current_best:
+                    peaks[player_id] = {
+                        'player':    username,
+                        'character': entry['name'],
+                        'mr':        mr,
+                    }
+    return peaks
+
+
 def _overall_peak_changes(changes_by_phase):
     """Return per-player overall peak MR changes across all phases.
 
-    For each player, find their best (highest new_mr) peak-MR entry across
-    every phase in this update and compare it to their best old_mr across
-    those same phases.  Only emit a row when the new overall peak is higher
-    than the old overall peak.
+    Compares each player's new best (from this update) against their
+    true all-time peak read from all phase files on disk, so a phase-12
+    improvement that doesn't beat an earlier phase record is not shown.
     """
-    # Collect all highest_mr_change entries across phases
+    # Collect all highest_mr_change entries from this update
     all_peak = [
         c
         for phase_changes in changes_by_phase.values()
@@ -129,26 +178,67 @@ def _overall_peak_changes(changes_by_phase):
     if not all_peak:
         return []
 
-    # Group by player_id
+    # True all-time peaks from disk (already includes the new values)
+    current_all_time = _load_all_time_peaks()
+
+    # Group changed entries by player_id
     by_player = {}
     for c in all_peak:
         by_player.setdefault(c["player_id"], []).append(c)
 
+    prev_all_time = _load_all_time_peaks_at_prev_commit()
+
     results = []
-    for entries in by_player.values():
+    for player_id, entries in by_player.items():
         best_new = max(entries, key=lambda c: c["new_mr"])
-        best_old_mr = max(c["old_mr"] for c in entries)
-        overall_change = best_new["new_mr"] - best_old_mr
+        new_overall = current_all_time.get(player_id, {}).get('mr', best_new["new_mr"])
+
+        # Only show if this update's best matches the new all-time best,
+        # meaning it actually beat every other phase's record
+        if best_new["new_mr"] < new_overall:
+            continue  # a different phase still holds the record
+
+        prev_best_mr = prev_all_time.get(player_id, {}).get('mr', 0)
+        overall_change = best_new["new_mr"] - prev_best_mr
         if overall_change > 0:
             results.append({
                 "player":    best_new["player"],
                 "character": best_new["character"],
-                "old_mr":    best_old_mr,
+                "old_mr":    prev_best_mr,
                 "new_mr":    best_new["new_mr"],
                 "change":    overall_change,
             })
 
     return sorted(results, key=lambda r: r["new_mr"], reverse=True)
+
+
+def _load_all_time_peaks_at_prev_commit():
+    """Same as _load_all_time_peaks() but reads each phase file from HEAD~1."""
+    peaks = {}
+    for phase_file in sorted(Path('sf6-tracker/src/data').glob('phase_*.json')):
+        git_path = str(phase_file).replace('\\', '/')
+        result = subprocess.run(
+            ['git', 'show', f'HEAD~1:{git_path}'],
+            capture_output=True, text=True, check=False
+        )
+        if result.returncode != 0:
+            continue
+        try:
+            data = json.loads(result.stdout)
+        except Exception:
+            continue
+        for player_id, player_data in data.get('players', {}).items():
+            username = player_data.get('username', player_id)
+            for entry in player_data.get('highest_mr', []):
+                mr = entry.get('mr', 0)
+                current_best = peaks.get(player_id, {}).get('mr', 0)
+                if mr > current_best:
+                    peaks[player_id] = {
+                        'player':    username,
+                        'character': entry['name'],
+                        'mr':        mr,
+                    }
+    return peaks
 
 
 def build_single_embed(changes_by_phase):
