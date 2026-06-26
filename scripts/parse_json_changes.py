@@ -134,13 +134,26 @@ def format_changes(changes):
 # ------------------------------
 # DISCORD EMBED BUILDER
 # ------------------------------
+def _best_mr_entries(player_data):
+    """Return the best available MR entries for a player.
+
+    Prefers highest_mr; falls back to current_mr for older phases that
+    were scraped before the highest_mr column existed.
+    """
+    entries = player_data.get('highest_mr') or player_data.get('current_mr') or []
+    return entries
+
+
 def _load_all_time_peaks():
     """Read every phase file on disk and return each player's true all-time
-    peak MR (highest_mr across all phases and all characters).
+    peak MR per character across all phases.
 
-    Returns: dict of player_id -> (character_name, mr_value)
+    Returns: dict of (player_id, character) -> {"player": ..., "mr": ...}
+
+    Uses highest_mr where available, falls back to current_mr for older
+    phases that predate the highest_mr column.
     """
-    peaks = {}  # player_id -> {"character": ..., "mr": ..., "player": ...}
+    peaks = {}  # (player_id, character) -> {"player": ..., "mr": ...}
     for phase_file in sorted(Path('sf6-tracker/src/data').glob('phase_*.json')):
         try:
             with open(phase_file, 'r', encoding='utf-8') as f:
@@ -149,24 +162,20 @@ def _load_all_time_peaks():
             continue
         for player_id, player_data in data.get('players', {}).items():
             username = player_data.get('username', player_id)
-            for entry in player_data.get('highest_mr', []):
+            for entry in _best_mr_entries(player_data):
+                key = (player_id, entry['name'])
                 mr = entry.get('mr', 0)
-                current_best = peaks.get(player_id, {}).get('mr', 0)
-                if mr > current_best:
-                    peaks[player_id] = {
-                        'player':    username,
-                        'character': entry['name'],
-                        'mr':        mr,
-                    }
+                if mr > peaks.get(key, {}).get('mr', 0):
+                    peaks[key] = {'player': username, 'mr': mr}
     return peaks
 
 
 def _overall_peak_changes(changes_by_phase):
-    """Return per-player overall peak MR changes across all phases.
+    """Return per-player-per-character overall peak MR changes across all phases.
 
-    Compares each player's new best (from this update) against their
-    true all-time peak read from all phase files on disk, so a phase-12
-    improvement that doesn't beat an earlier phase record is not shown.
+    For each (player, character) pair whose peak changed this update, checks
+    whether the new value is a true all-time record across every phase.
+    Emits one row per character that set a new all-time best.
     """
     # Collect all highest_mr_change entries from this update
     all_peak = [
@@ -178,34 +187,32 @@ def _overall_peak_changes(changes_by_phase):
     if not all_peak:
         return []
 
-    # True all-time peaks from disk (already includes the new values)
+    # True all-time peaks per (player_id, character) from current disk files
     current_all_time = _load_all_time_peaks()
-
-    # Group changed entries by player_id
-    by_player = {}
-    for c in all_peak:
-        by_player.setdefault(c["player_id"], []).append(c)
-
+    # True all-time peaks per (player_id, character) before this update
     prev_all_time = _load_all_time_peaks_at_prev_commit()
 
+    # For each (player, character), keep only the best new_mr from this update
+    best_by_char = {}  # (player_id, character) -> change entry
+    for c in all_peak:
+        key = (c["player_id"], c["character"])
+        if key not in best_by_char or c["new_mr"] > best_by_char[key]["new_mr"]:
+            best_by_char[key] = c
+
     results = []
-    for player_id, entries in by_player.items():
-        best_new = max(entries, key=lambda c: c["new_mr"])
-        new_overall = current_all_time.get(player_id, {}).get('mr', best_new["new_mr"])
-
-        # Only show if this update's best matches the new all-time best,
-        # meaning it actually beat every other phase's record
-        if best_new["new_mr"] < new_overall:
-            continue  # a different phase still holds the record
-
-        prev_best_mr = prev_all_time.get(player_id, {}).get('mr', 0)
-        overall_change = best_new["new_mr"] - prev_best_mr
+    for key, c in best_by_char.items():
+        new_overall = current_all_time.get(key, {}).get('mr', c["new_mr"])
+        # Only show if this update's value matches the all-time best for this character
+        if c["new_mr"] < new_overall:
+            continue  # an earlier phase still holds the record for this character
+        prev_best_mr = prev_all_time.get(key, {}).get('mr', 0)
+        overall_change = c["new_mr"] - prev_best_mr
         if overall_change > 0:
             results.append({
-                "player":    best_new["player"],
-                "character": best_new["character"],
+                "player":    c["player"],
+                "character": c["character"],
                 "old_mr":    prev_best_mr,
-                "new_mr":    best_new["new_mr"],
+                "new_mr":    c["new_mr"],
                 "change":    overall_change,
             })
 
@@ -213,8 +220,14 @@ def _overall_peak_changes(changes_by_phase):
 
 
 def _load_all_time_peaks_at_prev_commit():
-    """Same as _load_all_time_peaks() but reads each phase file from HEAD~1."""
-    peaks = {}
+    """Same as _load_all_time_peaks() but reads each phase file from HEAD~1.
+
+    Returns: dict of (player_id, character) -> {"player": ..., "mr": ...}
+
+    Uses highest_mr where available, falls back to current_mr for older
+    phases that predate the highest_mr column.
+    """
+    peaks = {}  # (player_id, character) -> {"player": ..., "mr": ...}
     for phase_file in sorted(Path('sf6-tracker/src/data').glob('phase_*.json')):
         git_path = str(phase_file).replace('\\', '/')
         result = subprocess.run(
@@ -229,15 +242,11 @@ def _load_all_time_peaks_at_prev_commit():
             continue
         for player_id, player_data in data.get('players', {}).items():
             username = player_data.get('username', player_id)
-            for entry in player_data.get('highest_mr', []):
+            for entry in _best_mr_entries(player_data):
+                key = (player_id, entry['name'])
                 mr = entry.get('mr', 0)
-                current_best = peaks.get(player_id, {}).get('mr', 0)
-                if mr > current_best:
-                    peaks[player_id] = {
-                        'player':    username,
-                        'character': entry['name'],
-                        'mr':        mr,
-                    }
+                if mr > peaks.get(key, {}).get('mr', 0):
+                    peaks[key] = {'player': username, 'mr': mr}
     return peaks
 
 
