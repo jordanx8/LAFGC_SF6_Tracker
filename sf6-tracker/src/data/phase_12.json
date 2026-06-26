@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-26T10:01:39.465590-05:00",
+  "last_updated": "2026-06-26T10:50:54.427625-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -725,6 +725,10 @@
           "lp": 198622
         },
         {
+          "name": "LUKE",
+          "lp": 82250
+        },
+        {
           "name": "E. HONDA",
           "lp": 25546
         }
@@ -733,6 +737,10 @@
         {
           "name": "CAMMY",
           "mr": 1740
+        },
+        {
+          "name": "LUKE",
+          "mr": 1515
         },
         {
           "name": "E. HONDA",
@@ -747,6 +755,10 @@
         {
           "name": "E. HONDA",
           "mr": 1514
+        },
+        {
+          "name": "LUKE",
+          "mr": 1515
         }
       ]
     },
