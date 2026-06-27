@@ -14,12 +14,45 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 # Use environment variable if available, otherwise use default Windows path
 CHROMEDRIVER_PATH = os.getenv('CHROMEDRIVER_PATH', r"C:\WebDriver\chromedriver.exe")
 
-# Settle delays (seconds), tunable via env without code changes.
-# Lower = faster but riskier on slow renders. Defaults preserve old behavior.
-#   PAGE_SETTLE     - pause after a list first renders, before reading values
-#   RERENDER_SETTLE - pause after a dropdown change triggers a React re-render
-PAGE_SETTLE = float(os.getenv("PAGE_SETTLE", "2"))
-RERENDER_SETTLE = float(os.getenv("RERENDER_SETTLE", "1.5"))
+# Change-detection settings (see wait_for_data_refresh below).
+# The play page shows a single loader element while it fetches new data after a
+# dropdown change; it carries a "*_disp_*" modifier class only while loading.
+LOADER_CSS = "div[class*='play_loader']"
+LOADER_LOADING_CLASS = "play_disp"          # modifier present only while fetching
+LOADER_APPEAR_TIMEOUT = float(os.getenv("LOADER_APPEAR_TIMEOUT", "4"))
+# Tiny pause after a render completes so React can paint before we read text.
+PAINT_SETTLE = float(os.getenv("PAINT_SETTLE", "0.2"))
+
+
+def _loader_is_active(driver):
+    """True while the play page is fetching/rendering new data."""
+    try:
+        el = driver.find_element(By.CSS_SELECTOR, LOADER_CSS)
+        return LOADER_LOADING_CLASS in (el.get_attribute("class") or "")
+    except Exception:
+        return False
+
+
+def wait_for_data_refresh(driver, wait):
+    """Wait for a dropdown-triggered data fetch to finish.
+
+    Phase and MR-mode dropdown changes fire an async API request and update the
+    list text in place (the DOM nodes are reused, and the new values are often
+    identical to the old ones), so staleness/value-diff checks are unreliable.
+    The loader's modifier class is the authoritative signal: it appears when the
+    fetch starts and clears when the new data is rendered.
+    """
+    # Wait briefly for the loader to appear. Poll fast because it shows within
+    # ~30-80ms. If it never appears (e.g. a cached response), fall through.
+    try:
+        WebDriverWait(driver, LOADER_APPEAR_TIMEOUT, poll_frequency=0.1).until(
+            _loader_is_active
+        )
+    except TimeoutException:
+        pass
+    # Wait for the loader to clear, i.e. the new data has rendered.
+    wait.until(lambda d: not _loader_is_active(d))
+    time.sleep(PAINT_SETTLE)
 
 def close_cookie_popup(driver):
     """Close cookie consent popup if present"""
@@ -91,16 +124,9 @@ def select_phase(driver, wait, phase_number):
             dropdown
         )
         print(f"Phase dropdown set to Phase {phase_number}")
-        
-        # Wait for the page to reload with new data
-        time.sleep(RERENDER_SETTLE)
 
-        # Wait for the list to be re-rendered with new values
-        wait.until(
-            EC.presence_of_all_elements_located(
-                (By.CSS_SELECTOR, "div.league_point_inner__iCMYc ul li")
-            )
-        )
+        # Wait for the async fetch + in-place re-render to finish.
+        wait_for_data_refresh(driver, wait)
         print(f"Page reloaded with Phase {phase_number} data")
         
     except Exception as e:
@@ -129,17 +155,11 @@ def select_highest_mode(driver, wait):
             dropdown
         )
         print("MR dropdown set to Highest")
-        
-        # Wait for the page to reload with new data
-        # Wait for stale element to ensure DOM has updated
-        time.sleep(RERENDER_SETTLE)
-        
-        # Wait for the list to be re-rendered with new values
-        wait.until(
-            EC.presence_of_all_elements_located(
-                (By.CSS_SELECTOR, "div.league_point_inner__iCMYc ul li")
-            )
-        )
+
+        # Highest re-renders the MR values in place (same nodes, sometimes the
+        # same numbers), so rely on the loader signal rather than node/value
+        # changes to know the new data has arrived.
+        wait_for_data_refresh(driver, wait)
         print("Page reloaded with highest MR data")
         
     except Exception as e:
@@ -153,15 +173,15 @@ def scrape_league_points(driver, wait):
         )
     )
     
-    # Wait for the list items to be present and visible
+    # The LP value element only exists on the League Points tab (the MR tab uses
+    # a different, mutually exclusive selector), so waiting for it guarantees the
+    # correct tab has rendered without reading stale cross-tab data.
     wait.until(
-        EC.presence_of_all_elements_located(
-            (By.CSS_SELECTOR, "div.league_point_inner__iCMYc ul li")
+        EC.presence_of_element_located(
+            (By.CSS_SELECTOR, "p.league_point_lp__viByb")
         )
     )
-    
-    # Additional wait to ensure content has fully loaded
-    time.sleep(PAGE_SETTLE)
+    time.sleep(PAINT_SETTLE)
 
     items = container.find_elements(By.TAG_NAME, "li")
     results = []
@@ -191,15 +211,16 @@ def scrape_master_rate(driver, wait):
         )
     )
     
-    # Wait for the list items to be present and visible
+    # The MR value element only exists on the Master Rate tab (mutually exclusive
+    # with the LP tab's selector), so waiting for it guarantees the correct tab
+    # has rendered. For the Highest pass, select_highest_mode has already waited
+    # on the loader, so this returns immediately.
     wait.until(
-        EC.presence_of_all_elements_located(
-            (By.CSS_SELECTOR, "div.league_point_inner__iCMYc ul li")
+        EC.presence_of_element_located(
+            (By.CSS_SELECTOR, "p.league_point_mr__WaC1_")
         )
     )
-    
-    # Additional wait to ensure content has fully loaded
-    time.sleep(PAGE_SETTLE)
+    time.sleep(PAINT_SETTLE)
 
     items = container.find_elements(By.TAG_NAME, "li")
     results = []
