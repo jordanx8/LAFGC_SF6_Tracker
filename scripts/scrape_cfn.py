@@ -14,6 +14,13 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 # Use environment variable if available, otherwise use default Windows path
 CHROMEDRIVER_PATH = os.getenv('CHROMEDRIVER_PATH', r"C:\WebDriver\chromedriver.exe")
 
+# Settle delays (seconds), tunable via env without code changes.
+# Lower = faster but riskier on slow renders. Defaults preserve old behavior.
+#   PAGE_SETTLE     - pause after a list first renders, before reading values
+#   RERENDER_SETTLE - pause after a dropdown change triggers a React re-render
+PAGE_SETTLE = float(os.getenv("PAGE_SETTLE", "2"))
+RERENDER_SETTLE = float(os.getenv("RERENDER_SETTLE", "1.5"))
+
 def close_cookie_popup(driver):
     """Close cookie consent popup if present"""
     try:
@@ -86,8 +93,8 @@ def select_phase(driver, wait, phase_number):
         print(f"Phase dropdown set to Phase {phase_number}")
         
         # Wait for the page to reload with new data
-        time.sleep(1.5)
-        
+        time.sleep(RERENDER_SETTLE)
+
         # Wait for the list to be re-rendered with new values
         wait.until(
             EC.presence_of_all_elements_located(
@@ -125,7 +132,7 @@ def select_highest_mode(driver, wait):
         
         # Wait for the page to reload with new data
         # Wait for stale element to ensure DOM has updated
-        time.sleep(1.5)
+        time.sleep(RERENDER_SETTLE)
         
         # Wait for the list to be re-rendered with new values
         wait.until(
@@ -154,8 +161,8 @@ def scrape_league_points(driver, wait):
     )
     
     # Additional wait to ensure content has fully loaded
-    time.sleep(2)
-    
+    time.sleep(PAGE_SETTLE)
+
     items = container.find_elements(By.TAG_NAME, "li")
     results = []
     for item in items:
@@ -192,8 +199,8 @@ def scrape_master_rate(driver, wait):
     )
     
     # Additional wait to ensure content has fully loaded
-    time.sleep(2)
-    
+    time.sleep(PAGE_SETTLE)
+
     items = container.find_elements(By.TAG_NAME, "li")
     results = []
     for item in items:
@@ -516,9 +523,15 @@ def main():
     headless_options.add_argument("--disable-gpu")
     headless_options.add_argument("--no-sandbox")
     headless_options.add_argument("--disable-dev-shm-usage")
+    # Skip downloading images: we only read the platform icon's src attribute,
+    # which is present in the DOM whether or not the image is fetched.
+    headless_options.add_argument("--blink-settings=imagesEnabled=false")
+    # Return control at DOMContentLoaded instead of waiting for every asset;
+    # the explicit element waits after each navigation cover SPA rendering.
+    headless_options.page_load_strategy = "eager"
     # Add user agent to avoid detection
     headless_options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
-    
+
     driver = webdriver.Chrome(service=Service(CHROMEDRIVER_PATH), options=headless_options)
     wait = WebDriverWait(driver, 40)
     
