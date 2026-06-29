@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-28T08:58:59.997285-05:00",
+  "last_updated": "2026-06-28T23:10:35.387568-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -189,13 +189,13 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 371648
+          "lp": 371708
         }
       ],
       "current_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1759
+          "mr": 1707
         }
       ],
       "highest_mr": [
@@ -247,7 +247,7 @@
         },
         {
           "name": "M. BISON",
-          "lp": 15966
+          "lp": 16973
         },
         {
           "name": "AKUMA",
@@ -527,7 +527,7 @@
       ]
     },
     "3712192677": {
-      "username": "Fahfos (ADEPT)",
+      "username": "Mr Hazmat",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
@@ -768,7 +768,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 45245
+          "lp": 52242
         },
         {
           "name": "INGRID",
@@ -782,7 +782,7 @@
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1605
+          "mr": 1628
         },
         {
           "name": "C. VIPER",
@@ -796,7 +796,7 @@
       "highest_mr": [
         {
           "name": "AKUMA",
-          "mr": 1613
+          "mr": 1628
         }
       ]
     },
@@ -1269,13 +1269,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 273593
+          "lp": 274403
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1571
+          "mr": 1557
         }
       ],
       "highest_mr": [
@@ -1534,7 +1534,7 @@
       "lp": [
         {
           "name": "CHUN-LI",
-          "lp": 230660
+          "lp": 230970
         },
         {
           "name": "AKUMA",
@@ -1552,7 +1552,7 @@
       "current_mr": [
         {
           "name": "CHUN-LI",
-          "mr": 1572
+          "mr": 1611
         },
         {
           "name": "INGRID",
@@ -1570,7 +1570,7 @@
       "highest_mr": [
         {
           "name": "CHUN-LI",
-          "mr": 1592
+          "mr": 1611
         },
         {
           "name": "ED",
@@ -1731,7 +1731,7 @@
       "lp": [
         {
           "name": "JP",
-          "lp": 80263
+          "lp": 80713
         }
       ],
       "current_mr": [
@@ -1966,7 +1966,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 19216
+          "lp": 19254
         }
       ],
       "current_mr": [],
