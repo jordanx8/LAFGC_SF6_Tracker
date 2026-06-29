@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-28T23:10:35.387568-05:00",
+  "last_updated": "2026-06-29T10:59:29.362434-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -219,7 +219,7 @@
         },
         {
           "name": "LUKE",
-          "lp": 21977
+          "lp": 22047
         },
         {
           "name": "RYU",
@@ -228,6 +228,10 @@
         {
           "name": "MANON",
           "lp": 20200
+        },
+        {
+          "name": "M. BISON",
+          "lp": 19612
         },
         {
           "name": "TERRY",
@@ -246,12 +250,12 @@
           "lp": 19000
         },
         {
-          "name": "M. BISON",
-          "lp": 16973
+          "name": "ED",
+          "lp": 18920
         },
         {
           "name": "AKUMA",
-          "lp": 14153
+          "lp": 14243
         },
         {
           "name": "DEE JAY",
@@ -1018,7 +1022,7 @@
         },
         {
           "name": "ZANGIEF",
-          "lp": 28425
+          "lp": 30079
         },
         {
           "name": "SAGAT",
@@ -1064,7 +1068,7 @@
         },
         {
           "name": "ZANGIEF",
-          "mr": 1362
+          "mr": 1459
         }
       ],
       "highest_mr": [
@@ -1269,13 +1273,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 274403
+          "lp": 274413
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1557
+          "mr": 1544
         }
       ],
       "highest_mr": [
@@ -1693,7 +1697,12 @@
     "1476407231": {
       "username": "Rose",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
-      "lp": [],
+      "lp": [
+        {
+          "name": "KEN",
+          "lp": 13283
+        }
+      ],
       "current_mr": [],
       "highest_mr": []
     },
