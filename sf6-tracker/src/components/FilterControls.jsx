@@ -77,26 +77,15 @@ function FilterControls({
           </div>
 
           <div className="col-auto">
-            <div
-              className="form-check"
-              onClick={(e) => {
-                e.preventDefault();
-                setMainsOnly(!mainsOnly);
-              }}
-            >
+            <div className="form-check">
               <input
                 type="checkbox"
                 id="mainsFilter"
                 className="form-check-input"
                 checked={mainsOnly}
-                onChange={() => {}}
-                readOnly
+                onChange={(e) => setMainsOnly(e.target.checked)}
               />
-              <label
-                className="form-check-label"
-                htmlFor="mainsFilter"
-                onClick={(e) => e.preventDefault()}
-              >
+              <label className="form-check-label" htmlFor="mainsFilter">
                 Mains Only
               </label>
             </div>
