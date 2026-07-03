@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-09T20:07:03.568055-05:00",
+  "last_updated": "2026-07-03T18:08:11.658704-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -1180,6 +1180,18 @@
         {
           "name": "KEN",
           "lp": 19107
+        }
+      ],
+      "current_mr": [],
+      "highest_mr": []
+    },
+    "1059704201": {
+      "username": "adambomb",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "lp": [
+        {
+          "name": "LUKE",
+          "lp": 16074
         }
       ],
       "current_mr": [],
