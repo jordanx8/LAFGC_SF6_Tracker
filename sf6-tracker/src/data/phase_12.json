@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-04T22:37:54.036547-05:00",
+  "last_updated": "2026-07-05T08:51:32.752124-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -234,6 +234,10 @@
           "lp": 20200
         },
         {
+          "name": "GUILE",
+          "lp": 20200
+        },
+        {
           "name": "M. BISON",
           "lp": 19612
         },
@@ -263,7 +267,7 @@
         },
         {
           "name": "AKUMA",
-          "lp": 14766
+          "lp": 14853
         },
         {
           "name": "DEE JAY",
@@ -1296,19 +1300,19 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 275507
+          "lp": 278182
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1604
+          "mr": 1638
         }
       ],
       "highest_mr": [
         {
           "name": "RYU",
-          "mr": 1627
+          "mr": 1661
         }
       ]
     },
