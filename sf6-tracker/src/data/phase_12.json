@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-08T22:30:07.035086-05:00",
+  "last_updated": "2026-07-09T10:20:59.406073-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -167,7 +167,7 @@
         },
         {
           "name": "C. VIPER",
-          "lp": 51922
+          "lp": 53391
         }
       ],
       "current_mr": [
@@ -177,7 +177,7 @@
         },
         {
           "name": "C. VIPER",
-          "mr": 1536
+          "mr": 1562
         }
       ],
       "highest_mr": [
@@ -187,7 +187,7 @@
         },
         {
           "name": "C. VIPER",
-          "mr": 1544
+          "mr": 1562
         }
       ]
     },
@@ -271,7 +271,7 @@
         },
         {
           "name": "AKUMA",
-          "lp": 15084
+          "lp": 15439
         },
         {
           "name": "DEE JAY",
@@ -602,7 +602,7 @@
         },
         {
           "name": "ELENA",
-          "lp": 54832
+          "lp": 54792
         },
         {
           "name": "SAGAT",
@@ -616,7 +616,7 @@
         },
         {
           "name": "ELENA",
-          "mr": 1512
+          "mr": 1503
         },
         {
           "name": "SAGAT",
@@ -1391,7 +1391,7 @@
       "lp": [
         {
           "name": "DHALSIM",
-          "lp": 170696
+          "lp": 170806
         },
         {
           "name": "INGRID",
@@ -1401,7 +1401,7 @@
       "current_mr": [
         {
           "name": "DHALSIM",
-          "mr": 1504
+          "mr": 1520
         }
       ],
       "highest_mr": [
@@ -1424,7 +1424,7 @@
       "lp": [
         {
           "name": "INGRID",
-          "lp": 76202
+          "lp": 76973
         },
         {
           "name": "TERRY",
@@ -1466,7 +1466,7 @@
       "current_mr": [
         {
           "name": "INGRID",
-          "mr": 1632
+          "mr": 1663
         },
         {
           "name": "MAI",
@@ -1713,13 +1713,13 @@
       "lp": [
         {
           "name": "DEE JAY",
-          "lp": 308439
+          "lp": 308429
         }
       ],
       "current_mr": [
         {
           "name": "DEE JAY",
-          "mr": 1544
+          "mr": 1538
         }
       ],
       "highest_mr": [
