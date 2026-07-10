@@ -19,10 +19,12 @@ function FilterControls({
     ? { value: currentCharacterFilter, label: currentCharacterFilter }
     : null;
 
+  const isPeakPhaseSelected = currentPhase === 'Peak MR (All Phases)';
+
   const modeOptions = [
     {
       value: 'highest',
-      label: parseInt(currentPhase.replace("Phase ", ""), 10) < 11 ? "Highest MR*" : "Highest MR"
+      label: isPeakPhaseSelected ? 'Highest MR*' : 'Highest MR'
     },
     { value: 'current', label: 'Current MR' }
   ];

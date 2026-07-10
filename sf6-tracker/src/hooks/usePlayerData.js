@@ -4,20 +4,29 @@ import playersData from '../data/players.json';
 
 const PEAK_PHASE_OPTION = 'Peak MR (All Phases)';
 
+function getPhaseEntries(files) {
+  return Object.keys(files)
+    .map(file => {
+      const match = file.match(/phase_(\d+)\.json$/);
+
+      if (!match) {
+        return null;
+      }
+
+      return {
+        file,
+        num: Number(match[1]),
+        name: `Phase ${match[1]}`
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.num - a.num);
+}
+
 async function getPhases() {
     try {
       const files = import.meta.glob('/src/data/phase_*.json');
-
-      const phases = Object.keys(files)
-        .map(file => {
-          const match = file.match(/phase_(\d+)\.json$/);
-          return {
-            num: Number(match[1]),
-            name: `Phase ${match[1]}`
-          };
-        })
-        .sort((a, b) => b.num - a.num)
-        .map(x => x.name);
+      const phases = getPhaseEntries(files).map(x => x.name);
 
       return [PEAK_PHASE_OPTION, ...phases];
 
@@ -80,17 +89,17 @@ export function usePlayerData() {
       if (!currentPhase) return;
 
       const files = import.meta.glob('/src/data/phase_*.json');
+      const phaseEntries = getPhaseEntries(files);
 
       if (currentPhase === PEAK_PHASE_OPTION) {
         const loadedPhases = await Promise.all(
-          Object.entries(files).map(async ([filePath, importer]) => {
-            const module = await importer();
+          phaseEntries.map(async ({ file, num, name }) => {
+            const module = await files[file]();
             const data = module.default;
-            const match = filePath.match(/phase_(\d+)\.json$/);
 
             return {
-              phaseNum: Number(match[1]),
-              phaseName: `Phase ${match[1]}`,
+              phaseNum: num,
+              phaseName: name,
               data
             };
           })
@@ -203,13 +212,11 @@ export function usePlayerData() {
         return;
       }
 
-      const phaseFile =
-        `/src/data/${currentPhase.toLowerCase().replace(/\s+/g, "_")}.json`;
-
-      const importer = files[phaseFile];
+      const selectedPhase = phaseEntries.find(phase => phase.name === currentPhase);
+      const importer = selectedPhase ? files[selectedPhase.file] : null;
 
       if (!importer) {
-        console.error(`Could not find ${phaseFile}`);
+        console.error(`Could not find data for ${currentPhase}`);
         return;
       }
 

@@ -7,7 +7,7 @@ See it live here: https://jordanx8.github.io/LAFGC_SF6_Tracker/
 ## Features
 
 - Track LP and MR for all characters across multiple players
-- View historical data from all competitive phases (Phase 1-12)
+- View historical data from all available competitive phases
 - Filter by character, search by name, or view mains only
 - Automated updates every 12 hours via GitHub Actions
 
@@ -92,7 +92,7 @@ python scripts/refresh_cookies.py
 
 ### Scraping Commands
 ```bash
-# Scrape all players (latest phase)
+# Scrape all players (latest available phase)
 python scripts/scrape_cfn.py
 
 # Scrape specific players

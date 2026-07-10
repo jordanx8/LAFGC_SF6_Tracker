@@ -15,6 +15,8 @@ function App() {
 
   // Custom hooks for data and filtering
   const { allRows, lastUpdated, totalPlayers, currentMode, setCurrentMode, phaseList, currentPhase, setCurrentPhase, isPeakPhaseView } = usePlayerData();
+  const currentPhaseNumber = parseInt(currentPhase.replace("Phase ", ""), 10);
+  const isHighestMrUnavailable = !isPeakPhaseView && Number.isFinite(currentPhaseNumber) && currentPhaseNumber < 11;
   const {
     filteredRows,
     setFilteredRows,
@@ -83,7 +85,7 @@ function App() {
         setCurrentPhase={setCurrentPhase}
         currentPhase={currentPhase}
       />
-      {!isPeakPhaseView && parseInt(currentPhase.replace("Phase ", ""), 10) < 11 ? <div className='player-id unavailable'>*Highest MR data unavailable pre-Phase 11</div> : <></>}
+      {isHighestMrUnavailable ? <div className='player-id unavailable'>*Highest MR data unavailable for this phase</div> : <></>}
 
       <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
