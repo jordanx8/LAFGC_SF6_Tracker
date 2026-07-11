@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-10T21:50:03.653193-05:00",
+  "last_updated": "2026-07-11T08:31:05.196857-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -271,7 +271,7 @@
         },
         {
           "name": "AKUMA",
-          "lp": 16187
+          "lp": 16172
         },
         {
           "name": "DEE JAY",
@@ -304,6 +304,10 @@
           "lp": 87608
         },
         {
+          "name": "TERRY",
+          "lp": 25911
+        },
+        {
           "name": "INGRID",
           "lp": 25079
         }
@@ -316,6 +320,10 @@
         {
           "name": "ELENA",
           "mr": 1702
+        },
+        {
+          "name": "TERRY",
+          "mr": 1500
         },
         {
           "name": "INGRID",
@@ -518,7 +526,7 @@
       "lp": [
         {
           "name": "LUKE",
-          "lp": 573785
+          "lp": 574285
         },
         {
           "name": "M. BISON",
@@ -531,12 +539,16 @@
         {
           "name": "INGRID",
           "lp": 30318
+        },
+        {
+          "name": "KIMBERLY",
+          "lp": 26305
         }
       ],
       "current_mr": [
         {
           "name": "LUKE",
-          "mr": 1987
+          "mr": 2001
         },
         {
           "name": "M. BISON",
@@ -549,12 +561,16 @@
         {
           "name": "GUILE",
           "mr": 1600
+        },
+        {
+          "name": "KIMBERLY",
+          "mr": 1538
         }
       ],
       "highest_mr": [
         {
           "name": "LUKE",
-          "mr": 1990
+          "mr": 2001
         },
         {
           "name": "INGRID",
@@ -567,6 +583,10 @@
         {
           "name": "GUILE",
           "mr": 1600
+        },
+        {
+          "name": "KIMBERLY",
+          "mr": 1538
         }
       ]
     },
@@ -602,7 +622,7 @@
         },
         {
           "name": "ELENA",
-          "lp": 63014
+          "lp": 64938
         },
         {
           "name": "SAGAT",
@@ -616,7 +636,7 @@
         },
         {
           "name": "ELENA",
-          "mr": 1509
+          "mr": 1495
         },
         {
           "name": "SAGAT",
@@ -1089,7 +1109,7 @@
         },
         {
           "name": "ZANGIEF",
-          "lp": 32293
+          "lp": 32713
         },
         {
           "name": "SAGAT",
@@ -1098,6 +1118,10 @@
         {
           "name": "INGRID",
           "lp": 23670
+        },
+        {
+          "name": "E. HONDA",
+          "lp": 19593
         },
         {
           "name": "CHUN-LI",
@@ -1135,7 +1159,7 @@
         },
         {
           "name": "ZANGIEF",
-          "mr": 1406
+          "mr": 1410
         }
       ],
       "highest_mr": [
@@ -1819,7 +1843,7 @@
       "lp": [
         {
           "name": "JP",
-          "lp": 81712
+          "lp": 81632
         },
         {
           "name": "ZANGIEF",
@@ -1829,7 +1853,7 @@
       "current_mr": [
         {
           "name": "JP",
-          "mr": 1405
+          "mr": 1389
         }
       ],
       "highest_mr": [
