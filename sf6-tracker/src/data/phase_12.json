@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-11T21:58:44.128997-05:00",
+  "last_updated": "2026-07-12T08:35:39.717146-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -271,7 +271,7 @@
         },
         {
           "name": "AKUMA",
-          "lp": 16172
+          "lp": 16419
         },
         {
           "name": "DEE JAY",
@@ -622,7 +622,7 @@
         },
         {
           "name": "ELENA",
-          "lp": 66568
+          "lp": 70594
         },
         {
           "name": "SAGAT",
@@ -636,7 +636,7 @@
         },
         {
           "name": "ELENA",
-          "mr": 1519
+          "mr": 1541
         },
         {
           "name": "SAGAT",
@@ -1364,13 +1364,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 281074
+          "lp": 281004
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1597
+          "mr": 1582
         }
       ],
       "highest_mr": [
