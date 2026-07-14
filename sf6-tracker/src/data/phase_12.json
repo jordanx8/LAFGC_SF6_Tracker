@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-13T21:50:11.385989-05:00",
+  "last_updated": "2026-07-14T09:06:56.523545-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -53,7 +53,7 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 339470
+          "lp": 339520
         },
         {
           "name": "A.K.I.",
@@ -91,7 +91,7 @@
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1804
+          "mr": 1814
         },
         {
           "name": "INGRID",
@@ -167,7 +167,7 @@
         },
         {
           "name": "C. VIPER",
-          "lp": 54051
+          "lp": 55137
         }
       ],
       "current_mr": [
@@ -177,7 +177,7 @@
         },
         {
           "name": "C. VIPER",
-          "mr": 1511
+          "mr": 1533
         }
       ],
       "highest_mr": [
@@ -622,7 +622,7 @@
         },
         {
           "name": "ELENA",
-          "lp": 81206
+          "lp": 83588
         },
         {
           "name": "SAGAT",
@@ -636,7 +636,7 @@
         },
         {
           "name": "ELENA",
-          "mr": 1553
+          "mr": 1565
         },
         {
           "name": "SAGAT",
@@ -654,7 +654,7 @@
         },
         {
           "name": "ELENA",
-          "mr": 1575
+          "mr": 1599
         }
       ]
     },
@@ -1443,7 +1443,7 @@
       "highest_mr": []
     },
     "1767029401": {
-      "username": "RaeveinFG",
+      "username": "LearninHitBox",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
@@ -1699,7 +1699,7 @@
       "lp": [
         {
           "name": "INGRID",
-          "lp": 26667
+          "lp": 27735
         },
         {
           "name": "RYU",
@@ -1721,7 +1721,7 @@
       "current_mr": [
         {
           "name": "INGRID",
-          "mr": 1419
+          "mr": 1307
         }
       ],
       "highest_mr": [
@@ -1869,7 +1869,7 @@
       "lp": [
         {
           "name": "CAMMY",
-          "lp": 22993
+          "lp": 23089
         }
       ],
       "current_mr": [],
