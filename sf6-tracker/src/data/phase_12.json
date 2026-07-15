@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-14T21:50:45.095120-05:00",
+  "last_updated": "2026-07-15T08:55:40.244809-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -53,7 +53,7 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 341047
+          "lp": 341497
         },
         {
           "name": "A.K.I.",
@@ -73,7 +73,7 @@
         },
         {
           "name": "TERRY",
-          "lp": 29909
+          "lp": 29964
         },
         {
           "name": "INGRID",
@@ -91,7 +91,7 @@
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1759
+          "mr": 1716
         },
         {
           "name": "INGRID",
@@ -102,12 +102,12 @@
           "mr": 1522
         },
         {
-          "name": "TERRY",
-          "mr": 1511
-        },
-        {
           "name": "AKUMA",
           "mr": 1508
+        },
+        {
+          "name": "TERRY",
+          "mr": 1504
         },
         {
           "name": "ALEX",
@@ -622,7 +622,7 @@
         },
         {
           "name": "ELENA",
-          "lp": 84698
+          "lp": 85196
         },
         {
           "name": "SAGAT",
@@ -636,7 +636,7 @@
         },
         {
           "name": "ELENA",
-          "mr": 1514
+          "mr": 1504
         },
         {
           "name": "SAGAT",
@@ -675,7 +675,7 @@
         },
         {
           "name": "LUKE",
-          "lp": 244588
+          "lp": 244558
         },
         {
           "name": "RYU",
@@ -699,13 +699,17 @@
         },
         {
           "name": "INGRID",
-          "lp": 21210
+          "lp": 21396
+        },
+        {
+          "name": "JURI",
+          "lp": 20766
         }
       ],
       "current_mr": [
         {
           "name": "LUKE",
-          "mr": 1521
+          "mr": 1513
         },
         {
           "name": "GUILE",
@@ -770,6 +774,10 @@
         {
           "name": "TERRY",
           "lp": 165710
+        },
+        {
+          "name": "SAGAT",
+          "lp": 20040
         }
       ],
       "current_mr": [
