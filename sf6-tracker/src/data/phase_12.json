@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-15T08:55:40.244809-05:00",
+  "last_updated": "2026-07-15T21:47:09.183567-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -53,7 +53,7 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 341497
+          "lp": 343295
         },
         {
           "name": "A.K.I.",
@@ -73,7 +73,7 @@
         },
         {
           "name": "TERRY",
-          "lp": 29964
+          "lp": 30184
         },
         {
           "name": "INGRID",
@@ -91,7 +91,7 @@
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1716
+          "mr": 1778
         },
         {
           "name": "INGRID",
@@ -107,7 +107,7 @@
         },
         {
           "name": "TERRY",
-          "mr": 1504
+          "mr": 1502
         },
         {
           "name": "ALEX",
@@ -622,7 +622,7 @@
         },
         {
           "name": "ELENA",
-          "lp": 85196
+          "lp": 87366
         },
         {
           "name": "SAGAT",
@@ -636,7 +636,7 @@
         },
         {
           "name": "ELENA",
-          "mr": 1504
+          "mr": 1572
         },
         {
           "name": "SAGAT",
@@ -671,7 +671,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 279818
+          "lp": 279978
         },
         {
           "name": "LUKE",
@@ -720,16 +720,16 @@
           "mr": 1456
         },
         {
+          "name": "AKUMA",
+          "mr": 1448
+        },
+        {
           "name": "ED",
           "mr": 1445
         },
         {
           "name": "MAI",
           "mr": 1442
-        },
-        {
-          "name": "AKUMA",
-          "mr": 1424
         },
         {
           "name": "CAMMY",
@@ -1097,7 +1097,7 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 315988
+          "lp": 319727
         },
         {
           "name": "A.K.I.",
@@ -1143,7 +1143,7 @@
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1717
+          "mr": 1787
         },
         {
           "name": "A.K.I.",
