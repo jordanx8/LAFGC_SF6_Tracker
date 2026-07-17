@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-16T09:00:18.201309-05:00",
+  "last_updated": "2026-07-16T21:50:27.439998-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -167,7 +167,7 @@
         },
         {
           "name": "C. VIPER",
-          "lp": 56097
+          "lp": 57761
         }
       ],
       "current_mr": [
@@ -177,7 +177,7 @@
         },
         {
           "name": "C. VIPER",
-          "mr": 1553
+          "mr": 1542
         }
       ],
       "highest_mr": [
@@ -821,7 +821,7 @@
       "lp": [
         {
           "name": "CAMMY",
-          "lp": 198622
+          "lp": 199082
         },
         {
           "name": "LUKE",
@@ -835,7 +835,7 @@
       "current_mr": [
         {
           "name": "CAMMY",
-          "mr": 1740
+          "mr": 1763
         },
         {
           "name": "LUKE",
@@ -849,7 +849,7 @@
       "highest_mr": [
         {
           "name": "CAMMY",
-          "mr": 1740
+          "mr": 1763
         },
         {
           "name": "E. HONDA",
@@ -1097,7 +1097,7 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 320365
+          "lp": 320825
         },
         {
           "name": "A.K.I.",
@@ -1125,7 +1125,7 @@
         },
         {
           "name": "INGRID",
-          "lp": 23670
+          "lp": 23637
         },
         {
           "name": "E. HONDA",
@@ -1143,7 +1143,7 @@
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1740
+          "mr": 1701
         },
         {
           "name": "A.K.I.",
@@ -1423,7 +1423,7 @@
       "lp": [
         {
           "name": "DHALSIM",
-          "lp": 171700
+          "lp": 173118
         },
         {
           "name": "INGRID",
@@ -1433,7 +1433,7 @@
       "current_mr": [
         {
           "name": "DHALSIM",
-          "mr": 1502
+          "mr": 1507
         }
       ],
       "highest_mr": [
