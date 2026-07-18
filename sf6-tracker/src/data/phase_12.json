@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-17T08:49:10.564631-05:00",
+  "last_updated": "2026-07-17T21:41:33.470881-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -53,7 +53,7 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 343715
+          "lp": 344188
         },
         {
           "name": "A.K.I.",
@@ -73,7 +73,7 @@
         },
         {
           "name": "TERRY",
-          "lp": 30894
+          "lp": 31564
         },
         {
           "name": "INGRID",
@@ -91,7 +91,11 @@
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1749
+          "mr": 1723
+        },
+        {
+          "name": "TERRY",
+          "mr": 1531
         },
         {
           "name": "INGRID",
@@ -100,10 +104,6 @@
         {
           "name": "SAGAT",
           "mr": 1522
-        },
-        {
-          "name": "TERRY",
-          "mr": 1520
         },
         {
           "name": "AKUMA",
@@ -149,7 +149,7 @@
         },
         {
           "name": "TERRY",
-          "mr": 1527
+          "mr": 1531
         },
         {
           "name": "INGRID",
@@ -1125,7 +1125,7 @@
         },
         {
           "name": "INGRID",
-          "lp": 23637
+          "lp": 23770
         },
         {
           "name": "E. HONDA",
@@ -1328,13 +1328,13 @@
       "lp": [
         {
           "name": "RASHID",
-          "lp": 47852
+          "lp": 48512
         }
       ],
       "current_mr": [
         {
           "name": "RASHID",
-          "mr": 1370
+          "mr": 1391
         }
       ],
       "highest_mr": [
@@ -1372,13 +1372,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 281334
+          "lp": 281524
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1548
+          "mr": 1561
         }
       ],
       "highest_mr": [
@@ -1751,7 +1751,7 @@
       "current_mr": [
         {
           "name": "DEE JAY",
-          "mr": 1592
+          "mr": 1575
         }
       ],
       "highest_mr": [
@@ -2090,7 +2090,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 19482
+          "lp": 19542
         }
       ],
       "current_mr": [],
