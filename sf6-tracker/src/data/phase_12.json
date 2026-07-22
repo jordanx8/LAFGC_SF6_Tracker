@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-21T21:57:54.239321-05:00",
+  "last_updated": "2026-07-22T09:05:46.273021-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -219,7 +219,7 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 78680
+          "lp": 78610
         },
         {
           "name": "CHUN-LI",
@@ -281,7 +281,7 @@
       "current_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1450
+          "mr": 1400
         }
       ],
       "highest_mr": [
@@ -1121,7 +1121,7 @@
         },
         {
           "name": "GUILE",
-          "lp": 29307
+          "lp": 29027
         },
         {
           "name": "SAGAT",
@@ -1162,16 +1162,16 @@
           "mr": 1495
         },
         {
-          "name": "GUILE",
-          "mr": 1486
-        },
-        {
           "name": "JP",
           "mr": 1473
         },
         {
           "name": "SAGAT",
           "mr": 1455
+        },
+        {
+          "name": "GUILE",
+          "mr": 1434
         },
         {
           "name": "ZANGIEF",
@@ -1384,13 +1384,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 283104
+          "lp": 283304
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1563
+          "mr": 1581
         }
       ],
       "highest_mr": [
@@ -1435,7 +1435,7 @@
       "lp": [
         {
           "name": "DHALSIM",
-          "lp": 173118
+          "lp": 173019
         },
         {
           "name": "INGRID",
@@ -1445,7 +1445,7 @@
       "current_mr": [
         {
           "name": "DHALSIM",
-          "mr": 1507
+          "mr": 1448
         }
       ],
       "highest_mr": [
@@ -2285,7 +2285,7 @@
       "lp": [
         {
           "name": "ALEX",
-          "lp": 62139
+          "lp": 63036
         },
         {
           "name": "INGRID",
@@ -2295,7 +2295,7 @@
       "current_mr": [
         {
           "name": "ALEX",
-          "mr": 1363
+          "mr": 1358
         }
       ],
       "highest_mr": [
