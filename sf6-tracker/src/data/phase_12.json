@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-22T09:05:46.273021-05:00",
+  "last_updated": "2026-07-22T21:56:15.814550-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -7,7 +7,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 356893
+          "lp": 356683
         },
         {
           "name": "ED",
@@ -21,7 +21,7 @@
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1674
+          "mr": 1631
         },
         {
           "name": "ED",
@@ -53,7 +53,7 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 345823
+          "lp": 346311
         },
         {
           "name": "A.K.I.",
@@ -73,7 +73,7 @@
         },
         {
           "name": "TERRY",
-          "lp": 33134
+          "lp": 33502
         },
         {
           "name": "INGRID",
@@ -91,11 +91,11 @@
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1753
+          "mr": 1779
         },
         {
           "name": "TERRY",
-          "mr": 1561
+          "mr": 1554
         },
         {
           "name": "INGRID",
@@ -149,7 +149,7 @@
         },
         {
           "name": "TERRY",
-          "mr": 1561
+          "mr": 1569
         },
         {
           "name": "INGRID",
@@ -821,7 +821,7 @@
       "lp": [
         {
           "name": "CAMMY",
-          "lp": 200532
+          "lp": 202055
         },
         {
           "name": "LUKE",
@@ -835,7 +835,7 @@
       "current_mr": [
         {
           "name": "CAMMY",
-          "mr": 1767
+          "mr": 1701
         },
         {
           "name": "LUKE",
@@ -849,7 +849,7 @@
       "highest_mr": [
         {
           "name": "CAMMY",
-          "mr": 1771
+          "mr": 1781
         },
         {
           "name": "E. HONDA",
@@ -1222,7 +1222,7 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 187378
+          "lp": 187348
         },
         {
           "name": "MANON",
@@ -1240,7 +1240,7 @@
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1620
+          "mr": 1615
         },
         {
           "name": "CAMMY",
@@ -1928,7 +1928,7 @@
     },
     "2105179667": {
       "username": "yungflipflop",
-      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
       "lp": [
         {
           "name": "SAGAT",
