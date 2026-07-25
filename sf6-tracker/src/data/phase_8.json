@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-03T18:09:12.854439-05:00",
+  "last_updated": "2026-07-25T15:16:58.086662-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -1893,6 +1893,35 @@
         }
       ],
       "current_mr": [],
+      "highest_mr": []
+    },
+    "3186007203": {
+      "username": "space rat",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "lp": [
+        {
+          "name": "KIMBERLY",
+          "lp": 54959
+        },
+        {
+          "name": "MARISA",
+          "lp": 51663
+        },
+        {
+          "name": "LUKE",
+          "lp": 19284
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "KIMBERLY",
+          "mr": 1740
+        },
+        {
+          "name": "MARISA",
+          "mr": 1610
+        }
+      ],
       "highest_mr": []
     }
   }

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-03T18:09:43.042509-05:00",
+  "last_updated": "2026-07-25T15:17:29.078610-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -2212,6 +2212,100 @@
         {
           "name": "ALEX",
           "mr": 1506
+        }
+      ]
+    },
+    "3186007203": {
+      "username": "space rat",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "lp": [
+        {
+          "name": "KIMBERLY",
+          "lp": 187220
+        },
+        {
+          "name": "MARISA",
+          "lp": 73523
+        },
+        {
+          "name": "TERRY",
+          "lp": 57865
+        },
+        {
+          "name": "AKUMA",
+          "lp": 49998
+        },
+        {
+          "name": "RASHID",
+          "lp": 36651
+        },
+        {
+          "name": "JP",
+          "lp": 27383
+        },
+        {
+          "name": "JAMIE",
+          "lp": 26326
+        },
+        {
+          "name": "RANDOM",
+          "lp": 23667
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "KIMBERLY",
+          "mr": 1908
+        },
+        {
+          "name": "TERRY",
+          "mr": 1587
+        },
+        {
+          "name": "MARISA",
+          "mr": 1576
+        },
+        {
+          "name": "RASHID",
+          "mr": 1564
+        },
+        {
+          "name": "AKUMA",
+          "mr": 1542
+        },
+        {
+          "name": "JP",
+          "mr": 1512
+        },
+        {
+          "name": "JAMIE",
+          "mr": 1505
+        }
+      ],
+      "highest_mr": [
+        {
+          "name": "KIMBERLY",
+          "mr": 1959
+        },
+        {
+          "name": "TERRY",
+          "mr": 1634
+        },
+        {
+          "name": "RASHID",
+          "mr": 1619
+        },
+        {
+          "name": "MARISA",
+          "mr": 1594
+        },
+        {
+          "name": "JP",
+          "mr": 1512
+        },
+        {
+          "name": "JAMIE",
+          "mr": 1509
         }
       ]
     }
