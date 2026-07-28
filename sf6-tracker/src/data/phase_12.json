@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-27T21:51:16.641657-05:00",
+  "last_updated": "2026-07-28T09:20:17.218224-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -197,13 +197,13 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 376333
+          "lp": 376523
         }
       ],
       "current_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1723
+          "mr": 1710
         }
       ],
       "highest_mr": [
@@ -1495,7 +1495,7 @@
       "highest_mr": []
     },
     "1767029401": {
-      "username": "RaeveinModernL",
+      "username": "LearninHitBox",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
@@ -2136,7 +2136,7 @@
       "lp": [
         {
           "name": "MANON",
-          "lp": 19664
+          "lp": 19815
         }
       ],
       "current_mr": [],
