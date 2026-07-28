@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-27T09:53:27.379294-05:00",
+  "last_updated": "2026-07-27T21:51:16.641657-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -7,7 +7,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 356683
+          "lp": 356723
         },
         {
           "name": "ED",
@@ -21,7 +21,7 @@
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1631
+          "mr": 1632
         },
         {
           "name": "ED",
@@ -197,13 +197,13 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 376203
+          "lp": 376333
         }
       ],
       "current_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1729
+          "mr": 1723
         }
       ],
       "highest_mr": [
@@ -1128,12 +1128,12 @@
           "lp": 34674
         },
         {
-          "name": "ZANGIEF",
-          "lp": 32713
+          "name": "GUILE",
+          "lp": 33912
         },
         {
-          "name": "GUILE",
-          "lp": 30728
+          "name": "ZANGIEF",
+          "lp": 32713
         },
         {
           "name": "SAGAT",
@@ -1194,12 +1194,12 @@
           "mr": 1455
         },
         {
-          "name": "ZANGIEF",
-          "mr": 1410
+          "name": "GUILE",
+          "mr": 1439
         },
         {
-          "name": "GUILE",
-          "mr": 1367
+          "name": "ZANGIEF",
+          "mr": 1410
         }
       ],
       "highest_mr": [
@@ -1495,7 +1495,7 @@
       "highest_mr": []
     },
     "1767029401": {
-      "username": "LearninHitBox",
+      "username": "RaeveinModernL",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
@@ -1537,6 +1537,10 @@
         {
           "name": "JURI",
           "lp": 23414
+        },
+        {
+          "name": "CAMMY",
+          "lp": 13641
         }
       ],
       "current_mr": [
