@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-29T09:28:51.148289-05:00",
+  "last_updated": "2026-07-29T21:40:45.891706-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -7,7 +7,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 356723
+          "lp": 357613
         },
         {
           "name": "ED",
@@ -21,7 +21,7 @@
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1632
+          "mr": 1701
         },
         {
           "name": "ED",
@@ -53,7 +53,7 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 349756
+          "lp": 350247
         },
         {
           "name": "A.K.I.",
@@ -68,12 +68,12 @@
           "lp": 36404
         },
         {
-          "name": "ALEX",
-          "lp": 35444
+          "name": "TERRY",
+          "lp": 36068
         },
         {
-          "name": "TERRY",
-          "lp": 35441
+          "name": "ALEX",
+          "lp": 35444
         },
         {
           "name": "INGRID",
@@ -91,11 +91,11 @@
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1824
+          "mr": 1821
         },
         {
           "name": "TERRY",
-          "mr": 1563
+          "mr": 1588
         },
         {
           "name": "SAGAT",
@@ -149,7 +149,7 @@
         },
         {
           "name": "TERRY",
-          "mr": 1573
+          "mr": 1588
         },
         {
           "name": "INGRID",
@@ -1124,12 +1124,12 @@
           "lp": 40551
         },
         {
-          "name": "JP",
-          "lp": 34674
+          "name": "GUILE",
+          "lp": 35416
         },
         {
-          "name": "GUILE",
-          "lp": 34012
+          "name": "JP",
+          "lp": 34674
         },
         {
           "name": "ZANGIEF",
@@ -1194,12 +1194,12 @@
           "mr": 1455
         },
         {
-          "name": "ZANGIEF",
-          "mr": 1410
+          "name": "GUILE",
+          "mr": 1432
         },
         {
-          "name": "GUILE",
-          "mr": 1401
+          "name": "ZANGIEF",
+          "mr": 1410
         }
       ],
       "highest_mr": [
@@ -1416,13 +1416,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 284104
+          "lp": 284414
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1516
+          "mr": 1557
         }
       ],
       "highest_mr": [
@@ -1540,7 +1540,7 @@
         },
         {
           "name": "CAMMY",
-          "lp": 13641
+          "lp": 13839
         }
       ],
       "current_mr": [
@@ -2265,7 +2265,7 @@
       "lp": [
         {
           "name": "MARISA",
-          "lp": 202685
+          "lp": 204805
         },
         {
           "name": "RYU",
@@ -2275,7 +2275,7 @@
       "current_mr": [
         {
           "name": "MARISA",
-          "mr": 1650
+          "mr": 1660
         },
         {
           "name": "RYU",
@@ -2321,7 +2321,7 @@
       "lp": [
         {
           "name": "ALEX",
-          "lp": 63036
+          "lp": 64806
         },
         {
           "name": "INGRID",
@@ -2331,7 +2331,7 @@
       "current_mr": [
         {
           "name": "ALEX",
-          "mr": 1358
+          "mr": 1401
         }
       ],
       "highest_mr": [
