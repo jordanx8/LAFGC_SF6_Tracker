@@ -102,6 +102,39 @@ def open_play_tab(driver, wait, tab_text):
     time.sleep(0.2)
     driver.execute_script("arguments[0].click();", target_tab)
     wait.until(lambda d: "active" in target_tab.get_attribute("class"))
+def detect_phase_info(driver, wait, sample_pid):
+    """Load a sample profile and inspect the Phase dropdown to learn which
+    phase CFN currently treats as active, plus the highest phase number
+    it offers.
+
+    CFN defaults the Phase dropdown to whatever phase is currently ranked
+    (e.g. it switched from defaulting to 12 to defaulting to 13 once Phase 13
+    started), so we read that instead of assuming a hardcoded phase number.
+    """
+    profile_url = f"https://www.streetfighter.com/6/buckler/profile/{sample_pid}/play"
+    driver.get(profile_url)
+    wait.until(lambda d: sample_pid in d.current_url)
+    close_cookie_popup(driver)
+    open_play_tab(driver, wait, "league points")
+
+    dropdown = wait.until(
+        EC.presence_of_element_located((
+            By.CSS_SELECTOR,
+            "aside.filter_nav_filter_nav__6P1ya dd:nth-of-type(1) select"
+        ))
+    )
+    current_value = dropdown.get_attribute("value")
+    option_values = [
+        int(opt.get_attribute("value"))
+        for opt in dropdown.find_elements(By.TAG_NAME, "option")
+        if (opt.get_attribute("value") or "").isdigit()
+    ]
+
+    if not current_value or not current_value.isdigit() or not option_values:
+        raise RuntimeError("Could not read Phase dropdown to detect current phase")
+
+    return int(current_value), max(option_values)
+
 def select_phase(driver, wait, phase_number):
     """Select a specific phase from the Phase dropdown"""
     try:
@@ -279,34 +312,26 @@ def parse_arguments():
     
     Usage:
         python scrape_cfn.py [player_ids] [--phase PHASE]
-        
+
     Args:
         player_ids: Comma-separated player IDs (optional, defaults to all from file)
-        --phase: Phase number (1-12) or 'all' (optional, defaults to latest phase only)
-    
+        --phase: Phase number or 'all' (optional, defaults to the phase CFN
+            currently reports as active, detected at runtime)
+
     Returns:
-        tuple: (player_ids_list, phases_list)
+        tuple: (player_ids_list, phase_arg) where phase_arg is the raw
+            '--phase' value (None, 'all', or a numeric string) — resolved
+            against the live Phase dropdown once the browser session starts.
     """
     player_ids = None
-    phases = [12]  # Default to latest phase only
-    
+    phase_arg = None
+
     args = sys.argv[1:]
     i = 0
     while i < len(args):
         if args[i] == '--phase':
             if i + 1 < len(args):
                 phase_arg = args[i + 1]
-                if phase_arg.lower() == 'all':
-                    phases = list(range(1, 13))  # All phases 1-12
-                else:
-                    try:
-                        phase_num = int(phase_arg)
-                        if 1 <= phase_num <= 12:
-                            phases = [phase_num]
-                        else:
-                            print(f"Warning: Phase {phase_num} out of range (1-12), using default")
-                    except ValueError:
-                        print(f"Warning: Invalid phase '{phase_arg}', using default")
                 i += 2
             else:
                 print("Warning: --phase requires a value")
@@ -316,7 +341,7 @@ def parse_arguments():
             if player_ids is None:
                 player_ids = args[i]
             i += 1
-    
+
     # Get player IDs
     if player_ids:
         ids = [pid.strip() for pid in player_ids.split(',') if pid.strip()]
@@ -324,10 +349,8 @@ def parse_arguments():
     else:
         ids = load_player_ids()
         print(f"Using all {len(ids)} player IDs from player_ids.txt")
-    
-    print(f"Scraping phase(s): {', '.join(map(str, phases))}")
-    
-    return ids, phases
+
+    return ids, phase_arg
 
 def scrape_phase(driver, wait, ids, phase_number):
     """
@@ -382,13 +405,14 @@ def scrape_phase(driver, wait, ids, phase_number):
             print("Please run refresh_cookies.py to obtain new cookies.")
             raise RuntimeError("Session expired - please refresh cookies")
         
-        # Select the phase if not the default (12)
-        if phase_number != 12:
-            try:
-                select_phase(driver, wait, phase_number)
-            except Exception as e:
-                print(f"Failed to select phase {phase_number}: {e}")
-                continue
+        # Always explicitly select the phase — never rely on CFN's default
+        # selection, since the dropdown defaults to whichever phase is
+        # currently active and that changes over time.
+        try:
+            select_phase(driver, wait, phase_number)
+        except Exception as e:
+            print(f"Failed to select phase {phase_number}: {e}")
+            continue
 
         print("Scraping LP per character...")
         lp_list = scrape_league_points(driver, wait)
@@ -399,13 +423,12 @@ def scrape_phase(driver, wait, ids, phase_number):
             print("Cannot open MR tab")
             continue
         
-        # Select the phase again for MR tab if not default
-        if phase_number != 12:
-            try:
-                select_phase(driver, wait, phase_number)
-            except Exception as e:
-                print(f"Failed to select phase {phase_number} on MR tab: {e}")
-                continue
+        # Select the phase again for MR tab (switching tabs resets the dropdown)
+        try:
+            select_phase(driver, wait, phase_number)
+        except Exception as e:
+            print(f"Failed to select phase {phase_number} on MR tab: {e}")
+            continue
         
         # Scrape CURRENT MR first (before changing dropdown)
         print("Scraping current MR...")
@@ -526,9 +549,9 @@ def scrape_phase(driver, wait, ids, phase_number):
 
 def main():
     """Main scraping function - loads cookies and scrapes player data"""
-    ids, phases = parse_arguments()
-    print(f"Scraping {len(ids)} player ID(s) across {len(phases)} phase(s)")
-    
+    ids, phase_arg = parse_arguments()
+    print(f"Loaded {len(ids)} player ID(s); resolving target phase(s) after login...")
+
     # Load cookies (required for scraping)
     cookies = load_cookies()
     if not cookies:
@@ -579,7 +602,30 @@ def main():
         driver.refresh()
         time.sleep(1)
         print("Session restored, starting scraping...\n")
-        
+
+        # Detect the currently active phase (and the highest phase CFN
+        # offers) from the live Phase dropdown before resolving what to scrape.
+        current_phase, max_phase = detect_phase_info(driver, wait, ids[0])
+        print(f"Detected current phase: {current_phase} (highest available: {max_phase})")
+
+        if phase_arg is None:
+            phases = [current_phase]
+        elif phase_arg.lower() == 'all':
+            phases = list(range(1, max_phase + 1))
+        else:
+            try:
+                phase_num = int(phase_arg)
+                if 1 <= phase_num <= max_phase:
+                    phases = [phase_num]
+                else:
+                    print(f"Warning: Phase {phase_num} out of range (1-{max_phase}), using detected current phase {current_phase}")
+                    phases = [current_phase]
+            except ValueError:
+                print(f"Warning: Invalid phase '{phase_arg}', using detected current phase {current_phase}")
+                phases = [current_phase]
+
+        print(f"Scraping phase(s): {', '.join(map(str, phases))}\n")
+
         # Scrape each phase
         for phase in phases:
             print(f"\n{'='*60}")

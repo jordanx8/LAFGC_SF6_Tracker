@@ -20,9 +20,9 @@ jobs:
       - name: Check for missing player IDs
         id: missing_ids
         run: |
-          echo "Checking players.json for IDs not in phase_12.json"
           PLAYERS_FILE="sf6-tracker/src/data/players.json"
-          PHASE_FILE="sf6-tracker/src/data/phase_12.json"
+          PHASE_FILE=$(ls -v sf6-tracker/src/data/phase_*.json | tail -n 1)
+          echo "Checking players.json for IDs not in $PHASE_FILE"
           PLAYER_IDS=$(jq -r '
             map(
               if (.id | type == "array") then .id[] else .id end

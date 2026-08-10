@@ -7,7 +7,7 @@ See it live here: https://jordanx8.github.io/LAFGC_SF6_Tracker/
 ## Features
 
 - Track LP and MR for all characters across multiple players
-- View historical data from all competitive phases (Phase 1-12)
+- View historical data from all competitive phases, auto-detecting the current phase as new ones start
 - Filter by character, search by name, or view mains only
 - Automated updates every 12 hours via GitHub Actions
 
