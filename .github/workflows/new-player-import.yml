@@ -16,6 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           token: ${{ secrets.GH_TOKEN }}
       - name: Check for missing player IDs
         id: missing_ids
@@ -88,13 +89,28 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
       - name: Commit and push changes
+        id: commit_import
         if: steps.missing_ids.outputs.missing_ids != ''
         run: |
           git add sf6-tracker/src/data/phase_*.json
           if git diff --staged --quiet; then
             echo "No changes to commit"
+            echo "committed=false" >> $GITHUB_OUTPUT
           else
             git commit -m "Update CFN data - $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
             git pull --rebase origin main
             git push
+            echo "committed=true" >> $GITHUB_OUTPUT
           fi
+      - name: Post data changes to Discord
+        if: steps.commit_import.outputs.committed == 'true'
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          python scripts/parse_json_changes.py > json_changes_summary.txt
+      - name: Add summary to GitHub UI
+        if: steps.commit_import.outputs.committed == 'true'
+        run: |
+          echo "## 📝 Data Changes" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          cat json_changes_summary.txt >> $GITHUB_STEP_SUMMARY
