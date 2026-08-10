@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-25T15:16:37.677681-05:00",
+  "last_updated": "2026-08-10T10:06:17.707566-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -260,7 +260,16 @@
           "mr": 1698
         }
       ],
-      "highest_mr": []
+      "highest_mr": [
+        {
+          "name": "M. BISON",
+          "mr": 1708
+        },
+        {
+          "name": "LUKE",
+          "mr": 1698
+        }
+      ]
     },
     "2033365007": {
       "username": "jojoqv",
@@ -328,7 +337,7 @@
       "highest_mr": []
     },
     "3712192677": {
-      "username": "Fahfos",
+      "username": "Mr Hazmat",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [],
       "current_mr": [],
@@ -350,11 +359,16 @@
           "lp": 79032
         }
       ],
-      "current_mr": [],
+      "current_mr": [
+        {
+          "name": "KIMBERLY",
+          "mr": 1550
+        }
+      ],
       "highest_mr": []
     },
     "2519113852": {
-      "username": "UltraGiga Mason",
+      "username": "Ultra Giga",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
@@ -428,34 +442,18 @@
       ],
       "current_mr": [
         {
-          "name": "LUKE",
-          "mr": 1536
-        },
-        {
-          "name": "RYU",
-          "mr": 1456
-        },
-        {
-          "name": "MAI",
-          "mr": 1448
-        },
-        {
-          "name": "ED",
-          "mr": 1445
-        },
-        {
-          "name": "CAMMY",
-          "mr": 1422
-        },
-        {
           "name": "AKUMA",
-          "mr": 1397
+          "mr": 1500
+        },
+        {
+          "name": "LUKE",
+          "mr": 1224
         }
       ],
       "highest_mr": []
     },
     "1908970362": {
-      "username": "Nick",
+      "username": "Bruh",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
@@ -878,7 +876,7 @@
       "highest_mr": []
     },
     "1767029401": {
-      "username": "RaeveinFG",
+      "username": "LearninHitBox",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [],
       "current_mr": [],
@@ -1032,7 +1030,20 @@
           "mr": 1313
         }
       ],
-      "highest_mr": []
+      "highest_mr": [
+        {
+          "name": "JP",
+          "mr": 1453
+        },
+        {
+          "name": "MANON",
+          "mr": 1426
+        },
+        {
+          "name": "CHUN-LI",
+          "mr": 1313
+        }
+      ]
     },
     "1456645616": {
       "username": "LiquidSwords",
@@ -1113,7 +1124,7 @@
       "highest_mr": []
     },
     "1476407231": {
-      "username": "Ms. Curlz",
+      "username": "Rose",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
       "lp": [
         {
@@ -1374,7 +1385,7 @@
     },
     "2022951228": {
       "username": "ColdRamune",
-      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
       "lp": [
         {
           "name": "CHUN-LI",
@@ -1511,6 +1522,13 @@
           "mr": 1522
         }
       ],
+      "highest_mr": []
+    },
+    "2904944987": {
+      "username": "Big Shot",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "lp": [],
+      "current_mr": [],
       "highest_mr": []
     }
   }
