@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-25T15:17:18.399439-05:00",
+  "last_updated": "2026-08-10T08:17:19.297551-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -294,7 +294,7 @@
       "highest_mr": []
     },
     "3712192677": {
-      "username": "Fahfos",
+      "username": "Mr Hazmat",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
@@ -306,7 +306,16 @@
           "lp": 27967
         }
       ],
-      "current_mr": [],
+      "current_mr": [
+        {
+          "name": "M. BISON",
+          "mr": 1573
+        },
+        {
+          "name": "LUKE",
+          "mr": 1556
+        }
+      ],
       "highest_mr": []
     },
     "1080080227": {
@@ -344,7 +353,7 @@
       "highest_mr": []
     },
     "2519113852": {
-      "username": "UltraGiga Mason",
+      "username": "Ultra Giga",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
@@ -449,7 +458,7 @@
       "highest_mr": []
     },
     "1908970362": {
-      "username": "Nick",
+      "username": "Bruh",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
@@ -706,7 +715,12 @@
           "mr": 1357
         }
       ],
-      "highest_mr": []
+      "highest_mr": [
+        {
+          "name": "DEE JAY",
+          "mr": 1357
+        }
+      ]
     },
     "3787645791": {
       "username": "GOL_Zaith/TTV",
@@ -998,7 +1012,7 @@
       "highest_mr": []
     },
     "1767029401": {
-      "username": "RaeveinFG",
+      "username": "LearninHitBox",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
@@ -1212,7 +1226,7 @@
       "highest_mr": []
     },
     "1476407231": {
-      "username": "Ms. Curlz",
+      "username": "Rose",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
       "lp": [],
       "current_mr": [],
@@ -1234,7 +1248,7 @@
     },
     "3410040044": {
       "username": "BlazerFury",
-      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
@@ -1641,6 +1655,75 @@
         {
           "name": "SAGAT",
           "mr": 1492
+        }
+      ],
+      "highest_mr": []
+    },
+    "4092075827": {
+      "username": "ReTr0",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
+      "lp": [
+        {
+          "name": "KEN",
+          "lp": 270396
+        },
+        {
+          "name": "A.K.I.",
+          "lp": 44595
+        },
+        {
+          "name": "RYU",
+          "lp": 26563
+        },
+        {
+          "name": "SAGAT",
+          "lp": 26253
+        },
+        {
+          "name": "LUKE",
+          "lp": 19931
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "KEN",
+          "mr": 1714
+        },
+        {
+          "name": "SAGAT",
+          "mr": 1503
+        },
+        {
+          "name": "RYU",
+          "mr": 1496
+        },
+        {
+          "name": "A.K.I.",
+          "mr": 1428
+        }
+      ],
+      "highest_mr": []
+    },
+    "2989535302": {
+      "username": "Jimbo Slice",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
+      "lp": [],
+      "current_mr": [],
+      "highest_mr": []
+    },
+    "2904944987": {
+      "username": "Big Shot",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "lp": [
+        {
+          "name": "TERRY",
+          "lp": 27474
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "TERRY",
+          "mr": 1516
         }
       ],
       "highest_mr": []
