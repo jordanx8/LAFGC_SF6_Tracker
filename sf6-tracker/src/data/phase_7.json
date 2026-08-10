@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-25T15:16:47.393798-05:00",
+  "last_updated": "2026-08-10T09:46:21.960266-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -324,7 +324,7 @@
       "highest_mr": []
     },
     "3712192677": {
-      "username": "Fahfos",
+      "username": "Mr Hazmat",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
@@ -365,7 +365,7 @@
       "highest_mr": []
     },
     "2519113852": {
-      "username": "UltraGiga Mason",
+      "username": "Ultra Giga",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
@@ -470,7 +470,7 @@
       "highest_mr": []
     },
     "1908970362": {
-      "username": "Nick",
+      "username": "Bruh",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
@@ -968,7 +968,7 @@
       "highest_mr": []
     },
     "1767029401": {
-      "username": "RaeveinFG",
+      "username": "LearninHitBox",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
@@ -1235,7 +1235,7 @@
       "highest_mr": []
     },
     "1476407231": {
-      "username": "Ms. Curlz",
+      "username": "Rose",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
       "lp": [
         {
@@ -1622,6 +1622,25 @@
       "username": "space rat",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [],
+      "current_mr": [],
+      "highest_mr": []
+    },
+    "2949851312": {
+      "username": "Noremak: Bound",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
+      "lp": [],
+      "current_mr": [],
+      "highest_mr": []
+    },
+    "2904944987": {
+      "username": "Big Shot",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "lp": [
+        {
+          "name": "DEE JAY",
+          "lp": 19276
+        }
+      ],
       "current_mr": [],
       "highest_mr": []
     }
