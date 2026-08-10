@@ -26,13 +26,33 @@ def parse_phase_files():
                 check=False
             )
             if result.returncode != 0:
-                # File is new
-                player_count = len(current_data.get('players', {}))
-                changes.append({
-                    'phase': phase_num,
-                    'type': 'new_file',
-                    'player_count': player_count
-                })
+                # File is new (e.g. a phase just started) — report every
+                # scraped stat as a fresh entry (old value 0) instead of a
+                # summary count, so the initial data still posts to Discord.
+                for player_id, player_data in current_data.get('players', {}).items():
+                    username = player_data.get('username', player_id)
+                    for c in player_data.get('current_mr', []):
+                        changes.append({
+                            'phase': phase_num,
+                            'type': 'current_mr_change',
+                            'player': username,
+                            'player_id': player_id,
+                            'character': c['name'],
+                            'old_mr': 0,
+                            'new_mr': c['mr'],
+                            'change': c['mr']
+                        })
+                    for c in player_data.get('highest_mr', []):
+                        changes.append({
+                            'phase': phase_num,
+                            'type': 'highest_mr_change',
+                            'player': username,
+                            'player_id': player_id,
+                            'character': c['name'],
+                            'old_mr': 0,
+                            'new_mr': c['mr'],
+                            'change': c['mr']
+                        })
                 continue
             previous_data = json.loads(result.stdout)
             
