@@ -1,17 +1,35 @@
 {
-  "last_updated": "2026-08-10T08:27:48.264269-05:00",
+  "last_updated": "2026-08-10T20:52:09.673630-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
       "lp": [
         {
+          "name": "AKUMA",
+          "lp": 357893
+        },
+        {
           "name": "YASMINE",
-          "lp": 24512
+          "lp": 25180
         }
       ],
-      "current_mr": [],
-      "highest_mr": []
+      "current_mr": [
+        {
+          "name": "AKUMA",
+          "mr": 1590
+        },
+        {
+          "name": "YASMINE",
+          "mr": 1500
+        }
+      ],
+      "highest_mr": [
+        {
+          "name": "AKUMA",
+          "mr": 1599
+        }
+      ]
     },
     "3895945280": {
       "username": "FroggyAirplane3",
@@ -142,13 +160,13 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 377693
+          "lp": 377685
         }
       ],
       "current_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1570
+          "mr": 1558
         }
       ],
       "highest_mr": [
@@ -398,7 +416,7 @@
       "lp": [
         {
           "name": "A.K.I.",
-          "lp": 423273
+          "lp": 425353
         },
         {
           "name": "RYU",
@@ -420,7 +438,7 @@
       "current_mr": [
         {
           "name": "A.K.I.",
-          "mr": 1765
+          "mr": 1732
         },
         {
           "name": "C. VIPER",
@@ -478,7 +496,7 @@
         },
         {
           "name": "GUILE",
-          "lp": 50188
+          "lp": 51198
         },
         {
           "name": "JP",
@@ -492,7 +510,7 @@
         },
         {
           "name": "GUILE",
-          "mr": 1558
+          "mr": 1543
         },
         {
           "name": "JP",
@@ -623,13 +641,13 @@
       "lp": [
         {
           "name": "DHALSIM",
-          "lp": 175565
+          "lp": 175775
         }
       ],
       "current_mr": [
         {
           "name": "DHALSIM",
-          "mr": 1482
+          "mr": 1509
         }
       ],
       "highest_mr": [
