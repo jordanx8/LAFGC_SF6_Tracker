@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-13T08:33:45.119595-05:00",
+  "last_updated": "2026-08-13T21:09:42.419306-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -7,7 +7,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 358063
+          "lp": 358173
         },
         {
           "name": "YASMINE",
@@ -17,7 +17,7 @@
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1603
+          "mr": 1607
         },
         {
           "name": "YASMINE",
@@ -27,7 +27,7 @@
       "highest_mr": [
         {
           "name": "AKUMA",
-          "mr": 1613
+          "mr": 1621
         }
       ]
     },
@@ -291,19 +291,19 @@
       "lp": [
         {
           "name": "LUKE",
-          "lp": 579875
+          "lp": 582589
         }
       ],
       "current_mr": [
         {
           "name": "LUKE",
-          "mr": 1842
+          "mr": 1839
         }
       ],
       "highest_mr": [
         {
           "name": "LUKE",
-          "mr": 1842
+          "mr": 1863
         }
       ]
     },
@@ -335,13 +335,13 @@
       "lp": [
         {
           "name": "ELENA",
-          "lp": 109056
+          "lp": 110756
         }
       ],
       "current_mr": [
         {
           "name": "ELENA",
-          "mr": 1549
+          "mr": 1501
         }
       ],
       "highest_mr": [
@@ -507,7 +507,7 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 325505
+          "lp": 325595
         },
         {
           "name": "GUILE",
@@ -529,7 +529,7 @@
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1584
+          "mr": 1577
         },
         {
           "name": "JAMIE",
@@ -672,13 +672,13 @@
       "lp": [
         {
           "name": "DHALSIM",
-          "lp": 177886
+          "lp": 179301
         }
       ],
       "current_mr": [
         {
           "name": "DHALSIM",
-          "mr": 1498
+          "mr": 1477
         }
       ],
       "highest_mr": [
@@ -823,16 +823,21 @@
       "lp": [
         {
           "name": "INGRID",
-          "lp": 43741
+          "lp": 43681
         }
       ],
       "current_mr": [
         {
           "name": "INGRID",
-          "mr": 1444
+          "mr": 1431
         }
       ],
-      "highest_mr": []
+      "highest_mr": [
+        {
+          "name": "INGRID",
+          "mr": 1452
+        }
+      ]
     },
     "2171500907": {
       "username": "GOL poboyslim",
@@ -1149,7 +1154,7 @@
       "lp": [
         {
           "name": "KIMBERLY",
-          "lp": 275873
+          "lp": 277293
         },
         {
           "name": "INGRID",
@@ -1163,7 +1168,7 @@
       "current_mr": [
         {
           "name": "KIMBERLY",
-          "mr": 1769
+          "mr": 1800
         },
         {
           "name": "YASMINE",
