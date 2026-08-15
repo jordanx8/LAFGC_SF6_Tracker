@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-14T08:25:10.145034-05:00",
+  "last_updated": "2026-08-14T20:29:05.538272-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -7,7 +7,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 358173
+          "lp": 358273
         },
         {
           "name": "YASMINE",
@@ -17,7 +17,7 @@
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1607
+          "mr": 1591
         },
         {
           "name": "YASMINE",
@@ -198,7 +198,7 @@
         },
         {
           "name": "AKUMA",
-          "lp": 16339
+          "lp": 16563
         }
       ],
       "current_mr": [
@@ -285,9 +285,24 @@
     "1047166480": {
       "username": "Peggy Hill 420",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
-      "lp": [],
-      "current_mr": [],
-      "highest_mr": []
+      "lp": [
+        {
+          "name": "LUKE",
+          "lp": 156151
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "LUKE",
+          "mr": 1669
+        }
+      ],
+      "highest_mr": [
+        {
+          "name": "LUKE",
+          "mr": 1669
+        }
+      ]
     },
     "2033365007": {
       "username": "jojoqv",
@@ -526,11 +541,11 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 325975
+          "lp": 326276
         },
         {
           "name": "GUILE",
-          "lp": 52260
+          "lp": 52220
         },
         {
           "name": "JP",
@@ -548,7 +563,7 @@
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1607
+          "mr": 1601
         },
         {
           "name": "JAMIE",
@@ -560,13 +575,13 @@
         },
         {
           "name": "GUILE",
-          "mr": 1470
+          "mr": 1462
         }
       ],
       "highest_mr": [
         {
           "name": "ED",
-          "mr": 1611
+          "mr": 1634
         },
         {
           "name": "GUILE",
@@ -1133,7 +1148,7 @@
         },
         {
           "name": "YASMINE",
-          "lp": 21720
+          "lp": 21600
         }
       ],
       "current_mr": [
@@ -1180,8 +1195,12 @@
           "lp": 277293
         },
         {
+          "name": "RYU",
+          "lp": 72139
+        },
+        {
           "name": "YASMINE",
-          "lp": 57838
+          "lp": 63382
         },
         {
           "name": "INGRID",
@@ -1195,7 +1214,11 @@
         },
         {
           "name": "YASMINE",
-          "mr": 1655
+          "mr": 1707
+        },
+        {
+          "name": "RYU",
+          "mr": 1597
         },
         {
           "name": "INGRID",
@@ -1214,6 +1237,10 @@
         {
           "name": "INGRID",
           "mr": 1537
+        },
+        {
+          "name": "RYU",
+          "mr": 1597
         }
       ]
     }
