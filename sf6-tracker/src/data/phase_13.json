@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-15T07:55:57.860515-05:00",
+  "last_updated": "2026-08-15T20:33:17.236221-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -51,7 +51,7 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 361939
+          "lp": 362550
         },
         {
           "name": "A.K.I.",
@@ -63,7 +63,7 @@
         },
         {
           "name": "TERRY",
-          "lp": 37808
+          "lp": 37938
         },
         {
           "name": "AKUMA",
@@ -85,7 +85,7 @@
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1705
+          "mr": 1707
         },
         {
           "name": "ALEX",
@@ -93,10 +93,6 @@
         },
         {
           "name": "AKUMA",
-          "mr": 1507
-        },
-        {
-          "name": "TERRY",
           "mr": 1507
         },
         {
@@ -110,6 +106,10 @@
         {
           "name": "JAMIE",
           "mr": 1500
+        },
+        {
+          "name": "TERRY",
+          "mr": 1492
         },
         {
           "name": "A.K.I.",
@@ -160,19 +160,19 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 377815
+          "lp": 378065
         }
       ],
       "current_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1564
+          "mr": 1593
         }
       ],
       "highest_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1578
+          "mr": 1597
         }
       ]
     },
@@ -198,7 +198,7 @@
         },
         {
           "name": "AKUMA",
-          "lp": 16771
+          "lp": 17126
         }
       ],
       "current_mr": [
@@ -419,19 +419,19 @@
       "lp": [
         {
           "name": "CAMMY",
-          "lp": 208985
+          "lp": 209815
         }
       ],
       "current_mr": [
         {
           "name": "CAMMY",
-          "mr": 1613
+          "mr": 1633
         }
       ],
       "highest_mr": [
         {
           "name": "CAMMY",
-          "mr": 1613
+          "mr": 1633
         }
       ]
     },
