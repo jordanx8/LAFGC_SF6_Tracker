@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-28T17:05:25.287152-05:00",
+  "last_updated": "2026-08-29T01:14:27.461149-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -51,7 +51,7 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 367740
+          "lp": 368670
         },
         {
           "name": "A.K.I.",
@@ -63,7 +63,7 @@
         },
         {
           "name": "TERRY",
-          "lp": 39260
+          "lp": 39680
         },
         {
           "name": "AKUMA",
@@ -85,11 +85,11 @@
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1758
+          "mr": 1779
         },
         {
           "name": "TERRY",
-          "mr": 1547
+          "mr": 1549
         },
         {
           "name": "INGRID",
@@ -119,11 +119,11 @@
       "highest_mr": [
         {
           "name": "KEN",
-          "mr": 1758
+          "mr": 1779
         },
         {
           "name": "TERRY",
-          "mr": 1547
+          "mr": 1556
         },
         {
           "name": "ALEX",
@@ -203,6 +203,10 @@
         {
           "name": "KEN",
           "lp": 14967
+        },
+        {
+          "name": "DEE JAY",
+          "lp": 13512
         }
       ],
       "current_mr": [
@@ -702,20 +706,32 @@
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
+          "name": "RASHID",
+          "lp": 91404
+        },
+        {
           "name": "YASMINE",
-          "lp": 25420
+          "lp": 26286
         }
       ],
       "current_mr": [
         {
+          "name": "RASHID",
+          "mr": 1548
+        },
+        {
           "name": "YASMINE",
-          "mr": 1486
+          "mr": 1489
         }
       ],
       "highest_mr": [
         {
           "name": "YASMINE",
-          "mr": 1501
+          "mr": 1503
+        },
+        {
+          "name": "RASHID",
+          "mr": 1548
         }
       ]
     },
@@ -1050,23 +1066,23 @@
     },
     "3314423216": {
       "username": "LxRuthLesSxL",
-      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
           "name": "JP",
-          "lp": 82110
+          "lp": 82670
         }
       ],
       "current_mr": [
         {
           "name": "JP",
-          "mr": 1472
+          "mr": 1492
         }
       ],
       "highest_mr": [
         {
           "name": "JP",
-          "mr": 1475
+          "mr": 1493
         }
       ]
     },
@@ -1350,7 +1366,7 @@
         },
         {
           "name": "LUKE",
-          "lp": 46281
+          "lp": 48461
         },
         {
           "name": "BLANKA",
@@ -1372,7 +1388,7 @@
         },
         {
           "name": "LUKE",
-          "mr": 1574
+          "mr": 1599
         },
         {
           "name": "AKUMA",
