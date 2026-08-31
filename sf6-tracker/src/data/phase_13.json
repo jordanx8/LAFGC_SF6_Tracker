@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-30T11:26:12.580923-05:00",
+  "last_updated": "2026-08-30T23:05:03.490052-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -160,19 +160,19 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 380165
+          "lp": 380285
         }
       ],
       "current_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1639
+          "mr": 1660
         }
       ],
       "highest_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1639
+          "mr": 1660
         }
       ]
     },
@@ -194,7 +194,7 @@
         },
         {
           "name": "CAMMY",
-          "lp": 19256
+          "lp": 19341
         },
         {
           "name": "INGRID",
@@ -517,7 +517,7 @@
       "lp": [
         {
           "name": "A.K.I.",
-          "lp": 438505
+          "lp": 444995
         },
         {
           "name": "RYU",
@@ -543,7 +543,7 @@
       "current_mr": [
         {
           "name": "A.K.I.",
-          "mr": 1828
+          "mr": 1815
         },
         {
           "name": "AKUMA",
@@ -565,7 +565,7 @@
       "highest_mr": [
         {
           "name": "A.K.I.",
-          "mr": 1854
+          "mr": 1893
         },
         {
           "name": "C. VIPER",
@@ -605,11 +605,11 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 326906
+          "lp": 327925
         },
         {
           "name": "GUILE",
-          "lp": 64147
+          "lp": 64967
         },
         {
           "name": "JP",
@@ -635,7 +635,7 @@
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1573
+          "mr": 1654
         },
         {
           "name": "JAMIE",
@@ -643,7 +643,7 @@
         },
         {
           "name": "GUILE",
-          "mr": 1493
+          "mr": 1490
         },
         {
           "name": "JP",
@@ -653,7 +653,7 @@
       "highest_mr": [
         {
           "name": "ED",
-          "mr": 1634
+          "mr": 1674
         },
         {
           "name": "GUILE",
@@ -779,13 +779,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 287090
+          "lp": 288964
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1567
+          "mr": 1585
         }
       ],
       "highest_mr": [
