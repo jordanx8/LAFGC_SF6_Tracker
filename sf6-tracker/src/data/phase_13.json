@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-01T11:27:00.096346-05:00",
+  "last_updated": "2026-09-01T22:16:33.996611-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -160,19 +160,19 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 380285
+          "lp": 380845
         }
       ],
       "current_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1660
+          "mr": 1686
         }
       ],
       "highest_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1660
+          "mr": 1686
         }
       ]
     },
@@ -186,15 +186,23 @@
         },
         {
           "name": "LUKE",
-          "lp": 25041
+          "lp": 25000
         },
         {
           "name": "CHUN-LI",
           "lp": 23237
         },
         {
+          "name": "RYU",
+          "lp": 21520
+        },
+        {
+          "name": "MANON",
+          "lp": 20347
+        },
+        {
           "name": "CAMMY",
-          "lp": 19341
+          "lp": 19316
         },
         {
           "name": "INGRID",
@@ -220,7 +228,7 @@
         },
         {
           "name": "LUKE",
-          "mr": 1485
+          "mr": 1440
         }
       ],
       "highest_mr": [
@@ -313,13 +321,13 @@
       "lp": [
         {
           "name": "LUKE",
-          "lp": 180778
+          "lp": 183427
         }
       ],
       "current_mr": [
         {
           "name": "LUKE",
-          "mr": 1721
+          "mr": 1723
         }
       ],
       "highest_mr": [
@@ -815,13 +823,13 @@
       "lp": [
         {
           "name": "DHALSIM",
-          "lp": 183561
+          "lp": 184208
         }
       ],
       "current_mr": [
         {
           "name": "DHALSIM",
-          "mr": 1497
+          "mr": 1509
         }
       ],
       "highest_mr": [
@@ -1136,7 +1144,7 @@
     },
     "2105179667": {
       "username": "yungflipflop",
-      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
@@ -1391,7 +1399,7 @@
         },
         {
           "name": "LUKE",
-          "lp": 55993
+          "lp": 56913
         },
         {
           "name": "INGRID",
@@ -1408,12 +1416,12 @@
           "mr": 1809
         },
         {
-          "name": "YASMINE",
+          "name": "LUKE",
           "mr": 1700
         },
         {
-          "name": "LUKE",
-          "mr": 1681
+          "name": "YASMINE",
+          "mr": 1700
         },
         {
           "name": "RYU",
@@ -1459,7 +1467,7 @@
         },
         {
           "name": "LUKE",
-          "mr": 1693
+          "mr": 1700
         }
       ]
     }
