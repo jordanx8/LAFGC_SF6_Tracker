@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-01T22:16:33.996611-05:00",
+  "last_updated": "2026-09-02T11:20:54.093833-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -787,13 +787,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 289374
+          "lp": 289274
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1546
+          "mr": 1506
         }
       ],
       "highest_mr": [
@@ -1144,7 +1144,7 @@
     },
     "2105179667": {
       "username": "yungflipflop",
-      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
