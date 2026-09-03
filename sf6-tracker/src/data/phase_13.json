@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-02T22:20:56.904772-05:00",
+  "last_updated": "2026-09-03T11:10:38.426167-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -186,7 +186,7 @@
         },
         {
           "name": "LUKE",
-          "lp": 25250
+          "lp": 25500
         },
         {
           "name": "CHUN-LI",
@@ -194,7 +194,7 @@
         },
         {
           "name": "RYU",
-          "lp": 21520
+          "lp": 21574
         },
         {
           "name": "MANON",
@@ -228,7 +228,7 @@
         },
         {
           "name": "LUKE",
-          "mr": 1431
+          "mr": 1437
         }
       ],
       "highest_mr": [
@@ -1102,17 +1102,17 @@
     },
     "3314423216": {
       "username": "LxRuthLesSxL",
-      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
           "name": "JP",
-          "lp": 83354
+          "lp": 83864
         }
       ],
       "current_mr": [
         {
           "name": "JP",
-          "mr": 1417
+          "mr": 1400
         }
       ],
       "highest_mr": [
@@ -1335,7 +1335,7 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 83754
+          "lp": 85844
         },
         {
           "name": "YASMINE",
@@ -1345,7 +1345,7 @@
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1388
+          "mr": 1410
         }
       ],
       "highest_mr": [
@@ -1403,7 +1403,7 @@
         },
         {
           "name": "LUKE",
-          "lp": 57753
+          "lp": 58853
         },
         {
           "name": "INGRID",
@@ -1420,12 +1420,12 @@
           "mr": 1809
         },
         {
-          "name": "LUKE",
-          "mr": 1704
-        },
-        {
           "name": "YASMINE",
           "mr": 1700
+        },
+        {
+          "name": "LUKE",
+          "mr": 1688
         },
         {
           "name": "RYU",
@@ -1471,7 +1471,7 @@
         },
         {
           "name": "LUKE",
-          "mr": 1708
+          "mr": 1718
         }
       ]
     }
