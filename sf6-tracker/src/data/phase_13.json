@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-08T22:30:21.465411-05:00",
+  "last_updated": "2026-09-09T11:19:12.687771-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -387,7 +387,7 @@
       "lp": [
         {
           "name": "MARISA",
-          "lp": 244153
+          "lp": 244073
         },
         {
           "name": "ELENA",
@@ -397,7 +397,7 @@
       "current_mr": [
         {
           "name": "MARISA",
-          "mr": 1547
+          "mr": 1531
         },
         {
           "name": "ELENA",
@@ -448,11 +448,19 @@
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
+          "name": "TERRY",
+          "lp": 166160
+        },
+        {
           "name": "LUKE",
           "lp": 140671
         }
       ],
       "current_mr": [
+        {
+          "name": "TERRY",
+          "mr": 1492
+        },
         {
           "name": "LUKE",
           "mr": 1456
@@ -462,6 +470,10 @@
         {
           "name": "LUKE",
           "mr": 1534
+        },
+        {
+          "name": "TERRY",
+          "mr": 1532
         }
       ]
     },
@@ -1005,7 +1017,7 @@
         },
         {
           "name": "AKUMA",
-          "lp": 43925
+          "lp": 45174
         },
         {
           "name": "ALEX",
@@ -1023,7 +1035,7 @@
         },
         {
           "name": "AKUMA",
-          "mr": 1381
+          "mr": 1346
         },
         {
           "name": "ALEX",
@@ -1451,12 +1463,12 @@
           "lp": 283702
         },
         {
-          "name": "AKUMA",
-          "lp": 80172
+          "name": "LUKE",
+          "lp": 81073
         },
         {
-          "name": "LUKE",
-          "lp": 79693
+          "name": "AKUMA",
+          "lp": 80172
         },
         {
           "name": "RYU",
@@ -1490,7 +1502,7 @@
         },
         {
           "name": "LUKE",
-          "mr": 1649
+          "mr": 1673
         },
         {
           "name": "RYU",
