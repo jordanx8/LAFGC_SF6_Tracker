@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-13T22:48:57.270543-05:00",
+  "last_updated": "2026-09-14T13:36:25.199027-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -355,11 +355,11 @@
       "lp": [
         {
           "name": "LUKE",
-          "lp": 602648
+          "lp": 603388
         },
         {
           "name": "RYU",
-          "lp": 278351
+          "lp": 279371
         },
         {
           "name": "M. BISON",
@@ -369,11 +369,11 @@
       "current_mr": [
         {
           "name": "LUKE",
-          "mr": 1988
+          "mr": 2002
         },
         {
           "name": "RYU",
-          "mr": 1710
+          "mr": 1748
         },
         {
           "name": "M. BISON",
@@ -383,11 +383,11 @@
       "highest_mr": [
         {
           "name": "LUKE",
-          "mr": 1988
+          "mr": 2002
         },
         {
           "name": "RYU",
-          "mr": 1710
+          "mr": 1748
         },
         {
           "name": "M. BISON",
@@ -592,11 +592,11 @@
       "lp": [
         {
           "name": "A.K.I.",
-          "lp": 447140
+          "lp": 452964
         },
         {
           "name": "RYU",
-          "lp": 141809
+          "lp": 144099
         },
         {
           "name": "C. VIPER",
@@ -604,7 +604,7 @@
         },
         {
           "name": "AKUMA",
-          "lp": 86558
+          "lp": 86498
         },
         {
           "name": "ALEX",
@@ -618,19 +618,19 @@
       "current_mr": [
         {
           "name": "A.K.I.",
-          "mr": 1803
-        },
-        {
-          "name": "AKUMA",
-          "mr": 1695
+          "mr": 1906
         },
         {
           "name": "C. VIPER",
           "mr": 1639
         },
         {
+          "name": "AKUMA",
+          "mr": 1638
+        },
+        {
           "name": "RYU",
-          "mr": 1545
+          "mr": 1603
         },
         {
           "name": "ALEX",
@@ -640,7 +640,7 @@
       "highest_mr": [
         {
           "name": "A.K.I.",
-          "mr": 1893
+          "mr": 1921
         },
         {
           "name": "C. VIPER",
@@ -652,7 +652,7 @@
         },
         {
           "name": "RYU",
-          "mr": 1545
+          "mr": 1604
         },
         {
           "name": "ALEX",
@@ -841,13 +841,13 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 189358
+          "lp": 189338
         }
       ],
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1568
+          "mr": 1561
         }
       ],
       "highest_mr": [
@@ -1246,7 +1246,7 @@
     },
     "3410040044": {
       "username": "BlazerFury",
-      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
