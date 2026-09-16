@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-15T11:40:19.317614-05:00",
+  "last_updated": "2026-09-15T23:31:29.281624-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -7,7 +7,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 362717
+          "lp": 363257
         },
         {
           "name": "YASMINE",
@@ -17,7 +17,7 @@
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1707
+          "mr": 1721
         },
         {
           "name": "YASMINE",
@@ -160,19 +160,19 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 383735
+          "lp": 384585
         }
       ],
       "current_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1746
+          "mr": 1719
         }
       ],
       "highest_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1746
+          "mr": 1747
         }
       ]
     },
@@ -182,7 +182,7 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 80935
+          "lp": 82278
         },
         {
           "name": "LUKE",
@@ -223,11 +223,11 @@
       ],
       "current_mr": [
         {
-          "name": "LUKE",
-          "mr": 1437
+          "name": "ZANGIEF",
+          "mr": 1493
         },
         {
-          "name": "ZANGIEF",
+          "name": "LUKE",
           "mr": 1437
         }
       ],
@@ -423,7 +423,7 @@
       "lp": [
         {
           "name": "MARISA",
-          "lp": 251555
+          "lp": 251895
         },
         {
           "name": "ELENA",
@@ -433,7 +433,7 @@
       "current_mr": [
         {
           "name": "MARISA",
-          "mr": 1626
+          "mr": 1607
         },
         {
           "name": "ELENA",
@@ -685,9 +685,24 @@
     "3787645791": {
       "username": "GOL_Zaith/TTV",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
-      "lp": [],
-      "current_mr": [],
-      "highest_mr": []
+      "lp": [
+        {
+          "name": "ZANGIEF",
+          "lp": 394644
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "ZANGIEF",
+          "mr": 1580
+        }
+      ],
+      "highest_mr": [
+        {
+          "name": "ZANGIEF",
+          "mr": 1589
+        }
+      ]
     },
     "3266417337": {
       "username": "NovaSpec",
@@ -714,16 +729,16 @@
           "lp": 35464
         },
         {
+          "name": "INGRID",
+          "lp": 29880
+        },
+        {
           "name": "M. BISON",
           "lp": 29174
         },
         {
           "name": "SAGAT",
           "lp": 26881
-        },
-        {
-          "name": "INGRID",
-          "lp": 25736
         },
         {
           "name": "JAMIE",
@@ -743,7 +758,7 @@
         },
         {
           "name": "TERRY",
-          "lp": 19490
+          "lp": 19489
         },
         {
           "name": "CHUN-LI",
@@ -777,7 +792,7 @@
         },
         {
           "name": "INGRID",
-          "mr": 1456
+          "mr": 1445
         },
         {
           "name": "JP",
@@ -811,7 +826,7 @@
         },
         {
           "name": "INGRID",
-          "mr": 1486
+          "mr": 1489
         },
         {
           "name": "A.K.I.",
@@ -969,13 +984,13 @@
       "lp": [
         {
           "name": "DHALSIM",
-          "lp": 190090
+          "lp": 190280
         }
       ],
       "current_mr": [
         {
           "name": "DHALSIM",
-          "mr": 1540
+          "mr": 1541
         }
       ],
       "highest_mr": [
@@ -1545,7 +1560,7 @@
         },
         {
           "name": "LUKE",
-          "lp": 89208
+          "lp": 89788
         },
         {
           "name": "AKUMA",
@@ -1582,12 +1597,12 @@
           "mr": 1700
         },
         {
-          "name": "LUKE",
-          "mr": 1631
-        },
-        {
           "name": "RYU",
           "mr": 1602
+        },
+        {
+          "name": "LUKE",
+          "mr": 1587
         },
         {
           "name": "AKUMA",
