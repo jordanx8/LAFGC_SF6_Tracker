@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-15T23:31:29.281624-05:00",
+  "last_updated": "2026-09-16T11:33:11.113484-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -182,7 +182,7 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 82278
+          "lp": 82408
         },
         {
           "name": "LUKE",
@@ -224,7 +224,7 @@
       "current_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1493
+          "mr": 1480
         },
         {
           "name": "LUKE",
@@ -758,7 +758,7 @@
         },
         {
           "name": "TERRY",
-          "lp": 19489
+          "lp": 19542
         },
         {
           "name": "CHUN-LI",
@@ -984,13 +984,13 @@
       "lp": [
         {
           "name": "DHALSIM",
-          "lp": 190280
+          "lp": 190670
         }
       ],
       "current_mr": [
         {
           "name": "DHALSIM",
-          "mr": 1541
+          "mr": 1548
         }
       ],
       "highest_mr": [
@@ -1247,7 +1247,7 @@
     },
     "2171084179": {
       "username": "Smoking_Hot_BBQ",
-      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
@@ -1560,7 +1560,7 @@
         },
         {
           "name": "LUKE",
-          "lp": 89788
+          "lp": 91248
         },
         {
           "name": "AKUMA",
@@ -1597,12 +1597,12 @@
           "mr": 1700
         },
         {
-          "name": "RYU",
-          "mr": 1602
+          "name": "LUKE",
+          "mr": 1630
         },
         {
-          "name": "LUKE",
-          "mr": 1587
+          "name": "RYU",
+          "mr": 1602
         },
         {
           "name": "AKUMA",
