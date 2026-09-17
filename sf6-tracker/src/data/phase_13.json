@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-16T11:33:11.113484-05:00",
+  "last_updated": "2026-09-16T22:58:03.498610-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -218,7 +218,7 @@
         },
         {
           "name": "DEE JAY",
-          "lp": 13512
+          "lp": 13472
         }
       ],
       "current_mr": [
@@ -423,7 +423,7 @@
       "lp": [
         {
           "name": "MARISA",
-          "lp": 251895
+          "lp": 252145
         },
         {
           "name": "ELENA",
@@ -433,7 +433,7 @@
       "current_mr": [
         {
           "name": "MARISA",
-          "mr": 1607
+          "mr": 1605
         },
         {
           "name": "ELENA",
@@ -592,7 +592,7 @@
       "lp": [
         {
           "name": "A.K.I.",
-          "lp": 454254
+          "lp": 455954
         },
         {
           "name": "RYU",
@@ -618,7 +618,7 @@
       "current_mr": [
         {
           "name": "A.K.I.",
-          "mr": 1861
+          "mr": 1810
         },
         {
           "name": "C. VIPER",
@@ -730,7 +730,7 @@
         },
         {
           "name": "INGRID",
-          "lp": 29880
+          "lp": 31742
         },
         {
           "name": "M. BISON",
@@ -791,12 +791,12 @@
           "mr": 1465
         },
         {
-          "name": "INGRID",
-          "mr": 1445
-        },
-        {
           "name": "JP",
           "mr": 1440
+        },
+        {
+          "name": "INGRID",
+          "mr": 1439
         },
         {
           "name": "SAGAT",
@@ -948,13 +948,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 295863
+          "lp": 295703
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1600
+          "mr": 1517
         }
       ],
       "highest_mr": [
@@ -1247,7 +1247,7 @@
     },
     "2171084179": {
       "username": "Smoking_Hot_BBQ",
-      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
@@ -1560,7 +1560,7 @@
         },
         {
           "name": "LUKE",
-          "lp": 91248
+          "lp": 93298
         },
         {
           "name": "AKUMA",
@@ -1598,7 +1598,7 @@
         },
         {
           "name": "LUKE",
-          "mr": 1630
+          "mr": 1652
         },
         {
           "name": "RYU",
