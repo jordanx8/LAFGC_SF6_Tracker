@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-17T22:53:20.990479-05:00",
+  "last_updated": "2026-09-18T11:34:07.421578-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -726,7 +726,7 @@
         },
         {
           "name": "INGRID",
-          "lp": 36158
+          "lp": 36598
         },
         {
           "name": "JP",
@@ -776,7 +776,7 @@
         },
         {
           "name": "INGRID",
-          "mr": 1502
+          "mr": 1504
         },
         {
           "name": "M. BISON",
@@ -826,7 +826,7 @@
         },
         {
           "name": "INGRID",
-          "mr": 1510
+          "mr": 1513
         },
         {
           "name": "A.K.I.",
@@ -1425,7 +1425,12 @@
     "2039379246": {
       "username": "Mitsu_Vagrant",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
-      "lp": [],
+      "lp": [
+        {
+          "name": "AKUMA",
+          "lp": 19916
+        }
+      ],
       "current_mr": [],
       "highest_mr": []
     },
