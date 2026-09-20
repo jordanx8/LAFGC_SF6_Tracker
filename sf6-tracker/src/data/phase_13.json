@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-19T10:47:41.775506-05:00",
+  "last_updated": "2026-09-19T22:58:43.442104-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -427,7 +427,7 @@
         },
         {
           "name": "ELENA",
-          "lp": 125893
+          "lp": 131133
         }
       ],
       "current_mr": [
@@ -437,7 +437,7 @@
         },
         {
           "name": "ELENA",
-          "mr": 1568
+          "mr": 1528
         }
       ],
       "highest_mr": [
@@ -710,7 +710,7 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 335665
+          "lp": 336135
         },
         {
           "name": "A.K.I.",
@@ -726,7 +726,7 @@
         },
         {
           "name": "INGRID",
-          "lp": 43682
+          "lp": 43992
         },
         {
           "name": "JP",
@@ -768,11 +768,11 @@
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1664
+          "mr": 1708
         },
         {
           "name": "INGRID",
-          "mr": 1537
+          "mr": 1547
         },
         {
           "name": "GUILE",
@@ -948,13 +948,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 296613
+          "lp": 296683
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1579
+          "mr": 1571
         }
       ],
       "highest_mr": [
@@ -1113,7 +1113,7 @@
         },
         {
           "name": "AKUMA",
-          "lp": 47273
+          "lp": 47714
         },
         {
           "name": "ALEX",
@@ -1125,7 +1125,7 @@
         },
         {
           "name": "RANDOM",
-          "lp": 22721
+          "lp": 22600
         }
       ],
       "current_mr": [
@@ -1139,7 +1139,7 @@
         },
         {
           "name": "AKUMA",
-          "mr": 1223
+          "mr": 1188
         }
       ],
       "highest_mr": [
@@ -1569,7 +1569,7 @@
         },
         {
           "name": "LUKE",
-          "lp": 96528
+          "lp": 97128
         },
         {
           "name": "AKUMA",
@@ -1602,12 +1602,12 @@
           "mr": 1785
         },
         {
-          "name": "YASMINE",
-          "mr": 1700
+          "name": "LUKE",
+          "mr": 1703
         },
         {
-          "name": "LUKE",
-          "mr": 1671
+          "name": "YASMINE",
+          "mr": 1700
         },
         {
           "name": "RYU",
