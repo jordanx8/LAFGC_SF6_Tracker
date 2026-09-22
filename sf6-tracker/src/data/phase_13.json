@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-21T22:45:22.904537-05:00",
+  "last_updated": "2026-09-22T11:42:08.410564-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -160,13 +160,13 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 384810
+          "lp": 385091
         }
       ],
       "current_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1643
+          "mr": 1634
         }
       ],
       "highest_mr": [
@@ -182,7 +182,7 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 83628
+          "lp": 83588
         },
         {
           "name": "LUKE",
@@ -228,7 +228,7 @@
         },
         {
           "name": "ZANGIEF",
-          "mr": 1428
+          "mr": 1421
         }
       ],
       "highest_mr": [
@@ -984,13 +984,13 @@
       "lp": [
         {
           "name": "DHALSIM",
-          "lp": 191170
+          "lp": 191800
         }
       ],
       "current_mr": [
         {
           "name": "DHALSIM",
-          "mr": 1550
+          "mr": 1504
         }
       ],
       "highest_mr": [
@@ -1244,7 +1244,7 @@
     },
     "1476407231": {
       "username": "Rose",
-      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
+      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
@@ -1258,7 +1258,7 @@
     },
     "4094876516": {
       "username": "TY992",
-      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
@@ -1577,7 +1577,7 @@
       "lp": [
         {
           "name": "KIMBERLY",
-          "lp": 284442
+          "lp": 285852
         },
         {
           "name": "LUKE",
@@ -1611,7 +1611,7 @@
       "current_mr": [
         {
           "name": "KIMBERLY",
-          "mr": 1785
+          "mr": 1809
         },
         {
           "name": "YASMINE",
