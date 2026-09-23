@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-22T22:44:26.364368-05:00",
+  "last_updated": "2026-09-23T11:42:53.896543-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -427,7 +427,7 @@
         },
         {
           "name": "ELENA",
-          "lp": 138412
+          "lp": 140002
         }
       ],
       "current_mr": [
@@ -437,7 +437,7 @@
         },
         {
           "name": "ELENA",
-          "mr": 1540
+          "mr": 1561
         }
       ],
       "highest_mr": [
@@ -1063,7 +1063,12 @@
     "1073135287": {
       "username": "Gnull",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
-      "lp": [],
+      "lp": [
+        {
+          "name": "C. VIPER",
+          "lp": 22830
+        }
+      ],
       "current_mr": [],
       "highest_mr": []
     },
@@ -1529,7 +1534,7 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 85914
+          "lp": 86730
         },
         {
           "name": "YASMINE",
@@ -1539,7 +1544,7 @@
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1413
+          "mr": 1430
         }
       ],
       "highest_mr": [
@@ -1577,11 +1582,11 @@
       "lp": [
         {
           "name": "KIMBERLY",
-          "lp": 285852
+          "lp": 286622
         },
         {
           "name": "LUKE",
-          "lp": 101677
+          "lp": 103567
         },
         {
           "name": "AKUMA",
@@ -1593,7 +1598,7 @@
         },
         {
           "name": "YASMINE",
-          "lp": 72235
+          "lp": 72325
         },
         {
           "name": "TERRY",
@@ -1611,15 +1616,15 @@
       "current_mr": [
         {
           "name": "KIMBERLY",
-          "mr": 1809
+          "mr": 1830
         },
         {
           "name": "LUKE",
-          "mr": 1699
+          "mr": 1710
         },
         {
           "name": "YASMINE",
-          "mr": 1674
+          "mr": 1657
         },
         {
           "name": "RYU",
@@ -1645,7 +1650,7 @@
         },
         {
           "name": "KIMBERLY",
-          "mr": 1836
+          "mr": 1845
         },
         {
           "name": "INGRID",
@@ -1665,7 +1670,7 @@
         },
         {
           "name": "LUKE",
-          "mr": 1732
+          "mr": 1738
         }
       ]
     },
