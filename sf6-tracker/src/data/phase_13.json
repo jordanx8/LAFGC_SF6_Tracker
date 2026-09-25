@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-24T11:55:07.024058-05:00",
+  "last_updated": "2026-09-24T22:52:30.950710-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -7,7 +7,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 363447
+          "lp": 364127
         },
         {
           "name": "YASMINE",
@@ -17,7 +17,7 @@
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1653
+          "mr": 1663
         },
         {
           "name": "YASMINE",
@@ -427,7 +427,7 @@
         },
         {
           "name": "ELENA",
-          "lp": 143102
+          "lp": 143252
         }
       ],
       "current_mr": [
@@ -437,7 +437,7 @@
         },
         {
           "name": "ELENA",
-          "mr": 1578
+          "mr": 1601
         }
       ],
       "highest_mr": [
@@ -900,7 +900,7 @@
       "lp": [
         {
           "name": "RASHID",
-          "lp": 93205
+          "lp": 93445
         },
         {
           "name": "YASMINE",
@@ -910,7 +910,7 @@
       "current_mr": [
         {
           "name": "RASHID",
-          "mr": 1597
+          "mr": 1527
         },
         {
           "name": "YASMINE",
@@ -984,13 +984,13 @@
       "lp": [
         {
           "name": "DHALSIM",
-          "lp": 193180
+          "lp": 193420
         }
       ],
       "current_mr": [
         {
           "name": "DHALSIM",
-          "mr": 1517
+          "mr": 1544
         }
       ],
       "highest_mr": [
@@ -1263,7 +1263,7 @@
     },
     "4094876516": {
       "username": "TY992",
-      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
@@ -1586,7 +1586,7 @@
         },
         {
           "name": "LUKE",
-          "lp": 103567
+          "lp": 107922
         },
         {
           "name": "AKUMA",
@@ -1620,7 +1620,7 @@
         },
         {
           "name": "LUKE",
-          "mr": 1710
+          "mr": 1660
         },
         {
           "name": "YASMINE",
