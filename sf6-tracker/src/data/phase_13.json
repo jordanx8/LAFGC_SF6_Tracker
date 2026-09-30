@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-29T12:57:02.198790-05:00",
+  "last_updated": "2026-09-29T23:24:47.810196-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -7,7 +7,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 364787
+          "lp": 364917
         },
         {
           "name": "YASMINE",
@@ -17,7 +17,7 @@
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1665
+          "mr": 1681
         },
         {
           "name": "YASMINE",
@@ -427,7 +427,7 @@
         },
         {
           "name": "ELENA",
-          "lp": 144229
+          "lp": 144409
         }
       ],
       "current_mr": [
@@ -437,7 +437,7 @@
         },
         {
           "name": "ELENA",
-          "mr": 1588
+          "mr": 1553
         }
       ],
       "highest_mr": [
@@ -546,7 +546,7 @@
       "lp": [
         {
           "name": "CAMMY",
-          "lp": 220934
+          "lp": 221554
         },
         {
           "name": "LUKE",
@@ -556,7 +556,7 @@
       "current_mr": [
         {
           "name": "CAMMY",
-          "mr": 1767
+          "mr": 1732
         },
         {
           "name": "LUKE",
@@ -722,7 +722,7 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 339015
+          "lp": 338935
         },
         {
           "name": "A.K.I.",
@@ -750,7 +750,7 @@
         },
         {
           "name": "ZANGIEF",
-          "lp": 33483
+          "lp": 33403
         },
         {
           "name": "M. BISON",
@@ -788,7 +788,7 @@
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1661
+          "mr": 1634
         },
         {
           "name": "GUILE",
@@ -807,16 +807,16 @@
           "mr": 1492
         },
         {
-          "name": "ZANGIEF",
-          "mr": 1487
-        },
-        {
           "name": "JAMIE",
           "mr": 1485
         },
         {
           "name": "A.K.I.",
           "mr": 1481
+        },
+        {
+          "name": "ZANGIEF",
+          "mr": 1473
         },
         {
           "name": "MANON",
@@ -977,19 +977,19 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 176823
+          "lp": 182463
         }
       ],
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1713
+          "mr": 1745
         }
       ],
       "highest_mr": [
         {
           "name": "ED",
-          "mr": 1713
+          "mr": 1745
         }
       ]
     },
@@ -1339,13 +1339,13 @@
       "lp": [
         {
           "name": "JP",
-          "lp": 90661
+          "lp": 90581
         }
       ],
       "current_mr": [
         {
           "name": "JP",
-          "mr": 1480
+          "mr": 1466
         }
       ],
       "highest_mr": [
