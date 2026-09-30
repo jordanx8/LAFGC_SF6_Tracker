@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-29T23:24:47.810196-05:00",
+  "last_updated": "2026-09-30T13:15:34.118659-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -977,19 +977,19 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 182463
+          "lp": 185098
         }
       ],
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1745
+          "mr": 1808
         }
       ],
       "highest_mr": [
         {
           "name": "ED",
-          "mr": 1745
+          "mr": 1808
         }
       ]
     },
