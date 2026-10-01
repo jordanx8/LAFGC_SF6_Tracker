@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-30T13:15:34.118659-05:00",
+  "last_updated": "2026-09-30T23:35:53.323417-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -7,7 +7,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 364917
+          "lp": 366067
         },
         {
           "name": "YASMINE",
@@ -17,7 +17,7 @@
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1681
+          "mr": 1686
         },
         {
           "name": "YASMINE",
@@ -182,7 +182,7 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 84706
+          "lp": 85046
         },
         {
           "name": "LUKE",
@@ -228,7 +228,7 @@
         },
         {
           "name": "ZANGIEF",
-          "mr": 1372
+          "mr": 1367
         }
       ],
       "highest_mr": [
@@ -427,7 +427,7 @@
         },
         {
           "name": "ELENA",
-          "lp": 144409
+          "lp": 145643
         }
       ],
       "current_mr": [
@@ -437,7 +437,7 @@
         },
         {
           "name": "ELENA",
-          "mr": 1553
+          "mr": 1588
         }
       ],
       "highest_mr": [
@@ -608,7 +608,7 @@
         },
         {
           "name": "RYU",
-          "lp": 145859
+          "lp": 146109
         },
         {
           "name": "C. VIPER",
@@ -642,7 +642,7 @@
         },
         {
           "name": "RYU",
-          "mr": 1614
+          "mr": 1615
         },
         {
           "name": "ALEX",
@@ -664,7 +664,7 @@
         },
         {
           "name": "RYU",
-          "mr": 1621
+          "mr": 1638
         },
         {
           "name": "ALEX",
@@ -914,19 +914,19 @@
       "lp": [
         {
           "name": "MARISA",
-          "lp": 219344
+          "lp": 219794
         }
       ],
       "current_mr": [
         {
           "name": "MARISA",
-          "mr": 1557
+          "mr": 1559
         }
       ],
       "highest_mr": [
         {
           "name": "MARISA",
-          "mr": 1571
+          "mr": 1581
         }
       ]
     },
@@ -1117,7 +1117,7 @@
       "lp": [
         {
           "name": "C. VIPER",
-          "lp": 22830
+          "lp": 22560
         }
       ],
       "current_mr": [],
@@ -1321,7 +1321,7 @@
     },
     "3410040044": {
       "username": "BlazerFury",
-      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
@@ -1484,7 +1484,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 20011
+          "lp": 20255
         }
       ],
       "current_mr": [],
@@ -1831,19 +1831,19 @@
       "lp": [
         {
           "name": "TERRY",
-          "lp": 155590
+          "lp": 157552
         }
       ],
       "current_mr": [
         {
           "name": "TERRY",
-          "mr": 1759
+          "mr": 1767
         }
       ],
       "highest_mr": [
         {
           "name": "TERRY",
-          "mr": 1770
+          "mr": 1794
         }
       ]
     }
