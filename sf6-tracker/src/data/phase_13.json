@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-03T23:44:53.441368-05:00",
+  "last_updated": "2026-10-04T11:51:34.576333-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -1165,11 +1165,11 @@
       "lp": [
         {
           "name": "CHUN-LI",
-          "lp": 234421
+          "lp": 234251
         },
         {
           "name": "AKUMA",
-          "lp": 48824
+          "lp": 48744
         },
         {
           "name": "ALEX",
@@ -1187,7 +1187,7 @@
       "current_mr": [
         {
           "name": "CHUN-LI",
-          "mr": 1528
+          "mr": 1472
         },
         {
           "name": "ALEX",
@@ -1195,7 +1195,7 @@
         },
         {
           "name": "AKUMA",
-          "mr": 1201
+          "mr": 1195
         }
       ],
       "highest_mr": [
