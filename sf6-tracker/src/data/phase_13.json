@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-04T11:51:34.576333-05:00",
+  "last_updated": "2026-10-04T23:30:04.244401-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -678,13 +678,13 @@
       "lp": [
         {
           "name": "ALEX",
-          "lp": 64703
+          "lp": 65113
         }
       ],
       "current_mr": [
         {
           "name": "ALEX",
-          "mr": 1349
+          "mr": 1374
         }
       ],
       "highest_mr": [
@@ -967,9 +967,24 @@
     "1712303549": {
       "username": "KiritoPerouse",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
-      "lp": [],
-      "current_mr": [],
-      "highest_mr": []
+      "lp": [
+        {
+          "name": "RASHID",
+          "lp": 51874
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "RASHID",
+          "mr": 1504
+        }
+      ],
+      "highest_mr": [
+        {
+          "name": "RASHID",
+          "mr": 1504
+        }
+      ]
     },
     "2173875262": {
       "username": "EnvyYungin",
@@ -999,19 +1014,19 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 300352
+          "lp": 303092
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1584
+          "mr": 1659
         }
       ],
       "highest_mr": [
         {
           "name": "RYU",
-          "mr": 1643
+          "mr": 1694
         }
       ]
     },
@@ -1165,11 +1180,11 @@
       "lp": [
         {
           "name": "CHUN-LI",
-          "lp": 234251
+          "lp": 234071
         },
         {
           "name": "AKUMA",
-          "lp": 48744
+          "lp": 50474
         },
         {
           "name": "ALEX",
@@ -1187,7 +1202,7 @@
       "current_mr": [
         {
           "name": "CHUN-LI",
-          "mr": 1472
+          "mr": 1434
         },
         {
           "name": "ALEX",
@@ -1195,7 +1210,7 @@
         },
         {
           "name": "AKUMA",
-          "mr": 1195
+          "mr": 1251
         }
       ],
       "highest_mr": [
