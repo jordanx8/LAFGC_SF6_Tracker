@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-07T23:56:36.868342-05:00",
+  "last_updated": "2026-10-08T13:46:51.082429-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -401,19 +401,19 @@
       "lp": [
         {
           "name": "M. BISON",
-          "lp": 70332
+          "lp": 72352
         }
       ],
       "current_mr": [
         {
           "name": "M. BISON",
-          "mr": 1701
+          "mr": 1703
         }
       ],
       "highest_mr": [
         {
           "name": "M. BISON",
-          "mr": 1701
+          "mr": 1709
         }
       ]
     },
@@ -1224,7 +1224,7 @@
         },
         {
           "name": "AKUMA",
-          "lp": 52470
+          "lp": 58902
         },
         {
           "name": "ALEX",
@@ -1246,7 +1246,7 @@
         },
         {
           "name": "AKUMA",
-          "mr": 1272
+          "mr": 1355
         },
         {
           "name": "ALEX",
