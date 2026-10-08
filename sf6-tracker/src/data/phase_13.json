@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-07T14:13:14.549450-05:00",
+  "last_updated": "2026-10-07T23:56:36.868342-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -484,7 +484,7 @@
         },
         {
           "name": "ZANGIEF",
-          "lp": 21270
+          "lp": 21275
         }
       ],
       "current_mr": [
@@ -1054,13 +1054,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 304422
+          "lp": 304242
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1651
+          "mr": 1599
         }
       ],
       "highest_mr": [
@@ -1090,13 +1090,13 @@
       "lp": [
         {
           "name": "DHALSIM",
-          "lp": 200505
+          "lp": 201215
         }
       ],
       "current_mr": [
         {
           "name": "DHALSIM",
-          "mr": 1468
+          "mr": 1480
         }
       ],
       "highest_mr": [
@@ -1640,7 +1640,7 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 90329
+          "lp": 90429
         },
         {
           "name": "YASMINE",
@@ -1650,7 +1650,7 @@
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1322
+          "mr": 1346
         }
       ],
       "highest_mr": [
