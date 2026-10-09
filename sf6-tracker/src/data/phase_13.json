@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-08T13:46:51.082429-05:00",
+  "last_updated": "2026-10-08T23:58:45.949520-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -7,7 +7,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 367687
+          "lp": 367647
         },
         {
           "name": "YASMINE",
@@ -17,7 +17,7 @@
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1722
+          "mr": 1702
         },
         {
           "name": "YASMINE",
@@ -160,13 +160,13 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 385641
+          "lp": 385761
         }
       ],
       "current_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1658
+          "mr": 1664
         }
       ],
       "highest_mr": [
@@ -427,7 +427,7 @@
         },
         {
           "name": "ELENA",
-          "lp": 148453
+          "lp": 148803
         }
       ],
       "current_mr": [
@@ -437,7 +437,7 @@
         },
         {
           "name": "ELENA",
-          "mr": 1601
+          "mr": 1581
         }
       ],
       "highest_mr": [
@@ -484,7 +484,7 @@
         },
         {
           "name": "ZANGIEF",
-          "lp": 21275
+          "lp": 21280
         }
       ],
       "current_mr": [
@@ -1010,19 +1010,19 @@
       "lp": [
         {
           "name": "RASHID",
-          "lp": 51874
+          "lp": 52064
         }
       ],
       "current_mr": [
         {
           "name": "RASHID",
-          "mr": 1504
+          "mr": 1501
         }
       ],
       "highest_mr": [
         {
           "name": "RASHID",
-          "mr": 1504
+          "mr": 1506
         }
       ]
     },
@@ -1274,7 +1274,7 @@
       "lp": [
         {
           "name": "INGRID",
-          "lp": 54466
+          "lp": 55627
         },
         {
           "name": "RYU",
@@ -1292,7 +1292,7 @@
       "current_mr": [
         {
           "name": "INGRID",
-          "mr": 1345
+          "mr": 1358
         }
       ],
       "highest_mr": [
@@ -1558,7 +1558,7 @@
       "lp": [
         {
           "name": "CHUN-LI",
-          "lp": 129347
+          "lp": 129247
         },
         {
           "name": "RYU",
@@ -1576,7 +1576,7 @@
       "current_mr": [
         {
           "name": "CHUN-LI",
-          "mr": 1550
+          "mr": 1530
         },
         {
           "name": "RYU",
@@ -1881,7 +1881,7 @@
       ]
     },
     "1260991772": {
-      "username": "judedude",
+      "username": "jude on pad",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
       "lp": [
         {
