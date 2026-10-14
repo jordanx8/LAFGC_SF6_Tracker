@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-13T22:58:16.052567-05:00",
+  "last_updated": "2026-10-14T11:59:12.639509-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -1278,7 +1278,7 @@
       "lp": [
         {
           "name": "INGRID",
-          "lp": 55627
+          "lp": 56072
         },
         {
           "name": "RYU",
@@ -1291,12 +1291,16 @@
         {
           "name": "SAGAT",
           "lp": 19993
+        },
+        {
+          "name": "JAMIE",
+          "lp": 18880
         }
       ],
       "current_mr": [
         {
           "name": "INGRID",
-          "mr": 1358
+          "mr": 1316
         }
       ],
       "highest_mr": [
@@ -1308,7 +1312,7 @@
     },
     "2171500907": {
       "username": "GOL poboyslim",
-      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
       "lp": [
         {
           "name": "DEE JAY",
@@ -1380,7 +1384,7 @@
     },
     "3410040044": {
       "username": "BlazerFury",
-      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
