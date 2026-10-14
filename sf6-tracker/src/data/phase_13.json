@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-13T14:15:03.929922-05:00",
+  "last_updated": "2026-10-13T22:58:16.052567-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -7,17 +7,21 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 367647
+          "lp": 367987
         },
         {
           "name": "YASMINE",
           "lp": 25180
+        },
+        {
+          "name": "ARJUN",
+          "lp": 18960
         }
       ],
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1700
+          "mr": 1683
         },
         {
           "name": "YASMINE",
@@ -51,7 +55,7 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 374870
+          "lp": 375330
         },
         {
           "name": "A.K.I.",
@@ -63,11 +67,11 @@
         },
         {
           "name": "SAGAT",
-          "lp": 41486
+          "lp": 41446
         },
         {
           "name": "AKUMA",
-          "lp": 36894
+          "lp": 36774
         },
         {
           "name": "ALEX",
@@ -85,7 +89,7 @@
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1750
+          "mr": 1758
         },
         {
           "name": "TERRY",
@@ -100,10 +104,6 @@
           "mr": 1508
         },
         {
-          "name": "AKUMA",
-          "mr": 1507
-        },
-        {
           "name": "JAMIE",
           "mr": 1500
         },
@@ -112,8 +112,12 @@
           "mr": 1487
         },
         {
+          "name": "AKUMA",
+          "mr": 1483
+        },
+        {
           "name": "SAGAT",
-          "mr": 1487
+          "mr": 1479
         }
       ],
       "highest_mr": [
@@ -190,7 +194,7 @@
         },
         {
           "name": "CHUN-LI",
-          "lp": 23125
+          "lp": 23115
         },
         {
           "name": "RYU",
@@ -740,19 +744,19 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 394644
+          "lp": 395154
         }
       ],
       "current_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1580
+          "mr": 1618
         }
       ],
       "highest_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1589
+          "mr": 1618
         }
       ]
     },
@@ -1090,13 +1094,13 @@
       "lp": [
         {
           "name": "DHALSIM",
-          "lp": 201215
+          "lp": 201285
         }
       ],
       "current_mr": [
         {
           "name": "DHALSIM",
-          "mr": 1480
+          "mr": 1456
         }
       ],
       "highest_mr": [
@@ -1376,7 +1380,7 @@
     },
     "3410040044": {
       "username": "BlazerFury",
-      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
