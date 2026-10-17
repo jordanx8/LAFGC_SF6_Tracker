@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-16T22:25:31.689707-05:00",
+  "last_updated": "2026-10-17T10:22:28.902099-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -186,11 +186,11 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 86746
+          "lp": 87226
         },
         {
           "name": "LUKE",
-          "lp": 25230
+          "lp": 25990
         },
         {
           "name": "CHUN-LI",
@@ -228,11 +228,11 @@
       "current_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1492
+          "mr": 1501
         },
         {
           "name": "LUKE",
-          "mr": 1338
+          "mr": 1327
         }
       ],
       "highest_mr": [
@@ -427,7 +427,7 @@
       "lp": [
         {
           "name": "MARISA",
-          "lp": 256401
+          "lp": 257798
         },
         {
           "name": "ELENA",
@@ -437,7 +437,7 @@
       "current_mr": [
         {
           "name": "MARISA",
-          "mr": 1649
+          "mr": 1645
         },
         {
           "name": "ELENA",
@@ -451,7 +451,7 @@
         },
         {
           "name": "MARISA",
-          "mr": 1674
+          "mr": 1682
         }
       ]
     },
@@ -1137,13 +1137,13 @@
       "lp": [
         {
           "name": "DHALSIM",
-          "lp": 201245
+          "lp": 201675
         }
       ],
       "current_mr": [
         {
           "name": "DHALSIM",
-          "mr": 1435
+          "mr": 1439
         }
       ],
       "highest_mr": [
@@ -1410,7 +1410,7 @@
     },
     "1476407231": {
       "username": "Rose",
-      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
+      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
@@ -1431,7 +1431,7 @@
     },
     "3410040044": {
       "username": "BlazerFury",
-      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
