@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-18T22:40:53.883547-05:00",
+  "last_updated": "2026-10-19T13:43:58.121574-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -431,7 +431,7 @@
       "lp": [
         {
           "name": "MARISA",
-          "lp": 264172
+          "lp": 265142
         },
         {
           "name": "ELENA",
@@ -441,7 +441,7 @@
       "current_mr": [
         {
           "name": "MARISA",
-          "mr": 1665
+          "mr": 1652
         },
         {
           "name": "ELENA",
@@ -1119,19 +1119,19 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 372149
+          "lp": 372589
         }
       ],
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1491
+          "mr": 1538
         }
       ],
       "highest_mr": [
         {
           "name": "KEN",
-          "mr": 1520
+          "mr": 1568
         }
       ]
     },
@@ -1779,7 +1779,7 @@
       "lp": [
         {
           "name": "KIMBERLY",
-          "lp": 290122
+          "lp": 291712
         },
         {
           "name": "LUKE",
@@ -1813,7 +1813,7 @@
       "current_mr": [
         {
           "name": "KIMBERLY",
-          "mr": 1840
+          "mr": 1864
         },
         {
           "name": "LUKE",
@@ -1847,7 +1847,7 @@
         },
         {
           "name": "KIMBERLY",
-          "mr": 1847
+          "mr": 1864
         },
         {
           "name": "INGRID",
@@ -1996,8 +1996,18 @@
     "2158200634": {
       "username": "MenatWhen",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
-      "lp": [],
-      "current_mr": [],
+      "lp": [
+        {
+          "name": "DHALSIM",
+          "lp": 25050
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "DHALSIM",
+          "mr": 1500
+        }
+      ],
       "highest_mr": []
     }
   }
