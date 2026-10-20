@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-19T13:43:58.121574-05:00",
+  "last_updated": "2026-10-19T22:55:43.734710-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -7,7 +7,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 370277
+          "lp": 370577
         },
         {
           "name": "YASMINE",
@@ -21,7 +21,7 @@
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1674
+          "mr": 1706
         },
         {
           "name": "YASMINE",
@@ -190,11 +190,11 @@
         },
         {
           "name": "LUKE",
-          "lp": 26710
+          "lp": 28396
         },
         {
           "name": "CHUN-LI",
-          "lp": 23010
+          "lp": 22930
         },
         {
           "name": "RYU",
@@ -232,7 +232,7 @@
         },
         {
           "name": "LUKE",
-          "mr": 1300
+          "mr": 1289
         }
       ],
       "highest_mr": [
@@ -431,7 +431,7 @@
       "lp": [
         {
           "name": "MARISA",
-          "lp": 265142
+          "lp": 267126
         },
         {
           "name": "ELENA",
@@ -441,7 +441,7 @@
       "current_mr": [
         {
           "name": "MARISA",
-          "mr": 1652
+          "mr": 1702
         },
         {
           "name": "ELENA",
@@ -455,7 +455,7 @@
         },
         {
           "name": "MARISA",
-          "mr": 1697
+          "mr": 1702
         }
       ]
     },
@@ -472,7 +472,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 281968
+          "lp": 282008
         },
         {
           "name": "LUKE",
@@ -488,7 +488,7 @@
         },
         {
           "name": "CAMMY",
-          "lp": 56075
+          "lp": 56255
         },
         {
           "name": "MAI",
@@ -496,7 +496,7 @@
         },
         {
           "name": "INGRID",
-          "lp": 22600
+          "lp": 22631
         },
         {
           "name": "ZANGIEF",
@@ -522,11 +522,11 @@
         },
         {
           "name": "AKUMA",
-          "mr": 1448
+          "mr": 1444
         },
         {
           "name": "CAMMY",
-          "mr": 1427
+          "mr": 1383
         }
       ],
       "highest_mr": [
@@ -649,6 +649,10 @@
         {
           "name": "YASMINE",
           "lp": 25053
+        },
+        {
+          "name": "ARJUN",
+          "lp": 19913
         }
       ],
       "current_mr": [
@@ -672,7 +676,7 @@
       "lp": [
         {
           "name": "A.K.I.",
-          "lp": 457644
+          "lp": 459297
         },
         {
           "name": "RYU",
@@ -698,7 +702,7 @@
       "current_mr": [
         {
           "name": "A.K.I.",
-          "mr": 1836
+          "mr": 1851
         },
         {
           "name": "AKUMA",
@@ -986,13 +990,13 @@
       "lp": [
         {
           "name": "MARISA",
-          "lp": 220044
+          "lp": 220514
         }
       ],
       "current_mr": [
         {
           "name": "MARISA",
-          "mr": 1566
+          "mr": 1544
         }
       ],
       "highest_mr": [
@@ -1090,13 +1094,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 306690
+          "lp": 306940
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1591
+          "mr": 1574
         }
       ],
       "highest_mr": [
@@ -1779,7 +1783,7 @@
       "lp": [
         {
           "name": "KIMBERLY",
-          "lp": 291712
+          "lp": 293012
         },
         {
           "name": "LUKE",
@@ -1813,7 +1817,7 @@
       "current_mr": [
         {
           "name": "KIMBERLY",
-          "mr": 1864
+          "mr": 1884
         },
         {
           "name": "LUKE",
@@ -1847,7 +1851,7 @@
         },
         {
           "name": "KIMBERLY",
-          "mr": 1864
+          "mr": 1884
         },
         {
           "name": "INGRID",
@@ -2000,6 +2004,10 @@
         {
           "name": "DHALSIM",
           "lp": 25050
+        },
+        {
+          "name": "KIMBERLY",
+          "lp": 23822
         }
       ],
       "current_mr": [
