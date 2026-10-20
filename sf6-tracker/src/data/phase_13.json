@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-19T22:55:43.734710-05:00",
+  "last_updated": "2026-10-20T11:44:06.654624-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -409,13 +409,17 @@
         },
         {
           "name": "ARJUN",
-          "lp": 23800
+          "lp": 25718
         }
       ],
       "current_mr": [
         {
           "name": "M. BISON",
           "mr": 1704
+        },
+        {
+          "name": "ARJUN",
+          "mr": 1500
         }
       ],
       "highest_mr": [
@@ -496,7 +500,7 @@
         },
         {
           "name": "INGRID",
-          "lp": 22631
+          "lp": 23845
         },
         {
           "name": "ZANGIEF",
@@ -647,17 +651,21 @@
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
       "lp": [
         {
-          "name": "YASMINE",
-          "lp": 25053
+          "name": "ARJUN",
+          "lp": 25363
         },
         {
-          "name": "ARJUN",
-          "lp": 19913
+          "name": "YASMINE",
+          "lp": 25053
         }
       ],
       "current_mr": [
         {
           "name": "YASMINE",
+          "mr": 1500
+        },
+        {
+          "name": "ARJUN",
           "mr": 1500
         }
       ],
@@ -1287,7 +1295,7 @@
         },
         {
           "name": "YASMINE",
-          "lp": 27553
+          "lp": 32573
         },
         {
           "name": "RANDOM",
@@ -1297,7 +1305,7 @@
       "current_mr": [
         {
           "name": "YASMINE",
-          "mr": 1467
+          "mr": 1526
         },
         {
           "name": "CHUN-LI",
@@ -1327,7 +1335,7 @@
         },
         {
           "name": "YASMINE",
-          "mr": 1499
+          "mr": 1526
         }
       ]
     },
@@ -1337,11 +1345,11 @@
       "lp": [
         {
           "name": "INGRID",
-          "lp": 57905
+          "lp": 58385
         },
         {
           "name": "RYU",
-          "lp": 21431
+          "lp": 21295
         },
         {
           "name": "TERRY",
@@ -1363,7 +1371,7 @@
       "current_mr": [
         {
           "name": "INGRID",
-          "mr": 1335
+          "mr": 1350
         }
       ],
       "highest_mr": [
@@ -1483,7 +1491,7 @@
     },
     "1151264136": {
       "username": "KingDawkness",
-      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
       "lp": [
         {
           "name": "CAMMY",
@@ -1691,13 +1699,13 @@
       "lp": [
         {
           "name": "CAMMY",
-          "lp": 132690
+          "lp": 133043
         }
       ],
       "current_mr": [
         {
           "name": "CAMMY",
-          "mr": 1434
+          "mr": 1386
         }
       ],
       "highest_mr": [
