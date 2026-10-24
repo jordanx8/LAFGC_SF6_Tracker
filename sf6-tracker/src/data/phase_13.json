@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-23T11:52:40.471444-05:00",
+  "last_updated": "2026-10-23T23:27:55.003185-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -7,7 +7,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 371497
+          "lp": 371757
         },
         {
           "name": "YASMINE",
@@ -15,13 +15,13 @@
         },
         {
           "name": "ARJUN",
-          "lp": 19328
+          "lp": 19263
         }
       ],
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1713
+          "mr": 1750
         },
         {
           "name": "YASMINE",
@@ -31,7 +31,7 @@
       "highest_mr": [
         {
           "name": "AKUMA",
-          "mr": 1742
+          "mr": 1750
         }
       ]
     },
@@ -301,13 +301,13 @@
       "lp": [
         {
           "name": "JURI",
-          "lp": 92287
+          "lp": 92986
         }
       ],
       "current_mr": [
         {
           "name": "JURI",
-          "mr": 1388
+          "mr": 1377
         }
       ],
       "highest_mr": [
@@ -1010,19 +1010,19 @@
       "lp": [
         {
           "name": "MARISA",
-          "lp": 221343
+          "lp": 221283
         }
       ],
       "current_mr": [
         {
           "name": "MARISA",
-          "mr": 1604
+          "mr": 1610
         }
       ],
       "highest_mr": [
         {
           "name": "MARISA",
-          "mr": 1604
+          "mr": 1620
         }
       ]
     },
@@ -1474,7 +1474,7 @@
     },
     "4137492229": {
       "username": "SamStrafe",
-      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
@@ -1799,11 +1799,11 @@
     },
     "3186007203": {
       "username": "space rat",
-      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
           "name": "KIMBERLY",
-          "lp": 294142
+          "lp": 295876
         },
         {
           "name": "LUKE",
@@ -1841,7 +1841,7 @@
       "current_mr": [
         {
           "name": "KIMBERLY",
-          "mr": 1904
+          "mr": 1931
         },
         {
           "name": "LUKE",
@@ -1875,7 +1875,7 @@
         },
         {
           "name": "KIMBERLY",
-          "mr": 1904
+          "mr": 1940
         },
         {
           "name": "INGRID",
