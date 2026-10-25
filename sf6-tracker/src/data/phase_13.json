@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-24T10:48:09.030524-05:00",
+  "last_updated": "2026-10-24T22:37:59.179411-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -55,7 +55,7 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 375330
+          "lp": 376480
         },
         {
           "name": "A.K.I.",
@@ -67,7 +67,7 @@
         },
         {
           "name": "SAGAT",
-          "lp": 41446
+          "lp": 41406
         },
         {
           "name": "AKUMA",
@@ -89,7 +89,7 @@
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1758
+          "mr": 1769
         },
         {
           "name": "TERRY",
@@ -117,7 +117,7 @@
         },
         {
           "name": "SAGAT",
-          "mr": 1479
+          "mr": 1478
         }
       ],
       "highest_mr": [
@@ -400,7 +400,7 @@
       ]
     },
     "3712192677": {
-      "username": "Fahfos",
+      "username": "Mr Hazmat",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
@@ -443,7 +443,7 @@
         },
         {
           "name": "ELENA",
-          "lp": 156310
+          "lp": 157392
         }
       ],
       "current_mr": [
@@ -453,7 +453,7 @@
         },
         {
           "name": "ELENA",
-          "mr": 1581
+          "mr": 1624
         }
       ],
       "highest_mr": [
@@ -1025,13 +1025,13 @@
       "lp": [
         {
           "name": "MARISA",
-          "lp": 221553
+          "lp": 222033
         }
       ],
       "current_mr": [
         {
           "name": "MARISA",
-          "mr": 1581
+          "mr": 1598
         }
       ],
       "highest_mr": [
@@ -1129,13 +1129,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 308426
+          "lp": 308990
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1604
+          "mr": 1567
         }
       ],
       "highest_mr": [
