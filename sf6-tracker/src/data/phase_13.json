@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-25T10:57:35.482939-05:00",
+  "last_updated": "2026-10-25T22:37:58.369691-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -55,7 +55,7 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 376480
+          "lp": 376710
         },
         {
           "name": "A.K.I.",
@@ -63,7 +63,7 @@
         },
         {
           "name": "TERRY",
-          "lp": 41690
+          "lp": 41650
         },
         {
           "name": "SAGAT",
@@ -89,11 +89,11 @@
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1769
+          "mr": 1741
         },
         {
           "name": "TERRY",
-          "mr": 1573
+          "mr": 1564
         },
         {
           "name": "INGRID",
@@ -443,7 +443,7 @@
         },
         {
           "name": "ELENA",
-          "lp": 157644
+          "lp": 158246
         }
       ],
       "current_mr": [
@@ -453,7 +453,7 @@
         },
         {
           "name": "ELENA",
-          "mr": 1530
+          "mr": 1505
         }
       ],
       "highest_mr": [
@@ -1129,13 +1129,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 308990
+          "lp": 309110
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1567
+          "mr": 1556
         }
       ],
       "highest_mr": [
@@ -1318,7 +1318,7 @@
         },
         {
           "name": "YASMINE",
-          "lp": 40069
+          "lp": 48725
         },
         {
           "name": "ALEX",
@@ -1332,7 +1332,7 @@
       "current_mr": [
         {
           "name": "YASMINE",
-          "mr": 1485
+          "mr": 1470
         },
         {
           "name": "CHUN-LI",
@@ -1500,13 +1500,13 @@
       "lp": [
         {
           "name": "JP",
-          "lp": 90922
+          "lp": 90912
         }
       ],
       "current_mr": [
         {
           "name": "JP",
-          "mr": 1445
+          "mr": 1437
         }
       ],
       "highest_mr": [
@@ -1664,7 +1664,7 @@
       "lp": [
         {
           "name": "CHUN-LI",
-          "lp": 131836
+          "lp": 132456
         },
         {
           "name": "AKUMA",
@@ -1690,7 +1690,7 @@
       "current_mr": [
         {
           "name": "CHUN-LI",
-          "mr": 1534
+          "mr": 1558
         },
         {
           "name": "RYU",
