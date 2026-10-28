@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-27T12:51:17.526396-05:00",
+  "last_updated": "2026-10-27T23:24:48.647877-05:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -7,7 +7,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 371757
+          "lp": 372017
         },
         {
           "name": "YASMINE",
@@ -15,13 +15,13 @@
         },
         {
           "name": "ARJUN",
-          "lp": 19263
+          "lp": 19223
         }
       ],
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1750
+          "mr": 1740
         },
         {
           "name": "YASMINE",
@@ -443,7 +443,7 @@
         },
         {
           "name": "ELENA",
-          "lp": 159586
+          "lp": 161686
         }
       ],
       "current_mr": [
@@ -453,7 +453,7 @@
         },
         {
           "name": "ELENA",
-          "mr": 1538
+          "mr": 1597
         }
       ],
       "highest_mr": [
@@ -495,11 +495,11 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 284233
+          "lp": 284223
         },
         {
           "name": "LUKE",
-          "lp": 254418
+          "lp": 255068
         },
         {
           "name": "RYU",
@@ -507,15 +507,15 @@
         },
         {
           "name": "KEN",
-          "lp": 103304
+          "lp": 103364
         },
         {
           "name": "CAMMY",
-          "lp": 56255
+          "lp": 56775
         },
         {
           "name": "MAI",
-          "lp": 50117
+          "lp": 50167
         },
         {
           "name": "YASMINE",
@@ -533,11 +533,11 @@
       "current_mr": [
         {
           "name": "LUKE",
-          "mr": 1584
+          "mr": 1586
         },
         {
           "name": "AKUMA",
-          "mr": 1565
+          "mr": 1556
         },
         {
           "name": "RYU",
@@ -545,7 +545,7 @@
         },
         {
           "name": "KEN",
-          "mr": 1500
+          "mr": 1508
         },
         {
           "name": "INGRID",
@@ -557,11 +557,11 @@
         },
         {
           "name": "MAI",
-          "mr": 1460
+          "mr": 1431
         },
         {
           "name": "CAMMY",
-          "mr": 1383
+          "mr": 1395
         }
       ],
       "highest_mr": [
@@ -575,7 +575,7 @@
         },
         {
           "name": "AKUMA",
-          "mr": 1579
+          "mr": 1580
         },
         {
           "name": "CAMMY",
@@ -584,6 +584,10 @@
         {
           "name": "MAI",
           "mr": 1471
+        },
+        {
+          "name": "KEN",
+          "mr": 1508
         }
       ]
     },
@@ -593,17 +597,25 @@
       "lp": [
         {
           "name": "TERRY",
-          "lp": 173054
+          "lp": 173514
         },
         {
           "name": "LUKE",
           "lp": 140671
+        },
+        {
+          "name": "RYU",
+          "lp": 50823
         }
       ],
       "current_mr": [
         {
           "name": "TERRY",
-          "mr": 1657
+          "mr": 1667
+        },
+        {
+          "name": "RYU",
+          "mr": 1496
         },
         {
           "name": "LUKE",
@@ -617,7 +629,11 @@
         },
         {
           "name": "TERRY",
-          "mr": 1666
+          "mr": 1667
+        },
+        {
+          "name": "RYU",
+          "mr": 1504
         }
       ]
     },
@@ -649,7 +665,7 @@
       "lp": [
         {
           "name": "CAMMY",
-          "lp": 226344
+          "lp": 226714
         },
         {
           "name": "LUKE",
@@ -659,7 +675,7 @@
       "current_mr": [
         {
           "name": "CAMMY",
-          "mr": 1741
+          "mr": 1707
         },
         {
           "name": "LUKE",
@@ -845,7 +861,7 @@
         },
         {
           "name": "INGRID",
-          "lp": 52970
+          "lp": 52890
         },
         {
           "name": "MANON",
@@ -906,12 +922,12 @@
           "mr": 1715
         },
         {
-          "name": "INGRID",
-          "mr": 1546
-        },
-        {
           "name": "GUILE",
           "mr": 1532
+        },
+        {
+          "name": "INGRID",
+          "mr": 1529
         },
         {
           "name": "M. BISON",
@@ -1007,13 +1023,13 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 194938
+          "lp": 194658
         }
       ],
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1647
+          "mr": 1601
         }
       ],
       "highest_mr": [
@@ -1133,13 +1149,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 309110
+          "lp": 309560
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1556
+          "mr": 1541
         }
       ],
       "highest_mr": [
@@ -1504,13 +1520,13 @@
       "lp": [
         {
           "name": "JP",
-          "lp": 91282
+          "lp": 92058
         }
       ],
       "current_mr": [
         {
           "name": "JP",
-          "mr": 1468
+          "mr": 1470
         }
       ],
       "highest_mr": [
@@ -1829,16 +1845,16 @@
           "lp": 111782
         },
         {
+          "name": "YASMINE",
+          "lp": 83345
+        },
+        {
           "name": "AKUMA",
           "lp": 80172
         },
         {
           "name": "RYU",
           "lp": 79000
-        },
-        {
-          "name": "YASMINE",
-          "lp": 75135
         },
         {
           "name": "TERRY",
@@ -1863,12 +1879,12 @@
           "mr": 1903
         },
         {
-          "name": "LUKE",
-          "mr": 1702
+          "name": "YASMINE",
+          "mr": 1779
         },
         {
-          "name": "YASMINE",
-          "mr": 1668
+          "name": "LUKE",
+          "mr": 1702
         },
         {
           "name": "RYU",
@@ -1890,7 +1906,7 @@
       "highest_mr": [
         {
           "name": "YASMINE",
-          "mr": 1755
+          "mr": 1779
         },
         {
           "name": "KIMBERLY",
