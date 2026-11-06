@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-28T23:48:59.875458-05:00",
+  "last_updated": "2026-11-06T16:31:56.481854-06:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -7,7 +7,7 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 371887
+          "lp": 371947
         },
         {
           "name": "YASMINE",
@@ -21,7 +21,7 @@
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1708
+          "mr": 1677
         },
         {
           "name": "YASMINE",
@@ -55,7 +55,7 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 376710
+          "lp": 377310
         },
         {
           "name": "A.K.I.",
@@ -63,11 +63,11 @@
         },
         {
           "name": "TERRY",
-          "lp": 41650
+          "lp": 41900
         },
         {
           "name": "SAGAT",
-          "lp": 41406
+          "lp": 41656
         },
         {
           "name": "AKUMA",
@@ -89,11 +89,11 @@
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1741
+          "mr": 1712
         },
         {
           "name": "TERRY",
-          "mr": 1564
+          "mr": 1571
         },
         {
           "name": "INGRID",
@@ -108,16 +108,16 @@
           "mr": 1500
         },
         {
+          "name": "SAGAT",
+          "mr": 1488
+        },
+        {
           "name": "A.K.I.",
           "mr": 1487
         },
         {
           "name": "AKUMA",
           "mr": 1483
-        },
-        {
-          "name": "SAGAT",
-          "mr": 1478
         }
       ],
       "highest_mr": [
@@ -190,7 +190,7 @@
         },
         {
           "name": "LUKE",
-          "lp": 32971
+          "lp": 33471
         },
         {
           "name": "CHUN-LI",
@@ -232,7 +232,7 @@
         },
         {
           "name": "LUKE",
-          "mr": 1354
+          "mr": 1370
         }
       ],
       "highest_mr": [
@@ -368,6 +368,10 @@
         {
           "name": "M. BISON",
           "lp": 162599
+        },
+        {
+          "name": "KEN",
+          "lp": 155900
         }
       ],
       "current_mr": [
@@ -378,6 +382,10 @@
         {
           "name": "RYU",
           "mr": 1880
+        },
+        {
+          "name": "KEN",
+          "mr": 1813
         },
         {
           "name": "M. BISON",
@@ -396,6 +404,10 @@
         {
           "name": "M. BISON",
           "mr": 1669
+        },
+        {
+          "name": "KEN",
+          "mr": 1813
         }
       ]
     },
@@ -443,7 +455,7 @@
         },
         {
           "name": "ELENA",
-          "lp": 162426
+          "lp": 169758
         }
       ],
       "current_mr": [
@@ -453,7 +465,7 @@
         },
         {
           "name": "ELENA",
-          "mr": 1566
+          "mr": 1553
         }
       ],
       "highest_mr": [
@@ -609,7 +621,7 @@
         },
         {
           "name": "KEN",
-          "lp": 43100
+          "lp": 50467
         }
       ],
       "current_mr": [
@@ -618,12 +630,12 @@
           "mr": 1667
         },
         {
-          "name": "RYU",
-          "mr": 1500
+          "name": "KEN",
+          "mr": 1522
         },
         {
-          "name": "KEN",
-          "mr": 1478
+          "name": "RYU",
+          "mr": 1500
         },
         {
           "name": "LUKE",
@@ -645,7 +657,7 @@
         },
         {
           "name": "KEN",
-          "mr": 1519
+          "mr": 1536
         }
       ]
     },
@@ -677,7 +689,7 @@
       "lp": [
         {
           "name": "CAMMY",
-          "lp": 226714
+          "lp": 229414
         },
         {
           "name": "LUKE",
@@ -687,7 +699,7 @@
       "current_mr": [
         {
           "name": "CAMMY",
-          "mr": 1707
+          "mr": 1735
         },
         {
           "name": "LUKE",
@@ -1057,13 +1069,13 @@
       "lp": [
         {
           "name": "MARISA",
-          "lp": 221933
+          "lp": 221983
         }
       ],
       "current_mr": [
         {
           "name": "MARISA",
-          "mr": 1591
+          "mr": 1592
         }
       ],
       "highest_mr": [
@@ -1161,13 +1173,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 309560
+          "lp": 312120
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1541
+          "mr": 1557
         }
       ],
       "highest_mr": [
@@ -1190,13 +1202,13 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 372649
+          "lp": 372379
         }
       ],
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1542
+          "mr": 1496
         }
       ],
       "highest_mr": [
@@ -1212,13 +1224,13 @@
       "lp": [
         {
           "name": "DHALSIM",
-          "lp": 202905
+          "lp": 204635
         }
       ],
       "current_mr": [
         {
           "name": "DHALSIM",
-          "mr": 1450
+          "mr": 1475
         }
       ],
       "highest_mr": [
@@ -1342,7 +1354,7 @@
       "lp": [
         {
           "name": "CHUN-LI",
-          "lp": 234071
+          "lp": 234001
         },
         {
           "name": "AKUMA",
@@ -1350,7 +1362,7 @@
         },
         {
           "name": "YASMINE",
-          "lp": 52041
+          "lp": 52561
         },
         {
           "name": "ALEX",
@@ -1364,11 +1376,11 @@
       "current_mr": [
         {
           "name": "YASMINE",
-          "mr": 1444
+          "mr": 1468
         },
         {
           "name": "CHUN-LI",
-          "mr": 1434
+          "mr": 1408
         },
         {
           "name": "AKUMA",
@@ -1532,19 +1544,19 @@
       "lp": [
         {
           "name": "JP",
-          "lp": 92772
+          "lp": 94132
         }
       ],
       "current_mr": [
         {
           "name": "JP",
-          "mr": 1487
+          "mr": 1506
         }
       ],
       "highest_mr": [
         {
           "name": "JP",
-          "mr": 1500
+          "mr": 1506
         }
       ]
     },
@@ -1659,7 +1671,7 @@
     },
     "1706932787": {
       "username": "JoeyQu35t",
-      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
@@ -1850,7 +1862,7 @@
       "lp": [
         {
           "name": "KIMBERLY",
-          "lp": 298656
+          "lp": 299616
         },
         {
           "name": "LUKE",
@@ -1858,7 +1870,7 @@
         },
         {
           "name": "YASMINE",
-          "lp": 85475
+          "lp": 92222
         },
         {
           "name": "AKUMA",
@@ -1892,7 +1904,7 @@
         },
         {
           "name": "YASMINE",
-          "mr": 1804
+          "mr": 1901
         },
         {
           "name": "LUKE",
@@ -1918,7 +1930,7 @@
       "highest_mr": [
         {
           "name": "YASMINE",
-          "mr": 1815
+          "mr": 1901
         },
         {
           "name": "KIMBERLY",
@@ -2052,13 +2064,13 @@
       "lp": [
         {
           "name": "TERRY",
-          "lp": 158772
+          "lp": 159712
         }
       ],
       "current_mr": [
         {
           "name": "TERRY",
-          "mr": 1755
+          "mr": 1764
         }
       ],
       "highest_mr": [
@@ -2073,32 +2085,32 @@
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
-          "name": "KIMBERLY",
-          "lp": 27400
+          "name": "DHALSIM",
+          "lp": 36964
         },
         {
-          "name": "DHALSIM",
-          "lp": 27100
+          "name": "KIMBERLY",
+          "lp": 30472
         }
       ],
       "current_mr": [
         {
-          "name": "KIMBERLY",
-          "mr": 1510
+          "name": "DHALSIM",
+          "mr": 1630
         },
         {
-          "name": "DHALSIM",
-          "mr": 1507
+          "name": "KIMBERLY",
+          "mr": 1385
         }
       ],
       "highest_mr": [
         {
           "name": "DHALSIM",
-          "mr": 1514
+          "mr": 1637
         },
         {
           "name": "KIMBERLY",
-          "mr": 1510
+          "mr": 1524
         }
       ]
     }
