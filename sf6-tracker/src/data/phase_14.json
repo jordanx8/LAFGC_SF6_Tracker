@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-10T00:19:23.648327-06:00",
+  "last_updated": "2026-11-10T13:41:38.350731-06:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -171,9 +171,24 @@
     "2033365007": {
       "username": "jojoqv",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
-      "lp": [],
-      "current_mr": [],
-      "highest_mr": []
+      "lp": [
+        {
+          "name": "KEN",
+          "lp": 160678
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "KEN",
+          "mr": 1701
+        }
+      ],
+      "highest_mr": [
+        {
+          "name": "KEN",
+          "mr": 1702
+        }
+      ]
     },
     "3712192677": {
       "username": "Mr Hazmat",
@@ -181,31 +196,31 @@
       "lp": [
         {
           "name": "M. BISON",
-          "lp": 82030
+          "lp": 82469
         },
         {
           "name": "ARJUN",
-          "lp": 32596
+          "lp": 34266
         }
       ],
       "current_mr": [
         {
           "name": "M. BISON",
-          "mr": 1601
+          "mr": 1618
         },
         {
           "name": "ARJUN",
-          "mr": 1518
+          "mr": 1559
         }
       ],
       "highest_mr": [
         {
           "name": "M. BISON",
-          "mr": 1601
+          "mr": 1618
         },
         {
           "name": "ARJUN",
-          "mr": 1551
+          "mr": 1559
         }
       ]
     },
@@ -282,14 +297,14 @@
     },
     "3940799303": {
       "username": "2XKO Refugee",
-      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
+      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
     },
     "2758058725": {
       "username": "glumbomaxxing",
-      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [
         {
           "name": "A.K.I.",
