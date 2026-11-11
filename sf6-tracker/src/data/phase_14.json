@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-10T13:41:38.350731-06:00",
+  "last_updated": "2026-11-10T23:06:48.939325-06:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -7,19 +7,19 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 372067
+          "lp": 372637
         }
       ],
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1551
+          "mr": 1572
         }
       ],
       "highest_mr": [
         {
           "name": "AKUMA",
-          "mr": 1566
+          "mr": 1572
         }
       ]
     },
@@ -230,13 +230,13 @@
       "lp": [
         {
           "name": "ELENA",
-          "lp": 179904
+          "lp": 179744
         }
       ],
       "current_mr": [
         {
           "name": "ELENA",
-          "mr": 1558
+          "mr": 1524
         }
       ],
       "highest_mr": [
@@ -297,7 +297,7 @@
     },
     "3940799303": {
       "username": "2XKO Refugee",
-      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
@@ -356,7 +356,7 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 344759
+          "lp": 344779
         },
         {
           "name": "INGRID",
@@ -374,7 +374,7 @@
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1644
+          "mr": 1607
         },
         {
           "name": "INGRID",
@@ -392,7 +392,7 @@
         },
         {
           "name": "ED",
-          "mr": 1660
+          "mr": 1670
         },
         {
           "name": "ZANGIEF",
@@ -917,7 +917,7 @@
         },
         {
           "name": "YASMINE",
-          "lp": 125876
+          "lp": 127006
         },
         {
           "name": "ARJUN",
@@ -927,7 +927,7 @@
       "current_mr": [
         {
           "name": "YASMINE",
-          "mr": 1735
+          "mr": 1736
         },
         {
           "name": "KIMBERLY",
