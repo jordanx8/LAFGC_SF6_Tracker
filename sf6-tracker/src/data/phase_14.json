@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-10T23:06:48.939325-06:00",
+  "last_updated": "2026-11-11T13:36:17.475985-06:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -174,19 +174,19 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 160678
+          "lp": 164435
         }
       ],
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1701
+          "mr": 1737
         }
       ],
       "highest_mr": [
         {
           "name": "KEN",
-          "mr": 1702
+          "mr": 1737
         }
       ]
     },
@@ -533,13 +533,13 @@
       "lp": [
         {
           "name": "DHALSIM",
-          "lp": 204755
+          "lp": 204835
         }
       ],
       "current_mr": [
         {
           "name": "DHALSIM",
-          "mr": 1458
+          "mr": 1436
         }
       ],
       "highest_mr": [
@@ -750,7 +750,12 @@
     "3882363065": {
       "username": "LilUziBert",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
-      "lp": [],
+      "lp": [
+        {
+          "name": "KIMBERLY",
+          "lp": 20938
+        }
+      ],
       "current_mr": [],
       "highest_mr": []
     },
@@ -917,7 +922,7 @@
         },
         {
           "name": "YASMINE",
-          "lp": 127006
+          "lp": 130336
         },
         {
           "name": "ARJUN",
@@ -927,7 +932,7 @@
       "current_mr": [
         {
           "name": "YASMINE",
-          "mr": 1736
+          "mr": 1775
         },
         {
           "name": "KIMBERLY",
@@ -955,7 +960,12 @@
     "2158200634": {
       "username": "MenatWhen",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
-      "lp": [],
+      "lp": [
+        {
+          "name": "ARJUN",
+          "lp": 19058
+        }
+      ],
       "current_mr": [],
       "highest_mr": []
     },
