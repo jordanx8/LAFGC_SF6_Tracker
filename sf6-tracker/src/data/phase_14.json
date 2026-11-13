@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-12T23:29:09.656528-06:00",
+  "last_updated": "2026-11-13T13:37:06.559145-06:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -532,9 +532,24 @@
     "1712303549": {
       "username": "KiritoPerouse",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
-      "lp": [],
-      "current_mr": [],
-      "highest_mr": []
+      "lp": [
+        {
+          "name": "RASHID",
+          "lp": 52924
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "RASHID",
+          "mr": 1491
+        }
+      ],
+      "highest_mr": [
+        {
+          "name": "RASHID",
+          "mr": 1491
+        }
+      ]
     },
     "2173875262": {
       "username": "EnvyYungin",
@@ -549,13 +564,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 312720
+          "lp": 313020
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1528
+          "mr": 1537
         }
       ],
       "highest_mr": [
@@ -578,13 +593,13 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 372699
+          "lp": 372339
         }
       ],
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1503
+          "mr": 1453
         }
       ],
       "highest_mr": [
@@ -675,7 +690,7 @@
         },
         {
           "name": "INGRID",
-          "lp": 26632
+          "lp": 29634
         }
       ],
       "current_mr": [
@@ -685,7 +700,7 @@
         },
         {
           "name": "INGRID",
-          "mr": 1387
+          "mr": 1423
         }
       ],
       "highest_mr": [
@@ -989,7 +1004,7 @@
         },
         {
           "name": "YASMINE",
-          "lp": 136973
+          "lp": 141994
         },
         {
           "name": "ARJUN",
@@ -999,7 +1014,7 @@
       "current_mr": [
         {
           "name": "YASMINE",
-          "mr": 1739
+          "mr": 1800
         },
         {
           "name": "KIMBERLY",
