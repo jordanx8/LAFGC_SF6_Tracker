@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-13T13:37:06.559145-06:00",
+  "last_updated": "2026-11-13T23:20:42.308376-06:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -57,19 +57,19 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 389184
+          "lp": 389204
         }
       ],
       "current_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1606
+          "mr": 1585
         }
       ],
       "highest_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1606
+          "mr": 1612
         }
       ]
     },
@@ -117,7 +117,7 @@
       "lp": [
         {
           "name": "RASHID",
-          "lp": 157815
+          "lp": 167196
         },
         {
           "name": "ELENA",
@@ -127,7 +127,7 @@
       "current_mr": [
         {
           "name": "RASHID",
-          "mr": 1779
+          "mr": 1776
         },
         {
           "name": "ELENA",
@@ -242,13 +242,13 @@
       "lp": [
         {
           "name": "ELENA",
-          "lp": 180115
+          "lp": 180765
         }
       ],
       "current_mr": [
         {
           "name": "ELENA",
-          "mr": 1512
+          "mr": 1525
         }
       ],
       "highest_mr": [
@@ -564,13 +564,13 @@
       "lp": [
         {
           "name": "RYU",
-          "lp": 313020
+          "lp": 313090
         }
       ],
       "current_mr": [
         {
           "name": "RYU",
-          "mr": 1537
+          "mr": 1543
         }
       ],
       "highest_mr": [
@@ -1000,7 +1000,7 @@
       "lp": [
         {
           "name": "KIMBERLY",
-          "lp": 300123
+          "lp": 301383
         },
         {
           "name": "YASMINE",
@@ -1008,7 +1008,7 @@
         },
         {
           "name": "ARJUN",
-          "lp": 24704
+          "lp": 26649
         }
       ],
       "current_mr": [
@@ -1018,7 +1018,11 @@
         },
         {
           "name": "KIMBERLY",
-          "mr": 1638
+          "mr": 1680
+        },
+        {
+          "name": "ARJUN",
+          "mr": 1540
         }
       ],
       "highest_mr": [
@@ -1028,7 +1032,11 @@
         },
         {
           "name": "KIMBERLY",
-          "mr": 1638
+          "mr": 1680
+        },
+        {
+          "name": "ARJUN",
+          "mr": 1540
         }
       ]
     },
