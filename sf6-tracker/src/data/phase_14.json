@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-13T23:20:42.308376-06:00",
+  "last_updated": "2026-11-14T12:03:05.436594-06:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -117,7 +117,7 @@
       "lp": [
         {
           "name": "RASHID",
-          "lp": 167196
+          "lp": 174267
         },
         {
           "name": "ELENA",
@@ -127,7 +127,7 @@
       "current_mr": [
         {
           "name": "RASHID",
-          "mr": 1776
+          "mr": 1796
         },
         {
           "name": "ELENA",
@@ -186,19 +186,19 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 171212
+          "lp": 180292
         }
       ],
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1780
+          "mr": 1771
         }
       ],
       "highest_mr": [
         {
           "name": "KEN",
-          "mr": 1780
+          "mr": 1790
         }
       ]
     },
@@ -208,7 +208,7 @@
       "lp": [
         {
           "name": "M. BISON",
-          "lp": 82469
+          "lp": 84549
         },
         {
           "name": "ARJUN",
@@ -218,7 +218,7 @@
       "current_mr": [
         {
           "name": "M. BISON",
-          "mr": 1618
+          "mr": 1604
         },
         {
           "name": "ARJUN",
@@ -228,7 +228,7 @@
       "highest_mr": [
         {
           "name": "M. BISON",
-          "mr": 1618
+          "mr": 1624
         },
         {
           "name": "ARJUN",
@@ -1008,7 +1008,7 @@
         },
         {
           "name": "ARJUN",
-          "lp": 26649
+          "lp": 26789
         }
       ],
       "current_mr": [
@@ -1022,7 +1022,7 @@
         },
         {
           "name": "ARJUN",
-          "mr": 1540
+          "mr": 1487
         }
       ],
       "highest_mr": [
@@ -1053,7 +1053,7 @@
       "lp": [
         {
           "name": "ARJUN",
-          "lp": 19058
+          "lp": 19128
         }
       ],
       "current_mr": [],
