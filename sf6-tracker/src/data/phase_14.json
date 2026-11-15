@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-14T12:03:05.436594-06:00",
+  "last_updated": "2026-11-14T23:13:29.204303-06:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -57,13 +57,13 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 389204
+          "lp": 389784
         }
       ],
       "current_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1585
+          "mr": 1573
         }
       ],
       "highest_mr": [
@@ -88,6 +88,10 @@
         {
           "name": "MANON",
           "lp": 20220
+        },
+        {
+          "name": "BLANKA",
+          "lp": 18960
         }
       ],
       "current_mr": [
@@ -186,19 +190,19 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 180292
+          "lp": 186302
         }
       ],
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1771
+          "mr": 1803
         }
       ],
       "highest_mr": [
         {
           "name": "KEN",
-          "mr": 1790
+          "mr": 1807
         }
       ]
     },
@@ -430,12 +434,12 @@
           "lp": 33425
         },
         {
-          "name": "RYU",
-          "lp": 20091
+          "name": "ARJUN",
+          "lp": 23730
         },
         {
-          "name": "ARJUN",
-          "lp": 19295
+          "name": "RYU",
+          "lp": 20091
         }
       ],
       "current_mr": [
@@ -947,9 +951,24 @@
     "2022951228": {
       "username": "ColdRamune",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
-      "lp": [],
-      "current_mr": [],
-      "highest_mr": []
+      "lp": [
+        {
+          "name": "CHUN-LI",
+          "lp": 132606
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "CHUN-LI",
+          "mr": 1523
+        }
+      ],
+      "highest_mr": [
+        {
+          "name": "CHUN-LI",
+          "mr": 1537
+        }
+      ]
     },
     "1678381045": {
       "username": "iQu3so",
@@ -1000,7 +1019,7 @@
       "lp": [
         {
           "name": "KIMBERLY",
-          "lp": 301383
+          "lp": 306253
         },
         {
           "name": "YASMINE",
@@ -1018,7 +1037,7 @@
         },
         {
           "name": "KIMBERLY",
-          "mr": 1680
+          "mr": 1778
         },
         {
           "name": "ARJUN",
@@ -1032,7 +1051,7 @@
         },
         {
           "name": "KIMBERLY",
-          "mr": 1680
+          "mr": 1796
         },
         {
           "name": "ARJUN",
@@ -1053,7 +1072,7 @@
       "lp": [
         {
           "name": "ARJUN",
-          "lp": 19128
+          "lp": 21842
         }
       ],
       "current_mr": [],
@@ -1065,19 +1084,19 @@
       "lp": [
         {
           "name": "TERRY",
-          "lp": 161872
+          "lp": 162712
         }
       ],
       "current_mr": [
         {
           "name": "TERRY",
-          "mr": 1618
+          "mr": 1616
         }
       ],
       "highest_mr": [
         {
           "name": "TERRY",
-          "mr": 1620
+          "mr": 1642
         }
       ]
     }
