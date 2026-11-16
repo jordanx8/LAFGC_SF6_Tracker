@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-15T12:52:03.065134-06:00",
+  "last_updated": "2026-11-15T23:10:38.004899-06:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -13,7 +13,7 @@
       "current_mr": [
         {
           "name": "AKUMA",
-          "mr": 1572
+          "mr": 1556
         }
       ],
       "highest_mr": [
@@ -79,7 +79,7 @@
       "lp": [
         {
           "name": "ZANGIEF",
-          "lp": 87266
+          "lp": 89056
         },
         {
           "name": "LUKE",
@@ -97,7 +97,7 @@
       "current_mr": [
         {
           "name": "ZANGIEF",
-          "mr": 1495
+          "mr": 1513
         },
         {
           "name": "LUKE",
@@ -111,7 +111,7 @@
         },
         {
           "name": "ZANGIEF",
-          "mr": 1495
+          "mr": 1541
         }
       ]
     },
@@ -246,13 +246,13 @@
       "lp": [
         {
           "name": "ELENA",
-          "lp": 180765
+          "lp": 181435
         }
       ],
       "current_mr": [
         {
           "name": "ELENA",
-          "mr": 1525
+          "mr": 1510
         }
       ],
       "highest_mr": [
@@ -484,19 +484,19 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 196158
+          "lp": 196888
         }
       ],
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1584
+          "mr": 1585
         }
       ],
       "highest_mr": [
         {
           "name": "ED",
-          "mr": 1584
+          "mr": 1617
         }
       ]
     },
@@ -694,7 +694,7 @@
         },
         {
           "name": "INGRID",
-          "lp": 29634
+          "lp": 33925
         }
       ],
       "current_mr": [
@@ -704,7 +704,7 @@
         },
         {
           "name": "INGRID",
-          "mr": 1423
+          "mr": 1455
         }
       ],
       "highest_mr": [
@@ -791,7 +791,7 @@
     },
     "4137492229": {
       "username": "SamStrafe",
-      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
@@ -1009,9 +1009,24 @@
     "1059704201": {
       "username": "adambomb",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
-      "lp": [],
-      "current_mr": [],
-      "highest_mr": []
+      "lp": [
+        {
+          "name": "ALEX",
+          "lp": 76016
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "ALEX",
+          "mr": 1474
+        }
+      ],
+      "highest_mr": [
+        {
+          "name": "ALEX",
+          "mr": 1490
+        }
+      ]
     },
     "3186007203": {
       "username": "space rat",
@@ -1019,7 +1034,7 @@
       "lp": [
         {
           "name": "KIMBERLY",
-          "lp": 306253
+          "lp": 307923
         },
         {
           "name": "YASMINE",
@@ -1037,7 +1052,7 @@
         },
         {
           "name": "KIMBERLY",
-          "mr": 1778
+          "mr": 1787
         },
         {
           "name": "ARJUN",
@@ -1051,7 +1066,7 @@
         },
         {
           "name": "KIMBERLY",
-          "mr": 1796
+          "mr": 1804
         },
         {
           "name": "ARJUN",
@@ -1072,7 +1087,7 @@
       "lp": [
         {
           "name": "ARJUN",
-          "lp": 22093
+          "lp": 22620
         }
       ],
       "current_mr": [],
