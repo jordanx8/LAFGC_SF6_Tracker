@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-17T00:57:42.396615-06:00",
+  "last_updated": "2026-11-17T14:50:20.375806-06:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -979,7 +979,7 @@
     },
     "3653716202": {
       "username": "ChaseTheBag.EX",
-      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
@@ -1087,10 +1087,15 @@
       "lp": [
         {
           "name": "ARJUN",
-          "lp": 23539
+          "lp": 25050
         }
       ],
-      "current_mr": [],
+      "current_mr": [
+        {
+          "name": "ARJUN",
+          "mr": 1500
+        }
+      ],
       "highest_mr": []
     },
     "1260991772": {
