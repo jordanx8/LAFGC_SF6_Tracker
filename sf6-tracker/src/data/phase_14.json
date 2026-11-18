@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-17T14:50:20.375806-06:00",
+  "last_updated": "2026-11-18T00:18:04.799210-06:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -190,19 +190,19 @@
       "lp": [
         {
           "name": "KEN",
-          "lp": 189912
+          "lp": 190012
         }
       ],
       "current_mr": [
         {
           "name": "KEN",
-          "mr": 1816
+          "mr": 1831
         }
       ],
       "highest_mr": [
         {
           "name": "KEN",
-          "mr": 1821
+          "mr": 1831
         }
       ]
     },
@@ -246,19 +246,19 @@
       "lp": [
         {
           "name": "ELENA",
-          "lp": 183839
+          "lp": 184019
         }
       ],
       "current_mr": [
         {
           "name": "ELENA",
-          "mr": 1602
+          "mr": 1574
         }
       ],
       "highest_mr": [
         {
           "name": "ELENA",
-          "mr": 1602
+          "mr": 1612
         }
       ]
     },
@@ -279,7 +279,7 @@
         },
         {
           "name": "LUKE",
-          "lp": 255078
+          "lp": 255048
         },
         {
           "name": "CAMMY",
@@ -287,13 +287,13 @@
         },
         {
           "name": "INGRID",
-          "lp": 32728
+          "lp": 32618
         }
       ],
       "current_mr": [
         {
           "name": "LUKE",
-          "mr": 1514
+          "mr": 1508
         },
         {
           "name": "AKUMA",
@@ -305,7 +305,7 @@
         },
         {
           "name": "INGRID",
-          "mr": 1398
+          "mr": 1371
         }
       ],
       "highest_mr": [
@@ -315,7 +315,7 @@
         },
         {
           "name": "LUKE",
-          "mr": 1522
+          "mr": 1523
         },
         {
           "name": "INGRID",
@@ -379,7 +379,7 @@
         },
         {
           "name": "AKUMA",
-          "lp": 89961
+          "lp": 91491
         }
       ],
       "current_mr": [
@@ -389,7 +389,7 @@
         },
         {
           "name": "AKUMA",
-          "mr": 1608
+          "mr": 1619
         }
       ],
       "highest_mr": [
@@ -399,7 +399,7 @@
         },
         {
           "name": "AKUMA",
-          "mr": 1608
+          "mr": 1637
         }
       ]
     },
@@ -423,7 +423,7 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 344779
+          "lp": 344879
         },
         {
           "name": "INGRID",
@@ -445,7 +445,7 @@
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1607
+          "mr": 1606
         },
         {
           "name": "INGRID",
@@ -694,7 +694,7 @@
         },
         {
           "name": "INGRID",
-          "lp": 35638
+          "lp": 44105
         }
       ],
       "current_mr": [
@@ -704,7 +704,7 @@
         },
         {
           "name": "INGRID",
-          "mr": 1433
+          "mr": 1497
         }
       ],
       "highest_mr": [
@@ -714,7 +714,7 @@
         },
         {
           "name": "INGRID",
-          "mr": 1508
+          "mr": 1560
         }
       ]
     },
@@ -979,7 +979,7 @@
     },
     "3653716202": {
       "username": "ChaseTheBag.EX",
-      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
@@ -1038,7 +1038,7 @@
         },
         {
           "name": "YASMINE",
-          "lp": 144484
+          "lp": 147085
         },
         {
           "name": "ARJUN",
@@ -1052,7 +1052,7 @@
         },
         {
           "name": "YASMINE",
-          "mr": 1739
+          "mr": 1760
         },
         {
           "name": "ARJUN",
@@ -1087,16 +1087,21 @@
       "lp": [
         {
           "name": "ARJUN",
-          "lp": 25050
+          "lp": 27300
         }
       ],
       "current_mr": [
         {
           "name": "ARJUN",
-          "mr": 1500
+          "mr": 1501
         }
       ],
-      "highest_mr": []
+      "highest_mr": [
+        {
+          "name": "ARJUN",
+          "mr": 1531
+        }
+      ]
     },
     "1260991772": {
       "username": "judedude",
