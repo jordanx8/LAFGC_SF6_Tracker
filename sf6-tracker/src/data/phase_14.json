@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-20T00:06:11.963461-06:00",
+  "last_updated": "2026-11-20T13:59:40.731404-06:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -246,13 +246,13 @@
       "lp": [
         {
           "name": "ELENA",
-          "lp": 187345
+          "lp": 187994
         }
       ],
       "current_mr": [
         {
           "name": "ELENA",
-          "mr": 1556
+          "mr": 1548
         }
       ],
       "highest_mr": [
@@ -275,11 +275,11 @@
       "lp": [
         {
           "name": "AKUMA",
-          "lp": 286013
+          "lp": 286073
         },
         {
           "name": "LUKE",
-          "lp": 255482
+          "lp": 255682
         },
         {
           "name": "CAMMY",
@@ -287,21 +287,21 @@
         },
         {
           "name": "INGRID",
-          "lp": 47414
+          "lp": 47334
         }
       ],
       "current_mr": [
         {
           "name": "LUKE",
-          "mr": 1511
+          "mr": 1543
         },
         {
           "name": "AKUMA",
-          "mr": 1509
+          "mr": 1517
         },
         {
           "name": "INGRID",
-          "mr": 1472
+          "mr": 1457
         },
         {
           "name": "CAMMY",
@@ -724,7 +724,7 @@
         },
         {
           "name": "INGRID",
-          "lp": 45255
+          "lp": 46415
         }
       ],
       "current_mr": [
@@ -734,7 +734,7 @@
         },
         {
           "name": "INGRID",
-          "mr": 1522
+          "mr": 1502
         }
       ],
       "highest_mr": [
@@ -858,7 +858,7 @@
     },
     "1151264136": {
       "username": "KingDawkness",
-      "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_cross.png",
+      "platform": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
       "lp": [],
       "current_mr": [],
       "highest_mr": []
@@ -1126,6 +1126,10 @@
         {
           "name": "KIMBERLY",
           "lp": 26792
+        },
+        {
+          "name": "MANON",
+          "lp": 23760
         }
       ],
       "current_mr": [
