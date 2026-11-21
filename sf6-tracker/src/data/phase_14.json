@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-21T00:02:15.292599-06:00",
+  "last_updated": "2026-11-21T13:03:44.086073-06:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -254,13 +254,13 @@
       "lp": [
         {
           "name": "ELENA",
-          "lp": 190361
+          "lp": 191801
         }
       ],
       "current_mr": [
         {
           "name": "ELENA",
-          "mr": 1531
+          "mr": 1556
         }
       ],
       "highest_mr": [
@@ -287,21 +287,21 @@
         },
         {
           "name": "LUKE",
-          "lp": 255682
+          "lp": 255652
         },
         {
           "name": "CAMMY",
-          "lp": 56455
+          "lp": 56385
         },
         {
           "name": "INGRID",
-          "lp": 53505
+          "lp": 53425
         }
       ],
       "current_mr": [
         {
           "name": "LUKE",
-          "mr": 1543
+          "mr": 1535
         },
         {
           "name": "AKUMA",
@@ -309,11 +309,11 @@
         },
         {
           "name": "CAMMY",
-          "mr": 1417
+          "mr": 1363
         },
         {
           "name": "INGRID",
-          "mr": 1327
+          "mr": 1309
         }
       ],
       "highest_mr": [
@@ -1100,7 +1100,7 @@
         },
         {
           "name": "AKUMA",
-          "lp": 80682
+          "lp": 86540
         },
         {
           "name": "ARJUN",
@@ -1117,12 +1117,12 @@
           "mr": 1810
         },
         {
-          "name": "ARJUN",
-          "mr": 1487
+          "name": "AKUMA",
+          "mr": 1578
         },
         {
-          "name": "AKUMA",
-          "mr": 1482
+          "name": "ARJUN",
+          "mr": 1487
         }
       ],
       "highest_mr": [
@@ -1140,7 +1140,7 @@
         },
         {
           "name": "AKUMA",
-          "mr": 1528
+          "mr": 1585
         }
       ]
     },
@@ -1169,7 +1169,7 @@
         },
         {
           "name": "MANON",
-          "lp": 25074
+          "lp": 26459
         }
       ],
       "current_mr": [
@@ -1178,12 +1178,12 @@
           "mr": 1502
         },
         {
-          "name": "MANON",
-          "mr": 1500
-        },
-        {
           "name": "ARJUN",
           "mr": 1469
+        },
+        {
+          "name": "MANON",
+          "mr": 1115
         },
         {
           "name": "KIMBERLY",
@@ -1202,6 +1202,10 @@
         {
           "name": "KIMBERLY",
           "mr": 1457
+        },
+        {
+          "name": "MANON",
+          "mr": 1492
         }
       ]
     },
