@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-23T17:46:40.748725-06:00",
+  "last_updated": "2026-11-24T02:49:59.269187-06:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -171,9 +171,24 @@
     "1012857293": {
       "username": "darkking1525",
       "platform": "https://www.streetfighter.com/6/buckler/assets/images/common/icon_playstation.png",
-      "lp": [],
-      "current_mr": [],
-      "highest_mr": []
+      "lp": [
+        {
+          "name": "JURI",
+          "lp": 93336
+        }
+      ],
+      "current_mr": [
+        {
+          "name": "JURI",
+          "mr": 1397
+        }
+      ],
+      "highest_mr": [
+        {
+          "name": "JURI",
+          "mr": 1458
+        }
+      ]
     },
     "2229690710": {
       "username": "Brother_Joshua",
@@ -299,7 +314,7 @@
         },
         {
           "name": "INGRID",
-          "lp": 53425
+          "lp": 53539
         }
       ],
       "current_mr": [
@@ -317,7 +332,7 @@
         },
         {
           "name": "INGRID",
-          "mr": 1309
+          "mr": 1300
         }
       ],
       "highest_mr": [
@@ -470,7 +485,7 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 345739
+          "lp": 345979
         },
         {
           "name": "INGRID",
@@ -496,7 +511,7 @@
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1662
+          "mr": 1656
         },
         {
           "name": "INGRID",
@@ -514,7 +529,7 @@
         },
         {
           "name": "ED",
-          "mr": 1670
+          "mr": 1674
         },
         {
           "name": "ZANGIEF",
@@ -535,13 +550,13 @@
       "lp": [
         {
           "name": "ED",
-          "lp": 198760
+          "lp": 198710
         }
       ],
       "current_mr": [
         {
           "name": "ED",
-          "mr": 1600
+          "mr": 1582
         }
       ],
       "highest_mr": [
