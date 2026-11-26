@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-25T15:26:03.913022-06:00",
+  "last_updated": "2026-11-26T01:16:47.495587-06:00",
   "players": {
     "4000629934": {
       "username": "FroggyAirplane",
@@ -83,7 +83,7 @@
         },
         {
           "name": "LUKE",
-          "lp": 34021
+          "lp": 34196
         },
         {
           "name": "CHUN-LI",
@@ -95,14 +95,14 @@
         },
         {
           "name": "MANON",
-          "lp": 20220
-        },
-        {
-          "name": "AKUMA",
-          "lp": 19022
+          "lp": 20371
         },
         {
           "name": "BLANKA",
+          "lp": 18960
+        },
+        {
+          "name": "AKUMA",
           "lp": 18960
         }
       ],
@@ -113,7 +113,7 @@
         },
         {
           "name": "LUKE",
-          "mr": 1450
+          "mr": 1404
         }
       ],
       "highest_mr": [
@@ -273,13 +273,13 @@
       "lp": [
         {
           "name": "ELENA",
-          "lp": 196991
+          "lp": 197811
         }
       ],
       "current_mr": [
         {
           "name": "ELENA",
-          "mr": 1611
+          "mr": 1583
         }
       ],
       "highest_mr": [
@@ -310,7 +310,7 @@
         },
         {
           "name": "INGRID",
-          "lp": 66308
+          "lp": 67008
         },
         {
           "name": "CAMMY",
@@ -328,7 +328,7 @@
         },
         {
           "name": "INGRID",
-          "mr": 1455
+          "mr": 1460
         },
         {
           "name": "CAMMY",
@@ -883,27 +883,31 @@
       "lp": [
         {
           "name": "JP",
-          "lp": 95602
+          "lp": 95492
         },
         {
           "name": "M. BISON",
-          "lp": 49953
+          "lp": 50003
         }
       ],
       "current_mr": [
         {
           "name": "M. BISON",
-          "mr": 1500
+          "mr": 1507
         },
         {
           "name": "JP",
-          "mr": 1440
+          "mr": 1417
         }
       ],
       "highest_mr": [
         {
           "name": "JP",
           "mr": 1497
+        },
+        {
+          "name": "M. BISON",
+          "mr": 1507
         }
       ]
     },
